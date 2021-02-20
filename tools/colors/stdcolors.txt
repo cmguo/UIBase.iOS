@@ -1,0 +1,76 @@
+色板名	light	dark	后续准备改名
+white_card	#FFFFFF	#212630	
+bluegrey_00	#FFFFFF	#191E26	white_bg
+bluegrey_05	#F7F8F9	#262C36	
+bluegrey_50	#F7F8F9	#0B1117	bluegrey_bg
+bluegrey_100	#F2F3F4	#262D38	
+bluegrey_200	#EBECED		
+bluegrey_300	#E4E6E8	#2D3440	
+bluegrey_400	#D5D7DB		
+bluegrey_500	#B7BBBF	#4D5666	
+bluegrey_600	#9CA0A6		
+bluegrey_700	#81858C	#707C8C	
+bluegrey_800	#4E5359	#A3AFBF	
+bluegrey_900	#1D2126	#E2ECFA	
+brand_100	#FFFCD4	#524C23	
+brand_500	#FFD630	#FFD630	
+brand_600	#F2C121	#D9B629	
+red_100	#FFEDED	#3D2929	
+red_500	#FF6666	#DA7171	
+red_600	#EB3B3B	#E48484	
+redorange_100	#FFEDE5	#3E322E	
+redorange_500	#FF6D2E	#DA825E	
+redorange_600	#FF4D00	#E69472	
+orange_100	#FFF0DB	#3C3325	
+orange_500	#FFA319	#E6A15C	
+orange_600	#FF8C00	#F2AF6C	
+green_100	#E8F7F0	#203A32	
+green_500	#00CC66	#61BA8D	
+green_600	#00B058	#71C99D	
+cyan_100	#E1F9FA	#233738	
+cyan_500	#00D1D9	#5DC3C6	
+cyan_600	#00B9BF	#6DD1D4	
+blue_100	#EDF4FF	#213452	
+blue_200	#CCE0FF	#324563	
+blue_500	#4F94FF	#6B99DE	
+blue_600	#1970F2	#7FA6E2	
+purple_100	#F2F0FD	#343146	
+purple_500	#8C79F2	#8C79F2	
+purple_600	#6A54E0	#988BDC	
+			
+			
+static_bluegrey_05	#F7F8F9	#F7F8F9	
+static_bluegrey_50	#F7F8F9	#F7F8F9	
+static_bluegrey_100	#F2F3F4	#F2F3F4	
+static_bluegrey_200	#EBECED	#EBECED	
+static_bluegrey_300	#E4E6E8	#E4E6E8	
+static_bluegrey_400	#D5D7DB	#D5D7DB	
+static_bluegrey_500	#B7BBBF	#B7BBBF	
+static_bluegrey_600	#9CA0A6	#9CA0A6	
+static_bluegrey_700	#81858C	#81858C	
+static_bluegrey_800	#4E5359	#4E5359	
+static_bluegrey_900	#1D2126	#1D2126	
+			
+static_white_100	#FFFFFF	#FFFFFF	
+static_white_90	#FFFFFF 90%	#FFFFFF 90%	
+static_white_80	#FFFFFF 80%	#FFFFFF 80%	
+static_white_70	#FFFFFF 70%	#FFFFFF 70%	
+static_white_60	#FFFFFF 60%	#FFFFFF 60%	
+static_white_50	#FFFFFF 50%	#FFFFFF 50%	
+static_white_40	#FFFFFF 40%	#FFFFFF 40%	
+static_white_30	#FFFFFF 30%	#FFFFFF 30%	
+static_white_20	#FFFFFF 20%	#FFFFFF 20%	
+static_white_10	#FFFFFF 10%	#FFFFFF 10%	
+static_white_05	#FFFFFF 5%	#FFFFFF 5%	
+			
+static_black_100	#000000	#000000	
+static_black_90	#000000 90%	#000000 90%	
+static_black_80	#000000 80%	#000000 80%	
+static_black_70	#000000 70%	#000000 70%	
+static_black_60	#000000 60%	#000000 60%	
+static_black_50	#000000 50%	#000000 50%	
+static_black_40	#000000 40%	#000000 40%	
+static_black_30	#000000 30%	#000000 30%	
+static_black_20	#000000 20%	#000000 20%	
+static_black_10	#000000 10%	#000000 10%	
+static_black_05	#000000 5%	#000000 5%
