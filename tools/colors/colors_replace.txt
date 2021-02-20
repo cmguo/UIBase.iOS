@@ -1,0 +1,127 @@
+ablum_add_text_placeHolder_color	#FFFFFF	#CFD8E5	bluegrey_00
+alert_action_imporant_background	#FFD630	#FFD630	brand_500
+alert_action_imporant_title	#1D2126	#1D2126	static_bluegry_900
+alert_action_normal_background	#F2F3F4	#262D38	bluegrey_100
+alert_action_normal_title	#4E5359	#A3AFBF	bluegrey_800
+alert_background	#FFFFFF	#191E26	bluegrey_00
+alert_content	#4E5359	#A3AFBF	bluegrey_800
+alert_textView_background	#FFFFFF	#191E26	bluegrey_00
+alert_textView_borderColor	#E4E6e8	#2D3440	bluegrey_300
+alert_textView_placeHolder	#B7BBBF	#4D5666	bluegrey_500
+alert_title	#1D2126	#E2ECFA	bluegrey_900
+audio_bg_color	#F9FAFB	#A3AFBF	bluegrey_05
+audio_border_color	#E1E5E9	#A3AFBF	bluegrey_100
+blue_100	#EDF4FF	#162A48	
+blue_200	#CCE0FF	#1D3252	
+blue_500	#4F94FF	#1862D1	
+blue_600	#1970F2	#7FA6E2	
+bluegrey_00	#FFFFFF	#191E26	
+bluegrey_05	#F7F8F9	#263240	
+bluegrey_100	#F2F3F4	#262D38	
+bluegrey_300	#E4E6E8	#2D3440	
+bluegrey_50	#F7F8F9	#0B1117	
+bluegrey_500	#B7BBBF	#4D5666	
+bluegrey_700	#81858C	#707C8C	
+bluegrey_800	#4E5359	#A3AFBF	
+bluegrey_900	#1D2126	#E2ECFA	
+brand_100	#FFFCD4	#524C23	
+brand_500	#FFD630	#FFD630	
+brand_600	#F2C121	#D9B629	
+btn_black_line_color	#999999	#999999	bluegrey_300
+btn_black_selected_color	#F4F4F4	#F4F4F4	bluegrey_100
+btn_black_text_disable_color	#E0E0E0	#E0E0E0	bluegrey_500
+btn_blue_text_disable_color	#B9D9FF	#B9D9FF	bluegrey_500
+btn_yellow_disable_text_color	#B9B9B9	#363F4D	bluegrey_500
+btn_yellow_text_color	#333333	#1C2533	static_bluegry_900
+calendar_future_bg_color	#F9FAFB	#1C2533	bluegrey_100
+calendar_future_day_color	#333333	#A6B2BF	bluegrey_900
+calendar_future_text_color	#9EA3AF	#647283	bluegrey_700
+calendar_number_color	#333333	#08111D	static_bluegry_900
+calendar_pass_bg_color	#FFF4C6	#707C8C	brand_100
+calendar_today_bg_color	#FFD630	#CFD8E5	brand_500
+chalk_card_homework_end	#FCFEFF	#1B1F25	bluegrey_05
+chalk_card_homework_start	#F4FAFF	#21272F	blue_100
+chalk_card_oral_end	#FFFDFC	#1D1F25	bluegrey_00
+chalk_card_oral_start	#FFF8F8	#262323	red_100
+chalk_card_question_bank_end	#FFFFFE	#1D1F25	bluegrey_00
+chalk_card_question_bank_start	#FFFAF7	#282624	orange_100
+chalk_card_read_end	#FDFFFF	#1C2025	bluegrey_00
+chalk_card_read_start	#F3FEFB	#212625	green_100
+chalk_card_vacation_end	#FEFEFF	#1C1F26	bluegrey_00
+chalk_card_vacation_start	#F7FAFF	#212630	blue_100
+chat_edit_bg_color	#F2F3F5	#0A1524	bluegrey_100
+chat_receiver_bg_color	#FFFFFF	#111B29	bluegrey_00
+chat_receiver_bg_line_color	#E1E5E9	#111B29	bluegrey_300
+chat_revoke_bg_color	#1a9ea3af	#1C2533	bluegrey_50
+chat_send_document_bg_color	#FFFFFF	#333770B5	bluegrey_00
+chat_sender_bg_color	#FFF4C6	#11325B	brand_100
+chat_sender_bg_line_color	#FFD630	#11325B	brand_500
+class_application_bg_color	#FFF7F6	#1C2533	bluegrey_50
+class_application_dot_color	#FE8A6D	#AB3927	red_500
+class_application_text_color	#FE8A6D	#707C8C	red_600
+class_speakable_text_color	#FFB75C	#BF6F18	orange_600
+class_teacher_text_color	#7EB8FF	#00489F	blue_600
+com_alert_placeholder_color	#C8CBCD	#363F4D	bluegrey_500
+com_base_bg_color	#FFFFFF	#08111D	bluegrey_00
+com_button_completed_color	#F0F0F0	#F0F0F0	bluegrey_100
+com_button_disable_text_color	#B9B9B9	#363F4D	bluegrey_500
+com_button_neighbor_color	#9EA3AF	#707C8C	bluegrey_700
+com_document_out_bg_color	#FFFFFF	#203F65	bluegrey_00
+com_element_bg_color	#F2F3F5	#111B29	bluegrey_05
+com_form_subtitle_color	#868B91	#707c8c	bluegrey_800
+com_layer_bg_color	#F9FAFB	#0A1524	bluegrey_100
+com_nomore_text_color	#DCDEE1	#1C2533	bluegrey_500
+com_normal_placeholder_color	#DCDEE1	#363F4D	bluegrey_500
+com_progress_bar_color	#EAEAEA	#EAEAEA	bluegrey_100
+com_search_bg_color	#F2F3F5	#0A1524	bluegrey_05
+com_separator_color	#F2F3F4	#262D38	bluegrey_300
+com_subtitle_color	#868B91	#A3AFBF	bluegrey_800
+com_title_color	#333333	#CFD8E5	bluegrey_900
+corner_yellow_color	#FFE168	#1B232F	brand_500
+detail_cell_back_color	#DCDEE1	#363F4D	bluegrey_500
+func_op_completed_color	#48CAAE	#33A088	green_500
+func_tip_bg_color	#FFF7F6	#11325B	red_100
+func_tip_dot_color	#FE492D	#AB3927	red_500
+func_tip_dot_text_color	#FFFFFF	#EAB4AC	static_white_100
+func_tip_text_color	#FE8A6D	#BE3F2B	red_600
+green_100	#E8F7F0	#175E48	
+green_500	#00CC66	#1A9F77	
+green_600	#00B058	#197F5F	
+home_bg_color	#F2F3F5	#08111D	bluegrey_50
+home_card_bg_color	#FFFFFF	#111B29	bluegrey_00
+link_bg_color	#F9FAFB	#1C2533	bluegrey_05
+link_border_color	#E1E5E9	#363F4D	bluegrey_300
+link_text_color	#333333	#A3AFBF	bluegrey_900
+login_gray_line_color	#9EA3AF	#363F4D	bluegrey_300
+msg_card_content_color	#333333	#A3AFBF	bluegrey_900
+msg_card_end_mask_color	#A5FFFFFF	#B2111B29	bluegrey_00，15%
+msg_category_text_nor_color	#333333	#A3AFBF	bluegrey_900
+msg_category_text_selected_color	#333333	#111B29	static_bluegry_900
+msg_detail_chatborder_color	#333333	#363f4d	bluegrey_900
+msg_endcard_endText_color	#868B91	#363F4D	bluegrey_800
+msg_info_line_color	#C8CBCD	#707C8C	bluegrey_300
+orange_100	#FFF0DB	#77531B	
+orange_500	#FFA319	#DA8D1A	
+orange_600	#FF8C00	#A9701A	
+pie_nor_bg_color	#F2F3F5	#111B29	bluegrey_05
+publish_tool_bar_bg_color	#F9FAFB	#16202E	bluegrey_50
+punch_end_info_line_color	#DCDEE1	#1C2533	bluegrey_300
+purple_100	#F2F0FD	#343146	
+purple_500	#8C79F2	#8C79F2	
+red_100	#FFEDED	#3D2929	
+red_500	#FF6666	#DA7171	
+red_600	#EB3B3B	#E48484	
+snake_bar_text_color	#FE8A6D	#CFD8E5	red_600
+survey_commit_button_border_color	#333333	#707C8C	bluegrey_900
+tag_bg_color	#F2F3F5	#1C2533	bluegrey_100
+tag_green_100	#E7F6EE	#175E48	green_100
+tag_green_500	#00CC66	#1A9F77	green_500
+tag_green_600	#00B058	#197F5F	green_600
+tool_bar_bg_color	#FFFFFF	#111B29	bluegrey_00
+vi_assist_color	#59A4FE	#3770B5	blue_600
+vi_assist_disable_color	#D9EBFF	#1E3859	blue_100
+vi_main_color	#FFD630	#E6C02C	brand_500
+vi_main_disable_color	#FFF4C6	#1C2533	brand_100
+vi_main_selected_color	#E5BF28	#B39622	brand_600
+week_nor_bg_color	#F2F3F5	#707C8C	bluegrey_100
+week_text_color	#333333	#111B29	static_bluegrey_900
