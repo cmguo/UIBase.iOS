@@ -22,7 +22,7 @@ class ButtonsComponent : NSObject, Component
     
     var desc: String = ""
     
-    lazy var controller: UIViewController = {
-        return UIViewController()
+    lazy var controller: ComponentController = {
+        return ButtonsController()
     }()
 }

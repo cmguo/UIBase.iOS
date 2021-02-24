@@ -22,7 +22,7 @@ class ZSwitchComponent : NSObject, Component
     
     var desc: String = ""
     
-    lazy var controller: UIViewController = {
+    lazy var controller: ComponentController = {
         return ZSwitchController()
     }()
 }

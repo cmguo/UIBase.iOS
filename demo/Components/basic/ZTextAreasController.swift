@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-class ZTextAreaController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ZTextAreaController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
-        var maximumCharCount = 0 // 最大字数，设为0不限制；如果有限制，将展现字数指示
-        var minimunHeight = 100 // 最小高度，没有文字时的高度
-        var maximunHeight = 300 // 高度随文字变化，需要指定最大高度；包含字数指示（如果有的话）
-        var placeHolder = "请输入" // 没有任何输入文字时，显示的占位文字（灰色）    
+        @objc var maximumCharCount = 0 // 最大字数，设为0不限制；如果有限制，将展现字数指示
+        @objc var minimunHeight = 100 // 最小高度，没有文字时的高度
+        @objc var maximunHeight = 300 // 高度随文字变化，需要指定最大高度；包含字数指示（如果有的话）
+        @objc var placeHolder = "请输入" // 没有任何输入文字时，显示的占位文字（灰色）    
     }
     
     class Model : ViewModel {
@@ -24,6 +24,10 @@ class ZTextAreaController: UIViewController, UITableViewDataSource, UITableViewD
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    override func getStyles() -> ViewStyles {
+        return styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

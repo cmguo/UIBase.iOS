@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class ZCheckboxController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ZCheckboxController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
-    enum CheckboxState {
+    @objc enum CheckboxState : Int {
         case Normal
         case Checked
         case HalfChecked
@@ -19,8 +19,8 @@ class ZCheckboxController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     class Styles : ViewStyles {
-        var state = CheckboxState.Normal
-        var text: String? = "复选框" // 显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔
+        @objc var state = CheckboxState.Normal
+        @objc var text: String? = "复选框" // 显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔
     }
     
     class Model : ViewModel {
@@ -30,6 +30,10 @@ class ZCheckboxController: UIViewController, UITableViewDataSource, UITableViewD
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    override func getStyles() -> ViewStyles {
+        return styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

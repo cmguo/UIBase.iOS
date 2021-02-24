@@ -1,30 +1,17 @@
 //
-//  ZTextInputController.swift
-//  demo
+//  ButtonsController.swift
+//  Demo
 //
-//  Created by 郭春茂 on 2021/2/23.
+//  Created by 郭春茂 on 2021/2/24.
 //
 
 import Foundation
 import UIKit
 
-class ZTextInputController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class ButtonsController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
-    @objc enum TextInputSize : Int {
-        case Small
-        case Middle
-        case Large
-    }
-    
     class Styles : ViewStyles {
-        @objc var disabled = false
-        // var focused = false
-        @objc var verifier: ((String) -> Bool)? = nil // 输入联想，返回补全的文字
-        // var complementer: ((String) -> String)? = nil // 输入联想，返回补全的文字
-        @objc var hasClearButton = false
-        @objc var sizeMode = TextInputSize.Large
-        @objc var maximumCharCount = 0 // 最大字数，设为0不限制；如果有限制，将展现字数指示
-        @objc var placeHolder = "请输入" // 没有任何输入文字时，显示的占位文字（灰色）
+        
     }
     
     class Model : ViewModel {
@@ -36,7 +23,7 @@ class ZTextInputController: ComponentController, UITableViewDataSource, UITableV
     private let tableView = UITableView()
     
     override func getStyles() -> ViewStyles {
-        return styles
+        return self.styles
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,4 +49,3 @@ class ZTextInputController: ComponentController, UITableViewDataSource, UITableV
         tableView.delegate = self
     }
 }
-

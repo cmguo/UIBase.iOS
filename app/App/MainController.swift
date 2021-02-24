@@ -4,33 +4,18 @@
 //
 //  Created by 郭春茂 on 2021/2/20.
 //
-
+    
 import UIKit
 import SnapKit
 import Demo
-
-class Book: NSObject {
-    let title: String
-    let author: String?
-    let numberOfPages: Int
-    let released: Date
-    let isPocket: Bool
-
-    init(title: String, author: String?, numberOfPages: Int, released: Date, isPocket: Bool) {
-        self.title = title
-        self.author = author
-        self.numberOfPages = numberOfPages
-        self.released = released
-        self.isPocket = isPocket
-    }
-}
-
-
 
 class MainController: UIViewController {
 
     private var component_ : Component? = nil
     
+    private var componentsController = ComponentsController()
+    private var stylesController = StylesController()
+
     func configUI() {
         view.addSubview(infoContainer)
         infoContainer.snp.makeConstraints({ (make) in
@@ -40,6 +25,11 @@ class MainController: UIViewController {
         })
         view.addSubview(buttonComponents)
         buttonComponents.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview().offset(-100)
+            make.bottom.equalToSuperview().offset(-10)
+        }
+        view.addSubview(buttonStyles)
+        buttonStyles.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-10)
         }
@@ -50,27 +40,30 @@ class MainController: UIViewController {
         title = "demo"
         view.backgroundColor = .blue
         configUI()
+        componentsController.setComponentListener { (component: Component) in
+            self.switchComponent(component)
+        }
         buttonComponents.addTarget(self, action: #selector(showComponents), for: .touchUpInside)
+        buttonStyles.addTarget(self, action: #selector(showStyles), for: .touchUpInside)
     }
     
     @objc func showComponents() {
-        
-        let controller = ComponentsController()
-        let nav = UINavigationController(rootViewController: controller)
+        let nav = UINavigationController(rootViewController: componentsController)
         nav.modalPresentationStyle = .formSheet
-        controller.view.backgroundColor = .yellow
-        controller.setComponentListener { (component: Component) in
-            self.switchComponent(component)
-        }
         present(nav, animated: true, completion: nil)
+    }
+    
+    @objc func showStyles() {
+        present(stylesController, animated: true, completion: nil)
     }
     
     func switchComponent(_ component: Component) {
         if let component = component_ {
             component.controller.removeFromParent()
+            component.controller.view.removeFromSuperview()
         }
         let controller = component.controller
-        view.addSubview(controller.view)
+        view.insertSubview(controller.view, belowSubview: buttonComponents)
         controller.view.snp.makeConstraints({ (make) in
             make.leading.equalToSuperview()
             make.top.equalTo(infoContainer.snp.bottom)
@@ -79,15 +72,20 @@ class MainController: UIViewController {
         })
         addChild(controller)
         // Styles
-        if let cc = controller as? ComponentController {
-            ComponentStyles.get(cls: Book.self) 
-        }
+        stylesController.switchComponent(component)
     }
     
     private let buttonComponents: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
         button.backgroundColor = .red
+        return button
+    }()
+    
+    private let buttonStyles: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
+        button.backgroundColor = .green
         return button
     }()
     

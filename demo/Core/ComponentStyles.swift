@@ -46,9 +46,13 @@ public class ComponentStyles : NSObject
         print("ComponentStyles \(name) \(outCount)")
         for i in 0 ..< Int(outCount) {
             let cs = ComponentStyle(props![i])
-            print("ComponentStyles " + cs.title)
+            print("ComponentStyles \(cs.title) \(cs.valyeTypeName)")
             styles.append(cs)
         }
         self.styles = styles
+    }
+    
+    func allStyles() -> Array<ComponentStyle> {
+        return styles
     }
 }

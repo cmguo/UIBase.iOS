@@ -13,6 +13,8 @@
 		7128764025E61D980054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
 		7128764D25E629390054A74B /* ComponentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128764C25E629390054A74B /* ComponentStyle.swift */; };
 		7128765025E633F10054A74B /* ComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128764F25E633F10054A74B /* ComponentController.swift */; };
+		7128766025E655010054A74B /* ButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128765F25E655010054A74B /* ButtonsController.swift */; };
+		7128766325E6557B0054A74B /* StylesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128766225E6557B0054A74B /* StylesController.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -21,7 +23,6 @@
 		7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB925E0E21900BF6B71 /* ViewStyles.swift */; };
 		7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBC25E0E26500BF6B71 /* ViewModel.swift */; };
 		7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBF25E0E28E00BF6B71 /* Colors.swift */; };
-		7161CE2625E0F96500BF6B71 /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7161CE1B25E0F68100BF6B71 /* Pods_app.framework */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
@@ -50,6 +51,10 @@
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7128764C25E629390054A74B /* ComponentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentStyle.swift; sourceTree = "<group>"; };
 		7128764F25E633F10054A74B /* ComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentController.swift; sourceTree = "<group>"; };
+		7128765F25E655010054A74B /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonsController.swift; path = ../../Demo/Buttons/ButtonsController.swift; sourceTree = "<group>"; };
+		7128766225E6557B0054A74B /* StylesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StylesController.swift; path = ../../Demo/View/StylesController.swift; sourceTree = "<group>"; };
+		7128766525E65D5F0054A74B /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7128766B25E65EA60054A74B /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -58,13 +63,11 @@
 		7161CDB925E0E21900BF6B71 /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		7161CDBC25E0E26500BF6B71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7161CDBF25E0E28E00BF6B71 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		7161CE1B25E0F68100BF6B71 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7161CE3125E0FB1500BF6B71 /* Skin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Skin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71903B7625E0B53400437575 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		71903B8725E0B87B00437575 /* library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
 		71F543E325E5054900AEB07A /* ZButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonController.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7128764025E61D980054A74B /* UIBase.framework in Frameworks */,
-				7161CE2625E0F96500BF6B71 /* Pods_app.framework in Frameworks */,
 				7128762525E52B5B0054A74B /* Skin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */,
+				7128765F25E655010054A74B /* ButtonsController.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -166,11 +169,11 @@
 		71903B8625E0B87B00437575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7128766B25E65EA60054A74B /* SwiftReflection.framework */,
+				7128766525E65D5F0054A74B /* SwiftReflection.framework */,
 				7128763F25E61D980054A74B /* UIBase.framework */,
 				7128762425E52B5B0054A74B /* Skin.framework */,
 				7161CE3125E0FB1500BF6B71 /* Skin.framework */,
-				7161CE1B25E0F68100BF6B71 /* Pods_app.framework */,
-				71903B8725E0B87B00437575 /* library.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
+				7128766225E6557B0054A74B /* StylesController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +304,7 @@
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
 				71F543ED25E509F700AEB07A /* ZTextAreaComponent.swift in Sources */,
 				71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */,
+				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
 				71F543EC25E509F700AEB07A /* ZCheckboxController.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
@@ -307,6 +312,7 @@
 				71F5440425E50B4700AEB07A /* ZSwitchController.swift in Sources */,
 				7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */,
 				7128764D25E629390054A74B /* ComponentStyle.swift in Sources */,
+				7128766025E655010054A74B /* ButtonsController.swift in Sources */,
 				71F5440125E50B4700AEB07A /* ZTooltipController.swift in Sources */,
 				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,

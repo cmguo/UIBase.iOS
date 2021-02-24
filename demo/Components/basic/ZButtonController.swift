@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComponentController {
+class ZButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     enum ButtonType {
         case Primitive
@@ -18,23 +18,23 @@ class ZButtonController: UIViewController, UITableViewDataSource, UITableViewDel
         case TextLink
     }
     
-    enum ButtonSize {
+    @objc enum ButtonSize : Int {
         case Small
         case Middle
         case Large
     }
     
-    enum ButtonWidth {
+    @objc enum ButtonWidth : Int {
         case WrapContent
         case MatchParent
     }
     
-    class Styles : NSObject {
-        public var disabled = false
-        public var loading = false
-        public var sizeMode = ButtonSize.Large
-        public var widthMode = ButtonWidth.WrapContent
-        public var icon: CGImage? = nil
+    class Styles : ViewStyles {
+        @objc var disabled = false
+        @objc var loading = false
+        @objc var sizeMode = ButtonSize.Large
+        @objc var widthMode = ButtonWidth.WrapContent
+        @objc var icon: UIImage? = nil
     }
     
     class Model : ViewModel {
@@ -45,7 +45,7 @@ class ZButtonController: UIViewController, UITableViewDataSource, UITableViewDel
     private let model = Model()
     private let tableView = UITableView()
     
-    func getStyles() -> NSObject {
+    override func getStyles() -> ViewStyles {
         return styles
     }
     

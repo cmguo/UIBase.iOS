@@ -7,11 +7,7 @@
 
 import Foundation
 
-public protocol IViewStyles : NSObject {
-    
-}
-
-public class ViewStyles : NSObject, IViewStyles
+public class ViewStyles : NSObject
 {
     
 }
