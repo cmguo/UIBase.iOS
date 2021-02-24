@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7128764725E61DB90054A74B /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128764425E61DB10054A74B /* Demo.framework */; };
+		7128764825E61DB90054A74B /* Demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7128764425E61DB10054A74B /* Demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7128764A25E61DBD0054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128764925E61DBD0054A74B /* UIBase.framework */; };
+		7128764B25E61DBD0054A74B /* UIBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7128764925E61DBD0054A74B /* UIBase.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		71903B5925E0AE4300437575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5825E0AE4300437575 /* AppDelegate.swift */; };
 		71903B5B25E0AE4300437575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5A25E0AE4300437575 /* SceneDelegate.swift */; };
 		71903B5D25E0AE4300437575 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5C25E0AE4300437575 /* MainController.swift */; };
 		71903B6025E0AE4300437575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71903B5E25E0AE4300437575 /* Main.storyboard */; };
 		71903B6225E0AE4700437575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71903B6125E0AE4700437575 /* Assets.xcassets */; };
 		71903B6525E0AE4700437575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71903B6325E0AE4700437575 /* LaunchScreen.storyboard */; };
-		7197046025E0D28A00E352CA /* demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7B25E0B82000437575 /* demo.framework */; };
-		7197046125E0D28A00E352CA /* demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7B25E0B82000437575 /* demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7197046325E0D28B00E352CA /* library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7D25E0B82000437575 /* library.framework */; };
-		7197046425E0D28B00E352CA /* library.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7D25E0B82000437575 /* library.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7197046525E0D28E00E352CA /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7197045925E0D1A600E352CA /* Pods_app.framework */; };
 		7197046625E0D28E00E352CA /* Pods_app.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7197045925E0D1A600E352CA /* Pods_app.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -28,9 +28,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7197046425E0D28B00E352CA /* library.framework in Embed Frameworks */,
+				7128764B25E61DBD0054A74B /* UIBase.framework in Embed Frameworks */,
 				7197046625E0D28E00E352CA /* Pods_app.framework in Embed Frameworks */,
-				7197046125E0D28A00E352CA /* demo.framework in Embed Frameworks */,
+				7128764825E61DB90054A74B /* Demo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,7 +39,9 @@
 
 /* Begin PBXFileReference section */
 		0ED75978CC4A912C20ECEBD8 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
-		71903B5525E0AE4300437575 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7128764425E61DB10054A74B /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7128764925E61DBD0054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71903B5525E0AE4300437575 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71903B5825E0AE4300437575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71903B5A25E0AE4300437575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71903B5C25E0AE4300437575 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -58,9 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7197046325E0D28B00E352CA /* library.framework in Frameworks */,
+				7128764A25E61DBD0054A74B /* UIBase.framework in Frameworks */,
 				7197046525E0D28E00E352CA /* Pods_app.framework in Frameworks */,
-				7197046025E0D28A00E352CA /* demo.framework in Frameworks */,
+				7128764725E61DB90054A74B /* Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +72,7 @@
 		71903B4C25E0AE4300437575 = {
 			isa = PBXGroup;
 			children = (
-				71903B5725E0AE4300437575 /* app */,
+				71903B5725E0AE4300437575 /* App */,
 				71903B5625E0AE4300437575 /* Products */,
 				71903B7A25E0B82000437575 /* Frameworks */,
 				F3482B3C6EBE96E9B00BC92E /* Pods */,
@@ -80,12 +82,12 @@
 		71903B5625E0AE4300437575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71903B5525E0AE4300437575 /* app.app */,
+				71903B5525E0AE4300437575 /* App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71903B5725E0AE4300437575 /* app */ = {
+		71903B5725E0AE4300437575 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				71903B5825E0AE4300437575 /* AppDelegate.swift */,
@@ -96,12 +98,14 @@
 				71903B6325E0AE4700437575 /* LaunchScreen.storyboard */,
 				71903B6625E0AE4700437575 /* Info.plist */,
 			);
-			path = app;
+			path = App;
 			sourceTree = "<group>";
 		};
 		71903B7A25E0B82000437575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7128764925E61DBD0054A74B /* UIBase.framework */,
+				7128764425E61DB10054A74B /* Demo.framework */,
 				7197045925E0D1A600E352CA /* Pods_app.framework */,
 				71903B7B25E0B82000437575 /* demo.framework */,
 				71903B7D25E0B82000437575 /* library.framework */,
@@ -121,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71903B5425E0AE4300437575 /* app */ = {
+		71903B5425E0AE4300437575 /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71903B6925E0AE4700437575 /* Build configuration list for PBXNativeTarget "app" */;
+			buildConfigurationList = 71903B6925E0AE4700437575 /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				461AA95A9FFFC89551F466E7 /* [CP] Check Pods Manifest.lock */,
 				71903B5125E0AE4300437575 /* Sources */,
@@ -137,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = app;
+			name = App;
 			productName = app;
-			productReference = 71903B5525E0AE4300437575 /* app.app */;
+			productReference = 71903B5525E0AE4300437575 /* App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +160,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71903B5025E0AE4300437575 /* Build configuration list for PBXProject "app" */;
+			buildConfigurationList = 71903B5025E0AE4300437575 /* Build configuration list for PBXProject "App" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -169,7 +173,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71903B5425E0AE4300437575 /* app */,
+				71903B5425E0AE4300437575 /* App */,
 			);
 		};
 /* End PBXProject section */
@@ -444,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71903B5025E0AE4300437575 /* Build configuration list for PBXProject "app" */ = {
+		71903B5025E0AE4300437575 /* Build configuration list for PBXProject "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71903B6725E0AE4700437575 /* Debug */,
@@ -453,7 +457,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71903B6925E0AE4700437575 /* Build configuration list for PBXNativeTarget "app" */ = {
+		71903B6925E0AE4700437575 /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71903B6A25E0AE4700437575 /* Debug */,

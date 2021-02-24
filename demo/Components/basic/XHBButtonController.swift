@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class XHBButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComponentController {
 
     enum ButtonType {
         case Primitive
@@ -29,12 +29,12 @@ class XHBButtonController: UIViewController, UITableViewDataSource, UITableViewD
         case MatchParent
     }
     
-    class Styles : ViewStyles {
-        var disabled = false
-        var loading = false
-        var sizeMode = ButtonSize.Large
-        var widthMode = ButtonWidth.WrapContent
-        var icon: CGImage? = nil
+    class Styles : NSObject {
+        public var disabled = false
+        public var loading = false
+        public var sizeMode = ButtonSize.Large
+        public var widthMode = ButtonWidth.WrapContent
+        public var icon: CGImage? = nil
     }
     
     class Model : ViewModel {
@@ -44,6 +44,10 @@ class XHBButtonController: UIViewController, UITableViewDataSource, UITableViewD
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    func getStyles() -> NSObject {
+        return styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

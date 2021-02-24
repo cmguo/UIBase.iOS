@@ -9,14 +9,20 @@ import Foundation
 
 public class Components : NSObject
 {
+    static var groups: Dictionary<String, Array<Component>>? = nil
+    
     public class func allGroups() -> Dictionary<String, Array<Component>> {
-        let components = allComponents("^demo\\..+Component")
+        if let g = groups {
+            return g
+        }
+        let components = allComponents("^Demo\\..+Component")
         var groups : Dictionary<String, Array<Component>> = [:]
         for component in components {
             var group = groups[component.group] ?? []
             group.append(component)
             groups[component.group] = group
         }
+        Components.groups = groups
         return groups
     }
     
@@ -24,15 +30,14 @@ public class Components : NSObject
         let pattern = try! NSRegularExpression(pattern: pattern, options: [])
         var components: [Component] = []
         let image = class_getImageName(Components.self)!
-        let outCount = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
-        let classes = objc_copyClassNamesForImage(image, outCount)!
-        for i in 0 ..< outCount.pointee {
-            let className = String(cString: classes.advanced(by: Int(i)).pointee)
+        var outCount = UInt32()
+        let classes = objc_copyClassNamesForImage(image, &outCount)!
+        for i in 0 ..< Int(outCount) {
+            let className = String(cString: classes[i])
             let matches = pattern.matches(in: className, options: [], range: NSRange(location: 0, length: className.utf8.count))
             if matches.count > 0 {
                 print("Found component: " + className)
-                if let clazz = NSClassFromString(className),
-                   let component = ObjectFactory.create(className) as? Component {
+                if let component = ObjectFactory.create(className) as? Component {
                     components.append(component)
                 }
             }
