@@ -16,6 +16,6 @@ public protocol Component : NSObject
     var title: String { get }
     var author: String { get }
     var desc: String { get }
-    var controller: UIViewController { get }
+    var controller: ComponentController { get }
 }
 

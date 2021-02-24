@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBTooltipController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class XHBTooltipController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         
@@ -21,6 +21,10 @@ class XHBTooltipController: UIViewController, UITableViewDataSource, UITableView
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    override func getStyles() -> ViewStyles {
+        return styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

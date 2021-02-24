@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class XHBSwitchController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class XHBSwitchController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
-        var checked = false
+        @objc var checked = false
     }
     
     class Model : ViewModel {
@@ -21,6 +21,10 @@ class XHBSwitchController: UIViewController, UITableViewDataSource, UITableViewD
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    override func getStyles() -> ViewStyles {
+        return styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

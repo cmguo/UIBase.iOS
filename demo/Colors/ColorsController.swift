@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class ColorsController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComponentController {
+class ColorsController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
-    @objc class Styles : ViewStyles {
+    class Styles : ViewStyles {
         
     }
     
@@ -22,7 +22,7 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
     private let model = Model()
     private let tableView = UITableView()
     
-    func getStyles() -> NSObject {
+    override func getStyles() -> ViewStyles {
         return self.styles
     }
     
