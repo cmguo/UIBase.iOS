@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7182AEBA25CCE98C00B0F1D3 /* library.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* library.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7182AEBA25CCE98C00B0F1D3 /* Library.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* Library.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7182AEB525CCE98C00B0F1D3 /* library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7182AEB825CCE98C00B0F1D3 /* library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = library.h; sourceTree = "<group>"; };
+		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7182AEB825CCE98C00B0F1D3 /* Library.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Library.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -30,7 +30,7 @@
 		7182AEAB25CCE98C00B0F1D3 = {
 			isa = PBXGroup;
 			children = (
-				7182AEB725CCE98C00B0F1D3 /* library */,
+				7182AEB725CCE98C00B0F1D3 /* Library */,
 				7182AEB625CCE98C00B0F1D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -38,18 +38,18 @@
 		7182AEB625CCE98C00B0F1D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7182AEB525CCE98C00B0F1D3 /* library.framework */,
+				7182AEB525CCE98C00B0F1D3 /* UIBase.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7182AEB725CCE98C00B0F1D3 /* library */ = {
+		7182AEB725CCE98C00B0F1D3 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				7182AEB825CCE98C00B0F1D3 /* library.h */,
+				7182AEB825CCE98C00B0F1D3 /* Library.h */,
 				7182AEB925CCE98C00B0F1D3 /* Info.plist */,
 			);
-			path = library;
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,16 +59,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7182AEBA25CCE98C00B0F1D3 /* library.h in Headers */,
+				7182AEBA25CCE98C00B0F1D3 /* Library.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7182AEB425CCE98C00B0F1D3 /* library */ = {
+		7182AEB425CCE98C00B0F1D3 /* UIBase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7182AEBD25CCE98C00B0F1D3 /* Build configuration list for PBXNativeTarget "library" */;
+			buildConfigurationList = 7182AEBD25CCE98C00B0F1D3 /* Build configuration list for PBXNativeTarget "UIBase" */;
 			buildPhases = (
 				7182AEB025CCE98C00B0F1D3 /* Headers */,
 				7182AEB125CCE98C00B0F1D3 /* Sources */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = library;
+			name = UIBase;
 			productName = library;
-			productReference = 7182AEB525CCE98C00B0F1D3 /* library.framework */;
+			productReference = 7182AEB525CCE98C00B0F1D3 /* UIBase.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -97,7 +97,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7182AEAF25CCE98C00B0F1D3 /* Build configuration list for PBXProject "library" */;
+			buildConfigurationList = 7182AEAF25CCE98C00B0F1D3 /* Build configuration list for PBXProject "Library" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,7 +110,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7182AEB425CCE98C00B0F1D3 /* library */,
+				7182AEB425CCE98C00B0F1D3 /* UIBase */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7182AEAF25CCE98C00B0F1D3 /* Build configuration list for PBXProject "library" */ = {
+		7182AEAF25CCE98C00B0F1D3 /* Build configuration list for PBXProject "Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7182AEBB25CCE98C00B0F1D3 /* Debug */,
@@ -318,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7182AEBD25CCE98C00B0F1D3 /* Build configuration list for PBXNativeTarget "library" */ = {
+		7182AEBD25CCE98C00B0F1D3 /* Build configuration list for PBXNativeTarget "UIBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7182AEBE25CCE98C00B0F1D3 /* Debug */,

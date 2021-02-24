@@ -16,7 +16,7 @@ class ZTooltipComponent : NSObject, Component
 
     var icon: Int = 0
     
-    var title: String = "按钮"
+    var title: String = "气泡提示"
     
     var author: String = "cmguo"
     

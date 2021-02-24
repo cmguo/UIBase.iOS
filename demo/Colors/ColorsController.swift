@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class ColorsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ColorsController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComponentController {
 
-    class Styles : ViewStyles {
+    @objc class Styles : ViewStyles {
         
     }
     
@@ -21,6 +21,10 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    
+    func getStyles() -> NSObject {
+        return self.styles
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.colors.count

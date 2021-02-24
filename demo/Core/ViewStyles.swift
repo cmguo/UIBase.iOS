@@ -7,7 +7,11 @@
 
 import Foundation
 
-@objc class ViewStyles : NSObject
+public protocol IViewStyles : NSObject {
+    
+}
+
+public class ViewStyles : NSObject, IViewStyles
 {
     
 }
