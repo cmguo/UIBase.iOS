@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-public protocol Component
+public protocol Component : NSObject
 {
     var id: Int { get }
-    var group: Int { get }
+    var group: String { get }
     var icon: Int { get }
     var title: String { get }
     var author: String { get }
-    var description: String { get }
+    var desc: String { get }
     var controller: UIViewController { get }
 }
+

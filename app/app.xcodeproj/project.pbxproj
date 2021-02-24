@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		71903B5925E0AE4300437575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5825E0AE4300437575 /* AppDelegate.swift */; };
 		71903B5B25E0AE4300437575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5A25E0AE4300437575 /* SceneDelegate.swift */; };
-		71903B5D25E0AE4300437575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5C25E0AE4300437575 /* ViewController.swift */; };
+		71903B5D25E0AE4300437575 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B5C25E0AE4300437575 /* MainController.swift */; };
 		71903B6025E0AE4300437575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71903B5E25E0AE4300437575 /* Main.storyboard */; };
 		71903B6225E0AE4700437575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71903B6125E0AE4700437575 /* Assets.xcassets */; };
 		71903B6525E0AE4700437575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71903B6325E0AE4700437575 /* LaunchScreen.storyboard */; };
-		71903B6F25E0B0B000437575 /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B6E25E0B0B000437575 /* ComponentsController.swift */; };
 		7197046025E0D28A00E352CA /* demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7B25E0B82000437575 /* demo.framework */; };
 		7197046125E0D28A00E352CA /* demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7B25E0B82000437575 /* demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7197046325E0D28B00E352CA /* library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71903B7D25E0B82000437575 /* library.framework */; };
@@ -43,12 +42,11 @@
 		71903B5525E0AE4300437575 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71903B5825E0AE4300437575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71903B5A25E0AE4300437575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		71903B5C25E0AE4300437575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		71903B5C25E0AE4300437575 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		71903B5F25E0AE4300437575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71903B6125E0AE4700437575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71903B6425E0AE4700437575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71903B6625E0AE4700437575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71903B6E25E0B0B000437575 /* ComponentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsController.swift; sourceTree = "<group>"; };
 		71903B7B25E0B82000437575 /* demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71903B7D25E0B82000437575 /* library.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7197045925E0D1A600E352CA /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,12 +90,11 @@
 			children = (
 				71903B5825E0AE4300437575 /* AppDelegate.swift */,
 				71903B5A25E0AE4300437575 /* SceneDelegate.swift */,
-				71903B5C25E0AE4300437575 /* ViewController.swift */,
+				71903B5C25E0AE4300437575 /* MainController.swift */,
 				71903B5E25E0AE4300437575 /* Main.storyboard */,
 				71903B6125E0AE4700437575 /* Assets.xcassets */,
 				71903B6325E0AE4700437575 /* LaunchScreen.storyboard */,
 				71903B6625E0AE4700437575 /* Info.plist */,
-				71903B6E25E0B0B000437575 /* ComponentsController.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -134,6 +131,7 @@
 				71903B5325E0AE4300437575 /* Resources */,
 				41B893D5E2723EC7DB4A40C4 /* [CP] Embed Pods Frameworks */,
 				7197046225E0D28A00E352CA /* Embed Frameworks */,
+				EDD66F11D5EF1FA49FBFD219 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +227,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EDD66F11D5EF1FA49FBFD219 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-app/Pods-app-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-app/Pods-app-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-app/Pods-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -236,8 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71903B5D25E0AE4300437575 /* ViewController.swift in Sources */,
-				71903B6F25E0B0B000437575 /* ComponentsController.swift in Sources */,
+				71903B5D25E0AE4300437575 /* MainController.swift in Sources */,
 				71903B5925E0AE4300437575 /* AppDelegate.swift in Sources */,
 				71903B5B25E0AE4300437575 /* SceneDelegate.swift in Sources */,
 			);

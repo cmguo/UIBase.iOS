@@ -1,17 +1,17 @@
 //
-//  ColorsController.swift
+//  XHBSwitchController.swift
 //  demo
 //
-//  Created by 郭春茂 on 2021/2/20.
+//  Created by 郭春茂 on 2021/2/23.
 //
 
 import Foundation
 import UIKit
 
-class ColorsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class XHBSwitchController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @objc class Styles : ViewStyles {
-        
+    class Styles : ViewStyles {
+        var checked = false
     }
     
     class Model : ViewModel {
@@ -27,7 +27,7 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = model.colors.index(model.colors.startIndex, offsetBy: indexPath.section)
+        let index = model.colors.index(model.colors.startIndex, offsetBy: indexPath.row)
         let name = model.colors.keys[index]
         let color = model.colors.values[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "")
@@ -45,3 +45,4 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.delegate = self
     }
 }
+

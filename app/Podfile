@@ -7,6 +7,7 @@ target 'app' do
 
   # Pods for app
   pod 'SnapKit', '~> 5.0.0'
-  # pod 'Skin', :path => '../Skin'
+  pod 'Skin', :path => '../Skin'
+  pod 'SwiftyJSON', :path =>'../SwiftyJSON/'
 
 end

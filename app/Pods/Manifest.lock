@@ -1,16 +1,29 @@
 PODS:
+  - Skin (0.0.1):
+    - SwiftyJSON
   - SnapKit (5.0.1)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - Skin (from `../Skin`)
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (from `../SwiftyJSON/`)
 
 SPEC REPOS:
   trunk:
     - SnapKit
 
-SPEC CHECKSUMS:
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+EXTERNAL SOURCES:
+  Skin:
+    :path: "../Skin"
+  SwiftyJSON:
+    :path: "../SwiftyJSON/"
 
-PODFILE CHECKSUM: 1fa2ee662ef765d496e9690746f1a8a946a65a7c
+SPEC CHECKSUMS:
+  Skin: 78e3124ec650ec5499808b010b932697ce3d64c0
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: b9b26761a957de2bd948e7e932a9b5c9bab46649
+
+PODFILE CHECKSUM: 616ef93c665c6065455acbdd53468ac7a906c7bc
 
 COCOAPODS: 1.8.3
