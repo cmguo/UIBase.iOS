@@ -1,17 +1,40 @@
 //
-//  ColorsController.swift
+//  ZButtonController.swift
 //  demo
 //
-//  Created by 郭春茂 on 2021/2/20.
+//  Created by 郭春茂 on 2021/2/23.
 //
 
 import Foundation
 import UIKit
 
-class ColorsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ZButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @objc class Styles : ViewStyles {
-        
+    enum ButtonType {
+        case Primitive
+        case Secondary
+        case Tertiary
+        case Danger
+        case TextLink
+    }
+    
+    enum ButtonSize {
+        case Small
+        case Middle
+        case Large
+    }
+    
+    enum ButtonWidth {
+        case WrapContent
+        case MatchParent
+    }
+    
+    class Styles : ViewStyles {
+        var disabled = false
+        var loading = false
+        var sizeMode = ButtonSize.Large
+        var widthMode = ButtonWidth.WrapContent
+        var icon: CGImage? = nil
     }
     
     class Model : ViewModel {
@@ -27,7 +50,7 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = model.colors.index(model.colors.startIndex, offsetBy: indexPath.section)
+        let index = model.colors.index(model.colors.startIndex, offsetBy: indexPath.row)
         let name = model.colors.keys[index]
         let color = model.colors.values[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "")
@@ -45,3 +68,4 @@ class ColorsController: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.delegate = self
     }
 }
+

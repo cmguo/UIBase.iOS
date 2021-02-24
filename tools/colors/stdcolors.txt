@@ -1,4 +1,3 @@
-色板名	light	dark	后续准备改名
 white_card	#FFFFFF	#212630	
 bluegrey_00	#FFFFFF	#191E26	white_bg
 bluegrey_05	#F7F8F9	#262C36	

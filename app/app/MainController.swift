@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainController.swift
 //  app
 //
 //  Created by 郭春茂 on 2021/2/20.
@@ -9,11 +9,17 @@ import UIKit
 import SnapKit
 import demo
 
-class ViewController: UIViewController {
+class MainController: UIViewController {
 
     private var component_ : Component? = nil
     
     func configUI() {
+        view.addSubview(infoContainer)
+        infoContainer.snp.makeConstraints({ (make) in
+            make.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.trailing.equalToSuperview()
+        })
         view.addSubview(buttonComponents)
         buttonComponents.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview().offset(-10)
@@ -35,6 +41,9 @@ class ViewController: UIViewController {
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .formSheet
         controller.view.backgroundColor = .yellow
+        controller.setComponentListener { (component: Component) in
+            self.switchComponent(component)
+        }
         present(nav, animated: true, completion: nil)
     }
     
@@ -43,6 +52,7 @@ class ViewController: UIViewController {
             component.controller.removeFromParent()
         }
         let controller = component.controller
+        view.addSubview(controller.view)
         controller.view.snp.makeConstraints({ (make) in
             make.leading.equalToSuperview()
             make.top.equalTo(infoContainer.snp.bottom)
