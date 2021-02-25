@@ -13,6 +13,11 @@ public class ViewStyles : NSObject
         return nil
     }
     
+    // [title, desc]
+    @objc class func descsForStyle(name: String) -> NSArray? {
+        return nil
+    }
+    
     class func makeValue(_ title: String, _ value: Any) -> NSDictionary.Element {
         return NSDictionary.Element(title, "\(value)")
     }

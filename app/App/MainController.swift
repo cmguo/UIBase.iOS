@@ -49,7 +49,7 @@ class MainController: UIViewController {
     
     @objc func showComponents() {
         let nav = UINavigationController(rootViewController: componentsController)
-        nav.modalPresentationStyle = .formSheet
+        nav.modalPresentationStyle = .pageSheet
         present(nav, animated: true, completion: nil)
     }
     

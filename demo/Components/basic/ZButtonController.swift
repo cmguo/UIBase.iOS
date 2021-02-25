@@ -60,6 +60,21 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
             }
         }
         
+        override class func descsForStyle(name: String) -> NSArray? {
+            switch name {
+            case "disabled":
+                return ["禁用", "切换到禁用状态"]
+            case "loading":
+                return ["加载", "切换到加载状态"]
+            case "sizeMode":
+                return ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
+            case "widthMode":
+                return ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
+            default:
+                return nil
+            }
+        }
+        
         override func notify(_ name: String) {
             if name == "sizeMode" {
                 sizeMode2 = ButtonSize2.init(rawValue: sizeMode.rawValue)!
