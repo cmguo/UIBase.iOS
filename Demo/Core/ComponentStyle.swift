@@ -8,11 +8,22 @@
 import Foundation
 import SwiftReflection
 
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
+
 public class ComponentStyle
 {
     let field: objc_property_t
-    let title: String
     let name: String
+    let title: String
+    let desc: String
     let valueType: Any.Type
     let values: Array<(String, String)>?
 
@@ -21,7 +32,6 @@ public class ComponentStyle
     init(_ cls: ViewStyles.Type, _ field: objc_property_t) {
         self.field = field;
         self.name = String(cString: property_getName(field))
-        self.title = self.name
         self.valueType = getTypeOf(property: field) as! Any.Type
         let values = ObjectFactory.values(forStyle: cls, style: self.name)
         self.values = values?.map({ (value: Any?) -> (String, String) in
@@ -31,6 +41,13 @@ public class ComponentStyle
                 return ("", "")
             }
         })
+        if let descs = ObjectFactory.descs(forStyle: cls, style: self.name) {
+            self.title = descs[0] as! String
+            self.desc = descs[1] as! String
+        } else {
+            self.title = self.name.capitalizingFirstLetter()
+            self.desc = self.name
+        }
     }
     
     func set(_ value: String, on styles: ViewStyles) {

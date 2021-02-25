@@ -26,7 +26,6 @@ class StyleTableViewCell: UITableViewCell {
         view.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(150)
             make.trailing.equalToSuperview()
-            make.height.equalTo(44)
             make.centerY.equalToSuperview()
         }
     }

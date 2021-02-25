@@ -19,4 +19,8 @@
     return [clsStyles performSelector: @selector(valuesForStyleWithName:) withObject: name];
 }
 
++ (id)descsForStyle:(id)clsStyles style:(NSString *)name {
+    return [clsStyles performSelector: @selector(descsForStyleWithName:) withObject: name];
+}
+
 @end
