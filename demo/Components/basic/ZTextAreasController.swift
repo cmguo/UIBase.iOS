@@ -1,5 +1,5 @@
 //
-//  ZTextAreaController.swift
+//  XHBTextAreaController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZTextAreaController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class XHBTextAreaController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         @objc var maximumCharCount = 0 // 最大字数，设为0不限制；如果有限制，将展现字数指示

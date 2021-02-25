@@ -24,6 +24,10 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(CheckBoxTableViewCell.self, forCellReuseIdentifier: "Bool")
+        tableView.register(TextTableViewCell.self, forCellReuseIdentifier: "NSString")
+        tableView.register(TextTableViewCell.self, forCellReuseIdentifier: "Int")
+        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "List")
         view.addSubview(tableView)
         tableView.frame = view.frame
         tableView.tableHeaderView = headerView;
@@ -37,9 +41,10 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let style = styles[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: style.valyeTypeName)
-            ?? UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: style.valyeTypeName)
-        cell.textLabel?.text = style.title
+        let type = style.values == nil ? style.valyeTypeName : "List"
+        let cell = tableView.dequeueReusableCell(withIdentifier: type)
+            ?? TextTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: type)
+        (cell as? StyleTableViewCell)?.setStyle(viewStyles!, style)
         return cell
     }
     

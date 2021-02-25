@@ -1,5 +1,5 @@
 //
-//  ZTextInputController.swift
+//  XHBTextInputController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZTextInputController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class XHBTextInputController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     @objc enum TextInputSize : Int {
         case Small

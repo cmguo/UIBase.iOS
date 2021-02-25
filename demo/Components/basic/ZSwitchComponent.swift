@@ -1,5 +1,5 @@
 //
-//  ZSwitchComponent.swift
+//  XHBSwitchComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZSwitchComponent : NSObject, Component
+class XHBSwitchComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class ZSwitchComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return ZSwitchController()
+        return XHBSwitchController()
     }()
 }

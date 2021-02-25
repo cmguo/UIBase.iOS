@@ -1,5 +1,5 @@
 //
-//  ZRatioController.swift
+//  XHBRatioController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZRatioController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class XHBRatioController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     @objc enum RatioState : Int {
         case Normal

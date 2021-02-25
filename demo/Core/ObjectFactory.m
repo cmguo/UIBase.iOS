@@ -15,4 +15,8 @@
     return [[NSClassFromString(className) alloc] init];
 }
 
++ (id)valuesForStyle:(id)clsStyles style:(NSString *)name {
+    return [clsStyles performSelector: @selector(valuesForStyleWithName:) withObject: name];
+}
+
 @end

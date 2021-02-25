@@ -1,5 +1,5 @@
 //
-//  ZSwitchController.swift
+//  XHBSwitchController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZSwitchController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class XHBSwitchController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         @objc var checked = false

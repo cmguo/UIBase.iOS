@@ -1,5 +1,5 @@
 //
-//  ZTextInputComponent.swift
+//  XHBTextInputComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZTextInputComponent : NSObject, Component
+class XHBTextInputComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class ZTextInputComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return ZTextInputController()
+        return XHBTextInputController()
     }()
 }

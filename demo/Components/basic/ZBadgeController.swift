@@ -1,5 +1,5 @@
 //
-//  ZButtonController.swift
+//  XHBButtonController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class XHBButtonController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         

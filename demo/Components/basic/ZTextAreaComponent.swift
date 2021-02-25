@@ -1,5 +1,5 @@
 //
-//  ZTextAreaComponent.swift
+//  XHBTextAreaComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZTextAreaComponent : NSObject, Component
+class XHBTextAreaComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class ZTextAreaComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return ZTextAreaController()
+        return XHBTextAreaController()
     }()
 }
