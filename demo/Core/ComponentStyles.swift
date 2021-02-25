@@ -23,11 +23,11 @@ public class ComponentStyles : NSObject
     //private let parent : ComponentStyles
     let styles: Array<ComponentStyle>
     
-    public class func get(styles: NSObject) -> ComponentStyles {
+    public class func get(styles: ViewStyles) -> ComponentStyles {
         get(cls: type(of: styles))
     }
     
-    public class func get(cls: NSObject.Type) -> ComponentStyles {
+    public class func get(cls: ViewStyles.Type) -> ComponentStyles {
         //if (let sup = cls.superclass())
         let clsName = String(cString: class_getName(cls))
         if let cs = classStyles[clsName] {
@@ -38,14 +38,14 @@ public class ComponentStyles : NSObject
         return cs
     }
     
-    init(_ cls: NSObject.Type) {
+    init(_ cls: ViewStyles.Type) {
         let name = String(cString: class_getName(cls))
         var outCount = UInt32()
         let props = class_copyPropertyList(cls, &outCount)
         var styles = Array<ComponentStyle>()
         print("ComponentStyles \(name) \(outCount)")
         for i in 0 ..< Int(outCount) {
-            let cs = ComponentStyle(props![i])
+            let cs = ComponentStyle(cls, props![i])
             print("ComponentStyles \(cs.title) \(cs.valyeTypeName)")
             styles.append(cs)
         }

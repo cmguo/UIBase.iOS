@@ -24,7 +24,18 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         case Large
     }
     
+    enum ButtonSize2 : Int, RawRepresentable, CaseIterable {
+        case Small
+        case Middle
+        case Large
+    }
+    
     @objc enum ButtonWidth : Int {
+        case WrapContent
+        case MatchParent
+    }
+    
+    enum ButtonWidth2 : Int, RawRepresentable, CaseIterable {
         case WrapContent
         case MatchParent
     }
@@ -33,8 +44,31 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         @objc var disabled = false
         @objc var loading = false
         @objc var sizeMode = ButtonSize.Large
+        var sizeMode2 = ButtonSize2.Large
         @objc var widthMode = ButtonWidth.WrapContent
+        var widthMode2 = ButtonWidth2.WrapContent
         @objc var icon: UIImage? = nil
+        
+        override class func valuesForStyle(name: String) -> NSArray? {
+            switch name {
+            case "sizeMode":
+                return makeValues(enumType: ButtonSize2.self)
+            case "widthMode":
+                return makeValues(enumType: ButtonWidth2.self)
+            default:
+                return nil
+            }
+        }
+        
+        override func notify(_ name: String) {
+            if name == "sizeMode" {
+                sizeMode2 = ButtonSize2.init(rawValue: sizeMode.rawValue)!
+                super.notify("sizeMode2")
+            } else if name == "widthMode" {
+                widthMode2 = ButtonWidth2.init(rawValue: widthMode.rawValue)!
+                super.notify("widthMode2")
+            }
+        }
     }
     
     class Model : ViewModel {
@@ -70,6 +104,20 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         tableView.frame = view.frame
         tableView.dataSource = self
         tableView.delegate = self
+        styles.listen { (name: String) in
+            switch name {
+            case "disabled":
+                break;
+            case "loading":
+                break;
+            case "sizeMode2":
+                break;
+            case "widthMode2":
+                break;
+            default:
+                break;
+            }
+        }
     }
 }
 
