@@ -5,12 +5,18 @@
       location = "group:App/App.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:App/Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:/Users/cmguo/work/xiaoheibang/UIBase.iOS/demo/Demo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:/Users/cmguo/work/xiaoheibang/UIBase.iOS/library/Library.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SwiftReflection/SwiftReflection.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SnapKit/SnapKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SwiftyJSON/SwiftyJSON.xcodeproj">
    </FileRef>
 </Workspace>

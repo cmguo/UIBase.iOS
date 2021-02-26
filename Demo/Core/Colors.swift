@@ -7,8 +7,7 @@
 
 import Foundation
 import UIKit
-import library
-import Skin
+import UIBase
 import SwiftyJSON
 
 extension Dictionary {

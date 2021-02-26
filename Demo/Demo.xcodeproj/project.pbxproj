@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7128762525E52B5B0054A74B /* Skin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128762425E52B5B0054A74B /* Skin.framework */; };
 		7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7128762A25E5318B0054A74B /* ObjectFactory.m */; };
 		7128763625E617CD0054A74B /* ObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128762925E531720054A74B /* ObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7128764025E61D980054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
@@ -27,6 +26,9 @@
 		7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB925E0E21900BF6B71 /* ViewStyles.swift */; };
 		7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBC25E0E26500BF6B71 /* ViewModel.swift */; };
 		7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBF25E0E28E00BF6B71 /* Colors.swift */; };
+		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
+		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
+		71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -52,7 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7128762425E52B5B0054A74B /* Skin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Skin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7128762925E531720054A74B /* ObjectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
 		7128762A25E5318B0054A74B /* ObjectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectFactory.m; sourceTree = "<group>"; };
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,8 +61,6 @@
 		7128764F25E633F10054A74B /* ComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentController.swift; sourceTree = "<group>"; };
 		7128765F25E655010054A74B /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonsController.swift; path = ../../Demo/Buttons/ButtonsController.swift; sourceTree = "<group>"; };
 		7128766225E6557B0054A74B /* StylesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StylesController.swift; path = ../../Demo/View/StylesController.swift; sourceTree = "<group>"; };
-		7128766525E65D5F0054A74B /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7128766B25E65EA60054A74B /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckBoxTableViewCell.swift; path = ../../Demo/View/CheckBoxTableViewCell.swift; sourceTree = "<group>"; };
 		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StyleTableViewCell.swift; path = ../../Demo/View/StyleTableViewCell.swift; sourceTree = "<group>"; };
 		712876E625E746A40054A74B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextTableViewCell.swift; path = ../../Demo/View/TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,7 +73,9 @@
 		7161CDB925E0E21900BF6B71 /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		7161CDBC25E0E26500BF6B71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7161CDBF25E0E28E00BF6B71 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		7161CE3125E0FB1500BF6B71 /* Skin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Skin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = ../../Demo/View/DescTableViewCell.swift; sourceTree = "<group>"; };
+		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,8 +108,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */,
+				71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */,
 				7128764025E61D980054A74B /* UIBase.framework in Frameworks */,
-				7128762525E52B5B0054A74B /* Skin.framework in Frameworks */,
+				71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,12 +187,10 @@
 		71903B8625E0B87B00437575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */,
+				71789F4925E8BF69004BA696 /* SwiftReflection.framework */,
 				71A2468025E78CDF0049ABB0 /* SnapKit.framework */,
-				7128766B25E65EA60054A74B /* SwiftReflection.framework */,
-				7128766525E65D5F0054A74B /* SwiftReflection.framework */,
 				7128763F25E61D980054A74B /* UIBase.framework */,
-				7128762425E52B5B0054A74B /* Skin.framework */,
-				7161CE3125E0FB1500BF6B71 /* Skin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,6 +202,7 @@
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
 				7128766225E6557B0054A74B /* StylesController.swift */,
 				712876E625E746A40054A74B /* TextTableViewCell.swift */,
+				71789F2E25E8A303004BA696 /* DescTableViewCell.swift */,
 				712876EB25E746CB0054A74B /* ListTableViewCell.swift */,
 				712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */,
 				712876DB25E743C80054A74B /* StyleTableViewCell.swift */,
@@ -212,12 +213,12 @@
 		71F543DE25E504EA00AEB07A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				71F543DF25E504FB00AEB07A /* basic */,
+				71F543DF25E504FB00AEB07A /* Basic */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		71F543DF25E504FB00AEB07A /* basic */ = {
+		71F543DF25E504FB00AEB07A /* Basic */ = {
 			isa = PBXGroup;
 			children = (
 				71F543FA25E50B4700AEB07A /* ZSwitchComponent.swift */,
@@ -237,7 +238,7 @@
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
 			);
-			path = basic;
+			path = Basic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +357,7 @@
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
 				7161CDB725E0E1FF00BF6B71 /* ComponentStyles.swift in Sources */,
 				71F543EF25E509F700AEB07A /* ZTextAreasController.swift in Sources */,
+				71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */,
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

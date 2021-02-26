@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,6 @@
 		712876BE25E6658F0054A74B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876BD25E6658F0054A74B /* MainController.swift */; };
 		712876CD25E667FC0054A74B /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; };
 		712876CE25E667FC0054A74B /* Demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		712876D025E668040054A74B /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABF292C234709469FB77F6E /* Pods_App.framework */; };
-		712876D125E668040054A74B /* Pods_App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BABF292C234709469FB77F6E /* Pods_App.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				712876D125E668040054A74B /* Pods_App.framework in Embed Frameworks */,
 				712876CE25E667FC0054A74B /* Demo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -44,9 +41,6 @@
 		712876B525E664B60054A74B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712876BD25E6658F0054A74B /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		712876CC25E667FC0054A74B /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E43AF52B1D8D4D6541F6913 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
-		AD7C2F329B78BDE018CA6603 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
-		BABF292C234709469FB77F6E /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712876D025E668040054A74B /* Pods_App.framework in Frameworks */,
 				712876CD25E667FC0054A74B /* Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,21 +55,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2CAFBA2016408E6013B67BFD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8E43AF52B1D8D4D6541F6913 /* Pods-App.debug.xcconfig */,
-				AD7C2F329B78BDE018CA6603 /* Pods-App.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7128769B25E664B40054A74B = {
 			isa = PBXGroup;
 			children = (
 				712876A625E664B40054A74B /* App */,
 				712876A525E664B40054A74B /* Products */,
-				2CAFBA2016408E6013B67BFD /* Pods */,
 				C51859496AEFCE3766E33EC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				712876CC25E667FC0054A74B /* Demo.framework */,
-				BABF292C234709469FB77F6E /* Pods_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,12 +101,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 712876B825E664B60054A74B /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
-				EDCAF13BE6258078D8F86E7C /* [CP] Check Pods Manifest.lock */,
 				712876A025E664B40054A74B /* Sources */,
 				712876A125E664B40054A74B /* Frameworks */,
 				712876A225E664B40054A74B /* Resources */,
-				A223491C7CC84A8113A5BFDC /* [CP] Embed Pods Frameworks */,
-				A8C7D8E4241FC6008757239C /* [CP] Copy Pods Resources */,
 				712876CF25E667FC0054A74B /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -180,65 +159,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A223491C7CC84A8113A5BFDC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8C7D8E4241FC6008757239C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDCAF13BE6258078D8F86E7C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		712876A025E664B40054A74B /* Sources */ = {
@@ -391,7 +311,6 @@
 		};
 		712876B925E664B60054A74B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E43AF52B1D8D4D6541F6913 /* Pods-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -403,7 +322,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.hybrige.App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.App2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,7 +331,6 @@
 		};
 		712876BA25E664B60054A74B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD7C2F329B78BDE018CA6603 /* Pods-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,7 +342,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.hybrige.App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.App2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
