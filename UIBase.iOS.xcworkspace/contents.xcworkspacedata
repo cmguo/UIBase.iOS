@@ -17,6 +17,9 @@
       location = "group:SnapKit/SnapKit.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:loading-buttons-ios/LoadingButtons.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SwiftyJSON/SwiftyJSON.xcodeproj">
    </FileRef>
 </Workspace>

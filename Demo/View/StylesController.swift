@@ -30,9 +30,28 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         tableView.register(TextTableViewCell.self, forCellReuseIdentifier: "Int")
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "List")
         tableView.register(DescTableViewCell.self, forCellReuseIdentifier: "Desc")
-        view.addSubview(tableView)
-        tableView.frame = view.frame
-        tableView.tableHeaderView = headerView;
+
+        view.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        var frame = view.frame
+
+        let wrapper = UIView()
+        wrapper.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        frame.origin.y = 400
+        frame.size.height -= 400
+        wrapper.frame = frame
+        view.addSubview(wrapper)
+
+        frame.origin.x = 10
+        frame.origin.y = 10
+        frame.size.width -= 20
+        frame.size.height -= 20
+        tableView.frame = frame
+        wrapper.addSubview(tableView)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tap)
+        
+        //tableView.tableHeaderView = headerView;
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -64,6 +83,10 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         toggle(indexPath.row)
     }
     
+    @objc func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
+        view.removeFromSuperview()
+    }
+    
     private func toggle(_ position: Int) {
         var position = position
         if expandSyle > 0 {
@@ -81,5 +104,4 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         }
         tableView.reloadData()
     }
-
 }

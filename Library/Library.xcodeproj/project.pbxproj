@@ -20,7 +20,6 @@
 		71789F9F25E8C496004BA696 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7A25E8C496004BA696 /* UIAppearance+Swift.m */; };
 		71789FA025E8C496004BA696 /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7C25E8C496004BA696 /* Apperance.swift */; };
 		71789FA125E8C496004BA696 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7D25E8C496004BA696 /* SkinManager.swift */; };
-		71789FA225E8C496004BA696 /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7E25E8C496004BA696 /* Entrance.swift */; };
 		71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7F25E8C496004BA696 /* ThemeColor.swift */; };
 		71789FA425E8C496004BA696 /* SkinChangeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8025E8C496004BA696 /* SkinChangeProtocol.swift */; };
 		71789FA525E8C496004BA696 /* DinRegularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8225E8C496004BA696 /* DinRegularLabel.swift */; };
@@ -37,23 +36,24 @@
 		71789FB025E8C496004BA696 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9325E8C496004BA696 /* .gitkeep */; };
 		71789FB125E8C496004BA696 /* Skin.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9425E8C496004BA696 /* Skin.podspec */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
-		71789FC625E8C52C004BA696 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7178A12B25ECAF70004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A12A25ECAF70004BA696 /* ZButton.swift */; };
+		7178A12F25ECB2AA004BA696 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A12E25ECB2AA004BA696 /* UIView.swift */; };
+		7178A13325ECB2C3004BA696 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13225ECB2C3004BA696 /* UIButton.swift */; };
+		7178A15725ECBC84004BA696 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13A25ECBC83004BA696 /* NVActivityIndicatorShape.swift */; };
+		7178A15825ECBC84004BA696 /* BallPulseSyncIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A14525ECBC83004BA696 /* BallPulseSyncIndicator.swift */; };
+		7178A15925ECBC84004BA696 /* BallSpinFadeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A14725ECBC83004BA696 /* BallSpinFadeIndicator.swift */; };
+		7178A15A25ECBC84004BA696 /* BallSpinFadeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13B25ECBC83004BA696 /* BallSpinFadeIndicator.swift */; };
+		7178A15B25ECBC84004BA696 /* LBIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13C25ECBC83004BA696 /* LBIndicator.swift */; };
+		7178A15C25ECBC84004BA696 /* LineScaleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A14425ECBC83004BA696 /* LineScaleIndicator.swift */; };
+		7178A15D25ECBC84004BA696 /* LineScalePulseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13D25ECBC83004BA696 /* LineScalePulseIndicator.swift */; };
+		7178A15E25ECBC84004BA696 /* BallPulseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A14325ECBC83004BA696 /* BallPulseIndicator.swift */; };
+		7178A15F25ECBC84004BA696 /* BallPulseSyncIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13E25ECBC83004BA696 /* BallPulseSyncIndicator.swift */; };
+		7178A16025ECBC84004BA696 /* MaterialLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A13F25ECBC83004BA696 /* MaterialLoadingIndicator.swift */; };
+		7178A16125ECBC84004BA696 /* IndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A14025ECBC83004BA696 /* IndicatorProtocol.swift */; };
+		7178A16525ECBE6B004BA696 /* UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A16425ECBE6B004BA696 /* UIActivityIndicatorView.swift */; };
+		7178A16825ECBE97004BA696 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A16725ECBE97004BA696 /* UIColor.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		71789FC725E8C52C004BA696 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				71789FC625E8C52C004BA696 /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		71789F6F25E8C496004BA696 /* Stylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylist.swift; sourceTree = "<group>"; };
@@ -69,7 +69,6 @@
 		71789F7A25E8C496004BA696 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		71789F7C25E8C496004BA696 /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
 		71789F7D25E8C496004BA696 /* SkinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
-		71789F7E25E8C496004BA696 /* Entrance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
 		71789F7F25E8C496004BA696 /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		71789F8025E8C496004BA696 /* SkinChangeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinChangeProtocol.swift; sourceTree = "<group>"; };
 		71789F8225E8C496004BA696 /* DinRegularLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinRegularLabel.swift; sourceTree = "<group>"; };
@@ -86,6 +85,22 @@
 		71789F9325E8C496004BA696 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		71789F9425E8C496004BA696 /* Skin.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skin.podspec; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7178A12A25ECAF70004BA696 /* ZButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Library/Button/ZButton.swift; sourceTree = "<group>"; };
+		7178A12E25ECB2AA004BA696 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = ../../../Library/Library/Extension/UIView.swift; sourceTree = "<group>"; };
+		7178A13225ECB2C3004BA696 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = ../../../Library/Library/Extension/UIButton.swift; sourceTree = "<group>"; };
+		7178A13A25ECBC83004BA696 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
+		7178A13B25ECBC83004BA696 /* BallSpinFadeIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallSpinFadeIndicator.swift; sourceTree = "<group>"; };
+		7178A13C25ECBC83004BA696 /* LBIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBIndicator.swift; sourceTree = "<group>"; };
+		7178A13D25ECBC83004BA696 /* LineScalePulseIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineScalePulseIndicator.swift; sourceTree = "<group>"; };
+		7178A13E25ECBC83004BA696 /* BallPulseSyncIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallPulseSyncIndicator.swift; sourceTree = "<group>"; };
+		7178A13F25ECBC83004BA696 /* MaterialLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialLoadingIndicator.swift; sourceTree = "<group>"; };
+		7178A14025ECBC83004BA696 /* IndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorProtocol.swift; sourceTree = "<group>"; };
+		7178A14325ECBC83004BA696 /* BallPulseIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallPulseIndicator.swift; sourceTree = "<group>"; };
+		7178A14425ECBC83004BA696 /* LineScaleIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineScaleIndicator.swift; sourceTree = "<group>"; };
+		7178A14525ECBC83004BA696 /* BallPulseSyncIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallPulseSyncIndicator.swift; sourceTree = "<group>"; };
+		7178A14725ECBC83004BA696 /* BallSpinFadeIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallSpinFadeIndicator.swift; sourceTree = "<group>"; };
+		7178A16425ECBE6B004BA696 /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIActivityIndicatorView.swift; path = ../../../Library/Library/Extension/UIActivityIndicatorView.swift; sourceTree = "<group>"; };
+		7178A16725ECBE97004BA696 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ../../../Library/Library/Extension/UIColor.swift; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,7 +181,6 @@
 			children = (
 				71789F7C25E8C496004BA696 /* Apperance.swift */,
 				71789F7D25E8C496004BA696 /* SkinManager.swift */,
-				71789F7E25E8C496004BA696 /* Entrance.swift */,
 				71789F7F25E8C496004BA696 /* ThemeColor.swift */,
 				71789F8025E8C496004BA696 /* SkinChangeProtocol.swift */,
 			);
@@ -228,6 +242,79 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7178A12125ECAB57004BA696 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				7178A12A25ECAF70004BA696 /* ZButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		7178A12225ECAB60004BA696 /* TextArea */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TextArea;
+			sourceTree = "<group>";
+		};
+		7178A12325ECAB6A004BA696 /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		7178A12425ECAB82004BA696 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		7178A12525ECAB8A004BA696 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
+		7178A12625ECAB92004BA696 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
+		7178A12D25ECB28E004BA696 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7178A12E25ECB2AA004BA696 /* UIView.swift */,
+				7178A13225ECB2C3004BA696 /* UIButton.swift */,
+				7178A16425ECBE6B004BA696 /* UIActivityIndicatorView.swift */,
+				7178A16725ECBE97004BA696 /* UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7178A13525ECBC83004BA696 /* Indicators */ = {
+			isa = PBXGroup;
+			children = (
+				7178A13A25ECBC83004BA696 /* NVActivityIndicatorShape.swift */,
+				7178A14525ECBC83004BA696 /* BallPulseSyncIndicator.swift */,
+				7178A14725ECBC83004BA696 /* BallSpinFadeIndicator.swift */,
+				7178A13B25ECBC83004BA696 /* BallSpinFadeIndicator.swift */,
+				7178A13C25ECBC83004BA696 /* LBIndicator.swift */,
+				7178A14425ECBC83004BA696 /* LineScaleIndicator.swift */,
+				7178A13D25ECBC83004BA696 /* LineScalePulseIndicator.swift */,
+				7178A14325ECBC83004BA696 /* BallPulseIndicator.swift */,
+				7178A13E25ECBC83004BA696 /* BallPulseSyncIndicator.swift */,
+				7178A13F25ECBC83004BA696 /* MaterialLoadingIndicator.swift */,
+				7178A14025ECBC83004BA696 /* IndicatorProtocol.swift */,
+			);
+			name = Indicators;
+			path = "../../loading-buttons-ios/LoadingButtons/Indicators";
+			sourceTree = "<group>";
+		};
 		7182AEAB25CCE98C00B0F1D3 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +336,14 @@
 		7182AEB725CCE98C00B0F1D3 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7178A13525ECBC83004BA696 /* Indicators */,
+				7178A12D25ECB28E004BA696 /* Extension */,
+				7178A12625ECAB92004BA696 /* TextInput */,
+				7178A12525ECAB8A004BA696 /* Switch */,
+				7178A12425ECAB82004BA696 /* CheckBox */,
+				7178A12325ECAB6A004BA696 /* Radio */,
+				7178A12225ECAB60004BA696 /* TextArea */,
+				7178A12125ECAB57004BA696 /* Button */,
 				7182AEB825CCE98C00B0F1D3 /* UIBase.h */,
 				7182AEB925CCE98C00B0F1D3 /* Info.plist */,
 			);
@@ -279,7 +374,6 @@
 				7182AEB125CCE98C00B0F1D3 /* Sources */,
 				7182AEB225CCE98C00B0F1D3 /* Frameworks */,
 				7182AEB325CCE98C00B0F1D3 /* Resources */,
-				71789FC725E8C52C004BA696 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,22 +440,37 @@
 			files = (
 				71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */,
 				71789F9C25E8C496004BA696 /* StringExtensions.swift in Sources */,
+				7178A15B25ECBC84004BA696 /* LBIndicator.swift in Sources */,
+				7178A16025ECBC84004BA696 /* MaterialLoadingIndicator.swift in Sources */,
+				7178A16125ECBC84004BA696 /* IndicatorProtocol.swift in Sources */,
 				71789F9525E8C496004BA696 /* Stylist.swift in Sources */,
+				7178A15825ECBC84004BA696 /* BallPulseSyncIndicator.swift in Sources */,
 				71789F9625E8C496004BA696 /* StyleParsable.swift in Sources */,
 				71789F9825E8C496004BA696 /* FileLoader.swift in Sources */,
 				71789FA625E8C496004BA696 /* ControlStateHelper.swift in Sources */,
 				71789FA125E8C496004BA696 /* SkinManager.swift in Sources */,
 				71789FA425E8C496004BA696 /* SkinChangeProtocol.swift in Sources */,
+				7178A15F25ECBC84004BA696 /* BallPulseSyncIndicator.swift in Sources */,
 				71789FA925E8C496004BA696 /* FontHelper.swift in Sources */,
 				71789F9925E8C496004BA696 /* StyleKit.swift in Sources */,
+				7178A12F25ECB2AA004BA696 /* UIView.swift in Sources */,
 				71789FA725E8C496004BA696 /* ColorHelper.swift in Sources */,
 				71789FA025E8C496004BA696 /* Apperance.swift in Sources */,
 				71789FAA25E8C496004BA696 /* LocalizableHelper.swift in Sources */,
+				7178A15E25ECBC84004BA696 /* BallPulseIndicator.swift in Sources */,
 				71789F9725E8C496004BA696 /* StyleParser.swift in Sources */,
 				71789FA825E8C496004BA696 /* NotificationHelper.swift in Sources */,
 				71789F9D25E8C496004BA696 /* ColorExtensions.swift in Sources */,
-				71789FA225E8C496004BA696 /* Entrance.swift in Sources */,
+				7178A16525ECBE6B004BA696 /* UIActivityIndicatorView.swift in Sources */,
+				7178A12B25ECAF70004BA696 /* ZButton.swift in Sources */,
 				71789F9E25E8C496004BA696 /* SKTryCatch.m in Sources */,
+				7178A15D25ECBC84004BA696 /* LineScalePulseIndicator.swift in Sources */,
+				7178A15725ECBC84004BA696 /* NVActivityIndicatorShape.swift in Sources */,
+				7178A13325ECB2C3004BA696 /* UIButton.swift in Sources */,
+				7178A16825ECBE97004BA696 /* UIColor.swift in Sources */,
+				7178A15A25ECBC84004BA696 /* BallSpinFadeIndicator.swift in Sources */,
+				7178A15C25ECBC84004BA696 /* LineScaleIndicator.swift in Sources */,
+				7178A15925ECBC84004BA696 /* BallSpinFadeIndicator.swift in Sources */,
 				71789F9F25E8C496004BA696 /* UIAppearance+Swift.m in Sources */,
 				71789FA525E8C496004BA696 /* DinRegularLabel.swift in Sources */,
 			);

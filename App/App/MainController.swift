@@ -54,7 +54,9 @@ class MainController: UIViewController {
     }
     
     @objc func showStyles() {
-        present(stylesController, animated: true, completion: nil)
+        view.addSubview(stylesController.view)
+        stylesController.view.frame = view.bounds
+        //present(stylesController, animated: true, completion: nil)
     }
     
     func switchComponent(_ component: Component) {
