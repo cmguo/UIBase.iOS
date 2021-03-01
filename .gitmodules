@@ -1,0 +1,9 @@
+[submodule "SnapKit"]
+	path = SnapKit
+	url = https://github.com/SnapKit/SnapKit.git
+[submodule "SwiftyJSON"]
+	path = SwiftyJSON
+	url = https://github.com/SwiftyJSON/SwiftyJSON.git
+[submodule "SwiftReflection"]
+	path = SwiftReflection
+	url = https://github.com/Sajjon/SwiftReflection.git
