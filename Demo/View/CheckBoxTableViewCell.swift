@@ -25,7 +25,7 @@ class CheckBoxTableViewCell: StyleTableViewCell {
         checkBox.setOn(value == "true", animated: false)
     }
 
-    @objc func checkedChanged(_ checked: Bool) {
-        setValue(checked.description)
+    @objc func checkedChanged() {
+        setValue(checkBox.isOn.description)
     }
 }

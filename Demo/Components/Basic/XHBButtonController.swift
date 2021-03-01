@@ -7,24 +7,11 @@
 
 import Foundation
 import UIKit
-
+import UIBase
+public
 class XHBButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
-    enum ButtonType {
-        case Primitive
-        case Secondary
-        case Tertiary
-        case Danger
-        case TextLink
-    }
-    
     @objc enum ButtonSize : Int {
-        case Small
-        case Middle
-        case Large
-    }
-    
-    enum ButtonSize2 : Int, RawRepresentable, CaseIterable {
         case Small
         case Middle
         case Large
@@ -35,26 +22,22 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         case MatchParent
     }
     
-    enum ButtonWidth2 : Int, RawRepresentable, CaseIterable {
-        case WrapContent
-        case MatchParent
-    }
-    
     class Styles : ViewStyles {
         @objc var disabled = false
         @objc var loading = false
         @objc var sizeMode = ButtonSize.Large
-        var sizeMode2 = ButtonSize2.Large
+        var sizeMode2 = XHBButton.ButtonSize.Large
         @objc var widthMode = ButtonWidth.WrapContent
-        var widthMode2 = ButtonWidth2.WrapContent
+        var widthMode2 = XHBButton.ButtonWidth.WrapContent
         @objc var icon: UIImage? = nil
+        @objc var text: String = "按钮"
         
         override class func valuesForStyle(name: String) -> NSArray? {
             switch name {
             case "sizeMode":
-                return makeValues(enumType: ButtonSize2.self)
+                return makeValues(enumType: XHBButton.ButtonSize.self)
             case "widthMode":
-                return makeValues(enumType: ButtonWidth2.self)
+                return makeValues(enumType: XHBButton.ButtonWidth.self)
             default:
                 return nil
             }
@@ -77,61 +60,58 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         
         override func notify(_ name: String) {
             if name == "sizeMode" {
-                sizeMode2 = ButtonSize2.init(rawValue: sizeMode.rawValue)!
+                sizeMode2 = XHBButton.ButtonSize.init(rawValue: sizeMode.rawValue)!
                 super.notify("sizeMode2")
             } else if name == "widthMode" {
-                widthMode2 = ButtonWidth2.init(rawValue: widthMode.rawValue)!
+                widthMode2 = XHBButton.ButtonWidth.init(rawValue: widthMode.rawValue)!
                 super.notify("widthMode2")
+            } else {
+                super.notify(name)
             }
         }
     }
     
     class Model : ViewModel {
-        let colors = Colors.stdColors()
+        let types = XHBButton.ButtonType.allCases
     }
     
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
     
-    override func getStyles() -> ViewStyles {
+    public override func getStyles() -> ViewStyles {
         return styles
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.colors.count
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.types.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = model.colors.index(model.colors.startIndex, offsetBy: indexPath.row)
-        let name = model.colors.keys[index]
-        let color = model.colors.values[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "")
-            ?? UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let name = "\(model.types[indexPath.row])"
+        let type = model.types[indexPath.row]
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
-        cell.textLabel?.backgroundColor = color
+        cell.selectionStyle = .none
+        let button = XHBButton(frame: CGRect(), type: type, sizeMode: styles.sizeMode2, widthMode: styles.widthMode2, icon: styles.icon, text: styles.text)
+        button.isEnabled = !styles.disabled
+        cell.contentView.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(150)
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
         return cell
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.frame = view.frame
         tableView.dataSource = self
         tableView.delegate = self
         styles.listen { (name: String) in
-            switch name {
-            case "disabled":
-                break;
-            case "loading":
-                break;
-            case "sizeMode2":
-                break;
-            case "widthMode2":
-                break;
-            default:
-                break;
-            }
+            self.tableView.reloadData()
         }
     }
 }

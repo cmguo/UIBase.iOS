@@ -51,7 +51,8 @@ public class ComponentStyle
     }
     
     func set(_ value: String, on styles: ViewStyles) {
-        styles.setValue(valueFromString(value), forKey: name)
+        let value = valueFromString(value)
+        styles.setValue(value, forKey: name)
         styles.notify(name)
     }
     
