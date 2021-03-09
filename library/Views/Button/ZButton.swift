@@ -29,25 +29,25 @@ public class XHBButton : UIButton
         case MatchParent
     }
     
-    // textColor, textColorDisabled, backgroundColor, backgroundColorPressed, backgroundColorDisabled, radius
-    private static let typeStyles: [ButtonType: (UIColor, UIColor, UIColor, UIColor, UIColor, CGFloat)] = [
-        .Primitive: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100, 100),
-        .Secondary: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100, 100),
+    // textColor, textColorDisabled, backgroundColor, backgroundColorPressed, backgroundColorDisabled
+    private static let typeStyles: [ButtonType: (UIColor, UIColor, UIColor, UIColor, UIColor)] = [
+        .Primitive: (ThemeColor.shared.bluegrey_900, ThemeColor.shared.bluegrey_500,
+                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
+        .Secondary: (ThemeColor.shared.blue_600, ThemeColor.shared.bluegrey_500,
+                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
         .Tertiary: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100, 100),
+                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
         .Danger: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                  ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100, 100),
+                  ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
         .TextLink: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100, 100)
+                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100)
     ]
     
-    // height, padding(left, rigth), textSize, iconPadding
-    private static let sizeStyles: [ButtonSize: (CGFloat, CGFloat, CGFloat, CGFloat)] = [
-        .Large: (44, 24, 18, 5),
-        .Middle: (36, 16, 16, 4),
-        .Small: (24, 12, 14, 3)
+    // height, padding(left, rigth), textSize, iconPadding, radius
+    private static let sizeStyles: [ButtonSize: (CGFloat, CGFloat, CGFloat, CGFloat, CGFloat)] = [
+        .Large: (44, 24, 18, 5, 24),
+        .Middle: (36, 16, 16, 4, 18),
+        .Small: (24, 12, 14, 3, 12)
     ]
     
     // MARK: - Public variables
@@ -89,25 +89,25 @@ public class XHBButton : UIButton
      - Parameter text:      the title of the button.
      */
     public init(
-        frame: CGRect = .zero,
         type: ButtonType = .Primitive,
         sizeMode: ButtonSize = .Large,
         widthMode: ButtonWidth = .WrapContent,
         icon: UIImage? = nil,
         text: String? = nil
     ) {
+        super.init(frame: CGRect.zero)
+        
         let typeStyles = XHBButton.typeStyles[type]!
         let sizeStyles = XHBButton.sizeStyles[sizeMode]!
-        var frame = frame
-        frame.size.height = sizeStyles.0
-        super.init(frame: frame)
+        
+        self.frame = CGRect(x: 0, y: 0, width: 0, height: sizeStyles.0)
         
         self.setTitleColor(typeStyles.0, for: .normal)
         self.setTitleColor(typeStyles.1, for: .disabled)
         self.backgroundColor = typeStyles.2
         //self.setBackgroundImage(UIImage(typeStyles.4), for: .disabled)
-        self.setCornerBorder(cornerRadius: typeStyles.5)
-        self.cornerRadius = typeStyles.5
+        self.setCornerBorder(cornerRadius: sizeStyles.4)
+        self.cornerRadius = sizeStyles.4
 
         //let font = UIFont().withSize(sizeStyles.2);
         //self.titleLabel?.font = font
@@ -129,7 +129,7 @@ public class XHBButton : UIButton
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     /**
      Show a loader inside the button with image.
      

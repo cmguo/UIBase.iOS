@@ -1,5 +1,5 @@
 //
-//  XHBRatioComponent.swift
+//  XHBSwitchComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBRatioComponent : NSObject, Component
+class XHBSwitchComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -16,13 +16,13 @@ class XHBRatioComponent : NSObject, Component
 
     var icon: Int = 0
     
-    var title: String = "单选框"
+    var title: String = "开关"
     
     var author: String = "cmguo"
     
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBRatioController()
+        return XHBCompoundButtonController(self)
     }()
 }
