@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 import UIBase
-public
-class XHBButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+
+public class XHBButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     @objc enum ButtonSize : Int {
         case Small
@@ -93,21 +93,33 @@ class XHBButtonController: ComponentController, UITableViewDataSource, UITableVi
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button = XHBButton(frame: CGRect(), type: type, sizeMode: styles.sizeMode2, widthMode: styles.widthMode2, icon: styles.icon, text: styles.text)
+        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, widthMode: styles.widthMode2, icon: styles.icon, text: styles.text)
         button.isEnabled = !styles.disabled
+        button.isLoading = self.styles.loading
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(150)
-            make.trailing.equalToSuperview()
+            make.width.equalTo(button.frame.width)
+            make.height.equalTo(button.frame.height)
+            if (styles.widthMode == .MatchParent) {
+                make.leading.equalToSuperview().offset(150)
+                make.trailing.equalToSuperview()
+            } else {
+                make.centerX.equalToSuperview().offset(75)
+            }
             make.centerY.equalToSuperview()
         }
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50 //UITableView.automaticDimension
     }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.frame = view.frame
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
         styles.listen { (name: String) in

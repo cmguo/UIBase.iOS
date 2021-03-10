@@ -67,7 +67,7 @@ open class BadgeView: UILabel {
         let rect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
         let result = rect.insetBy(dx: -insets.width, dy: -insets.height)
 
-        if roundedOnlyContainOneCharacter && text?.length == 1 {
+        if roundedOnlyContainOneCharacter && text?.count == 1 {
             let limit = max(max(result.size.width, minBadgeSize.width), max(result.size.height, minBadgeSize.height))
             return CGRect(origin: rect.origin, size: CGSize(width: ceil(limit), height: ceil(limit)))
         }
@@ -81,7 +81,7 @@ open class BadgeView: UILabel {
         } else {
             layer.cornerRadius = rect.height / 2
         }
-        if roundedOnlyContainOneCharacter && text?.length == 1 {
+        if roundedOnlyContainOneCharacter && text?.count == 1 {
             super.drawText(in: rect)
         } else {
             let insets = UIEdgeInsets(

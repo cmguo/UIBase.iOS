@@ -29,47 +29,100 @@ public class XHBButton : UIButton
         case MatchParent
     }
     
+    private struct TypeStyles {
+        let textColor: StateListColor
+        let backgroundColor: StateListColor
+        
+        init(_ textColor: StateListColor, _ backgroundColor: StateListColor) {
+            self.textColor = textColor
+            self.backgroundColor = backgroundColor
+        }
+    }
+    
     // textColor, textColorDisabled, backgroundColor, backgroundColorPressed, backgroundColorDisabled
-    private static let typeStyles: [ButtonType: (UIColor, UIColor, UIColor, UIColor, UIColor)] = [
-        .Primitive: (ThemeColor.shared.bluegrey_900, ThemeColor.shared.bluegrey_500,
-                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
-        .Secondary: (ThemeColor.shared.blue_600, ThemeColor.shared.bluegrey_500,
-                     ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
-        .Tertiary: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
-        .Danger: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                  ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100),
-        .TextLink: (ThemeColor.shared.static_bluegrey_900, ThemeColor.shared.bluegrey_500,
-                    ThemeColor.shared.brand_500, ThemeColor.shared.brand_600, ThemeColor.shared.bluegrey_100)
+    private static let typeStyles: [ButtonType: TypeStyles] = [
+        .Primitive: TypeStyles(
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.bluegrey_900, StateColor.STATES_NORMAL)]),
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.brand_600, StateColor.STATES_PRESSED),
+                StateColor(ThemeColor.shared.brand_500, StateColor.STATES_NORMAL)])),
+        .Secondary: TypeStyles(
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.blue_600, StateColor.STATES_NORMAL)]),
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.blue_200, StateColor.STATES_PRESSED),
+                StateColor(ThemeColor.shared.blue_100, StateColor.STATES_NORMAL)])),
+        .Tertiary: TypeStyles(
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.bluegrey_800, StateColor.STATES_NORMAL)]),
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_PRESSED),
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_NORMAL)])),
+        .Danger: TypeStyles(
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.red_600, StateColor.STATES_NORMAL)]),
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.red_500, StateColor.STATES_PRESSED),
+                StateColor(ThemeColor.shared.red_100, StateColor.STATES_NORMAL)])),
+        .TextLink: TypeStyles(
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.blue_600, StateColor.STATES_NORMAL)]),
+            StateListColor([
+                StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
+                StateColor(ThemeColor.shared.bluegrey_200, StateColor.STATES_PRESSED),
+                StateColor(ThemeColor.shared.transparent, StateColor.STATES_NORMAL)])),
     ]
     
+    private struct SizeStyles {
+        let height: CGFloat
+        let radius: CGFloat
+        let padding: CGFloat // (left, rigth)
+        let textSize: CGFloat
+        let iconPadding: CGFloat
+        
+        init(_ height: CGFloat, _ radius: CGFloat, _ padding: CGFloat, _ textSize: CGFloat, _ iconPadding: CGFloat) {
+            self.height = height
+            self.radius = radius
+            self.padding = padding
+            self.textSize = textSize
+            self.iconPadding = iconPadding
+        }
+    }
     // height, padding(left, rigth), textSize, iconPadding, radius
-    private static let sizeStyles: [ButtonSize: (CGFloat, CGFloat, CGFloat, CGFloat, CGFloat)] = [
-        .Large: (44, 24, 18, 5, 24),
-        .Middle: (36, 16, 16, 4, 18),
-        .Small: (24, 12, 14, 3, 12)
+    private static let sizeStyles: [ButtonSize: SizeStyles] = [
+        .Large: SizeStyles(44, 24, 24, 18, 5),
+        .Middle: SizeStyles(36, 18, 16, 16, 4),
+        .Small: SizeStyles(24, 12, 12, 14, 3)
     ]
     
     // MARK: - Public variables
     /**
      Current loading state.
      */
-    public var isLoading: Bool = false
-
-    /**
-     The corner radius of the button
-     */
-    @IBInspectable open var cornerRadius: CGFloat = 12.0 {
+    public var isLoading: Bool = false {
         didSet {
-            self.clipsToBounds = (self.cornerRadius > 0)
-            self.layer.cornerRadius = self.cornerRadius
+            if isLoading {
+                showLoaderWithImage()
+            } else {
+                hideLoader()
+            }
         }
     }
 
     /**
      The loading indicator used with the button.
      */
-    open var indicator: UIView & IndicatorProtocol = UIActivityIndicatorView()
+    open var indicator: UIView & IndicatorProtocol = MaterialLoadingIndicator()
 
     // Private properties
     private var loaderWorkItem: DispatchWorkItem?
@@ -100,34 +153,46 @@ public class XHBButton : UIButton
         let typeStyles = XHBButton.typeStyles[type]!
         let sizeStyles = XHBButton.sizeStyles[sizeMode]!
         
-        self.frame = CGRect(x: 0, y: 0, width: 0, height: sizeStyles.0)
+        indicator.color = typeStyles.textColor.normalColor()
+
+        self.setTitleColor(typeStyles.textColor.normalColor(), for: .normal)
+        self.setTitleColor(typeStyles.textColor.disabledColor(), for: .disabled)
+        self.setBackgroundColor(color: typeStyles.backgroundColor.normalColor(), forState: .normal)
+        self.setBackgroundColor(color: typeStyles.backgroundColor.disabledColor(), forState: .disabled)
+        self.setBackgroundColor(color: typeStyles.backgroundColor.pressedColor(), forState: .highlighted)
+        self.setCornerBorder(cornerRadius: sizeStyles.radius)
+        self.titleLabel?.font = systemFontSize(fontSize: sizeStyles.textSize, type: .semibold)
+        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
+
+        var frame = CGRect(x: 0, y: 0, width: sizeStyles.padding * 2, height: sizeStyles.height)
         
-        self.setTitleColor(typeStyles.0, for: .normal)
-        self.setTitleColor(typeStyles.1, for: .disabled)
-        self.backgroundColor = typeStyles.2
-        //self.setBackgroundImage(UIImage(typeStyles.4), for: .disabled)
-        self.setCornerBorder(cornerRadius: sizeStyles.4)
-        self.cornerRadius = sizeStyles.4
-
-        //let font = UIFont().withSize(sizeStyles.2);
-        //self.titleLabel?.font = font
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
-        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.0, bottom: 0, right: sizeStyles.0)
-
         // Set button contents
         // Set the title of the button
         if let text = text {
             self.setTitle(text)
+            self.titleLabel?.sizeToFit()
+            let size = self.titleLabel!.sizeThatFits(CGSize())
+            frame.size.width = frame.width + size.width
         }
         // Set the icon of the button
         if let icon = icon {
             self.setImage(icon)
+            if text != nil {
+                frame.size.width = frame.width + icon.size.width + sizeStyles.iconPadding
+            }
         }
         
+        self.frame = frame
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // layoutSubviews
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        indicator.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
     }
         
     /**
@@ -145,10 +210,9 @@ public class XHBButton : UIButton
      - Parameter userInteraction: Enable the user interaction while displaying the loader.
      - Parameter completion:      The completion handler.
     */
-    open func showLoader(_ viewsToBeHidden: [UIView?], userInteraction: Bool = false) {
+    func showLoader(_ viewsToBeHidden: [UIView?], userInteraction: Bool = false) {
         guard !self.subviews.contains(indicator) else { return }
         // Set up loading indicator and update loading state
-        isLoading = true
         self.isUserInteractionEnabled = userInteraction
         indicator.radius = min(0.7*self.frame.height/2, indicator.radius)
         indicator.alpha = 0.0
@@ -180,8 +244,6 @@ public class XHBButton : UIButton
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard self.subviews.contains(self.indicator) else { return }
-            // Update loading state
-            self.isLoading = false
             self.isUserInteractionEnabled = true
             self.indicator.stopAnimating()
             // Clean up

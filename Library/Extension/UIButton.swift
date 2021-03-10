@@ -29,4 +29,11 @@ extension UIButton {
             self.setTitle(text, for: state)
         }
     }
+    
+    func setBackgroundColor(color: UIColor, forState: UIControl.State) {
+        self.clipsToBounds = true  // add this to maintain corner radius
+        if let image = UIImage.from(color: color) {
+            self.setBackgroundImage(image, for: forState)
+        }
+    }
 }

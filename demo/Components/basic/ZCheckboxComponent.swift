@@ -23,6 +23,6 @@ class XHBCheckboxComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBCheckboxController()
+        return XHBCompoundButtonController(self)
     }()
 }

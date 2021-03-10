@@ -1,5 +1,5 @@
 //
-//  XHBCheckboxController.swift
+//  XHBCompoundButtonController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBCheckboxController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class XHBCompoundButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         @objc var disabled = false
-        @objc var text: String? = "复选框" // 显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔
+        @objc var text: String? = "文字" // 显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔
 
         override class func descsForStyle(name: String) -> NSArray? {
             switch name {
@@ -28,12 +28,34 @@ class XHBCheckboxController: ComponentController, UITableViewDataSource, UITable
     }
     
     class Model : ViewModel {
-        let states = XHBCheckBox.CheckedState.allCases
+        let states: [Any]
+        init(_ component: Component) {
+            if component is XHBCheckboxComponent {
+                states = XHBCheckBox.CheckedState.allCases
+            } else if (component is XHBRatioButtonComponent) {
+                states = [false, true]
+            } else if (component is XHBSwitchButtonComponent) {
+                states = [false, true]
+            } else {
+                states = []
+            }
+        }
     }
     
+    private let component: Component
     private let styles = Styles()
-    private let model = Model()
+    private let model: Model
     private let tableView = UITableView()
+    
+    init (_ component: Component) {
+        self.component = component
+        model = Model(component)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func getStyles() -> ViewStyles {
         return styles
@@ -49,13 +71,11 @@ class XHBCheckboxController: ComponentController, UITableViewDataSource, UITable
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let checkBox = XHBCheckBox(text: styles.text)
-        checkBox.isEnabled = !styles.disabled
-        checkBox.checkedState = state
-        cell.contentView.addSubview(checkBox)
-        checkBox.snp.makeConstraints { (make) in
-            make.width.equalTo(checkBox.frame.width)
-            make.height.equalTo(checkBox.frame.height)
+        let button: UIView = createButton(state: state)
+        cell.contentView.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.width.equalTo(button.frame.width)
+            make.height.equalTo(button.frame.height)
             make.centerX.equalToSuperview().offset(75)
             make.centerY.equalToSuperview()
         }
@@ -71,6 +91,27 @@ class XHBCheckboxController: ComponentController, UITableViewDataSource, UITable
         tableView.delegate = self
         styles.listen { (name: String) in
             self.tableView.reloadData()
+        }
+    }
+    
+    func createButton(state: Any) -> UIView {
+        if component is XHBCheckboxComponent {
+            let button = XHBCheckBox(text: styles.text)
+            button.checkedState = state as! XHBCheckBox.CheckedState
+            button.isEnabled = !styles.disabled
+            return button
+        } else if (component is XHBRatioButtonComponent) {
+            let button = XHBRadioButton(text: styles.text)
+            button.checked = state as! Bool
+            button.isEnabled = !styles.disabled
+            return button
+        } else if (component is XHBSwitchButtonComponent) {
+            let button = XHBSwitchButton()
+            button.isOn = state as! Bool
+            button.isEnabled = !styles.disabled
+            return button
+        } else {
+            return UIButton()
         }
     }
 }

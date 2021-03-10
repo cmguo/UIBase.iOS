@@ -22,7 +22,7 @@ class CheckBoxTableViewCell: StyleTableViewCell {
     }
     
     override func initValue(_ value: String) {
-        checkBox.setOn(value == "true", animated: false)
+        checkBox.setOn(value == "true" || value == "1", animated: false)
     }
 
     @objc func checkedChanged() {

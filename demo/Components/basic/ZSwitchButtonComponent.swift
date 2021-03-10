@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBSwitchComponent : NSObject, Component
+class XHBSwitchButtonComponent : NSObject, Component
 {
     var id: Int = 0
     

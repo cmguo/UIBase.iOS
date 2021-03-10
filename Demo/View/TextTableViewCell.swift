@@ -14,7 +14,7 @@ class TextTableViewCell: StyleTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addEditview(textField)
-        textField.addTarget(self, action: #selector(textChanged), for: .valueChanged)
+        textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -25,7 +25,7 @@ class TextTableViewCell: StyleTableViewCell {
         textField.text = value
     }
 
-    @objc func textChanged(_ text: String) {
-        setValue(text)
+    @objc func textChanged(_ textField: UITextField) {
+        setValue(textField.text ?? "")
     }
 }

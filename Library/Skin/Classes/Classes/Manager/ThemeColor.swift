@@ -225,7 +225,11 @@ public class ThemeColor: NSObject {
     public var static_black_05 : UIColor {
         return ThemeColor.color(path: "static_black_05", defaultColor: "#0C000000", des: "#0C000000#000000 5%")
     }
+    
     public static let shared = ThemeColor()
+    
+    public let transparent = UIColor(hexString: "#00000000")
+    
     // MARK: - 品牌色
 
     // 主色/主要按钮/登陆输入点击状态
