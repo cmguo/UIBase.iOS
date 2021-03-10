@@ -107,7 +107,7 @@ public class XHBCheckBox: UIButton {
 
         self.frame = frame
         
-        addTarget(self, action: Selector("buttonClicked:"), for: .touchUpInside)
+        addTarget(self, action: #selector(self.buttonClicked(_:)), for: .touchUpInside)
         
         updateStates()
     }

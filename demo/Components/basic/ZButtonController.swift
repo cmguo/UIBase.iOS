@@ -53,7 +53,9 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 return ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
             case "widthMode":
                 return ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
-            default:
+            case "text":
+                return ["显示文字", "改变文字，按钮会自动适应文字宽度"]
+           default:
                 return nil
             }
         }
@@ -78,6 +80,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     private let styles = Styles()
     private let model = Model()
     private let tableView = UITableView()
+    private var buttons: [XHBButton] = []
     
     public override func getStyles() -> ViewStyles {
         return styles
@@ -96,6 +99,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         let button = XHBButton(type: type, sizeMode: styles.sizeMode2, widthMode: styles.widthMode2, icon: styles.icon, text: styles.text)
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
+        buttons.append(button)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
             make.width.equalTo(button.frame.width)
@@ -122,8 +126,19 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
+        
         styles.listen { (name: String) in
-            self.tableView.reloadData()
+            if name == "disabled" {
+                for b in self.buttons { b.isEnabled = !self.styles.disabled }
+            } else if name == "loading" {
+                for b in self.buttons { b.isLoading = self.styles.loading }
+            } else if name == "loading" {
+                for b in self.buttons { b.isLoading = self.styles.loading }
+            } else if name == "text" {
+                for b in self.buttons { b.setTitle(self.styles.text) }
+            } else {
+                self.tableView.reloadData()
+            }
         }
     }
 }

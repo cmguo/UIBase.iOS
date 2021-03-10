@@ -47,23 +47,39 @@ class XHBTextAreaController: ComponentController {
     class Model : ViewModel {
         let text = ""
         let leftIcon = CALayer(svgURL: Bundle(for: Model.self).url(forResource: "union", withExtension: "svg")!) { (layer: SVGLayer) in
-            layer.superlayer?.bounds = layer.boundingBox
+            layer.frame = layer.boundingBox
+            layer.superlayer?.frame = layer.boundingBox
         }
         let rightIcon = CALayer(svgURL: Bundle(for: Model.self).url(forResource: "erase", withExtension: "svg")!) { (layer: SVGLayer) in
-            layer.superlayer?.bounds = layer.boundingBox
+            layer.frame = layer.boundingBox
+            layer.superlayer?.frame = layer.boundingBox
        }
     }
     
     private let styles = Styles()
     private let model = Model()
-    private let textArea = XHBTextArea(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    
+    private let textInput = XHBTextArea(single: true)
+    private let textArea = XHBTextArea()
+
     override func getStyles() -> ViewStyles {
         return styles
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textInput.backgroundColor = .yellow
+        textInput.maxWords = styles.maximumCharCount
+        textInput.placeholder = styles.placeholder
+        textInput.showBorder = styles.showBorder
+        view.addSubview(textInput)
+        textInput.snp.makeConstraints { (maker) in
+            maker.leading.equalToSuperview()
+            maker.trailing.equalToSuperview()
+            maker.top.equalToSuperview().offset(150)
+            maker.height.equalTo(textInput.frame.height)
+        }
+
         textArea.backgroundColor = .yellow
         textArea.minHeight = styles.minimunHeight
         textArea.maxHeight = styles.maximunHeight
@@ -74,25 +90,28 @@ class XHBTextAreaController: ComponentController {
         textArea.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.centerY.equalToSuperview()
+            maker.top.equalTo(textInput.snp.bottom).offset(50)
             maker.height.equalTo(textArea.frame.height)
         }
 
         styles.listen { (name: String) in
             if name == "maximumCharCount" {
+                self.textInput.maxWords = self.styles.maximumCharCount
                 self.textArea.maxWords = self.styles.maximumCharCount
             } else if name == "minimunHeight" {
                 self.textArea.minHeight = self.styles.minimunHeight
             } else if name == "maximunHeight" {
                 self.textArea.maxHeight = self.styles.maximunHeight
             } else if name == "placeholder" {
+                self.textInput.placeholder = self.styles.placeholder
                 self.textArea.placeholder = self.styles.placeholder
             } else if name == "showBorder" {
+                self.textInput.showBorder = self.styles.showBorder
                 self.textArea.showBorder = self.styles.showBorder
             } else if name == "showLeftIcon" {
-                self.textArea.leftIcon = self.styles.showLeftIcon ? self.model.leftIcon : nil
+                self.textInput.leftIcon = self.styles.showLeftIcon ? self.model.leftIcon : nil
             } else if name == "showRightIcon" {
-                self.textArea.rigthIcon = self.styles.showRightIcon ? self.model.rightIcon : nil
+                self.textInput.rigthIcon = self.styles.showRightIcon ? self.model.rightIcon : nil
             }
         }
     }

@@ -194,8 +194,12 @@ public class XHBTextArea: UIView {
         return textView.isFirstResponder
     }
 
-    public var minHeight: CGFloat = 0
-    public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude
+    public var minHeight: CGFloat = 50 {
+        didSet { recalcHeight() }
+    }
+    public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude{
+        didSet { recalcHeight() }
+    }
     
     // MARK: text view
     public let layoutManager: NSLayoutManager
@@ -240,10 +244,12 @@ public class XHBTextArea: UIView {
         return label
     }()
 
+    fileprivate let single: Bool
     fileprivate var optionalViews: [UIView?] = [nil, nil, nil, nil]
-    fileprivate var lastTextHeight: CGFloat = -1
 
-    override public init(frame: CGRect) {
+    public init(single: Bool = false) {
+        self.single = single
+        
         layoutManager = NSLayoutManager()
         textContainer = NSTextContainer()
         textStorage = NSTextStorage()
@@ -256,7 +262,7 @@ public class XHBTextArea: UIView {
         font = XHBTextArea.defaultFont
         returnKeyType = UIReturnKeyType.send
 
-        super.init(frame: frame)
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
 
         initialize()
     }
@@ -276,6 +282,9 @@ public class XHBTextArea: UIView {
         textView.textContainerInset = .zero
 
         addSubview(textView)
+
+        layoutSubviews()
+        recalcHeight()
 
         textView.willCopyData = { [weak self] in
             return self?.getCopyText()
@@ -336,19 +345,25 @@ public class XHBTextArea: UIView {
         var rect = bounds;
         rect.deflate(XHBTextArea.padding)
         if wordCountLabelVisible {
-            var r = rect.cutBottom(22)
-            let size = wordCountLabel.sizeThatFits(r.size)
-            r.moveTopTo(r.bottom - size.height)
-            wordCountLabel.frame = r
+            let size = wordCountLabel.sizeThatFits(rect.size)
+            if single {
+                var r = rect.cutRight(40)
+                r.moveLeftCenter(toSize: size)
+                wordCountLabel.frame = r
+            } else {
+                var r = rect.cutBottom(22)
+                r.moveTopTo(r.bottom - size.height)
+                wordCountLabel.frame = r
+            }
         }
         if (leftImageVisible) {
-            var r = rect.cutLeft(leftImage.bounds.width + 4)
-            r.moveRightCenter(toSize: leftImage.bounds.size)
+            var r = rect.cutLeft(leftImage.frame.width + 4)
+            r.moveRightCenter(toSize: leftImage.frame.size)
             leftImage.frame = r
         }
         if (rightImageVisible) {
-            var r = rect.cutRight(rightImage.bounds.width + 4)
-            r.moveLeftCenter(toSize: rightImage.bounds.size)
+            var r = rect.cutRight(rightImage.frame.width + 4)
+            r.moveLeftCenter(toSize: rightImage.frame.size)
             rightImage.frame = r
         }
         textView.frame = rect
@@ -426,6 +441,26 @@ public class XHBTextArea: UIView {
         }
     }
     
+    fileprivate func recalcHeight() {
+        let rect = layoutManager.usedRect(for: textContainer)
+        if textView.bounds.height != rect.size.height {
+            var height = rect.size.height
+            height -= textView.frame.height
+            height += self.bounds.height
+            if !single {
+                if height > maxHeight {
+                    height = maxHeight
+                } else if height < minHeight {
+                    height = minHeight
+                }
+            }
+            var bounds = self.bounds
+            bounds.size.height = height
+            self.bounds = bounds
+            superview?.setNeedsLayout()
+        }
+    }
+    
 }
 
 extension XHBTextArea: UITextViewDelegate {
@@ -452,22 +487,7 @@ extension XHBTextArea: UITextViewDelegate {
             self.textView.limitWordCount(maxWords, 0)
             self.updateWordCount()
         }
-        let rect = layoutManager.usedRect(for: textContainer)
-        if lastTextHeight != rect.size.height {
-            var height = rect.size.height
-            height -= textView.frame.height
-            height += self.bounds.height
-            if height > maxHeight {
-                height = maxHeight
-            } else if height < minHeight {
-                height = minHeight
-            }
-            var bounds = self.bounds
-            bounds.size.height = height
-            self.bounds = bounds
-            lastTextHeight = rect.size.height
-            superview?.setNeedsLayout()
-        }
+        recalcHeight()
         if let selectedTextRange = textView.selectedTextRange {
             if #available(iOS 9.0, *) {
                 let line = textView.caretRect(for: selectedTextRange.start)

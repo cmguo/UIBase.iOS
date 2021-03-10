@@ -13,14 +13,14 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
 
     class Styles : ViewStyles {
         @objc var disabled = false
-        @objc var text: String? = "文字" // 显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔
+        @objc var text: String? = "文字"
 
         override class func descsForStyle(name: String) -> NSArray? {
             switch name {
             case "disabled":
                 return ["禁用", "切换到禁用状态"]
             case "text":
-                return ["显示文字", "改变文字，按钮会自动适应文字宽度"]
+                return ["文字", "显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔"]
             default:
                 return nil
             }
@@ -46,7 +46,9 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
     private let styles = Styles()
     private let model: Model
     private let tableView = UITableView()
-    
+    private var buttons: [UIButton] = []
+    private var switchs: [XHBSwitchButton] = []
+
     init (_ component: Component) {
         self.component = component
         model = Model(component)
@@ -90,7 +92,14 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         tableView.dataSource = self
         tableView.delegate = self
         styles.listen { (name: String) in
-            self.tableView.reloadData()
+            if name == "disabled" {
+                for b in self.buttons { b.isEnabled = !self.styles.disabled }
+                for s in self.switchs { s.isEnabled = !self.styles.disabled }
+            } else if name == "text" {
+                for b in self.buttons { b.setTitle(self.styles.text) }
+            } else {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -99,16 +108,19 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
             let button = XHBCheckBox(text: styles.text)
             button.checkedState = state as! XHBCheckBox.CheckedState
             button.isEnabled = !styles.disabled
+            buttons.append(button)
             return button
         } else if (component is XHBRatioButtonComponent) {
             let button = XHBRadioButton(text: styles.text)
             button.checked = state as! Bool
             button.isEnabled = !styles.disabled
+            buttons.append(button)
             return button
         } else if (component is XHBSwitchButtonComponent) {
             let button = XHBSwitchButton()
             button.isOn = state as! Bool
             button.isEnabled = !styles.disabled
+            switchs.append(button)
             return button
         } else {
             return UIButton()
