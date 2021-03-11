@@ -260,6 +260,7 @@ public class XHBTextArea: UIView {
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
 
         font = XHBTextArea.defaultFont
+        textView.font = font
         returnKeyType = UIReturnKeyType.send
 
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
