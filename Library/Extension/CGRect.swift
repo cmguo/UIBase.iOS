@@ -9,6 +9,8 @@ import Foundation
 
 extension CGRect {
     
+    /* Points, modify points not change size */
+    
     public var left: CGFloat {
         get { origin.x }
         set { origin.x = newValue }
@@ -21,12 +23,12 @@ extension CGRect {
     
     public var right: CGFloat {
         get { origin.x + size.width }
-        set { size.width = newValue - origin.x }
+        set { origin.x = newValue - size.width }
     }
     
     public var bottom: CGFloat {
         get { origin.y + size.height }
-        set { size.height = newValue - origin.y }
+        set { origin.y = newValue - size.height }
     }
     
     public var leftTop: CGPoint {
@@ -51,48 +53,32 @@ extension CGRect {
     
     public var center: CGPoint {
         get { CGPoint(x: origin.x + size.width / 2, y: origin.y + size.height / 2) }
+        set { origin = CGPoint(x: newValue.x - size.width / 2, y: newValue.y - size.height / 2) }
     }
     
-    public mutating func moveLeft(_ value: CGFloat) {
-        origin.x = value
+    public var centerX: CGFloat {
+        get { origin.x + size.width / 2 }
+        set { origin.x = newValue - size.width / 2 }
     }
     
-    public mutating func moveTop(_ value: CGFloat) {
-        origin.y = value
+    public var centerY: CGFloat {
+        get { origin.y + size.height / 2 }
+        set { origin.y = newValue - size.height / 2 }
     }
     
-    public mutating func moveRight(_ value: CGFloat) {
-        origin.x = value - size.width
+    /* Modify sizes direct */
+    
+    public var width2: CGFloat {
+        get { size.width }
+        set { size.width = newValue }
     }
     
-    public mutating func moveBottom(_ value: CGFloat) {
-        origin.y = value - size.height
+    public var height2: CGFloat {
+        get { size.height }
+        set { size.height = newValue }
     }
     
-    public mutating func moveLeftTop(_ value: CGPoint) {
-        origin = value
-    }
-    
-    public mutating func moveRightTop(_ value: CGPoint) {
-        moveRight(value.x)
-        moveTop(value.y)
-    }
-    
-    public mutating func moveRightBottom(_ value: CGPoint) {
-        moveRight(value.x)
-        moveBottom(value.y)
-    }
-    
-    public mutating func moveLeftBottom(_ value: CGPoint) {
-        moveLeft(value.x)
-        moveBottom(value.y)
-    }
-    
-
-    public mutating func moveCenter(_ value: CGPoint) {
-        origin.x = value.x - size.width / 2
-        origin.y = value.y - size.height / 2
-    }
+    /* move edges or corners, not change other edges or corners */
     
     public mutating func moveLeftTo(_ value: CGFloat) {
         size.width = right - value
@@ -231,7 +217,7 @@ extension CGRect {
     
     public func centerPart(ofSize size: CGSize) -> CGRect {
         var rect = CGRect(origin: CGPoint.zero, size: size)
-        rect.moveCenter(center)
+        rect.center = center
         return rect
     }
     
@@ -244,18 +230,6 @@ extension CGRect {
     
     public func centerBoundingSize() -> CGSize {
         return CGSize(width: center.x * 2, height: center.y * 2)
-    }
-    
-    /* Modify sizes direct */
-    
-    public var width2: CGFloat {
-        get { size.width }
-        set { size.width = newValue }
-    }
-    
-    public var height2: CGFloat {
-        get { size.height }
-        set { size.height = newValue }
     }
     
     /* Adjust */
@@ -303,21 +277,21 @@ extension CGRect {
     
     public func centeredAt(_ center: CGPoint) -> CGRect {
         var rect = self
-        rect.moveCenter(center)
+        rect.center = center
         return rect
     }
     
     public mutating func cutLeft(_ value: CGFloat) -> CGRect {
         var rect = self
         moveLeftTo(left + value)
-        rect.right = left
+        rect.width2 = value
         return rect
     }
     
     public mutating func cutTop(_ value: CGFloat) -> CGRect {
         var rect = self
         moveTopTo(top + value)
-        rect.bottom = top
+        rect.height2 = value
         return rect
     }
     

@@ -74,13 +74,13 @@ public class XHBCheckBox: UIButton {
         var frame = CGRect(x: 0, y: 0, width: XHBCheckBox.iconSize, height: XHBCheckBox.height)
         self.frame = frame
 
-        self.setImage(UIImage.from(color: ThemeColor.shared.transparent))
+        self.setImage(UIImage.transparent)
         self.imageView?.layer.cornerRadius = XHBCheckBox.radius
         self.imageView?.layer.borderWidth = XHBCheckBox.borderSize
         
         let foregroundLayerChecked = CALayer(svgURL: XHBCheckBox.svg_checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
-            layer.fillColor = ThemeColor.shared.transparent.cgColor
+            layer.fillColor = UIColor.transparent.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerChecked = layer
                 layer.fillColor = XHBCheckBox.foregroundCheckedFillColor.color(for: self.states()).cgColor
@@ -90,7 +90,7 @@ public class XHBCheckBox: UIButton {
         
         let foregroundLayerHalfChecked = CALayer(svgURL: XHBCheckBox.svg_half_checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
-            layer.fillColor = ThemeColor.shared.transparent.cgColor
+            layer.fillColor = UIColor.transparent.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerHalfChecked = layer
                 layer.fillColor = XHBCheckBox.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor

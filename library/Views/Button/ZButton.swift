@@ -118,10 +118,10 @@ public class XHBButton : UIButton
     public var icon: URL? = nil {
         didSet {
             self.setImage(UIImage.transparent)
-            self.imageView?.setIcon(svgURL: icon, completion: {(boundingBox: CGRect) in
+            self.imageView?.setIcon(svgURL: icon) {(boundingBox: CGRect) in
                 self.imageSize = boundingBox.centerBoundingSize()
                 self.updateSize()
-            })
+            }
         }
     }
     /**
@@ -185,10 +185,10 @@ public class XHBButton : UIButton
         // Set the icon of the button
         if let icon = icon {
             self.icon = icon
-            self.imageView?.setIcon(svgURL: icon, completion: {(boundingBox: CGRect) in
+            self.imageView?.setIcon(svgURL: icon) {(boundingBox: CGRect) in
                 self.imageSize = boundingBox.centerBoundingSize()
                 self.updateSize()
-            })
+            }
         }
         // Set the title of the button
         if let text = text {

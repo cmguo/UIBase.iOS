@@ -228,7 +228,7 @@ public class ThemeColor: NSObject {
     
     public static let shared = ThemeColor()
     
-    public let transparent = UIColor(hexString: "#00000000")
+    public let transparent = UIColor.transparent
     
     // MARK: - 品牌色
 
