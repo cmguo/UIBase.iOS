@@ -83,15 +83,15 @@ public class XHBTextArea: UIView {
     private static let borderRadius: CGFloat = 8
     private static let borderWidth: CGFloat = 1
 
-    public var leftIcon: CALayer? {
-        willSet {
-            replaceIcon(0, leftIcon, newValue)
+    public var leftIcon: URL? {
+        didSet {
+            setIcon(0, leftIcon)
         }
     }
     
-    public var rigthIcon: CALayer? {
-        willSet {
-            replaceIcon(1, rigthIcon, newValue)
+    public var rigthIcon: URL? {
+        didSet {
+            setIcon(1, rigthIcon)
         }
     }
     
@@ -381,21 +381,14 @@ public class XHBTextArea: UIView {
         return false
     }
     
-    fileprivate func replaceIcon(_ index: Int, _ old: CALayer?, _ icon: CALayer?) {
+    fileprivate func setIcon(_ index: Int, _ icon: URL?) {
         let hidden = !optionalViewVisible(index)
-        if let old = old {
-            old.removeFromSuperlayer()
-        }
         if let icon = icon {
-            if index == 0 {
-                leftImage.layer.addSublayer(icon)
-            } else {
-                rightImage.layer.addSublayer(icon)
-            }
-            optionalViews[index]?.isHidden = false
-            optionalViews[index]?.bounds = icon.bounds
-            if hidden {
-                setNeedsLayout()
+            let imageView = index == 0 ? leftImage : rightImage
+            imageView.setIcon(svgURL: icon) { (boundingBox: CGRect) in
+                imageView.bounds = boundingBox.centerBounding()
+                imageView.isHidden = false
+                self.setNeedsLayout()
             }
         } else if let view = optionalViews[index] {
             view.isHidden = true

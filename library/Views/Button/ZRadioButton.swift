@@ -82,11 +82,11 @@ public class XHBRadioButton: UIButton {
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: 0, y: (contentRect.height - XHBRadioButton.iconSize) / 2, width: XHBRadioButton.iconSize, height: XHBRadioButton.iconSize)
+        return contentRect.leftCenterPart(ofSize: CGSize(width: XHBRadioButton.iconSize, height: XHBRadioButton.iconSize))
     }
     
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: XHBRadioButton.iconSize + XHBRadioButton.textPadding, y: 0, width: contentRect.width, height: XHBRadioButton.height)
+        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - XHBRadioButton.iconSize - XHBRadioButton.textPadding, height: XHBRadioButton.height))
     }
     
     func updateStates() {

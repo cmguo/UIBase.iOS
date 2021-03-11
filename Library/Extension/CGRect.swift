@@ -88,25 +88,7 @@ extension CGRect {
         moveBottom(value.y)
     }
     
-    public mutating func moveLeftTop(toSize: CGSize) {
-        left = right - toSize.width
-        top = bottom - toSize.height
-    }
-    
-    public mutating func moveRightTop(toSize: CGSize) {
-        width2 = toSize.width
-        top = bottom - toSize.height
-    }
-    
-    public mutating func moveRightBottom(toSize: CGSize) {
-        size = toSize
-    }
-    
-    public mutating func moveLeftBottom(toSize: CGSize) {
-        left = right - toSize.width
-        height2 = toSize.height
-    }
-    
+
     public mutating func moveCenter(_ value: CGPoint) {
         origin.x = value.x - size.width / 2
         origin.y = value.y - size.height / 2
@@ -150,31 +132,121 @@ extension CGRect {
         moveBottomTo(value.y)
     }
     
-    public mutating func moveLeftCenter(toSize: CGSize) {
-        left = right - toSize.width
-        width2 = toSize.width
-        top = center.y - toSize.height / 2
-        height2 = toSize.height
+    /* Adjust to size from diffirenct directions */
+    
+    public mutating func moveLeftTop(toSize size: CGSize) {
+        left = right - size.width
+        top = bottom - size.height
     }
     
-    public mutating func moveRightCenter(toSize: CGSize) {
-        width2 = toSize.width
-        top = center.y - toSize.height / 2
-        height2 = toSize.height
+    public mutating func moveRightTop(toSize size: CGSize) {
+        width2 = size.width
+        top = bottom - size.height
     }
     
-    public mutating func moveTopCenter(toSize: CGSize) {
-        left = center.x - toSize.width / 2
-        width2 = toSize.width
-        top = bottom - toSize.height
-        height2 = toSize.height
+    public mutating func moveRightBottom(toSize size: CGSize) {
+        self.size = size
     }
     
-    public mutating func moveBottomCenter(toSize: CGSize) {
-        left = center.x - toSize.width / 2
-        width2 = toSize.width
-        height2 = toSize.height
+    public mutating func moveLeftBottom(toSize size: CGSize) {
+        left = right - size.width
+        height2 = size.height
     }
+    
+    public mutating func moveLeftCenter(toSize size: CGSize) {
+        left = right - size.width
+        width2 = size.width
+        top = center.y - size.height / 2
+        height2 = size.height
+    }
+    
+    public mutating func moveRightCenter(toSize size: CGSize) {
+        width2 = size.width
+        top = center.y - size.height / 2
+        height2 = size.height
+    }
+    
+    public mutating func moveTopCenter(toSize size: CGSize) {
+        left = center.x - size.width / 2
+        width2 = size.width
+        top = bottom - size.height
+        height2 = size.height
+    }
+    
+    public mutating func moveBottomCenter(toSize size: CGSize) {
+        left = center.x - size.width / 2
+        width2 = size.width
+        height2 = size.height
+    }
+    
+    /* Sub rect of diffirenct corners with specific size */
+    
+    public func leftTopPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveRightBottom(toSize: size)
+        return rect
+    }
+    
+    public func rightTopPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveLeftBottom(toSize: size)
+        return rect
+    }
+    
+    public func rightBottomPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveLeftTop(toSize: size)
+        return rect
+    }
+    
+    public func leftBottomPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveRightTop(toSize: size)
+        return rect
+    }
+    
+    public func leftCenterPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveRightCenter(toSize: size)
+        return rect
+    }
+    
+    public func rightCenterPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveLeftCenter(toSize: size)
+        return rect
+    }
+    
+    public func topCenterPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveBottomCenter(toSize: size)
+        return rect
+    }
+    
+    public func bottomCenterPart(ofSize size: CGSize) -> CGRect {
+        var rect = self
+        rect.moveTopCenter(toSize: size)
+        return rect
+    }
+    
+    public func centerPart(ofSize size: CGSize) -> CGRect {
+        var rect = CGRect(origin: CGPoint.zero, size: size)
+        rect.moveCenter(center)
+        return rect
+    }
+    
+    public func centerBounding() -> CGRect {
+        var rect = CGRect.zero
+        rect.right = center.x * 2
+        rect.bottom = center.y * 2
+        return rect
+    }
+    
+    public func centerBoundingSize() -> CGSize {
+        return CGSize(width: center.x * 2, height: center.y * 2)
+    }
+    
+    /* Modify sizes direct */
     
     public var width2: CGFloat {
         get { size.width }
@@ -185,6 +257,8 @@ extension CGRect {
         get { size.height }
         set { size.height = newValue }
     }
+    
+    /* Adjust */
     
     public mutating func adjust(_ left: CGFloat, _ top: CGFloat, _ right: CGFloat, _ bottom: CGFloat) {
         origin.x += left

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112028E25F9C55A004A3AA5 /* UIImageView.swift */; };
 		71789F9525E8C496004BA696 /* Stylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F6F25E8C496004BA696 /* Stylist.swift */; };
 		71789F9625E8C496004BA696 /* StyleParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7025E8C496004BA696 /* StyleParsable.swift */; };
 		71789F9725E8C496004BA696 /* StyleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7125E8C496004BA696 /* StyleParser.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
 		71789F6F25E8C496004BA696 /* Stylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylist.swift; sourceTree = "<group>"; };
 		71789F7025E8C496004BA696 /* StyleParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleParsable.swift; sourceTree = "<group>"; };
 		71789F7125E8C496004BA696 /* StyleParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleParser.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				7178A1C825F63470004BA696 /* CGRect.swift */,
 				7178A1D625F75031004BA696 /* Range.swift */,
 				7178A1D925F85A96004BA696 /* UITextView.swift */,
+				7112028E25F9C55A004A3AA5 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
+				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */,
 				71789F9C25E8C496004BA696 /* StringExtensions.swift in Sources */,
 				7178A1B725F62792004BA696 /* ShapeLayer.swift in Sources */,

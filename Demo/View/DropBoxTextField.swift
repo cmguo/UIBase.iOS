@@ -193,19 +193,25 @@ class DropBoxTextField: UIView, UITableViewDelegate, UITableViewDataSource {
         _isDrop = true
         window?.addSubview(_tableView)
         let frame = convert(bounds, to: nil)
-        _tableView.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: 0)
-
+        var y1 = frame.maxY
+        var y2 = y1
+        var h = CGFloat(count) * itemHeight
+        if( h > maxHeight) {
+            _tableView.isScrollEnabled = true
+            h = maxHeight
+        } else {
+            _tableView.isScrollEnabled = false
+        }
+        if y1 + h > window!.bounds.bottom {
+            y1 = frame.minY
+            y2 = frame.minY - h
+        }
+        _tableView.frame = CGRect(x: frame.minX, y: y1, width: frame.width, height: 0)
         UIView.animate(withDuration: duration, animations: { [weak self] in
             guard let weakSelf = self else {
                 return
             }
-            var h = CGFloat(weakSelf.count) * weakSelf.itemHeight
-            if( h > weakSelf.maxHeight) {
-                weakSelf._tableView.isScrollEnabled = true
-                h = weakSelf.maxHeight
-            } else {
-                weakSelf._tableView.isScrollEnabled = false
-            }
+            weakSelf._tableView.frame.origin.y = y2
             weakSelf._tableView.frame.size.height = h
             //weakSelf.frame.size.height = weakSelf.frame.size.height + h
         })

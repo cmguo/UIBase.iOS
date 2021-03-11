@@ -117,11 +117,11 @@ public class XHBCheckBox: UIButton {
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: 0, y: (contentRect.height - XHBCheckBox.iconSize) / 2, width: XHBCheckBox.iconSize, height: XHBCheckBox.iconSize)
+        return contentRect.leftCenterPart(ofSize: CGSize(width: XHBCheckBox.iconSize, height: XHBCheckBox.iconSize))
     }
     
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: XHBCheckBox.iconSize + XHBCheckBox.textPadding, y: 0, width: contentRect.width, height: XHBCheckBox.height)
+        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - XHBCheckBox.iconSize - XHBCheckBox.textPadding, height: XHBCheckBox.height))
     }
     
     private func states() -> Int {

@@ -14,13 +14,17 @@ import SwiftSVG
 class XHBTextAreaController: ComponentController {
 
     class Styles : ViewStyles {
+        static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
+            makeValue(i, i)
+        }
+
         @objc var maximumCharCount = 100
         @objc var minimunHeight: CGFloat = 100
         @objc var maximunHeight: CGFloat = 300
         @objc var placeholder = "请输入"
         @objc var showBorder = false
-        @objc var showLeftIcon = false
-        @objc var showRightIcon = false
+        @objc var leftIcon: String = "<null>"
+        @objc var rightIcon: String = "<null>"
 
         override class func descsForStyle(name: String) -> NSArray? {
             switch name {
@@ -34,10 +38,19 @@ class XHBTextAreaController: ComponentController {
                 return ["占位文字", "没有任何输入文字时，显示的占位文字（灰色）"]
             case "showBorder":
                 return ["显示边框", "设置是否显示边框"]
-            case "showLeftIcon":
-                return ["显示左图", "设置是否显示左边的图标"]
-            case "showRightIcon":
-                return ["显示右图", "设置是否显示右边的图标"]
+            case "leftIcon":
+                return ["左图标", "设置左边的图标，URL 类型，控件内部会自动重新布局"]
+            case "rightIcon":
+                return ["右图标", "设置右边的图标，URL 类型，控件内部会自动重新布局"]
+            default:
+                return nil
+            }
+        }
+        
+        override class func valuesForStyle(name: String) -> NSArray? {
+            switch name {
+            case "leftIcon", "rightIcon":
+                return Styles.icons as NSArray
             default:
                 return nil
             }
@@ -108,10 +121,10 @@ class XHBTextAreaController: ComponentController {
             } else if name == "showBorder" {
                 self.textInput.showBorder = self.styles.showBorder
                 self.textArea.showBorder = self.styles.showBorder
-            } else if name == "showLeftIcon" {
-                self.textInput.leftIcon = self.styles.showLeftIcon ? self.model.leftIcon : nil
-            } else if name == "showRightIcon" {
-                self.textInput.rigthIcon = self.styles.showRightIcon ? self.model.rightIcon : nil
+            } else if name == "leftIcon" {
+                self.textInput.leftIcon = Bundle(for: Model.self).url(forResource: self.styles.leftIcon, withExtension: "svg")
+            } else if name == "rightIcon" {
+                self.textInput.rigthIcon = Bundle(for: Model.self).url(forResource: self.styles.rightIcon, withExtension: "svg")
             }
         }
     }

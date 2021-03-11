@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import UIBase
+import SwiftSVG
 
 public class XHBButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
@@ -23,13 +24,17 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     }
     
     class Styles : ViewStyles {
+        static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
+            makeValue(i, i)
+        }
+
         @objc var disabled = false
         @objc var loading = false
         @objc var sizeMode = ButtonSize.Large
         var sizeMode2 = XHBButton.ButtonSize.Large
         @objc var widthMode = ButtonWidth.WrapContent
         var widthMode2 = XHBButton.ButtonWidth.WrapContent
-        @objc var icon: UIImage? = nil
+        @objc var icon: String? = nil
         @objc var text: String = "按钮"
         
         override class func valuesForStyle(name: String) -> NSArray? {
@@ -38,6 +43,8 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 return makeValues(enumType: XHBButton.ButtonSize.self)
             case "widthMode":
                 return makeValues(enumType: XHBButton.ButtonWidth.self)
+            case "icon":
+                return Styles.icons as NSArray
             default:
                 return nil
             }
@@ -53,6 +60,8 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 return ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
             case "widthMode":
                 return ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
+            case "icon":
+                return ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
             case "text":
                 return ["显示文字", "改变文字，按钮会自动适应文字宽度"]
            default:
@@ -96,20 +105,20 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, widthMode: styles.widthMode2, icon: styles.icon, text: styles.text)
+        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, icon: nil, text: styles.text)
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
         buttons.append(button)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
-            make.width.equalTo(button.frame.width)
-            make.height.equalTo(button.frame.height)
             if (styles.widthMode == .MatchParent) {
                 make.leading.equalToSuperview().offset(150)
                 make.trailing.equalToSuperview()
             } else {
+                make.width.equalTo(button.bounds.width)
                 make.centerX.equalToSuperview().offset(75)
             }
+            make.height.equalTo(button.frame.height)
             make.centerY.equalToSuperview()
         }
         return cell
@@ -132,12 +141,28 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.isEnabled = !self.styles.disabled }
             } else if name == "loading" {
                 for b in self.buttons { b.isLoading = self.styles.loading }
-            } else if name == "loading" {
-                for b in self.buttons { b.isLoading = self.styles.loading }
+            } else if name == "sizeMode" {
+                for b in self.buttons { b }
+                self.view.setNeedsLayout()
+            } else if name == "icon" {
+                for b in self.buttons { b.icon = Bundle(for: Model.self).url(forResource: self.styles.icon, withExtension: "svg") }
+                self.view.setNeedsLayout()
             } else if name == "text" {
-                for b in self.buttons { b.setTitle(self.styles.text) }
+                for b in self.buttons { b.text = self.styles.text }
+                self.view.setNeedsLayout()
             } else {
                 self.tableView.reloadData()
+            }
+        }
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        if styles.widthMode2 == .WrapContent {
+            for b in self.buttons {
+                b.snp.updateConstraints { (maker) in
+                    maker.width.equalTo(b.bounds.width)
+                    maker.height.equalTo(b.bounds.height)
+                }
             }
         }
     }

@@ -28,7 +28,6 @@ extension UIButton {
         for state : UIControl.State in [.normal, .highlighted, .disabled, .selected, .focused, .application, .reserved] {
             self.setTitle(text, for: state)
         }
-        superview?.setNeedsLayout()
     }
     
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
