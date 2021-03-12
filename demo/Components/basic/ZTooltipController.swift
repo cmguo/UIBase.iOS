@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBTooltipController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate {
+class XHBTooltipController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBToolTipDelegate {
 
     @objc enum Location : Int {
         case TopLeft
@@ -25,11 +25,14 @@ class XHBTooltipController: ComponentController, UICollectionViewDataSource, UIC
         var location2 = XHBToolTip.Location.TopRight
         @objc var maxWidth: CGFloat = 150
         @objc var tipText = "你点击了按钮"
+        @objc var tipIcon = "<null>"
         @objc var closeable = false
         
         override class func valuesForStyle(name: String) -> NSArray? {
             if name == "location" {
                 return makeValues(enumType: XHBToolTip.Location.self)
+            } else if name == "tipIcon" {
+                return Icons.icons as NSArray
             } else {
                 return nil
             }
@@ -86,7 +89,23 @@ class XHBTooltipController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        XHBToolTip.tip(sender, styles.tipText, maxWidth: styles.maxWidth, location: styles.location2)
+        XHBToolTip.tip(sender, styles.tipText, delegate: self)
+    }
+    
+    func toolTipMaxWidth(_ toolTip: XHBToolTip) -> CGFloat {
+        return styles.maxWidth
+    }
+    
+    func toolTipIcon(_ toolTip: XHBToolTip) -> URL? {
+        return Icons.iconURL(styles.tipIcon)
+    }
+    
+    func toolTipPrefectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location {
+        return styles.location2
+    }
+    
+    func toolTipIconTapped(_ toolTip: XHBToolTip) {
+        XHBToolTip.tip(toolTip, "图标被点击了")
     }
 }
 

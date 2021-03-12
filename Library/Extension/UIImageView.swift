@@ -24,13 +24,19 @@ extension UIImageView {
             completion?(CGRect.zero)
             return
         }
-        self.image = UIImage.transparent
+        //self.image = UIImage.transparent
         let icon = CALayer(svgURL: svgURL) { (layer: SVGLayer) in
-            let bounds = inBounds ?? layer.frame
-            let size = layer.boundingBox.centerBoundingSize()
-            let scale = min(bounds.width / size.width, bounds.height / size.height)
-            layer.transform = CATransform3DMakeScale(scale, scale, 1)
-            layer.frame = bounds//.centerPart(ofSize: size)
+            let bounds = inBounds ?? self.bounds
+            if bounds.isEmpty {
+                let bounds = layer.boundingBox.centerBounding()
+                self.bounds = bounds
+                layer.frame = bounds
+            } else {
+                let size = layer.boundingBox.centerBoundingSize()
+                let scale = min(bounds.width / size.width, bounds.height / size.height)
+                layer.transform = CATransform3DMakeScale(scale, scale, 1)
+                layer.frame = bounds//.centerPart(ofSize: size)
+            }
             DispatchQueue.main.async {
                 completion?(layer.boundingBox)
             }

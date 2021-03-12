@@ -7,17 +7,31 @@
 
 import Foundation
 
+@objc public protocol XHBToolTipDelegate {
+    
+    @objc optional func toolTipMaxWidth(_ toolTip: XHBToolTip) -> CGFloat
+    @objc optional func toolTipPrefectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location
+    @objc optional func toolTipIcon(_ toolTip: XHBToolTip) -> URL?
+    @objc optional func toolTipDelayTime(_ toolTip: XHBToolTip) -> Double
+
+    @objc optional func toolTipIconTapped(_ toolTip: XHBToolTip)
+    @objc optional func toolTipDismissed(_ toolTip: XHBToolTip, isFromUser: Bool)
+}
+
 public class XHBToolTip : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, maxWidth: CGFloat = 100, location: Location = Location.TopRight, delayTime: Double = 3) {
+    public class func tip(_ target: UIView, _ message: String, delegate:  XHBToolTipDelegate? = nil) {
         
         let tipView = XHBToolTip()
         tipView.message = message
-        tipView.maxWidth = maxWidth
-        tipView.location = location
+        tipView.maxWidth = delegate?.toolTipMaxWidth?(tipView) ?? 100
+        tipView.location = delegate?.toolTipPrefectLocation?(tipView) ?? Location.TopRight
+        tipView.icon = delegate?.toolTipIcon?(tipView)
+        tipView.delegate = delegate
         tipView.popAt(target)
         
+        let delayTime = delegate?.toolTipDelayTime?(tipView) ?? 3
         if delayTime > 0 {
             DispatchQueue.main.delay(delayTime) {
                 tipView.dismissAnimated(true)
@@ -26,7 +40,7 @@ public class XHBToolTip : UIView
 
     }
     
-    public enum Location : Int, RawRepresentable, CaseIterable {
+    @objc public enum Location : Int, RawRepresentable, CaseIterable {
         case TopLeft
         case TopCenter
         case TopRight
@@ -39,6 +53,7 @@ public class XHBToolTip : UIView
     private static let arrowOffset: CGFloat = 16
     private static let radius: CGFloat = 8
     private static let padding: CGFloat = 13
+    private static let iconSize: CGFloat = 16
     private static let iconPadding: CGFloat = 8
     private static let defaultBackgroundColor = UIColor(rgb: 0x1D2126)
     private static let defaultTextColor = ThemeColor.shared.bluegrey_00
@@ -65,11 +80,14 @@ public class XHBToolTip : UIView
     
     public var icon: URL? {
         didSet {
-            iconView.setIcon(svgURL: icon) {(boundingBox: CGRect) in
-                self.iconView.bounds = boundingBox.centerBounding()
+            iconView.setIcon(svgURL: icon) {_ in
+                //self.iconView.bounds = boundingBox.centerBounding()
+                self.iconView.setIconColor(color: self.textColor)
             }
         }
     }
+    
+    public var delegate: XHBToolTipDelegate? = nil
     
     /* private variables */
     
@@ -81,6 +99,11 @@ public class XHBToolTip : UIView
     
     private lazy var iconView: UIImageView = {
         let imageView = UIImageView()
+        imageView.bounds.width2 = XHBToolTip.iconSize
+        imageView.bounds.height2 = XHBToolTip.iconSize
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(iconTap(_:)))
+        imageView.addGestureRecognizer(recognizer)
+        imageView.isUserInteractionEnabled = true
         addSubview(imageView)
         return imageView
     }()
@@ -111,7 +134,7 @@ public class XHBToolTip : UIView
         var frame = CGRect(origin: CGPoint.zero, size: size)
         frame.inflate(XHBToolTip.padding)
         if icon != nil {
-            frame.width2 += XHBToolTip.iconPadding * 2 - XHBToolTip.padding + iconView.bounds.width
+            frame.width2 += XHBToolTip.iconPadding * 2 - XHBToolTip.padding + XHBToolTip.iconSize
         }
         frame.height2 += XHBToolTip.arrowSize
         
@@ -196,6 +219,12 @@ public class XHBToolTip : UIView
 
     @objc func finaliseDismiss() {
         removeFromSuperview()
+    }
+    
+    @objc func iconTap(_ recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .ended {
+            delegate?.toolTipIconTapped?(self)
+        }
     }
 
     public override func layoutSubviews() {

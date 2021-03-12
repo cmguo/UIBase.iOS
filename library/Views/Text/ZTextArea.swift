@@ -358,11 +358,11 @@ public class XHBTextArea: UIView {
         }
         if (leftImageVisible) {
             let r = rect.cutLeft(leftImage.frame.width + 4)
-            leftImage.frame = r.rightCenterPart(ofSize: leftImage.bounds.size)
+            leftImage.frame = r.leftCenterPart(ofSize: leftImage.bounds.size)
         }
         if (rightImageVisible) {
             let r = rect.cutRight(rightImage.frame.width + 4)
-            rightImage.frame = r.leftCenterPart(ofSize: rightImage.frame.size)
+            rightImage.frame = r.rightCenterPart(ofSize: rightImage.frame.size)
         }
         textView.frame = rect
         if placeholderLabelVisible {
@@ -406,7 +406,6 @@ public class XHBTextArea: UIView {
         if let icon = icon {
             let imageView = index == 0 ? leftImage : rightImage
             imageView.setIcon(svgURL: icon) { (boundingBox: CGRect) in
-                imageView.bounds = boundingBox.centerBounding()
                 imageView.isHidden = false
                 self.setNeedsLayout()
             }

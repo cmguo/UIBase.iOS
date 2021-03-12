@@ -14,10 +14,6 @@ import SwiftSVG
 class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
 
     class Styles : ViewStyles {
-        static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
-            makeValue(i, i)
-        }
-
         @objc var maximumCharCount = 100
         @objc var minimunHeight: CGFloat = 100
         @objc var maximunHeight: CGFloat = 300
@@ -50,7 +46,7 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
         override class func valuesForStyle(name: String) -> NSArray? {
             switch name {
             case "leftIcon", "rightIcon":
-                return Styles.icons as NSArray
+                return Icons.icons as NSArray
             default:
                 return nil
             }
@@ -124,9 +120,9 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
                 self.textInput.showBorder = self.styles.showBorder
                 self.textArea.showBorder = self.styles.showBorder
             } else if name == "leftIcon" {
-                self.textInput.leftIcon = Bundle(for: Model.self).url(forResource: self.styles.leftIcon, withExtension: "svg")
+                self.textInput.leftIcon = Icons.iconURL(self.styles.leftIcon)
             } else if name == "rightIcon" {
-                self.textInput.rigthIcon = Bundle(for: Model.self).url(forResource: self.styles.rightIcon, withExtension: "svg")
+                self.textInput.rigthIcon = Icons.iconURL(self.styles.rightIcon)
             }
         }
     }

@@ -24,10 +24,6 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     }
     
     class Styles : ViewStyles {
-        static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
-            makeValue(i, i)
-        }
-
         @objc var disabled = false
         @objc var loading = false
         @objc var sizeMode = ButtonSize.Large
@@ -35,7 +31,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         @objc var widthMode = ButtonWidth.WrapContent
         var widthMode2 = XHBButton.ButtonWidth.WrapContent
         @objc var iconAtRight = false
-        @objc var icon: String? = nil
+        @objc var icon: String = "<null>"
         @objc var text: String = "按钮"
         
         override class func valuesForStyle(name: String) -> NSArray? {
@@ -45,7 +41,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
             case "widthMode":
                 return makeValues(enumType: XHBButton.ButtonWidth.self)
             case "icon":
-                return Styles.icons as NSArray
+                return Icons.icons as NSArray
             default:
                 return nil
             }
@@ -148,7 +144,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.iconAtRight = self.styles.iconAtRight }
                 self.view.setNeedsLayout()
             } else if name == "icon" {
-                for b in self.buttons { b.icon = Bundle(for: Model.self).url(forResource: self.styles.icon, withExtension: "svg") }
+                for b in self.buttons { b.icon = Icons.iconURL(self.styles.icon) }
                 self.view.setNeedsLayout()
             } else if name == "text" {
                 for b in self.buttons { b.text = self.styles.text }
