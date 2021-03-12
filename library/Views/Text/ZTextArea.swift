@@ -58,6 +58,18 @@ public class MediaTextView: UITextView {
     
 }
 
+@objc public protocol XHBTextAreaDelegate {
+    
+    @objc optional func textAreaShouldChangeTextInRange(_ textArea: XHBTextArea, _ range: NSRange, _ replacementText: String) -> Bool
+    @objc optional func textAreaShouldBegainEditing(_ textArea: XHBTextArea) -> Bool
+    @objc optional func textAreaDidBeginEditing(_ textArea: XHBTextArea)
+    @objc optional func textAreaDidEndEditing(_ textArea: XHBTextArea)
+
+    @objc optional func textAreaIconTapping(_ textArea: XHBTextArea, index: Int, holding: Bool)
+    @objc optional func textAreaIconTapped(_ textArea: XHBTextArea, index: Int)
+}
+
+
 /*
  XHBTextArea
    MediaTextView (text)
@@ -146,11 +158,8 @@ public class XHBTextArea: UIView {
         }
     }
 
-    public var shouldChangeTextInRange: ((_ range: NSRange, _ replacementText: String) -> Bool)?
-    public var shouldBegainEditing: (() -> Bool)?
-    public var textViewDidBeginEditing: (() -> Void)?
-    public var textViewDidEndEditing: (() -> Void)?
-
+    public var delegate: XHBTextAreaDelegate? = nil
+    
     public var font: UIFont {
         didSet {
             textView.font = font
@@ -208,19 +217,9 @@ public class XHBTextArea: UIView {
     
     fileprivate let textView: MediaTextView
     
-    fileprivate lazy var leftImage: UIImageView = {
-        let imageView = UIImageView()
-        addSubview(imageView)
-        optionalViews[0] = imageView
-        return imageView
-    }()
+    fileprivate lazy var leftImage: UIImageView = createImageView(index: 0)
     
-    fileprivate lazy var rightImage: UIImageView = {
-        let imageView = UIImageView()
-        addSubview(imageView)
-        optionalViews[1] = imageView
-        return imageView
-    }()
+    fileprivate lazy var rightImage: UIImageView = createImageView(index: 1)
     
     fileprivate lazy var placeholderLabel: UILabel = {
         let label = UILabel()
@@ -358,14 +357,12 @@ public class XHBTextArea: UIView {
             }
         }
         if (leftImageVisible) {
-            var r = rect.cutLeft(leftImage.frame.width + 4)
-            r.moveRightCenter(toSize: leftImage.frame.size)
-            leftImage.frame = r
+            let r = rect.cutLeft(leftImage.frame.width + 4)
+            leftImage.frame = r.rightCenterPart(ofSize: leftImage.bounds.size)
         }
         if (rightImageVisible) {
-            var r = rect.cutRight(rightImage.frame.width + 4)
-            r.moveLeftCenter(toSize: rightImage.frame.size)
-            rightImage.frame = r
+            let r = rect.cutRight(rightImage.frame.width + 4)
+            rightImage.frame = r.leftCenterPart(ofSize: rightImage.frame.size)
         }
         textView.frame = rect
         if placeholderLabelVisible {
@@ -380,6 +377,28 @@ public class XHBTextArea: UIView {
             return !v.isHidden
         }
         return false
+    }
+
+    fileprivate func createImageView(index: Int) -> UIImageView {
+        let imageView = UIImageView()
+        addSubview(imageView)
+        optionalViews[index] = imageView
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTap(_:)))
+        imageView.addGestureRecognizer(recognizer)
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }
+    
+    @objc fileprivate func imageViewTap(_ recognizer: UITapGestureRecognizer) {
+        let index = optionalViews.firstIndex(of: recognizer.view)!
+        if recognizer.state == .began {
+            delegate?.textAreaIconTapping?(self, index: index, holding: true)
+        } else if recognizer.state == .cancelled {
+            delegate?.textAreaIconTapping?(self, index: index, holding: false)
+        } else if recognizer.state == .ended {
+            delegate?.textAreaIconTapping?(self, index: index, holding: false)
+            delegate?.textAreaIconTapped?(self, index: index)
+        }
     }
     
     fileprivate func setIcon(_ index: Int, _ icon: URL?) {
@@ -413,10 +432,10 @@ public class XHBTextArea: UIView {
         }
     }
     
-    fileprivate func states() -> Int {
+    fileprivate func states() -> UIControl.State {
         var states = StateColor.STATES_NORMAL
         if isFocused {
-            states |= StateColor.STATE_FOCUSED
+            states = states.union(StateColor.STATE_FOCUSED)
         }
         return states
     }
@@ -460,11 +479,11 @@ public class XHBTextArea: UIView {
 extension XHBTextArea: UITextViewDelegate {
 
     public func textViewDidBeginEditing(_: UITextView) {
-        textViewDidBeginEditing?()
+        delegate?.textAreaDidBeginEditing?(self)
     }
 
     public func textViewDidEndEditing(_: UITextView) {
-        textViewDidEndEditing?()
+        delegate?.textAreaDidEndEditing?(self)
     }
 
     public func textViewDidChangeSelection(_ textView: UITextView) {
@@ -502,18 +521,18 @@ extension XHBTextArea: UITextViewDelegate {
     }
 
     public func textView(_: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return shouldChangeTextInRange?(range, text) ?? true
+        return delegate?.textAreaShouldChangeTextInRange?(self, range, text) ?? true
     }
 
     public func textViewShouldBeginEditing(_: UITextView) -> Bool {
-        return shouldBegainEditing?() ?? true
+        return delegate?.textAreaShouldBegainEditing?(self) ?? true
     }
 }
 
 public extension XHBTextArea {
 
     private func shouldChangeTextIn(range: NSRange, with text: String) -> Bool {
-        return shouldChangeTextInRange?(range, text) ?? true
+        return delegate?.textAreaShouldChangeTextInRange?(self, range, text) ?? true
     }
     
     @objc func append(image: UIImage, imageSize size: CGSize, altName alt: String?) {

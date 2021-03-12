@@ -88,21 +88,23 @@ public class XHBButton : UIButton
         let radius: CGFloat
         let padding: CGFloat // (left, rigth)
         let textSize: CGFloat
+        let iconSize: CGFloat
         let iconPadding: CGFloat
         
-        init(_ height: CGFloat, _ radius: CGFloat, _ padding: CGFloat, _ textSize: CGFloat, _ iconPadding: CGFloat) {
+        init(_ height: CGFloat, _ radius: CGFloat, _ padding: CGFloat, _ textSize: CGFloat, _ iconSize: CGFloat, _ iconPadding: CGFloat) {
             self.height = height
             self.radius = radius
             self.padding = padding
             self.textSize = textSize
+            self.iconSize = iconSize
             self.iconPadding = iconPadding
         }
     }
     // height, padding(left, rigth), textSize, iconPadding, radius
     private static let sizeStyles: [ButtonSize: SizeStyles] = [
-        .Large: SizeStyles(44, 24, 24, 18, 5),
-        .Middle: SizeStyles(36, 18, 16, 16, 4),
-        .Small: SizeStyles(24, 12, 12, 14, 3)
+        .Large: SizeStyles(44, 24, 24, 18, 20, 5),
+        .Middle: SizeStyles(36, 18, 16, 16, 18, 4),
+        .Small: SizeStyles(24, 12, 12, 14, 16, 3)
     ]
     
     // MARK: - Public variables
@@ -118,12 +120,18 @@ public class XHBButton : UIButton
     public var icon: URL? = nil {
         didSet {
             self.setImage(UIImage.transparent)
-            self.imageView?.setIcon(svgURL: icon) {(boundingBox: CGRect) in
-                self.imageSize = boundingBox.centerBoundingSize()
+            self.imageView?.setIcon(svgURL: icon, inBounds: CGRect(origin: CGPoint.zero, size: imageSize)) {_ in
                 self.updateSize()
             }
         }
     }
+    
+    public var iconAtRight = false {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
     /**
      Current loading state.
      */
@@ -183,6 +191,7 @@ public class XHBButton : UIButton
         
         // Set button contents
         // Set the icon of the button
+        self.imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
         if let icon = icon {
             self.icon = icon
             self.imageView?.setIcon(svgURL: icon) {(boundingBox: CGRect) in
@@ -214,7 +223,7 @@ public class XHBButton : UIButton
             minSize.height = titleSize.height
         }
         if self.icon != nil {
-            //imageSize = self.imageView!.layer.frame.size
+            imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
             minSize.width += imageSize.width
             if text != nil {
                 minSize.width += 6
@@ -229,23 +238,18 @@ public class XHBButton : UIButton
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return bounds.centerPart(ofSize: minSize).leftCenterPart(ofSize: imageSize)
+        let contentRect = bounds.centerPart(ofSize: minSize);
+        return iconAtRight ? contentRect.rightCenterPart(ofSize: imageSize) : contentRect.leftCenterPart(ofSize: imageSize)
     }
     
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return bounds.centerPart(ofSize: minSize).rightCenterPart(ofSize: titleSize)
+        let contentRect = bounds.centerPart(ofSize: minSize);
+        return !iconAtRight ? contentRect.rightCenterPart(ofSize: titleSize) : contentRect.leftCenterPart(ofSize: titleSize)
     }
     
     // layoutSubviews
     open override func layoutSubviews() {
         super.layoutSubviews()
-        let rect = bounds.centerPart(ofSize: minSize)
-        if icon != nil {
-            imageView?.frame = rect.leftCenterPart(ofSize: imageView!.bounds.size)
-        }
-        if text != nil {
-            titleLabel?.frame = rect.rightCenterPart(ofSize: titleLabel!.bounds.size)
-        }
         indicator.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
     }
         

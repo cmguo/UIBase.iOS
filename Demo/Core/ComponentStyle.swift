@@ -43,10 +43,10 @@ public class ComponentStyle
         })
         if let descs = ObjectFactory.descs(forStyle: cls, style: self.name) {
             self.title = descs[0] as! String
-            self.desc = descs[1] as! String
+            self.desc = "\(self.name): \(self.valueType)\n\(descs[1] as! String)"
         } else {
             self.title = self.name.capitalizingFirstLetter()
-            self.desc = self.name
+            self.desc = "\(self.name): \(self.valueType)"
         }
     }
     

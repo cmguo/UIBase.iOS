@@ -7,35 +7,45 @@
 
 import Foundation
 
-class StateColor {
-    
-    static let STATE_DISABLED = 1
-    static let STATE_PRESSED = 2
-    static let STATE_CHECKED = 4
-    static let STATE_HALF_CHECKED = 8
-    static let STATE_FOCUSED = 16
-    static let STATE_ERROR = 32
+extension UIControl.State {
+    public init(states: [UIControl.State]) {
+        var bits: UInt = 0
+        for s in states {
+            bits |= s.rawValue
+        }
+        self.init(rawValue: bits)
+    }
+}
 
-    static let STATES_NORMAL = 0
+class StateColor {
+        
+    static let STATE_DISABLED = UIControl.State.disabled
+    static let STATE_PRESSED = UIControl.State.highlighted
+    static let STATE_FOCUSED = UIControl.State.focused
+    static let STATE_CHECKED = UIControl.State(rawValue: 0x10000)
+    static let STATE_HALF_CHECKED = UIControl.State(rawValue: 0x20000)
+    static let STATE_ERROR = UIControl.State(rawValue: 0x40000)
+
+    static let STATES_NORMAL = UIControl.State.normal
     static let STATES_PRESSED = STATE_PRESSED
     static let STATES_DISABLED = STATE_DISABLED
     static let STATES_CHECKED = STATE_CHECKED
     static let STATES_HALF_CHECKED = STATE_HALF_CHECKED
     static let STATES_FOCUSED = STATE_FOCUSED
     static let STATES_ERROR = STATE_ERROR
-    static let STATES_DISABLED_CHECKED = STATE_DISABLED | STATE_CHECKED
-    static let STATES_DISABLED_HALF_CHECKED = STATE_DISABLED | STATE_HALF_CHECKED
+    static let STATES_DISABLED_CHECKED = UIControl.State([STATE_DISABLED, STATE_CHECKED])
+    static let STATES_DISABLED_HALF_CHECKED = UIControl.State([STATE_DISABLED, STATE_HALF_CHECKED])
 
     let color: UIColor
-    let states: Int
+    let states: UIControl.State
     
-    init (_ color: UIColor, _ states: Int) {
+    init (_ color: UIColor, _ states: UIControl.State) {
         self.color = color
         self.states = states
     }
     
-    func matchStates(_ states: Int) -> Bool {
-        return (self.states & states) == self.states
+    func matchStates(_ states: UIControl.State) -> Bool {
+        return self.states.intersection(states) == self.states
     }
     
 }
@@ -48,7 +58,7 @@ class StateListColor {
         self.statesColors = statesColors
     }
     
-    func color(for states: Int) -> UIColor {
+    func color(for states: UIControl.State) -> UIColor {
         for sc in self.statesColors {
             if (sc.matchStates(states)) {
                 return sc.color

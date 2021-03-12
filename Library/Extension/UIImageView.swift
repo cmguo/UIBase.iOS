@@ -9,22 +9,39 @@ import Foundation
 import SwiftSVG
 
 extension UIImageView {
+
+    public func setIcon(svgURL : URL?, completion: ( (CGRect) -> Void)?) {
+        setIcon(svgURL: svgURL, inBounds: nil, completion: completion)
+    }
     
-    public func setIcon(svgURL : URL?, completion: @escaping (CGRect) -> Void) {
+    public func setIcon(svgURL : URL?, inBounds: CGRect?, completion: ( (CGRect) -> Void)?) {
         if let sublayers = self.layer.sublayers {
             for sl in sublayers {
                 sl.removeFromSuperlayer()
             }
         }
         guard let svgURL = svgURL else {
-            completion(CGRect.zero)
+            completion?(CGRect.zero)
             return
         }
         self.image = UIImage.transparent
         let icon = CALayer(svgURL: svgURL) { (layer: SVGLayer) in
-            completion(layer.boundingBox)
+            let bounds = inBounds ?? layer.frame
+            // TODO: scale icon
+            layer.frame = bounds.centerPart(ofSize: layer.boundingBox.centerBoundingSize())
+            completion?(layer.boundingBox)
         }
         self.layer.addSublayer(icon)
+    }
+    
+    public func setIconColor(color: UIColor) {
+        if let sublayers = self.layer.sublayers {
+            for sl in sublayers {
+                if let svg = sl as? CAShapeLayer {
+                    svg.fillColor = color.cgColor
+                }
+            }
+        }
     }
 
 }

@@ -54,9 +54,9 @@ public class SkinManager: NSObject {
 
     public func configNormalSkin() {
         if let styleFile = config.currentBundle?.url(forResource: "style", withExtension: "json") {
-            if let styleKit = StyleKit(fileUrl: styleFile) {
-                styleKit.apply()
-            }
+//            if let styleKit = StyleKit(fileUrl: styleFile) {
+//                styleKit.apply()
+//            }
             json = (try? JSON(data: Data(contentsOf: styleFile))) ?? JSON([:])
         }
     }
@@ -84,7 +84,7 @@ public class SkinManager: NSObject {
         UserDefaults.standard.synchronize()
         initSkin()
         configNormalSkin()
-        NotificationCenter.default.post(customNotification: .changeSkinKey, object: self, userInfo: nil)
+//        NotificationCenter.default.post(customNotification: .changeSkinKey, object: self, userInfo: nil)
         changeSkinBlock?(config.currentBundleName, SkinChangeEvent.change)
     }
 
@@ -121,7 +121,7 @@ public class SkinManager: NSObject {
                 self.configNormalSkin()
                 self.changeSkinBlock?(self.config.currentBundleName, SkinChangeEvent.reset)
             }
-            NotificationCenter.default.post(customNotification: .changeSkinKey, object: self, userInfo: nil)
+//            NotificationCenter.default.post(customNotification: .changeSkinKey, object: self, userInfo: nil)
         }
         if Thread.current.isMainThread {
             changeSkin()

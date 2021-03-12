@@ -34,6 +34,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         var sizeMode2 = XHBButton.ButtonSize.Large
         @objc var widthMode = ButtonWidth.WrapContent
         var widthMode2 = XHBButton.ButtonWidth.WrapContent
+        @objc var iconAtRight = false
         @objc var icon: String? = nil
         @objc var text: String = "按钮"
         
@@ -60,6 +61,8 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 return ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
             case "widthMode":
                 return ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
+            case "iconAtRight":
+                return ["图标右置", "更改图标位置，可以在文字左边或者右边"]
             case "icon":
                 return ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
             case "text":
@@ -72,13 +75,10 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         override func notify(_ name: String) {
             if name == "sizeMode" {
                 sizeMode2 = XHBButton.ButtonSize.init(rawValue: sizeMode.rawValue)!
-                super.notify("sizeMode2")
             } else if name == "widthMode" {
                 widthMode2 = XHBButton.ButtonWidth.init(rawValue: widthMode.rawValue)!
-                super.notify("widthMode2")
-            } else {
-                super.notify(name)
             }
+            super.notify(name)
         }
     }
     
@@ -141,8 +141,11 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.isEnabled = !self.styles.disabled }
             } else if name == "loading" {
                 for b in self.buttons { b.isLoading = self.styles.loading }
-            } else if name == "sizeMode" {
-                for b in self.buttons { b }
+//            } else if name == "sizeMode" {
+//                for b in self.buttons { _ = b }
+//                self.view.setNeedsLayout()
+            } else if name == "iconAtRight" {
+                for b in self.buttons { b.iconAtRight = self.styles.iconAtRight }
                 self.view.setNeedsLayout()
             } else if name == "icon" {
                 for b in self.buttons { b.icon = Bundle(for: Model.self).url(forResource: self.styles.icon, withExtension: "svg") }

@@ -31,7 +31,6 @@ class Colors {
         return json.dictionary?.filter({ (key: String, value: JSON) -> Bool in
             return value.string?.starts(with: "#") ?? false
         }).mapValues({ (value: JSON) in UIColor(hexString:value.string!) }) ?? [:]
-        return [:]
     }
     
     class func nonStdColors() -> Dictionary<String, UIColor> {

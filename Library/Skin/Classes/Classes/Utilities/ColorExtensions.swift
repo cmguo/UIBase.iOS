@@ -1,7 +1,8 @@
 import UIKit
 
-@objc public extension UIColor {
-    convenience public init(hexString: String) {
+public extension UIColor {
+    
+    convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
@@ -20,7 +21,7 @@ import UIKit
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 
-    public func getNSForegroundColorAttribute() -> [String: UIColor] {
+    func getNSForegroundColorAttribute() -> [String: UIColor] {
         return [NSAttributedString.Key.foregroundColor.rawValue: self]
     }
 }

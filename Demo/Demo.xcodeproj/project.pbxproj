@@ -73,11 +73,11 @@
 		7128764C25E629390054A74B /* ComponentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentStyle.swift; sourceTree = "<group>"; };
 		7128764F25E633F10054A74B /* ComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentController.swift; sourceTree = "<group>"; };
 		7128765F25E655010054A74B /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonsController.swift; path = ../../Demo/Buttons/ButtonsController.swift; sourceTree = "<group>"; };
-		7128766225E6557B0054A74B /* StylesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StylesController.swift; path = ../../Demo/View/StylesController.swift; sourceTree = "<group>"; };
-		712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckBoxTableViewCell.swift; path = ../../Demo/View/CheckBoxTableViewCell.swift; sourceTree = "<group>"; };
-		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StyleTableViewCell.swift; path = ../../Demo/View/StyleTableViewCell.swift; sourceTree = "<group>"; };
-		712876E625E746A40054A74B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextTableViewCell.swift; path = ../../Demo/View/TextTableViewCell.swift; sourceTree = "<group>"; };
-		712876EB25E746CB0054A74B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../../Demo/View/ListTableViewCell.swift; sourceTree = "<group>"; };
+		7128766225E6557B0054A74B /* StylesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylesController.swift; sourceTree = "<group>"; };
+		712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxTableViewCell.swift; sourceTree = "<group>"; };
+		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTableViewCell.swift; sourceTree = "<group>"; };
+		712876E625E746A40054A74B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		712876EB25E746CB0054A74B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		7161CDB925E0E21900BF6B71 /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		7161CDBC25E0E26500BF6B71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7161CDBF25E0E28E00BF6B71 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = ../../Demo/View/DescTableViewCell.swift; sourceTree = "<group>"; };
+		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +94,7 @@
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71903B7625E0B53400437575 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		71A2468025E78CDF0049ABB0 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DropBoxTextField.swift; path = ../../Demo/View/DropBoxTextField.swift; sourceTree = "<group>"; };
+		71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxTextField.swift; sourceTree = "<group>"; };
 		71A2468A25E798ED0049ABB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
@@ -141,6 +141,20 @@
 				7112028A25F9BFA2004A3AA5 /* delete.svg */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		711202A625FB05A2004A3AA5 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */,
+				7128766225E6557B0054A74B /* StylesController.swift */,
+				712876E625E746A40054A74B /* TextTableViewCell.swift */,
+				71789F2E25E8A303004BA696 /* DescTableViewCell.swift */,
+				712876EB25E746CB0054A74B /* ListTableViewCell.swift */,
+				712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */,
+				712876DB25E743C80054A74B /* StyleTableViewCell.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		7161CDA725E0D84000BF6B71 /* Buttons */ = {
@@ -226,14 +240,8 @@
 		71F543DA25E4DA5800AEB07A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */,
+				711202A625FB05A2004A3AA5 /* Style */,
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
-				7128766225E6557B0054A74B /* StylesController.swift */,
-				712876E625E746A40054A74B /* TextTableViewCell.swift */,
-				71789F2E25E8A303004BA696 /* DescTableViewCell.swift */,
-				712876EB25E746CB0054A74B /* ListTableViewCell.swift */,
-				712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */,
-				712876DB25E743C80054A74B /* StyleTableViewCell.swift */,
 				1738AAC725F76ED2003EEB53 /* BadgeView.swift */,
 			);
 			path = View;

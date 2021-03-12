@@ -90,12 +90,9 @@ public class XHBRadioButton: UIButton {
     }
     
     func updateStates() {
-        var states = StateColor.STATES_NORMAL
+        var states = self.state
         if checked {
-            states |= StateColor.STATE_CHECKED
-        }
-        if !isEnabled {
-            states |= StateColor.STATE_DISABLED
+            states = states.union(StateColor.STATE_CHECKED)
         }
         self.setTitleColor(XHBRadioButton.backgroundBorderColor.color(for: states), for: .normal)
         backgroundLayer.borderColor = XHBRadioButton.backgroundBorderColor.color(for: states).cgColor

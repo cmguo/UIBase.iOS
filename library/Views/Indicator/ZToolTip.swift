@@ -167,7 +167,7 @@ public class XHBToolTip : UIView
         }
         if !checkY(y) {
             if !checkY(!y) {
-                checkY(y)
+                _ = checkY(y)
             } else {
                 y = !y
             }
@@ -222,7 +222,7 @@ public class XHBToolTip : UIView
         arrowLayer.path = path
         arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: XHBToolTip.arrowSize * 2, height: XHBToolTip.arrowSize))
         if icon != nil {
-            var iconRect = frame.cutRight(XHBToolTip.iconPadding + iconView.bounds.width)
+            let iconRect = frame.cutRight(XHBToolTip.iconPadding + iconView.bounds.width)
             frame.width2 += XHBToolTip.padding - XHBToolTip.iconPadding
             iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
         }

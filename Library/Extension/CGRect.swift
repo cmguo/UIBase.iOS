@@ -223,8 +223,8 @@ extension CGRect {
     
     public func centerBounding() -> CGRect {
         var rect = CGRect.zero
-        rect.right = center.x * 2
-        rect.bottom = center.y * 2
+        rect.width2 = center.x * 2
+        rect.height2 = center.y * 2
         return rect
     }
     

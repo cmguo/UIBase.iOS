@@ -11,7 +11,7 @@ import UIBase
 import SnapKit
 import SwiftSVG
 
-class XHBTextAreaController: ComponentController {
+class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
 
     class Styles : ViewStyles {
         static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
@@ -85,6 +85,7 @@ class XHBTextAreaController: ComponentController {
         textInput.maxWords = styles.maximumCharCount
         textInput.placeholder = styles.placeholder
         textInput.showBorder = styles.showBorder
+        textInput.delegate = self
         view.addSubview(textInput)
         textInput.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
@@ -99,6 +100,7 @@ class XHBTextAreaController: ComponentController {
         textArea.maxWords = styles.maximumCharCount
         textArea.placeholder = styles.placeholder
         textArea.showBorder = styles.showBorder
+        textArea.delegate = self
         view.addSubview(textArea)
         textArea.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
@@ -128,7 +130,11 @@ class XHBTextAreaController: ComponentController {
             }
         }
     }
-    
+   
+    func textAreaIconTapped(_ textArea: XHBTextArea, index: Int) {
+        XHBToolTip.tip(textArea, "点击了图标\(index)")
+    }
+   
     override func viewWillLayoutSubviews() {
         textArea.snp.updateConstraints { (maker) in
             maker.height.equalTo(textArea.bounds.height)

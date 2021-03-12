@@ -19,6 +19,7 @@ class DescTableViewCell: StyleTableViewCell {
     }
     
     override func setStyle(_ styles: ViewStyles, _ style: ComponentStyle) {
+        textLabel?.numberOfLines = 0
         textLabel?.text = style.desc
     }
     

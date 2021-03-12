@@ -124,18 +124,15 @@ public class XHBCheckBox: UIButton {
         return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - XHBCheckBox.iconSize - XHBCheckBox.textPadding, height: XHBCheckBox.height))
     }
     
-    private func states() -> Int {
-        var states = StateColor.STATES_NORMAL
+    private func states() -> UIControl.State {
+        var states = self.state
         switch checkedState {
         case .NotChecked:
             break
         case .HalfChecked:
-            states |= StateColor.STATE_HALF_CHECKED
+            states = states.union(StateColor.STATE_HALF_CHECKED)
         case .FullChecked:
-            states |= StateColor.STATE_CHECKED
-        }
-        if !isEnabled {
-            states |= StateColor.STATE_DISABLED
+            states = states.union(StateColor.STATE_CHECKED)
         }
         return states
     }

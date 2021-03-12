@@ -45,7 +45,7 @@ class ShapeLayer : CALayer {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateStates(states: Int) {
+    func updateStates(states: UIControl.State) {
         if fillColorList != nil {
             backgroundColor = fillColorList?.color(for: states).cgColor
         }
