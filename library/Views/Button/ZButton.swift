@@ -121,8 +121,9 @@ public class XHBButton : UIButton
         didSet {
             self.setImage(UIImage.transparent)
             self.imageView?.setIcon(svgURL: icon, inBounds: CGRect(origin: CGPoint.zero, size: imageSize)) {_ in
-                self.updateSize()
+                self.updateStates()
             }
+            self.updateSize()
         }
     }
     
@@ -145,6 +146,12 @@ public class XHBButton : UIButton
         }
     }
 
+    public override var isEnabled: Bool {
+        didSet {
+            self.updateStates()
+        }
+    }
+    
     /**
      The loading indicator used with the button.
      */
@@ -252,7 +259,11 @@ public class XHBButton : UIButton
         super.layoutSubviews()
         indicator.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
     }
-        
+    
+    func updateStates() {
+        self.imageView?.setIconColor(color: currentTitleColor)
+    }
+    
     /**
      Show a loader inside the button with image.
      

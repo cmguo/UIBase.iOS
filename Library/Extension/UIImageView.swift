@@ -27,20 +27,20 @@ extension UIImageView {
         self.image = UIImage.transparent
         let icon = CALayer(svgURL: svgURL) { (layer: SVGLayer) in
             let bounds = inBounds ?? layer.frame
-            // TODO: scale icon
-            layer.frame = bounds.centerPart(ofSize: layer.boundingBox.centerBoundingSize())
-            completion?(layer.boundingBox)
+            let size = layer.boundingBox.centerBoundingSize()
+            let scale = min(bounds.width / size.width, bounds.height / size.height)
+            layer.transform = CATransform3DMakeScale(scale, scale, 1)
+            layer.frame = bounds//.centerPart(ofSize: size)
+            DispatchQueue.main.async {
+                completion?(layer.boundingBox)
+            }
         }
         self.layer.addSublayer(icon)
     }
     
     public func setIconColor(color: UIColor) {
-        if let sublayers = self.layer.sublayers {
-            for sl in sublayers {
-                if let svg = sl as? CAShapeLayer {
-                    svg.fillColor = color.cgColor
-                }
-            }
+        self.layer.applyOnSublayers(ofType: CAShapeLayer.self) { (thisShapeLayer: CAShapeLayer) in
+            thisShapeLayer.fillColor = color.cgColor
         }
     }
 
