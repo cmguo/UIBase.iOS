@@ -1,5 +1,5 @@
 //
-//  XHBTooltipComponent.swift
+//  XHBToastComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBTooltipComponent : NSObject, Component
+class XHBToastComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -16,13 +16,13 @@ class XHBTooltipComponent : NSObject, Component
 
     var icon: Int = 0
     
-    var title: String = "气泡提示"
+    var title: String = "简单提示"
     
     var author: String = "cmguo"
     
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBTooltipController()
+        return XHBToolTipController(self)
     }()
 }

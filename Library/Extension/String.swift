@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     
-    func boundingSize(with: CGSize, font: UIFont) -> CGSize {
+    func boundingSize(with: CGSize, font: UIFont, singleLine: Bool = false) -> CGSize {
         return self.boundingRect(with: with, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: NSMutableParagraphStyle()], context: nil).size
     }
 }

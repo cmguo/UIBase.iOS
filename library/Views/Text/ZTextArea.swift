@@ -206,7 +206,7 @@ public class XHBTextArea: UIView {
     public var minHeight: CGFloat = 50 {
         didSet { recalcHeight() }
     }
-    public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude{
+    public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude {
         didSet { recalcHeight() }
     }
     

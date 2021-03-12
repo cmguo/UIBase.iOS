@@ -18,6 +18,7 @@
 		7112028625F8CF9D004A3AA5 /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */; };
 		7112028B25F9BFA2004A3AA5 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028A25F9BFA2004A3AA5 /* delete.svg */; };
 		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
+		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
 		7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7128762A25E5318B0054A74B /* ObjectFactory.m */; };
 		7128763625E617CD0054A74B /* ObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128762925E531720054A74B /* ObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7128764025E61D980054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
@@ -51,8 +52,8 @@
 		71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */; };
 		71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */; };
 		71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */; };
-		71F5440025E50B4700AEB07A /* ZTooltipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F825E50B4700AEB07A /* ZTooltipComponent.swift */; };
-		71F5440125E50B4700AEB07A /* ZTooltipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F925E50B4700AEB07A /* ZTooltipController.swift */; };
+		71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */; };
+		71F5440125E50B4700AEB07A /* ZToolTipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F925E50B4700AEB07A /* ZToolTipController.swift */; };
 		71F5440325E50B4700AEB07A /* ZTextAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */; };
 		71F5440525E50B4700AEB07A /* ZTextInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543FD25E50B4700AEB07A /* ZTextInputController.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7112028A25F9BFA2004A3AA5 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = delete.svg; path = "../../../../../../Downloads/btn/主要/delete.svg"; sourceTree = "<group>"; };
 		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZToastComponent.swift; path = ../../../Demo/Components/Basic/ZToastComponent.swift; sourceTree = "<group>"; };
 		7128762925E531720054A74B /* ObjectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
 		7128762A25E5318B0054A74B /* ObjectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectFactory.m; sourceTree = "<group>"; };
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +106,8 @@
 		71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCheckboxComponent.swift; sourceTree = "<group>"; };
 		71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextInputComponent.swift; sourceTree = "<group>"; };
 		71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextAreaComponent.swift; sourceTree = "<group>"; };
-		71F543F825E50B4700AEB07A /* ZTooltipComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTooltipComponent.swift; sourceTree = "<group>"; };
-		71F543F925E50B4700AEB07A /* ZTooltipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTooltipController.swift; sourceTree = "<group>"; };
+		71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZToolTipComponent.swift; sourceTree = "<group>"; };
+		71F543F925E50B4700AEB07A /* ZToolTipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZToolTipController.swift; sourceTree = "<group>"; };
 		71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextAreaController.swift; sourceTree = "<group>"; };
 		71F543FD25E50B4700AEB07A /* ZTextInputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextInputController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,8 +272,9 @@
 				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
 				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
 				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
-				71F543F825E50B4700AEB07A /* ZTooltipComponent.swift */,
-				71F543F925E50B4700AEB07A /* ZTooltipController.swift */,
+				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
+				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
+				71F543F925E50B4700AEB07A /* ZToolTipController.swift */,
 				71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */,
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
@@ -367,6 +370,7 @@
 				1738AAC825F76ED2003EEB53 /* BadgeView.swift in Sources */,
 				7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */,
 				7128765025E633F10054A74B /* ComponentController.swift in Sources */,
+				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
 				7112027A25F8CE4A004A3AA5 /* ZBadgeController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
@@ -381,7 +385,7 @@
 				712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */,
 				7128764D25E629390054A74B /* ComponentStyle.swift in Sources */,
 				7128766025E655010054A74B /* ButtonsController.swift in Sources */,
-				71F5440125E50B4700AEB07A /* ZTooltipController.swift in Sources */,
+				71F5440125E50B4700AEB07A /* ZToolTipController.swift in Sources */,
 				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,
 				7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */,
@@ -392,7 +396,7 @@
 				7161CDB425E0E17F00BF6B71 /* ColorsController.swift in Sources */,
 				7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */,
 				712876E825E746A40054A74B /* TextTableViewCell.swift in Sources */,
-				71F5440025E50B4700AEB07A /* ZTooltipComponent.swift in Sources */,
+				71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */,
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftSVG
 
 extension UIImageView {
 
-    public func setIcon(svgURL : URL?, completion: ( (CGRect) -> Void)?) {
+    public func setIcon(svgURL : URL?, completion: ( (CGRect) -> Void)? = nil) {
         setIcon(svgURL: svgURL, inBounds: nil, completion: completion)
     }
     
