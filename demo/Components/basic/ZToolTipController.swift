@@ -23,7 +23,7 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
     
     class Styles : ViewStyles {
         @objc var maxWidth: CGFloat = 200
-        @objc var singleLine = false
+        @objc var numberOfLines = 0
         @objc var message = "你点击了按钮"
         
         override class func descsForStyle(name: String) -> NSArray? {
@@ -74,15 +74,23 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     class ToastStyles : Styles {
+        
+        let location: XHBToolTip.Location
 
         @objc var leftIcon = "<null>"
         @objc var rightIcon = "<null>"
-        @objc var icon = "<null>"
+        @objc var icon = "info"
         @objc var button = "<null>"
         
-        override init() {
+        init(location: XHBToolTip.Location) {
+            self.location = location
             super.init()
             maxWidth = 300
+            if location == .AutoToast {
+                message = "网络不给力，请稍后重试"
+            } else {
+                message = "我们会基于您所填写的年级和学科来提供对应功能"
+            }
         }
 
         override class func descsForStyle(name: String) -> NSArray? {
@@ -128,7 +136,7 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
     
     init(_ component: Component) {
         self.component = component
-        styles = component is XHBToolTipComponent ? TipStyles() : ToastStyles()
+        styles = component is XHBToolTipComponent ? TipStyles() : ToastStyles(location: component is XHBNoticeBarComponent ? XHBToolTip.Location.ManualLayout : XHBToolTip.Location.AutoToast)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -150,10 +158,19 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
         gridView.delegate = self
         
         model.tipButton.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        
+        if component is XHBNoticeBarComponent {
+            XHBToolTip.tip(gridView, styles.message, delegate: self)
+            styles.listen() {_ in
+                XHBToolTip.remove(from: self.gridView)
+                XHBToolTip.tip(self.gridView, self.styles.message, delegate: self)
+            }
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        styles is TipStyles ? 15 : 1
+        styles is TipStyles ? 15 : (component is XHBNoticeBarComponent ? 0 : 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -180,8 +197,8 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
         return styles.maxWidth
     }
     
-    func toolTipSingleLine(_ toolTip: XHBToolTip) -> Bool {
-        return styles.singleLine
+    func toolTipNumberOfLines(_ toolTip: XHBToolTip) -> Int {
+        return styles.numberOfLines
     }
     
     func toolTipLeftIcon(_ toolTip: XHBToolTip) -> URL? {
@@ -213,7 +230,7 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     func toolTipPerfectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location {
-        return (styles as? TipStyles)?.location2 ?? .AutoToast
+        return (styles as? TipStyles)?.location2 ?? (styles as! ToastStyles).location
     }
     
     func toolTipIconTapped(_ toolTip: XHBToolTip, index: Int) {
