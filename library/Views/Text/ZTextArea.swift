@@ -81,7 +81,7 @@ public class XHBTextArea: UIView {
     private static let defaultPlaceHolderTextColor = ThemeColor.shared.bluegrey_500
     private static let defaultWordCountTextColor = ThemeColor.shared.bluegrey_700
     private static let defaultFont = systemFontSize(fontSize: 16, type: .regular)
-    private static let defaultFont2 = systemFontSize(fontSize: 12, type: .regular)
+    private static let defaultWordCounFont = systemFontSize(fontSize: 12, type: .regular) // for word count label
     private static let backgroundColor = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
         StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_NORMAL)
@@ -92,6 +92,8 @@ public class XHBTextArea: UIView {
         StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_NORMAL)
     ])
     private static let padding: CGFloat = 12
+    private static let paddingH: CGFloat = 12 // for single mode
+    private static let paddingV: CGFloat = 6 // for single mode
     private static let borderRadius: CGFloat = 8
     private static let borderWidth: CGFloat = 1
 
@@ -235,7 +237,7 @@ public class XHBTextArea: UIView {
     fileprivate lazy var wordCountLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = XHBTextArea.defaultFont2
+        label.font = XHBTextArea.defaultWordCounFont
         label.textColor = XHBTextArea.defaultWordCountTextColor
         label.textAlignment = .right
         addSubview(label)
@@ -244,6 +246,7 @@ public class XHBTextArea: UIView {
     }()
 
     fileprivate let single: Bool
+    fileprivate let paddings: UIEdgeInsets
     fileprivate var optionalViews: [UIView?] = [nil, nil, nil, nil]
 
     public init(single: Bool = false) {
@@ -261,6 +264,7 @@ public class XHBTextArea: UIView {
         font = XHBTextArea.defaultFont
         textView.font = font
         returnKeyType = UIReturnKeyType.send
+        paddings = single ? UIEdgeInsets(top: XHBTextArea.paddingV, left: XHBTextArea.paddingH, bottom: XHBTextArea.paddingV, right: XHBTextArea.paddingH) : UIEdgeInsets(top: XHBTextArea.padding, left: XHBTextArea.padding, bottom: XHBTextArea.padding, right: XHBTextArea.padding)
 
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
 
@@ -343,7 +347,7 @@ public class XHBTextArea: UIView {
         let placeholderLabelVisible = optionalViewVisible(2)
         let wordCountLabelVisible = optionalViewVisible(3)
         var rect = bounds;
-        rect.deflate(XHBTextArea.padding)
+        rect.inset(paddings)
         if wordCountLabelVisible {
             let size = wordCountLabel.sizeThatFits(rect.size)
             if single {
@@ -443,10 +447,7 @@ public class XHBTextArea: UIView {
         guard self.maxWords > 0 else { return }
         let count = text.count
         if count > 0 {
-            var string = String(format: "%d/%d", count, self.maxWords)
-            if count > self.maxWords {
-                string = String(format: "%d/%d", self.maxWords, self.maxWords)
-            }
+            let string = String(format: "%d/%d", count, self.maxWords)
             self.wordCountLabel.text = string
         } else {
             self.wordCountLabel.text = " "
@@ -496,7 +497,9 @@ extension XHBTextArea: UITextViewDelegate {
 
     public func textViewDidChange(_ textView: UITextView) {
         if maxWords > 0 {
-            self.textView.limitWordCount(maxWords, 0)
+            if single {
+                self.textView.limitWordCount(maxWords, 0)
+            }
             self.updateWordCount()
         }
         recalcHeight()

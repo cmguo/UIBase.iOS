@@ -11,7 +11,7 @@ extension UITextView {
     
     func limitWordCount(_ maxWords: Int, _ position: Int) {
         if markedTextRange == nil {
-            DispatchQueue.main.async {
+            //DispatchQueue.main.async {
                 let text: String = self.text
                 if text.count > maxWords {
                     let range = text.rangeOfComposedCharacterSequence(at: text.index(text.startIndex, offsetBy: maxWords - 1)).nsRange(text: text)
@@ -22,7 +22,7 @@ extension UITextView {
                         self.undoManager?.removeAllActions()
                     }
                 }
-            }
+            //}
         }
     }
 

@@ -275,6 +275,11 @@ extension CGRect {
         deflate(width: value, height: value)
     }
     
+    public mutating func inset(_ value: UIEdgeInsets) {
+        adjust(value.left, value.top, -value.right, -value.bottom)
+    }
+    
+    
     public func centeredAt(_ center: CGPoint) -> CGRect {
         var rect = self
         rect.center = center
