@@ -201,9 +201,10 @@ public class XHBButton : UIButton
         self.imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
         if let icon = icon {
             self.icon = icon
-            self.imageView?.setIcon(svgURL: icon) {(boundingBox: CGRect) in
-                self.imageSize = boundingBox.centerBoundingSize()
-                self.updateSize()
+            self.setImage(UIImage.transparent)
+            self.imageView?.setIcon(svgURL: icon, inBounds: CGRect(origin: CGPoint.zero, size: imageSize)) {_ in
+                self.updateStates()
+                self.imageView?.frame = self.imageRect(forContentRect: self.bounds)
             }
         }
         // Set the title of the button
@@ -211,7 +212,7 @@ public class XHBButton : UIButton
             self.text = text
             self.setTitle(text)
         }
-        updateSize()
+        self.updateSize()
     }
     
     required init?(coder: NSCoder) {
@@ -261,7 +262,9 @@ public class XHBButton : UIButton
     }
     
     func updateStates() {
-        self.imageView?.setIconColor(color: currentTitleColor)
+        if self.icon != nil {
+            self.imageView?.setIconColor(color: currentTitleColor)
+        }
     }
     
     /**

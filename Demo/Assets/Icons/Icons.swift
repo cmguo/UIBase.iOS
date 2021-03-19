@@ -9,7 +9,7 @@ import Foundation
 
 class Icons {
     
-    static let icons = ["<null>", "delete", "erase", "union"].map { (i) in
+    static let icons = ["<null>", "delete", "erase", "union", "info", "alert"].map { (i) in
         ViewStyles.makeValue(i, i)
     }
     

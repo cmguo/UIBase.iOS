@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112028E25F9C55A004A3AA5 /* UIImageView.swift */; };
-		7112029225F9FB4B004A3AA5 /* SwiftPopTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029125F9FB4B004A3AA5 /* SwiftPopTipView.swift */; };
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
 		7112029D25FA1500004A3AA5 /* ZToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZToolTip.swift */; };
 		711202A225FA1BA6004A3AA5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202A125FA1BA6004A3AA5 /* String.swift */; };
@@ -67,7 +66,6 @@
 
 /* Begin PBXFileReference section */
 		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
-		7112029125F9FB4B004A3AA5 /* SwiftPopTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPopTipView.swift; sourceTree = "<group>"; };
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
 		7112029C25FA1500004A3AA5 /* ZToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZToolTip.swift; path = ../../../Library/Views/Indicator/ZToolTip.swift; sourceTree = "<group>"; };
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		7112029425F9FB78004A3AA5 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				7112029125F9FB4B004A3AA5 /* SwiftPopTipView.swift */,
 				7112029C25FA1500004A3AA5 /* ZToolTip.swift */,
 			);
 			path = Indicator;
@@ -479,7 +476,6 @@
 				7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */,
 				7178A1A425F5CC14004BA696 /* IndicatorProtocol.swift in Sources */,
 				7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */,
-				7112029225F9FB4B004A3AA5 /* SwiftPopTipView.swift in Sources */,
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
 				71789FA625E8C496004BA696 /* ControlStateHelper.swift in Sources */,
 				7178A19F25F5CC14004BA696 /* BallPulseIndicator.swift in Sources */,

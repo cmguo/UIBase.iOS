@@ -31,7 +31,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         @objc var widthMode = ButtonWidth.WrapContent
         var widthMode2 = XHBButton.ButtonWidth.WrapContent
         @objc var iconAtRight = false
-        @objc var icon: String = "<null>"
+        @objc var icon: String = "delete"
         @objc var text: String = "按钮"
         
         override class func valuesForStyle(name: String) -> NSArray? {
@@ -101,7 +101,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, icon: nil, text: styles.text)
+        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, icon: Icons.iconURL(styles.icon), text: styles.text)
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
         buttons.append(button)

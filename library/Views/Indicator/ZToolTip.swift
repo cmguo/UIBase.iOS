@@ -14,7 +14,7 @@ import Foundation
     
     @objc optional func toolTipMaxWidth(_ toolTip: XHBToolTip) -> CGFloat
     @objc optional func toolTipSingleLine(_ toolTip: XHBToolTip) -> Bool
-    @objc optional func toolTipPrefectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location
+    @objc optional func toolTipPerfectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location
     @objc optional func toolTipIcon(_ toolTip: XHBToolTip) -> URL?
     @objc optional func toolTipLeftIcon(_ toolTip: XHBToolTip) -> URL?
     @objc optional func toolTipRightIcon(_ toolTip: XHBToolTip) -> URL?
@@ -47,7 +47,12 @@ public class XHBToolTip : UIView
 
     }
     
-    @objc public enum Location : Int, RawRepresentable, CaseIterable {
+    @objc public enum Location : Int, RawRepresentable, CaseIterable, Comparable {
+        
+        public static func < (lhs: XHBToolTip.Location, rhs: XHBToolTip.Location) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+        
         case TopLeft
         case TopCenter
         case TopRight
@@ -55,6 +60,7 @@ public class XHBToolTip : UIView
         case BottomCenter
         case BottomRight
         case AutoToast // No arrow
+        case ManualLayout // No arrow
     }
     
     private static let arrowSize: CGFloat = 6
@@ -69,7 +75,7 @@ public class XHBToolTip : UIView
 
     public var location = Location.TopRight
     
-    public var maxWidth: CGFloat = 100 // if < 0, add window size
+    public var maxWidth: CGFloat = 200 // if < 0, add window size
 
     public var message: String {
         get { messageLabel.text ?? "" }
@@ -122,6 +128,9 @@ public class XHBToolTip : UIView
     
     public var button: XHBButton? = nil {
         didSet {
+            if let button = button {
+                addSubview(button)
+            }
             setNeedsLayout()
         }
     }
@@ -131,7 +140,7 @@ public class XHBToolTip : UIView
             if let delegate = self.delegate as? XHBToolTipContentDelegate {
                 self.singleLine = delegate.toolTipSingleLine?(self) ?? self.singleLine
                 self.maxWidth = delegate.toolTipMaxWidth?(self) ?? self.maxWidth
-                self.location = delegate.toolTipPrefectLocation?(self) ?? self.location
+                self.location = delegate.toolTipPerfectLocation?(self) ?? self.location
                 if let icon = delegate.toolTipLeftIcon?(self) {
                     self.leftIcon = icon
                 }
@@ -203,32 +212,35 @@ public class XHBToolTip : UIView
     public func popAt(_ target: UIView) {
         let mWidth = self.maxWidth < 0 ? target.window!.bounds.width + self.maxWidth : self.maxWidth
         let size = calcSize(mWidth)
-        let frame = CGRect(origin: calcLocation(target, size), size: size)
+        var frame = CGRect(origin: calcLocation(target, size), size: size)
+        if location == .ManualLayout {
+            frame.width2 = target.bounds.width
+        }
         target.window?.addSubview(self)
         self.frame = frame
     }
     
     fileprivate func calcSize(_ mWidth: CGFloat) -> CGSize {
-        var frame = CGSize(width: XHBToolTip.padding * 2, height: XHBToolTip.padding * 2)
+        var size = CGSize(width: XHBToolTip.padding * 2, height: XHBToolTip.padding * 2)
         if leftIcon != nil {
-            frame.width += XHBToolTip.padding + XHBToolTip.iconSize
+            size.width += XHBToolTip.padding + XHBToolTip.iconSize
         }
         if icon != nil {
-            frame.width += XHBToolTip.iconPadding + XHBToolTip.iconSize
+            size.width += XHBToolTip.iconPadding + XHBToolTip.iconSize
         }
         if rightIcon != nil {
-            frame.width += XHBToolTip.padding + XHBToolTip.iconSize
+            size.width += XHBToolTip.padding + XHBToolTip.iconSize
         }
         if let button = button {
-            frame.width += XHBToolTip.padding + button.frame.width
+            size.width += XHBToolTip.padding + button.frame.width
         }
-        if location != .AutoToast {
-            frame.height += XHBToolTip.arrowSize
+        if location < .AutoToast {
+            size.height += XHBToolTip.arrowSize
         }
-        let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - frame.width, height: 0))
-        frame.width += textSize.width
-        frame.height += textSize.height
-        return frame
+        let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
+        size.width += textSize.width
+        size.height += textSize.height
+        return size
     }
     
     private var location2: Location? = nil
@@ -248,6 +260,8 @@ public class XHBToolTip : UIView
             XHBToolTip.toastCount += 1
             location2 = location
             return CGPoint(x: wbounds.centerX - size.width / 2, y: XHBToolTip.toastY - size.height / 2)
+        } else if location == .ManualLayout {
+            return CGPoint.zero
         }
         // for arrow locations
         var frame = CGRect(origin: CGPoint.zero, size: size)
@@ -383,7 +397,7 @@ public class XHBToolTip : UIView
             iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
         }
         if let button = button {
-            let iconRect = frame.cutLeft(XHBToolTip.padding + button.bounds.width)
+            let iconRect = frame.cutRight(XHBToolTip.padding + button.bounds.width)
             button.frame = iconRect.rightCenterPart(ofSize: button.bounds.size)
         }
         messageLabel.frame = frame

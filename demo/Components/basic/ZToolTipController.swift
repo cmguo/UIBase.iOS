@@ -79,6 +79,11 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
         @objc var rightIcon = "<null>"
         @objc var icon = "<null>"
         @objc var button = "<null>"
+        
+        override init() {
+            super.init()
+            maxWidth = 300
+        }
 
         override class func descsForStyle(name: String) -> NSArray? {
             if name == "icon" {
@@ -93,10 +98,22 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
                 return super.descsForStyle(name: name)
             }
         }
+        
+        override class func valuesForStyle(name: String) -> NSArray? {
+            if name == "button" {
+                return [makeValue("<null>", "<null>"), makeValue("文字按钮", "text")] as NSArray
+            }
+            return super.valuesForStyle(name: name)
+        }
     }
     
     class Model : ViewModel {
         let buttonTitle = "点我"
+        let tipButton: XHBButton = {
+            let button = XHBButton(type: .TextLink, sizeMode: .Middle, icon: Icons.iconURL("arrowR"), text: "去查看")
+            button.iconAtRight = true
+            return button
+        }()
     }
     
     private let component: Component
@@ -131,6 +148,8 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
         gridView.frame = view.frame
         gridView.dataSource = self
         gridView.delegate = self
+        
+        model.tipButton.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -150,6 +169,10 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     @objc func buttonClicked(_ sender: UIView) {
+        if sender == model.tipButton {
+            XHBToolTip.tip(sender, "按钮被点击了")
+            return
+        }
         XHBToolTip.tip(sender, styles.message, delegate: self)
     }
     
@@ -185,11 +208,17 @@ class XHBToolTipController: ComponentController, UICollectionViewDataSource, UIC
         return Icons.iconURL(icon)
     }
     
-    func toolTipPrefectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location {
+    func toolTipButton(_ toolTip: XHBToolTip) -> XHBButton? {
+        return (styles as? ToastStyles)?.button == "text" ? model.tipButton : nil
+    }
+    
+    func toolTipPerfectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location {
         return (styles as? TipStyles)?.location2 ?? .AutoToast
     }
     
     func toolTipIconTapped(_ toolTip: XHBToolTip, index: Int) {
         XHBToolTip.tip(toolTip, "图标被点击了")
+        toolTip.dismissAnimated(true)
     }
+    
 }

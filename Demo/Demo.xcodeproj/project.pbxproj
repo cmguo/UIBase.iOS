@@ -16,9 +16,13 @@
 		7112028225F8CF90004A3AA5 /* erase.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028025F8CF90004A3AA5 /* erase.svg */; };
 		7112028325F8CF90004A3AA5 /* union.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028125F8CF90004A3AA5 /* union.svg */; };
 		7112028625F8CF9D004A3AA5 /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */; };
-		7112028B25F9BFA2004A3AA5 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028A25F9BFA2004A3AA5 /* delete.svg */; };
 		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
 		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
+		711202CC26046251004A3AA5 /* ZNoticeBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202CB26046250004A3AA5 /* ZNoticeBarComponent.swift */; };
+		711202CF260469E7004A3AA5 /* arrowR.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202CE260469E6004A3AA5 /* arrowR.svg */; };
+		711202D226046A72004A3AA5 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D126046A72004A3AA5 /* info.svg */; };
+		711202D526046AA7004A3AA5 /* alert.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D426046AA7004A3AA5 /* alert.svg */; };
+		711202D826046AB6004A3AA5 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D726046AB6004A3AA5 /* delete.svg */; };
 		7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7128762A25E5318B0054A74B /* ObjectFactory.m */; };
 		7128763625E617CD0054A74B /* ObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128762925E531720054A74B /* ObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7128764025E61D980054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
@@ -68,9 +72,13 @@
 		7112028025F8CF90004A3AA5 /* erase.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = erase.svg; sourceTree = "<group>"; };
 		7112028125F8CF90004A3AA5 /* union.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = union.svg; sourceTree = "<group>"; };
 		7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7112028A25F9BFA2004A3AA5 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = delete.svg; path = "../../../../../../Downloads/btn/主要/delete.svg"; sourceTree = "<group>"; };
 		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZToastComponent.swift; path = ../../../Demo/Components/Basic/ZToastComponent.swift; sourceTree = "<group>"; };
+		711202CB26046250004A3AA5 /* ZNoticeBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZNoticeBarComponent.swift; path = ../../../Demo/Components/Basic/ZNoticeBarComponent.swift; sourceTree = "<group>"; };
+		711202CE260469E6004A3AA5 /* arrowR.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowR.svg; sourceTree = "<group>"; };
+		711202D126046A72004A3AA5 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
+		711202D426046AA7004A3AA5 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
+		711202D726046AB6004A3AA5 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delete.svg; sourceTree = "<group>"; };
 		7128762925E531720054A74B /* ObjectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
 		7128762A25E5318B0054A74B /* ObjectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectFactory.m; sourceTree = "<group>"; };
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,9 +148,12 @@
 		7112027F25F8CF90004A3AA5 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				711202D726046AB6004A3AA5 /* delete.svg */,
+				711202D426046AA7004A3AA5 /* alert.svg */,
+				711202D126046A72004A3AA5 /* info.svg */,
+				711202CE260469E6004A3AA5 /* arrowR.svg */,
 				7112028025F8CF90004A3AA5 /* erase.svg */,
 				7112028125F8CF90004A3AA5 /* union.svg */,
-				7112028A25F9BFA2004A3AA5 /* delete.svg */,
 				711202BF25FB4F97004A3AA5 /* Icons.swift */,
 			);
 			path = Icons;
@@ -274,6 +285,7 @@
 				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
 				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
 				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
+				711202CB26046250004A3AA5 /* ZNoticeBarComponent.swift */,
 				71F543F925E50B4700AEB07A /* ZToolTipController.swift */,
 				71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */,
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
@@ -352,10 +364,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7112028B25F9BFA2004A3AA5 /* delete.svg in Resources */,
+				711202D826046AB6004A3AA5 /* delete.svg in Resources */,
 				7112028325F8CF90004A3AA5 /* union.svg in Resources */,
+				711202CF260469E7004A3AA5 /* arrowR.svg in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
+				711202D226046A72004A3AA5 /* info.svg in Resources */,
+				711202D526046AA7004A3AA5 /* alert.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +412,7 @@
 				7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */,
 				712876E825E746A40054A74B /* TextTableViewCell.swift in Sources */,
 				71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */,
+				711202CC26046251004A3AA5 /* ZNoticeBarComponent.swift in Sources */,
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */,
