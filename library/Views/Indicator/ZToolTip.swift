@@ -73,7 +73,7 @@ public class XHBToolTip : UIView
     private static let defaultFrameColor = UIColor(rgb: 0x1D2126)
     private static let defaultTextColor = ThemeColor.shared.bluegrey_00
     private static let defaultFont = systemFontSize(fontSize: 16, type: .regular)
-    private static let defaultSmallFont = systemFontSize(fontSize: 12, type: .regular)
+    private static let defaultSmallFont = systemFontSize(fontSize: 14, type: .regular)
 
     public var location = Location.TopRight {
         didSet {
@@ -221,12 +221,18 @@ public class XHBToolTip : UIView
         layer.addSublayer(backLayer)
 
         messageLabel.font = XHBToolTip.defaultFont
-        textColor = XHBToolTip.defaultTextColor
+        messageLabel.textColor = XHBToolTip.defaultTextColor
         addSubview(messageLabel)
     }
     
     public func popAt(_ target: UIView) {
-        let mWidth = self.maxWidth < 0 ? target.window!.bounds.width + self.maxWidth : self.maxWidth
+        var mWidth = self.maxWidth
+        if mWidth < 0 {
+            mWidth += target.window!.bounds.width
+        }
+        if location == .ManualLayout {
+            mWidth = target.bounds.width
+        }
         let size = calcSize(mWidth)
         var frame = CGRect(origin: calcLocation(target, size), size: size)
         if location == .ManualLayout {

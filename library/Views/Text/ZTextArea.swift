@@ -259,6 +259,7 @@ public class XHBTextArea: UIView {
         layoutManager.addTextContainer(textContainer)
         layoutManager.allowsNonContiguousLayout = false
         textContainer.widthTracksTextView = true
+        textContainer.maximumNumberOfLines = single ? 1 : 0
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
 
         font = XHBTextArea.defaultFont
