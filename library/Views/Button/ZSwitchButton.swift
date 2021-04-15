@@ -10,20 +10,20 @@ import Foundation
 public class XHBSwitchButton : UISwitch
 {
     private static let trackColor = StateListColor([
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_NORMAL)
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.bluegrey_300, .STATES_NORMAL)
     ])
         
     private static let tumbColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_00, .STATES_NORMAL)
     ])
         
     public init() {
         super.init(frame: CGRect.zero)
         
-        self.tintColor = XHBSwitchButton.trackColor.color(for: StateColor.STATES_NORMAL)
-        self.onTintColor = XHBSwitchButton.trackColor.color(for: StateColor.STATES_CHECKED)
-        self.thumbTintColor = XHBSwitchButton.tumbColor.color(for: StateColor.STATES_NORMAL)
+        self.tintColor = XHBSwitchButton.trackColor.color(for: .STATES_NORMAL)
+        self.onTintColor = XHBSwitchButton.trackColor.color(for: .STATES_CHECKED)
+        self.thumbTintColor = XHBSwitchButton.tumbColor.color(for: .STATES_NORMAL)
     }
     
     required init?(coder: NSCoder) {

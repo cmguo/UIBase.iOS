@@ -17,8 +17,8 @@ extension UIControl.State {
     }
 }
 
-class StateColor {
-        
+extension UIControl.State {
+    
     static let STATE_DISABLED = UIControl.State.disabled
     static let STATE_PRESSED = UIControl.State.highlighted
     static let STATE_FOCUSED = UIControl.State.focused
@@ -36,6 +36,10 @@ class StateColor {
     static let STATES_DISABLED_CHECKED = UIControl.State([STATE_DISABLED, STATE_CHECKED])
     static let STATES_DISABLED_HALF_CHECKED = UIControl.State([STATE_DISABLED, STATE_HALF_CHECKED])
 
+}
+
+class StateColor {
+        
     let color: UIColor
     let states: UIControl.State
     
@@ -68,15 +72,15 @@ class StateListColor {
     }
     
     func normalColor() -> UIColor {
-        return color(for: StateColor.STATES_NORMAL)
+        return color(for: .STATES_NORMAL)
     }
     
     func disabledColor() -> UIColor {
-        return color(for: StateColor.STATES_DISABLED)
+        return color(for: .STATES_DISABLED)
     }
     
     func pressedColor() -> UIColor {
-        return color(for: StateColor.STATES_PRESSED)
+        return color(for: .STATES_PRESSED)
     }
 
 }

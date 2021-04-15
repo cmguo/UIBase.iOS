@@ -12,29 +12,29 @@ import SwiftSVG
 public class XHBCheckBox: UIButton {
     
     private static let fillColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_HALF_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.brand_500, .STATES_HALF_CHECKED),
+        StateColor(.bluegrey_00, .STATES_NORMAL)
     ])
     
     private static let borderColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_DISABLED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_HALF_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_300, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.brand_500, .STATES_HALF_CHECKED),
+        StateColor(.bluegrey_500, .STATES_NORMAL)
     ])
     
     private static let foregroundCheckedFillColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_CHECKED),
-        StateColor(.clear, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
+        StateColor(.bluegrey_00, .STATES_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
     ])
         
     private static let foregroundHalfCheckedFillColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_HALF_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_HALF_CHECKED),
-        StateColor(.clear, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_500, .STATES_DISABLED_HALF_CHECKED),
+        StateColor(.bluegrey_00, .STATES_HALF_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
     ])
         
     private static let height: CGFloat = 24.0
@@ -130,9 +130,9 @@ public class XHBCheckBox: UIButton {
         case .NotChecked:
             break
         case .HalfChecked:
-            states = states.union(StateColor.STATE_HALF_CHECKED)
+            states = states.union(.STATE_HALF_CHECKED)
         case .FullChecked:
-            states = states.union(StateColor.STATE_CHECKED)
+            states = states.union(.STATE_CHECKED)
         }
         return states
     }

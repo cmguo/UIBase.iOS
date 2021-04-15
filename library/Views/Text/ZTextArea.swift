@@ -78,18 +78,18 @@ public class MediaTextView: UITextView {
 
 public class XHBTextArea: UIView {
     
-    private static let defaultPlaceHolderTextColor = ThemeColor.shared.bluegrey_500
-    private static let defaultWordCountTextColor = ThemeColor.shared.bluegrey_700
+    private static let defaultPlaceHolderTextColor = UIColor.bluegrey_500
+    private static let defaultWordCountTextColor = UIColor.bluegrey_700
     private static let defaultFont = systemFontSize(fontSize: 16, type: .regular)
     private static let defaultWordCounFont = systemFontSize(fontSize: 12, type: .regular) // for word count label
     private static let backgroundColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.bluegrey_00, .STATES_NORMAL)
     ])
     private static let borderColor = StateListColor([
-        StateColor(ThemeColor.shared.red_500, StateColor.STATES_ERROR),
-        StateColor(ThemeColor.shared.blue_600, StateColor.STATES_FOCUSED),
-        StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_NORMAL)
+        StateColor(.red_500, .STATES_ERROR),
+        StateColor(.blue_600, .STATES_FOCUSED),
+        StateColor(.bluegrey_300, .STATES_NORMAL)
     ])
     private static let padding: CGFloat = 12
     private static let paddingH: CGFloat = 12 // for single mode
@@ -437,9 +437,9 @@ public class XHBTextArea: UIView {
     }
     
     fileprivate func states() -> UIControl.State {
-        var states = StateColor.STATES_NORMAL
+        var states = UIControl.State.STATES_NORMAL
         if isFocused {
-            states = states.union(StateColor.STATE_FOCUSED)
+            states = states.union(.STATE_FOCUSED)
         }
         return states
     }

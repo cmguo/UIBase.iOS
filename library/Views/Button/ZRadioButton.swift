@@ -9,20 +9,20 @@
 public class XHBRadioButton: UIButton {
     
     private static let backgroundFillColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
-        StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.bluegrey_00, .STATES_NORMAL)
     ])
     
     private static let backgroundBorderColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_300, StateColor.STATES_DISABLED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_300, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.bluegrey_500, .STATES_NORMAL)
     ])
     
     private static let foregroundFillColor = StateListColor([
-        StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_CHECKED),
-        StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(.clear, StateColor.STATES_NORMAL)
+        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
     ])
         
     private static let height: CGFloat = 24.0
@@ -92,7 +92,7 @@ public class XHBRadioButton: UIButton {
     func updateStates() {
         var states = self.state
         if checked {
-            states = states.union(StateColor.STATE_CHECKED)
+            states = states.union(.STATE_CHECKED)
         }
         self.setTitleColor(XHBRadioButton.backgroundBorderColor.color(for: states), for: .normal)
         backgroundLayer.borderColor = XHBRadioButton.backgroundBorderColor.color(for: states).cgColor
