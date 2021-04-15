@@ -22,7 +22,7 @@ public class XHBRadioButton: UIButton {
     private static let foregroundFillColor = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_CHECKED),
         StateColor(ThemeColor.shared.brand_500, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.transparent, StateColor.STATES_NORMAL)
+        StateColor(.clear, StateColor.STATES_NORMAL)
     ])
         
     private static let height: CGFloat = 24.0
@@ -54,7 +54,7 @@ public class XHBRadioButton: UIButton {
         var frame = CGRect(x: 0, y: 0, width: XHBRadioButton.iconSize, height: XHBRadioButton.height)
         self.frame = frame
 
-        self.setImage(UIImage.from(color: ThemeColor.shared.transparent))
+        self.setImage(UIImage.from(color: .clear))
         backgroundLayer.frame = CGRect(x: 0, y: 0, width: XHBRadioButton.iconSize, height: XHBRadioButton.iconSize)
         backgroundLayer.cornerRadius = XHBRadioButton.radius
         backgroundLayer.borderWidth = XHBRadioButton.borderSize

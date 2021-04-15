@@ -155,7 +155,7 @@ public class XHBTextArea: UIView {
             if showBorder {
                 self.layer.borderColor = XHBTextArea.borderColor.color(for: states()).cgColor
             } else {
-                self.layer.borderColor = UIColor.transparent.cgColor
+                self.layer.borderColor = UIColor.clear.cgColor
             }
         }
     }

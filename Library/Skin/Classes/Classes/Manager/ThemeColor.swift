@@ -227,9 +227,7 @@ public class ThemeColor: NSObject {
     }
     
     public static let shared = ThemeColor()
-    
-    public let transparent = UIColor.transparent
-    
+        
     // MARK: - 品牌色
 
     // 主色/主要按钮/登陆输入点击状态

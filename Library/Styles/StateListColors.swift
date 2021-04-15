@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Colors {
+extension StateListColor {
     
     static let bluegrey_900_disabled = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED),
@@ -44,7 +44,7 @@ struct Colors {
     static let transparent_pressed_disabled = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_100, StateColor.STATES_DISABLED),
         StateColor(ThemeColor.shared.bluegrey_200, StateColor.STATES_PRESSED),
-        StateColor(ThemeColor.shared.transparent, StateColor.STATES_NORMAL)
+        StateColor(.clear, StateColor.STATES_NORMAL)
     ])
 
     static let brand_500_pressed_disabled = StateListColor([

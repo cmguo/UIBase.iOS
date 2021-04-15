@@ -76,8 +76,8 @@
 		7112028125F8CF90004A3AA5 /* union.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = union.svg; sourceTree = "<group>"; };
 		7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZToastComponent.swift; path = ../../../Demo/Components/Basic/ZToastComponent.swift; sourceTree = "<group>"; };
-		711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZSnackBarComponent.swift; path = ../../../Demo/Components/Basic/ZSnackBarComponent.swift; sourceTree = "<group>"; };
+		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZToastComponent.swift; sourceTree = "<group>"; };
+		711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSnackBarComponent.swift; sourceTree = "<group>"; };
 		711202CE260469E6004A3AA5 /* arrowR.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowR.svg; sourceTree = "<group>"; };
 		711202D126046A72004A3AA5 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
 		711202D426046AA7004A3AA5 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
@@ -268,6 +268,7 @@
 		71F543DE25E504EA00AEB07A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				71FF93E426282A420033098B /* Simple */,
 				71F543DF25E504FB00AEB07A /* Basic */,
 			);
 			path = Components;
@@ -281,14 +282,6 @@
 				7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */,
 				7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */,
 				7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */,
-				71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */,
-				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
-				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
-				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
-				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
-				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
-				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
-				71F543F925E50B4700AEB07A /* ZTipViewController.swift */,
 				71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */,
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
@@ -317,6 +310,21 @@
 				7161CDBF25E0E28E00BF6B71 /* Colors.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		71FF93E426282A420033098B /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */,
+				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
+				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
+				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
+				71F543F925E50B4700AEB07A /* ZTipViewController.swift */,
+				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
+				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
+				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
+			);
+			path = Simple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

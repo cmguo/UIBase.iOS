@@ -10,7 +10,7 @@ import SwiftSVG
 
 extension UIImage {
     
-    static let transparent = UIImage.from(color: .transparent)
+    static let transparent = UIImage.from(color: .clear)
     
     class func from(color: UIColor) -> UIImage? {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))

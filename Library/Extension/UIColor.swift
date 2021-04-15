@@ -10,8 +10,6 @@ import Foundation
 // MARK: - UIColor
 extension UIColor {
     
-    public static let transparent = UIColor(rgba: 0)
-
     public convenience init(rgb hex: UInt) {
         self.init(
             red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,

@@ -62,21 +62,22 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .lightGray
         
-        textInput.backgroundColor = .yellow
+        textInput.backgroundColor = .white
         textInput.maxWords = styles.maximumCharCount
         textInput.placeholder = styles.placeholder
         textInput.showBorder = styles.showBorder
         textInput.delegate = self
         view.addSubview(textInput)
         textInput.snp.makeConstraints { (maker) in
-            maker.leading.equalToSuperview()
-            maker.trailing.equalToSuperview()
+            maker.leading.equalToSuperview().offset(20)
+            maker.trailing.equalToSuperview().offset(-20)
             maker.top.equalToSuperview().offset(150)
             maker.height.equalTo(textInput.frame.height)
         }
 
-        textArea.backgroundColor = .yellow
+        textArea.backgroundColor = .white
         textArea.minHeight = styles.minimunHeight
         textArea.maxHeight = styles.maximunHeight
         textArea.maxWords = styles.maximumCharCount
@@ -85,8 +86,8 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
         textArea.delegate = self
         view.addSubview(textArea)
         textArea.snp.makeConstraints { (maker) in
-            maker.leading.equalToSuperview()
-            maker.trailing.equalToSuperview()
+            maker.leading.equalToSuperview().offset(20)
+            maker.trailing.equalToSuperview().offset(-20)
             maker.top.equalTo(textInput.snp.bottom).offset(50)
             maker.height.equalTo(textArea.frame.height)
         }

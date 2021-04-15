@@ -15,28 +15,28 @@ public struct XHBButtonTypeStyle {
     var iconPosition: XHBButton.IconPosition = .Left
     
     static let primitiveAppearance = XHBButtonTypeStyle(
-        textColor: Colors.bluegrey_900_disabled,
-        backgroundColor: Colors.brand_500_pressed_disabled
+        textColor: .bluegrey_900_disabled,
+        backgroundColor: .brand_500_pressed_disabled
     )
 
     static let secondaryAppearance = XHBButtonTypeStyle(
-        textColor: Colors.blue_600_disabled,
-        backgroundColor: Colors.blue_100_pressed_disabled
+        textColor: .blue_600_disabled,
+        backgroundColor: .blue_100_pressed_disabled
     )
 
     static let tertiaryAppearance = XHBButtonTypeStyle(
-        textColor: Colors.bluegrey_800_disabled,
-        backgroundColor: Colors.bluegrey_100_pressed_disabled
+        textColor: .bluegrey_800_disabled,
+        backgroundColor: .bluegrey_100_pressed_disabled
     )
 
     static let dangerAppearance = XHBButtonTypeStyle(
-        textColor: Colors.red_600_disabled,
-        backgroundColor: Colors.red_100_pressed_disabled
+        textColor: .red_600_disabled,
+        backgroundColor: .red_100_pressed_disabled
     )
 
     static let textLinkAppearance = XHBButtonTypeStyle(
-        textColor: Colors.blue_600_disabled,
-        backgroundColor: Colors.transparent_pressed_disabled
+        textColor: .blue_600_disabled,
+        backgroundColor: .transparent_pressed_disabled
     )
 }
 

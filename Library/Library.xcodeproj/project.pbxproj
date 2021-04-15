@@ -63,7 +63,8 @@
 		7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7178A1F125F8BF1F004BA696 /* half_checked.svg */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
-		71FF93C12626F8BA0033098B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* Colors.swift */; };
+		71FF93C12626F8BA0033098B /* StateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* StateListColors.swift */; };
+		71FF93E8262839720033098B /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93E7262839720033098B /* UIColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +126,8 @@
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
-		71FF93C02626F8BA0033098B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../Library/Styles/Colors.swift; sourceTree = "<group>"; };
+		71FF93C02626F8BA0033098B /* StateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StateListColors.swift; path = ../../Library/Styles/StateListColors.swift; sourceTree = "<group>"; };
+		71FF93E7262839720033098B /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColors.swift; path = ../../Library/Styles/UIColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,7 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
-				71FF93C02626F8BA0033098B /* Colors.swift */,
+				71FF93C02626F8BA0033098B /* StateListColors.swift */,
+				71FF93E7262839720033098B /* UIColors.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -482,7 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
-				71FF93C12626F8BA0033098B /* Colors.swift in Sources */,
+				71FF93C12626F8BA0033098B /* StateListColors.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */,
 				71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */,
@@ -514,6 +517,7 @@
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
 				711202BC25FB4019004A3AA5 /* SkinManager.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
+				71FF93E8262839720033098B /* UIColors.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,

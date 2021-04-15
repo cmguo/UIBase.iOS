@@ -28,13 +28,13 @@ public class XHBCheckBox: UIButton {
     private static let foregroundCheckedFillColor = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_CHECKED),
         StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_CHECKED),
-        StateColor(ThemeColor.shared.transparent, StateColor.STATES_NORMAL)
+        StateColor(.clear, StateColor.STATES_NORMAL)
     ])
         
     private static let foregroundHalfCheckedFillColor = StateListColor([
         StateColor(ThemeColor.shared.bluegrey_500, StateColor.STATES_DISABLED_HALF_CHECKED),
         StateColor(ThemeColor.shared.bluegrey_00, StateColor.STATES_HALF_CHECKED),
-        StateColor(ThemeColor.shared.transparent, StateColor.STATES_NORMAL)
+        StateColor(.clear, StateColor.STATES_NORMAL)
     ])
         
     private static let height: CGFloat = 24.0
@@ -80,7 +80,7 @@ public class XHBCheckBox: UIButton {
         
         let foregroundLayerChecked = CALayer(svgURL: XHBCheckBox.svg_checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
-            layer.fillColor = UIColor.transparent.cgColor
+            layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerChecked = layer
                 layer.fillColor = XHBCheckBox.foregroundCheckedFillColor.color(for: self.states()).cgColor
@@ -90,7 +90,7 @@ public class XHBCheckBox: UIButton {
         
         let foregroundLayerHalfChecked = CALayer(svgURL: XHBCheckBox.svg_half_checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
-            layer.fillColor = UIColor.transparent.cgColor
+            layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerHalfChecked = layer
                 layer.fillColor = XHBCheckBox.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor
