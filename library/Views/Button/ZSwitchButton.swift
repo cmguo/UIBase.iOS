@@ -17,7 +17,7 @@ public class XHBSwitchButton : UISwitch
     private static let tumbColor = StateListColor([
         StateColor(.bluegrey_00, .STATES_NORMAL)
     ])
-        
+
     public init() {
         super.init(frame: CGRect.zero)
         

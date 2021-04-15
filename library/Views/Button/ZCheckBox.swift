@@ -30,13 +30,13 @@ public class XHBCheckBox: UIButton {
         StateColor(.bluegrey_00, .STATES_CHECKED),
         StateColor(.clear, .STATES_NORMAL)
     ])
-        
+    
     private static let foregroundHalfCheckedFillColor = StateListColor([
         StateColor(.bluegrey_500, .STATES_DISABLED_HALF_CHECKED),
         StateColor(.bluegrey_00, .STATES_HALF_CHECKED),
         StateColor(.clear, .STATES_NORMAL)
     ])
-        
+    
     private static let height: CGFloat = 24.0
     private static let radius: CGFloat = 4.0
     private static let borderSize: CGFloat = 2.0
