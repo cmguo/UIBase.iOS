@@ -12,19 +12,12 @@ import UIBase
 class XHBCompoundButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
+        
+        @objc static let _disabled = ["禁用", "切换到禁用状态"]
         @objc var disabled = false
+        
+        @objc static let _text = ["文字", "显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔"]
         @objc var text: String? = "文字"
-
-        override class func descsForStyle(name: String) -> NSArray? {
-            switch name {
-            case "disabled":
-                return ["禁用", "切换到禁用状态"]
-            case "text":
-                return ["文字", "显示的文字（跟随在后面），附加固定间隔；如果为 nil，则没有间隔"]
-            default:
-                return nil
-            }
-        }
     }
     
     class Model : ViewModel {

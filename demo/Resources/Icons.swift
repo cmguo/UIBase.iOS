@@ -9,9 +9,7 @@ import Foundation
 
 class Icons {
     
-    static let icons = ["<null>", "delete", "erase", "union", "info", "alert"].map { (i) in
-        ViewStyles.makeValue(i, i)
-    }
+    static let icons = ["<null>", "delete", "erase", "union", "info", "alert"]
     
     static func iconURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "svg")

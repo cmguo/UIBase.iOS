@@ -23,6 +23,6 @@ class XHBToastComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBToolTipController(self)
+        return XHBTipViewController(self)
     }()
 }

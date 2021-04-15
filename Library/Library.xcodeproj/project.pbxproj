@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112028E25F9C55A004A3AA5 /* UIImageView.swift */; };
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
-		7112029D25FA1500004A3AA5 /* ZToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZToolTip.swift */; };
+		7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZTipView.swift */; };
 		711202A225FA1BA6004A3AA5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202A125FA1BA6004A3AA5 /* String.swift */; };
 		711202BC25FB4019004A3AA5 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BB25FB4019004A3AA5 /* SkinManager.swift */; };
 		71789F9A25E8C496004BA696 /* SKTryCatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 71789F7525E8C496004BA696 /* SKTryCatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,12 +62,14 @@
 		7178A1EE25F8BEEE004BA696 /* checked.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7178A1ED25F8BEEE004BA696 /* checked.svg */; };
 		7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7178A1F125F8BF1F004BA696 /* half_checked.svg */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
+		71FF93C12626F8BA0033098B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
-		7112029C25FA1500004A3AA5 /* ZToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZToolTip.swift; path = ../../../Library/Views/Indicator/ZToolTip.swift; sourceTree = "<group>"; };
+		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Views/Indicator/ZTipView.swift; sourceTree = "<group>"; };
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
 		711202BB25FB4019004A3AA5 /* SkinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
 		71789F7525E8C496004BA696 /* SKTryCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTryCatch.h; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
+		71FF93C02626F8BA0033098B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../Library/Styles/Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +144,7 @@
 		7112029425F9FB78004A3AA5 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				7112029C25FA1500004A3AA5 /* ZToolTip.swift */,
+				7112029C25FA1500004A3AA5 /* ZTipView.swift */,
 			);
 			path = Indicator;
 			sourceTree = "<group>";
@@ -349,6 +353,7 @@
 		7182AEAB25CCE98C00B0F1D3 = {
 			isa = PBXGroup;
 			children = (
+				71FF93B92626ED680033098B /* Styles */,
 				7178A1BC25F63207004BA696 /* Assets */,
 				71789F6B25E8C496004BA696 /* Skin */,
 				7178A17325F5C962004BA696 /* Views */,
@@ -375,6 +380,15 @@
 				7182AEB925CCE98C00B0F1D3 /* Info.plist */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		71FF93B92626ED680033098B /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
+				71FF93C02626F8BA0033098B /* Colors.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
+				71FF93C12626F8BA0033098B /* Colors.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */,
 				71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */,
@@ -484,6 +499,7 @@
 				7178A1A525F5CC14004BA696 /* MaterialLoadingIndicator.swift in Sources */,
 				71789FA925E8C496004BA696 /* FontHelper.swift in Sources */,
 				7178A19025F5CBE5004BA696 /* UIColor.swift in Sources */,
+				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,
 				7178A18525F5CAED004BA696 /* ZButton.swift in Sources */,
 				71789FA725E8C496004BA696 /* ColorHelper.swift in Sources */,
 				71789FA025E8C496004BA696 /* Apperance.swift in Sources */,
@@ -500,7 +516,7 @@
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
-				7112029D25FA1500004A3AA5 /* ZToolTip.swift in Sources */,
+				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
 				71789F9E25E8C496004BA696 /* SKTryCatch.m in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,

@@ -12,10 +12,6 @@
 
 + (id) create: (NSString*)className;
 
-+ (NSArray*) valuesForStyle: (id) clsStyles style: (NSString*)name;
-
-+ (NSArray*) descsForStyle: (id) clsStyles style: (NSString*)name;
-
 @end
 
 #endif /* ObjectFactory_h */

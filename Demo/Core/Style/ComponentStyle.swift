@@ -18,22 +18,34 @@ extension String {
     }
 }
 
-public class ComponentStyle
+public class ComponentStyle : NSObject
 {
-    let field: objc_property_t
     let name: String
     let title: String
     let desc: String
     let valueType: Any.Type
     let values: Array<(String, String)>?
 
-    var valyeTypeName: String { get { return "\(valueType)" } }
+    var valueTypeName: String { get { return "\(valueType)" } }
+    
+    init(_ cls: ViewStyles.Type, _ name: String, values: Array<(String, String)>? = nil) {
+        let field = class_getProperty(cls, name.cString(using: .utf8)!)!;
+        self.name = name
+        self.valueType = getTypeOf(property: field) as! Any.Type
+        self.values = values
+        if let descs = cls.value(forKey: "_\(self.name)") as? NSArray {
+            self.title = descs[0] as! String
+            self.desc = "\(self.name): \(self.valueType)\n\(descs[1] as! String)"
+        } else {
+            self.title = self.name.capitalizingFirstLetter()
+            self.desc = "\(self.name): \(self.valueType)"
+        }
+    }
     
     init(_ cls: ViewStyles.Type, _ field: objc_property_t) {
-        self.field = field;
         self.name = String(cString: property_getName(field))
         self.valueType = getTypeOf(property: field) as! Any.Type
-        let values = ObjectFactory.values(forStyle: cls, style: self.name)
+        let values = cls.value(forKey: "_\(self.name)Values") as? NSArray
         self.values = values?.map({ (value: Any?) -> (String, String) in
             if let e = value as? NSDictionary.Element {
                 return (e.key as! String, e.value as! String)
@@ -41,13 +53,17 @@ public class ComponentStyle
                 return ("", "")
             }
         })
-        if let descs = ObjectFactory.descs(forStyle: cls, style: self.name) {
+        if let descs = cls.value(forKey: "_\(self.name)") as? NSArray {
             self.title = descs[0] as! String
             self.desc = "\(self.name): \(self.valueType)\n\(descs[1] as! String)"
         } else {
             self.title = self.name.capitalizingFirstLetter()
             self.desc = "\(self.name): \(self.valueType)"
         }
+    }
+    
+    func setValues(_ values: Array<(String, String)>) {
+        //self.values = values
     }
     
     func set(_ value: String, on styles: ViewStyles) {

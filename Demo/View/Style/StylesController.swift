@@ -68,7 +68,7 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
             position -= 1
         }
         let style = styles[position]
-        let type = desc ? "Desc" : (style.values == nil ? style.valyeTypeName : "List")
+        let type = desc ? "Desc" : (style.values == nil ? style.valueTypeName : "List")
         let cell = tableView.dequeueReusableCell(withIdentifier: type)
             ?? TextTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: type)
         (cell as? StyleTableViewCell)?.setStyle(viewStyles!, style)

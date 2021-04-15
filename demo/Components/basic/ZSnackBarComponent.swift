@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBNoticeBarComponent : NSObject, Component
+class XHBSnackBarComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class XHBNoticeBarComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBToolTipController(self)
+        return XHBTipViewController(self)
     }()
 }

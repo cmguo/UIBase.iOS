@@ -1,5 +1,5 @@
 //
-//  XHBToolTip.swift
+//  XHBTipView.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/11.
@@ -7,33 +7,32 @@
 
 import Foundation
 
-@objc public protocol XHBToolTipDelegate {
+@objc public protocol XHBTipViewDelegate {
 }
 
-@objc public protocol XHBToolTipContentDelegate : XHBToolTipDelegate {
+@objc public protocol XHBTipViewContentDelegate : XHBTipViewDelegate {
     
-    @objc optional func toolTipMaxWidth(_ toolTip: XHBToolTip) -> CGFloat
-    @objc optional func toolTipNumberOfLines(_ toolTip: XHBToolTip) -> Int
-    @objc optional func toolTipPerfectLocation(_ toolTip: XHBToolTip) -> XHBToolTip.Location
-    @objc optional func toolTipIcon(_ toolTip: XHBToolTip) -> URL?
-    @objc optional func toolTipLeftIcon(_ toolTip: XHBToolTip) -> URL?
-    @objc optional func toolTipRightIcon(_ toolTip: XHBToolTip) -> URL?
-    @objc optional func toolTipButton(_ toolTip: XHBToolTip) -> XHBButton?
+    @objc optional func tipViewMaxWidth(_ tipView: XHBTipView) -> CGFloat
+    @objc optional func tipViewNumberOfLines(_ tipView: XHBTipView) -> Int
+    @objc optional func tipViewPerfectLocation(_ tipView: XHBTipView) -> XHBTipView.Location
+    @objc optional func tipViewIcon(_ tipView: XHBTipView) -> URL?
+    @objc optional func tipViewLeftButton(_ tipView: XHBTipView) -> Any?
+    @objc optional func tipViewRightButton(_ tipView: XHBTipView) -> Any?
 }
 
-@objc public protocol XHBToolTipCallbackDelegate : XHBToolTipDelegate {
+@objc public protocol XHBTipViewCallbackDelegate : XHBTipViewDelegate {
         
-    @objc optional func toolTipDelayTime(_ toolTip: XHBToolTip) -> Double
-    @objc optional func toolTipIconTapped(_ toolTip: XHBToolTip, index: Int)
-    @objc optional func toolTipDismissed(_ toolTip: XHBToolTip, isFromUser: Bool)
+    @objc optional func tipViewDelayTime(_ tipView: XHBTipView) -> Double
+    @objc optional func tipViewButtonClicked(_ tipView: XHBTipView, index: Int)
+    @objc optional func tipViewDismissed(_ tipView: XHBTipView, isFromUser: Bool)
 }
 
-public class XHBToolTip : UIView
+public class XHBTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, delegate:  XHBToolTipDelegate? = nil) {
+    public class func tip(_ target: UIView, _ message: String, delegate:  XHBTipViewDelegate? = nil) {
         
-        let tipView = XHBToolTip()
+        let tipView = XHBTipView()
         tipView.message = message
         tipView.delegate = delegate
         tipView.popAt(target)
@@ -41,7 +40,7 @@ public class XHBToolTip : UIView
     
     public class func remove(from target: UIView, animate: Bool = false) {
         for c in target.subviews {
-            if let tip = c as? XHBToolTip {
+            if let tip = c as? XHBTipView {
                 tip.dismissAnimated(animate)
             }
         }
@@ -49,7 +48,7 @@ public class XHBToolTip : UIView
     
     @objc public enum Location : Int, RawRepresentable, CaseIterable, Comparable {
         
-        public static func < (lhs: XHBToolTip.Location, rhs: XHBToolTip.Location) -> Bool {
+        public static func < (lhs: XHBTipView.Location, rhs: XHBTipView.Location) -> Bool {
             return lhs.rawValue < rhs.rawValue
         }
         
@@ -78,7 +77,7 @@ public class XHBToolTip : UIView
     public var location = Location.TopRight {
         didSet {
             if (self.location >= .AutoToast) {
-                self.font = XHBToolTip.defaultSmallFont
+                self.font = XHBTipView.defaultSmallFont
                 if (self.location == .ManualLayout) {
                     self.frameRadius = 0
                 }
@@ -98,7 +97,7 @@ public class XHBToolTip : UIView
         set { backLayer.cornerRadius = newValue }
     }
     
-    public var frameColor: UIColor = XHBToolTip.defaultFrameColor {
+    public var frameColor: UIColor = XHBTipView.defaultFrameColor {
         didSet {
             backLayer.backgroundColor = frameColor.cgColor
             arrowLayer.backgroundColor = frameColor.cgColor
@@ -120,15 +119,15 @@ public class XHBToolTip : UIView
         set { messageLabel.numberOfLines = newValue }
     }
     
-    public var leftIcon: URL? {
+    public var leftButton: Any? {
         didSet {
-            leftIconView.setIcon(svgURL: leftIcon)
+            _leftButton.content = leftButton
         }
     }
     
-    public var rightIcon: URL? {
+    public var rightButton: Any? {
         didSet {
-            rightIconView.setIcon(svgURL: rightIcon)
+            _rightButton.content = rightButton
         }
     }
     
@@ -141,31 +140,21 @@ public class XHBToolTip : UIView
         }
     }
     
-    public var button: XHBButton? = nil {
+    public var delegate: XHBTipViewDelegate? = nil {
         didSet {
-            if let button = button {
-                addSubview(button)
-            }
-            setNeedsLayout()
-        }
-    }
-    
-    public var delegate: XHBToolTipDelegate? = nil {
-        didSet {
-            if let delegate = self.delegate as? XHBToolTipContentDelegate {
-                self.numberOfLines = delegate.toolTipNumberOfLines?(self) ?? self.numberOfLines
-                self.maxWidth = delegate.toolTipMaxWidth?(self) ?? self.maxWidth
-                self.location = delegate.toolTipPerfectLocation?(self) ?? self.location
-                if let icon = delegate.toolTipLeftIcon?(self) {
-                    self.leftIcon = icon
+            if let delegate = self.delegate as? XHBTipViewContentDelegate {
+                self.numberOfLines = delegate.tipViewNumberOfLines?(self) ?? self.numberOfLines
+                self.maxWidth = delegate.tipViewMaxWidth?(self) ?? self.maxWidth
+                self.location = delegate.tipViewPerfectLocation?(self) ?? self.location
+                if let button = delegate.tipViewLeftButton?(self) {
+                    self.leftButton = button
                 }
-                if let icon = delegate.toolTipRightIcon?(self) {
-                    self.rightIcon = icon
+                if let button = delegate.tipViewRightButton?(self) {
+                    self.rightButton = button
                 }
-                if let icon = delegate.toolTipIcon?(self) {
+                if let icon = delegate.tipViewIcon?(self) {
                     self.icon = icon
                 }
-                self.button = delegate.toolTipButton?(self) ?? self.button
             }
 
         }
@@ -180,32 +169,28 @@ public class XHBToolTip : UIView
         return label
     }()
     
-    private lazy var leftIconView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.bounds.width2 = XHBToolTip.iconSize
-        imageView.bounds.height2 = XHBToolTip.iconSize
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(iconTap(_:)))
-        imageView.addGestureRecognizer(recognizer)
-        imageView.isUserInteractionEnabled = true
-        addSubview(imageView)
-        return imageView
+    private lazy var _leftButton: XHBButton = {
+        let button = XHBButton()
+        button.buttonType2 = .TextLink
+        button.buttonSize = .Thin
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        addSubview(button)
+        return button
     }()
     
-    private lazy var rightIconView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.bounds.width2 = XHBToolTip.iconSize
-        imageView.bounds.height2 = XHBToolTip.iconSize
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(iconTap(_:)))
-        imageView.addGestureRecognizer(recognizer)
-        imageView.isUserInteractionEnabled = true
-        addSubview(imageView)
-        return imageView
+    private lazy var _rightButton: XHBButton = {
+        let button = XHBButton()
+        button.buttonType2 = .TextLink
+        button.buttonSize = .Thin
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        addSubview(button)
+        return button
     }()
     
     private lazy var iconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.bounds.width2 = XHBToolTip.iconSize
-        imageView.bounds.height2 = XHBToolTip.iconSize
+        imageView.bounds.width2 = XHBTipView.iconSize
+        imageView.bounds.height2 = XHBTipView.iconSize
         addSubview(imageView)
         return imageView
     }()
@@ -215,13 +200,13 @@ public class XHBToolTip : UIView
 
     public init() {
         super.init(frame: CGRect.zero)
-        backLayer.backgroundColor = XHBToolTip.defaultFrameColor.cgColor
-        arrowLayer.fillColor = XHBToolTip.defaultFrameColor.cgColor
-        backLayer.cornerRadius = XHBToolTip.radius
+        backLayer.backgroundColor = XHBTipView.defaultFrameColor.cgColor
+        arrowLayer.fillColor = XHBTipView.defaultFrameColor.cgColor
+        backLayer.cornerRadius = XHBTipView.radius
         layer.addSublayer(backLayer)
 
-        messageLabel.font = XHBToolTip.defaultFont
-        messageLabel.textColor = XHBToolTip.defaultTextColor
+        messageLabel.font = XHBTipView.defaultFont
+        messageLabel.textColor = XHBTipView.defaultTextColor
         addSubview(messageLabel)
     }
     
@@ -244,7 +229,7 @@ public class XHBToolTip : UIView
         self.frame = frame
         
         if location != .ManualLayout {
-            let delayTime = (delegate as? XHBToolTipCallbackDelegate)?.toolTipDelayTime?(self) ?? 3
+            let delayTime = (delegate as? XHBTipViewCallbackDelegate)?.tipViewDelayTime?(self) ?? 3
             if delayTime > 0 {
                 DispatchQueue.main.delay(delayTime) {
                     self.dismissAnimated(true)
@@ -254,21 +239,18 @@ public class XHBToolTip : UIView
     }
     
     fileprivate func calcSize(_ mWidth: CGFloat) -> CGSize {
-        var size = CGSize(width: XHBToolTip.paddingX * 2, height: XHBToolTip.paddingY * 2)
-        if leftIcon != nil {
-            size.width += XHBToolTip.paddingX + XHBToolTip.iconSize
+        var size = CGSize(width: XHBTipView.paddingX * 2, height: XHBTipView.paddingY * 2)
+        if leftButton != nil {
+            size.width += XHBTipView.paddingX + XHBTipView.iconSize
         }
         if icon != nil {
-            size.width += XHBToolTip.iconPadding + XHBToolTip.iconSize
+            size.width += XHBTipView.iconPadding + XHBTipView.iconSize
         }
-        if rightIcon != nil {
-            size.width += XHBToolTip.paddingX + XHBToolTip.iconSize
-        }
-        if let button = button {
-            size.width += XHBToolTip.paddingX + button.frame.width
+        if rightButton != nil {
+            size.width += XHBTipView.paddingX + XHBTipView.iconSize
         }
         if location < .AutoToast {
-            size.height += XHBToolTip.arrowSize
+            size.height += XHBTipView.arrowSize
         }
         let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
         size.width += textSize.width
@@ -288,14 +270,14 @@ public class XHBToolTip : UIView
         let wbounds = target.window!.bounds
         // for toast location
         if location == .AutoToast {
-            if XHBToolTip.toastCount <= 0 {
-                XHBToolTip.toastY = wbounds.bottom - wbounds.width / 8
+            if XHBTipView.toastCount <= 0 {
+                XHBTipView.toastY = wbounds.bottom - wbounds.width / 8
             } else {
-                XHBToolTip.toastY -= size.height + 20
+                XHBTipView.toastY -= size.height + 20
             }
-            XHBToolTip.toastCount += 1
+            XHBTipView.toastCount += 1
             location2 = location
-            return CGPoint(x: wbounds.centerX - size.width / 2, y: XHBToolTip.toastY - size.height / 2)
+            return CGPoint(x: wbounds.centerX - size.width / 2, y: XHBTipView.toastY - size.height / 2)
         }
         // for arrow locations
         var frame = CGRect(origin: CGPoint.zero, size: size)
@@ -303,11 +285,11 @@ public class XHBToolTip : UIView
         let checkX: (Int) -> Int = { (x) in
             switch x {
             case 0: // Left
-                frame.right = tbounds.centerX + XHBToolTip.arrowOffset
+                frame.right = tbounds.centerX + XHBTipView.arrowOffset
             case 1:
                 frame.centerX = tbounds.centerX
             case 2:
-                frame.left = tbounds.centerX - XHBToolTip.arrowOffset
+                frame.left = tbounds.centerX - XHBTipView.arrowOffset
             default:
                 break
             }
@@ -381,14 +363,13 @@ public class XHBToolTip : UIView
     @objc func finaliseDismiss() {
         removeFromSuperview()
         if location2 == .AutoToast {
-            XHBToolTip.toastCount -= 1
+            XHBTipView.toastCount -= 1
         }
     }
     
-    @objc func iconTap(_ recognizer: UITapGestureRecognizer) {
-        if recognizer.state == .ended {
-            (delegate as? XHBToolTipCallbackDelegate)?.toolTipIconTapped?(self, index: leftIcon != nil && recognizer.view == leftIconView ? 0 : 1)
-        }
+    @objc func buttonClicked(_ sender: UIView) {
+        (delegate as? XHBTipViewCallbackDelegate)?.tipViewButtonClicked?(
+            self, index: sender == _leftButton ? 0 : 1)
     }
 
     public override func layoutSubviews() {
@@ -397,42 +378,38 @@ public class XHBToolTip : UIView
         if let l = location2, l != .AutoToast {
             let x = l.rawValue % 3
             let y = l.rawValue >= 3
-            var arrowRect = y ? frame.cutTop(XHBToolTip.arrowSize) : frame.cutBottom(XHBToolTip.arrowSize)
-            if x == 2 { arrowRect.centerX = frame.left + XHBToolTip.arrowOffset }
+            var arrowRect = y ? frame.cutTop(XHBTipView.arrowSize) : frame.cutBottom(XHBTipView.arrowSize)
+            if x == 2 { arrowRect.centerX = frame.left + XHBTipView.arrowOffset }
             else if (x == 1) { arrowRect.centerX = frame.centerX }
-            else { arrowRect.centerX = frame.right - XHBToolTip.arrowOffset }
+            else { arrowRect.centerX = frame.right - XHBTipView.arrowOffset }
             let path = CGMutablePath()
             if !y { // down
                 path.move(to: CGPoint.zero)
-                path.addLine(to: CGPoint(x: XHBToolTip.arrowSize * 2, y: 0))
-                path.addLine(to: CGPoint(x: XHBToolTip.arrowSize, y: XHBToolTip.arrowSize))
+                path.addLine(to: CGPoint(x: XHBTipView.arrowSize * 2, y: 0))
+                path.addLine(to: CGPoint(x: XHBTipView.arrowSize, y: XHBTipView.arrowSize))
             } else {
-                path.move(to: CGPoint(x: 0, y: XHBToolTip.arrowSize))
-                path.addLine(to: CGPoint(x: XHBToolTip.arrowSize * 2, y: XHBToolTip.arrowSize))
-                path.addLine(to: CGPoint(x: XHBToolTip.arrowSize, y: 0))
+                path.move(to: CGPoint(x: 0, y: XHBTipView.arrowSize))
+                path.addLine(to: CGPoint(x: XHBTipView.arrowSize * 2, y: XHBTipView.arrowSize))
+                path.addLine(to: CGPoint(x: XHBTipView.arrowSize, y: 0))
             }
             path.closeSubpath()
             arrowLayer.path = path
-            arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: XHBToolTip.arrowSize * 2, height: XHBToolTip.arrowSize))
+            arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: XHBTipView.arrowSize * 2, height: XHBTipView.arrowSize))
             layer.addSublayer(arrowLayer)
         }
         backLayer.frame = frame
-        frame.deflate(width: XHBToolTip.paddingX, height: XHBToolTip.paddingY)
-        if leftIcon != nil {
-            let iconRect = frame.cutLeft(XHBToolTip.paddingX + XHBToolTip.iconSize)
-            leftIconView.frame = iconRect.leftCenterPart(ofSize: leftIconView.bounds.size)
+        frame.deflate(width: XHBTipView.paddingX, height: XHBTipView.paddingY)
+        if leftButton != nil {
+            let iconRect = frame.cutLeft(XHBTipView.paddingX + _leftButton.bounds.width)
+            _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
         }
-        if rightIcon != nil {
-            let iconRect = frame.cutRight(XHBToolTip.paddingX + XHBToolTip.iconSize)
-            rightIconView.frame = iconRect.rightCenterPart(ofSize: rightIconView.bounds.size)
+        if rightButton != nil {
+            let iconRect = frame.cutRight(XHBTipView.paddingX + _rightButton.bounds.width)
+            _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
         }
         if icon != nil {
-            let iconRect = frame.cutLeft(XHBToolTip.iconPadding + XHBToolTip.iconSize)
+            let iconRect = frame.cutLeft(XHBTipView.iconPadding + XHBTipView.iconSize)
             iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
-        }
-        if let button = button {
-            let iconRect = frame.cutRight(XHBToolTip.paddingX + button.bounds.width)
-            button.frame = iconRect.rightCenterPart(ofSize: button.bounds.size)
         }
         messageLabel.frame = frame
     }

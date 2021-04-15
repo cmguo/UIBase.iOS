@@ -14,43 +14,29 @@ import SwiftSVG
 class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
 
     class Styles : ViewStyles {
-        @objc var maximumCharCount = 100
-        @objc var minimunHeight: CGFloat = 100
-        @objc var maximunHeight: CGFloat = 300
-        @objc var placeholder = "请输入"
-        @objc var showBorder = false
-        @objc var leftIcon: String = "<null>"
-        @objc var rightIcon: String = "<null>"
-
-        override class func descsForStyle(name: String) -> NSArray? {
-            switch name {
-            case "maximumCharCount":
-                return ["最大字数", "设为0不限制；如果有限制，将展现字数指示"]
-            case "minimunHeight":
-                return ["最小高度", "没有文字时的高度"]
-            case "maximunHeight":
-                return ["最大高度", "高度随文字变化，需要指定最大高度；包含字数指示（如果有的话）"]
-            case "placeholder":
-                return ["占位文字", "没有任何输入文字时，显示的占位文字（灰色）"]
-            case "showBorder":
-                return ["显示边框", "设置是否显示边框"]
-            case "leftIcon":
-                return ["左图标", "设置左边的图标，URL 类型，控件内部会自动重新布局"]
-            case "rightIcon":
-                return ["右图标", "设置右边的图标，URL 类型，控件内部会自动重新布局"]
-            default:
-                return nil
-            }
-        }
         
-        override class func valuesForStyle(name: String) -> NSArray? {
-            switch name {
-            case "leftIcon", "rightIcon":
-                return Icons.icons as NSArray
-            default:
-                return nil
-            }
-        }
+        @objc static let _maximumCharCount = ["最大字数", "设为0不限制；如果有限制，将展现字数指示"]
+        @objc var maximumCharCount = 100
+        
+        @objc static let _minimunHeight = ["最小高度", "没有文字时的高度"]
+        @objc var minimunHeight: CGFloat = 100
+        
+        @objc static let _maximunHeight = ["最大高度", "高度随文字变化，需要指定最大高度；包含字数指示（如果有的话）"]
+        @objc var maximunHeight: CGFloat = 300
+        
+        @objc static let _placeholder = ["占位文字", "没有任何输入文字时，显示的占位文字（灰色）"]
+        @objc var placeholder = "请输入"
+        
+        @objc static let _showBorder = ["显示边框", "设置是否显示边框"]
+        @objc var showBorder = false
+        
+        @objc static let _leftIcon = ["左图标", "设置左边的图标，URL 类型，控件内部会自动重新布局"]
+        @objc static let _leftIconStyle: NSObject = IconStyle(Styles.self, "leftIcon")
+        @objc var leftIcon: String = "<null>"
+        
+        @objc static let _rightIcon = ["右图标", "设置右边的图标，URL 类型，控件内部会自动重新布局"]
+        @objc static let _rightIconStyle: NSObject = IconStyle(Styles.self, "rightIcon")
+        @objc var rightIcon: String = "<null>"
     }
     
     class Model : ViewModel {
@@ -128,7 +114,7 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
     }
    
     func textAreaIconTapped(_ textArea: XHBTextArea, index: Int) {
-        XHBToolTip.tip(textArea, "点击了图标\(index)")
+        XHBTipView.tip(textArea, "点击了图标\(index)")
     }
    
     override func viewWillLayoutSubviews() {

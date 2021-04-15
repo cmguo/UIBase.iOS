@@ -13,9 +13,10 @@ import SwiftSVG
 public class XHBButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     @objc enum ButtonSize : Int {
-        case Small
-        case Middle
         case Large
+        case Middle
+        case Small
+        case Thin
     }
     
     @objc enum ButtonWidth : Int {
@@ -23,58 +24,50 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         case MatchParent
     }
     
+    @objc enum IconPosition : Int {
+        case Left
+        case Top
+        case Right
+        case Bottom
+    }
+    
     class Styles : ViewStyles {
+        
+        @objc static let _disabled = ["禁用", "切换到禁用状态"]
         @objc var disabled = false
+        
+        @objc static let _loading = ["加载", "切换到加载状态"]
         @objc var loading = false
-        @objc var sizeMode = ButtonSize.Large
-        var sizeMode2 = XHBButton.ButtonSize.Large
+        
+        @objc static let _buttonSize = ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
+        @objc static let _buttonSizeStyle: NSObject = EnumStyle(Styles.self, "buttonSize", XHBButton.ButtonSize.self)
+        @objc var buttonSize = ButtonSize.Large
+        
+        @objc static let _widthMode = ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
+        @objc static let _widthModeStyle: NSObject = EnumStyle(Styles.self, "widthMode", XHBButton.ButtonWidth.self)
         @objc var widthMode = ButtonWidth.WrapContent
-        var widthMode2 = XHBButton.ButtonWidth.WrapContent
-        @objc var iconAtRight = false
+        
+        @objc static let _iconPosition = ["图标位置", "更改图标位置，可以在文字上下或者左右"]
+        @objc static let _iconPositionStyle: NSObject = EnumStyle(Styles.self, "iconPosition", XHBButton.IconPosition.self)
+        @objc var iconPosition = IconPosition.Left
+        
+        @objc static let _icon = ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
+        @objc static let _iconStyle: NSObject = IconStyle(Styles.self, "icon")
         @objc var icon: String = "delete"
+        
+        @objc static let _text = ["显示文字", "改变文字，按钮会自动适应文字宽度"]
         @objc var text: String = "按钮"
         
-        override class func valuesForStyle(name: String) -> NSArray? {
-            switch name {
-            case "sizeMode":
-                return makeValues(enumType: XHBButton.ButtonSize.self)
-            case "widthMode":
-                return makeValues(enumType: XHBButton.ButtonWidth.self)
-            case "icon":
-                return Icons.icons as NSArray
-            default:
-                return nil
-            }
+        var buttonSize2: XHBButton.ButtonSize {
+            get { XHBButton.ButtonSize.init(rawValue: buttonSize.rawValue)! }
         }
-        
-        override class func descsForStyle(name: String) -> NSArray? {
-            switch name {
-            case "disabled":
-                return ["禁用", "切换到禁用状态"]
-            case "loading":
-                return ["加载", "切换到加载状态"]
-            case "sizeMode":
-                return ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
-            case "widthMode":
-                return ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
-            case "iconAtRight":
-                return ["图标右置", "更改图标位置，可以在文字左边或者右边"]
-            case "icon":
-                return ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
-            case "text":
-                return ["显示文字", "改变文字，按钮会自动适应文字宽度"]
-           default:
-                return nil
-            }
+
+        var widthMode2: XHBButton.ButtonWidth {
+            get { XHBButton.ButtonWidth.init(rawValue: widthMode.rawValue)! }
         }
-        
-        override func notify(_ name: String) {
-            if name == "sizeMode" {
-                sizeMode2 = XHBButton.ButtonSize.init(rawValue: sizeMode.rawValue)!
-            } else if name == "widthMode" {
-                widthMode2 = XHBButton.ButtonWidth.init(rawValue: widthMode.rawValue)!
-            }
-            super.notify(name)
+
+        var iconPosition2: XHBButton.IconPosition {
+            get { XHBButton.IconPosition.init(rawValue: iconPosition.rawValue)! }
         }
     }
     
@@ -101,9 +94,14 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button = XHBButton(type: type, sizeMode: styles.sizeMode2, icon: Icons.iconURL(styles.icon), text: styles.text)
+        let button = XHBButton(style: XHBButtonStyle()
+                                .text(styles.text)
+                                .icon(Icons.iconURL(styles.icon))
+                                .buttonType(type)
+                                .buttonSize(styles.buttonSize2))
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
+        button.iconPosition = styles.iconPosition2
         buttons.append(button)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
@@ -121,7 +119,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50 //UITableView.automaticDimension
+        return 100 //UITableView.automaticDimension
     }
 
     public override func viewDidLoad() {
@@ -140,8 +138,8 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
 //            } else if name == "sizeMode" {
 //                for b in self.buttons { _ = b }
 //                self.view.setNeedsLayout()
-            } else if name == "iconAtRight" {
-                for b in self.buttons { b.iconAtRight = self.styles.iconAtRight }
+            } else if name == "iconPosition" {
+                for b in self.buttons { b.iconPosition = self.styles.iconPosition2 }
                 self.view.setNeedsLayout()
             } else if name == "icon" {
                 for b in self.buttons { b.icon = Icons.iconURL(self.styles.icon) }
@@ -150,6 +148,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.text = self.styles.text }
                 self.view.setNeedsLayout()
             } else {
+                self.buttons.removeAll()
                 self.tableView.reloadData()
             }
         }
