@@ -80,8 +80,8 @@ public class XHBTextArea: UIView {
     
     private static let defaultPlaceHolderTextColor = UIColor.bluegrey_500
     private static let defaultWordCountTextColor = UIColor.bluegrey_700
-    private static let defaultFont = systemFontSize(fontSize: 16, type: .regular)
-    private static let defaultWordCounFont = systemFontSize(fontSize: 12, type: .regular) // for word count label
+    private static let defaultFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    private static let defaultWordCounFont = UIFont.systemFont(ofSize: 12, weight: .regular) // for word count label
     private static let backgroundColor = StateListColor([
         StateColor(.bluegrey_100, .STATES_DISABLED),
         StateColor(.bluegrey_00, .STATES_NORMAL)

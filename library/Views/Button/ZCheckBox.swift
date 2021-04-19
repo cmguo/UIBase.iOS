@@ -11,31 +11,13 @@ import SwiftSVG
 @IBDesignable
 public class XHBCheckBox: UIButton {
     
-    private static let fillColor = StateListColor([
-        StateColor(.bluegrey_100, .STATES_DISABLED),
-        StateColor(.brand_500, .STATES_CHECKED),
-        StateColor(.brand_500, .STATES_HALF_CHECKED),
-        StateColor(.bluegrey_00, .STATES_NORMAL)
-    ])
+    private static let fillColor = StateListColor.bluegrey_00_halfchecked_disabled
     
-    private static let borderColor = StateListColor([
-        StateColor(.bluegrey_300, .STATES_DISABLED),
-        StateColor(.brand_500, .STATES_CHECKED),
-        StateColor(.brand_500, .STATES_HALF_CHECKED),
-        StateColor(.bluegrey_500, .STATES_NORMAL)
-    ])
+    private static let borderColor = StateListColor.bluegrey_500_halfchecked_disabled
     
-    private static let foregroundCheckedFillColor = StateListColor([
-        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
-        StateColor(.bluegrey_00, .STATES_CHECKED),
-        StateColor(.clear, .STATES_NORMAL)
-    ])
+    private static let foregroundCheckedFillColor = StateListColor.transparent_checked_disabled
     
-    private static let foregroundHalfCheckedFillColor = StateListColor([
-        StateColor(.bluegrey_500, .STATES_DISABLED_HALF_CHECKED),
-        StateColor(.bluegrey_00, .STATES_HALF_CHECKED),
-        StateColor(.clear, .STATES_NORMAL)
-    ])
+    private static let foregroundHalfCheckedFillColor = StateListColor.transparent_halfchecked_disabled
     
     private static let height: CGFloat = 24.0
     private static let radius: CGFloat = 4.0
@@ -110,6 +92,7 @@ public class XHBCheckBox: UIButton {
         addTarget(self, action: #selector(self.buttonClicked(_:)), for: .touchUpInside)
         
         updateStates()
+        _ = updateSizeConstraint(nil, frame.size)
     }
     
     required init?(coder: NSCoder) {

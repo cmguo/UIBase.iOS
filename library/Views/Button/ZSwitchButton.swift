@@ -9,14 +9,9 @@ import Foundation
 
 public class XHBSwitchButton : UISwitch
 {
-    private static let trackColor = StateListColor([
-        StateColor(.brand_500, .STATES_CHECKED),
-        StateColor(.bluegrey_300, .STATES_NORMAL)
-    ])
+    private static let trackColor = StateListColor.bluegrey_300_checked
         
-    private static let tumbColor = StateListColor([
-        StateColor(.bluegrey_00, .STATES_NORMAL)
-    ])
+    private static let tumbColor = StateListColor.bluegrey_00
 
     public init() {
         super.init(frame: CGRect.zero)

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 open class XHBBadgeView: UILabel {
-    
+
     public var maximum: Int = 0 {
         didSet {
             if number > 0 {
@@ -29,6 +29,7 @@ open class XHBBadgeView: UILabel {
     open override var text: String? {
         didSet {
             isHidden = false
+            updateSize()
         }
     }
     
@@ -38,24 +39,51 @@ open class XHBBadgeView: UILabel {
         }
     }
 
-    /// Badge's height, Badge's cornerRadius is half of the value
-    public var height: CGFloat = 9 {
+    public var padding: CGFloat = 2 {
         didSet {
-            updateHeight()
+            updateSize()
+        }
+    }
+    
+    public var gravity: Int = Gravity.RIGHT | Gravity.TOP {
+        didSet {
+            updateGravity()
         }
     }
 
-    /// Badge's center position relative to the parent view's center position displacement
+    /// Badge's gravity position relative to the parent view's gravity position displacement
     /// A positive x means moving to the right
     /// A positive y means moving to the bottom
     public var offset: CGPoint = .zero {
         didSet {
-            remakeConstraints()
+            updateGravity()
         }
     }
 
-    open var badgeColor: UIColor = UIColor.red {
+    open var fillColor: UIColor = .red {
         didSet {
+            layer.backgroundColor = fillColor.cgColor
+            setNeedsDisplay()
+        }
+    }
+
+    open var borderColor: UIColor = .white {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+            setNeedsDisplay()
+        }
+    }
+
+    open var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+            setNeedsDisplay()
+        }
+    }
+
+    open var cornerRadius: CGFloat = -1 {
+        didSet {
+            layer.cornerRadius = cornerRadius
             setNeedsDisplay()
         }
     }
@@ -63,12 +91,6 @@ open class XHBBadgeView: UILabel {
     open var insets: CGSize = CGSize(width: 6, height: 2) {
         didSet {
             invalidateIntrinsicContentSize()
-        }
-    }
-
-    open var cornerRadius: CGFloat = -1 {
-        didSet {
-            setNeedsDisplay()
         }
     }
 
@@ -86,14 +108,17 @@ open class XHBBadgeView: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-
         setup()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
         setup()
+    }
+    
+    public func attach(_ target: UIView) {
+        target.addSubview(self)
+        remakeConstraints()
     }
 
     open override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
@@ -129,105 +154,110 @@ open class XHBBadgeView: UILabel {
         }
     }
 
-    open override func draw(_ rect: CGRect) {
-
-        let actualCornerRadius = cornerRadius >= 0 ? cornerRadius : rect.height / 2
-
-        var path: UIBezierPath?
-
-        if actualCornerRadius == 0 {
-            path = UIBezierPath(rect: rect)
-        } else {
-            path = UIBezierPath(roundedRect: rect, cornerRadius: actualCornerRadius)
-        }
-
-        badgeColor.setFill()
-        path?.fill()
-
-        super.draw(rect)
-    }
-
     private func setup() {
         textAlignment = NSTextAlignment.center
+        font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        textColor = .white
         clipsToBounds = false
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.backgroundColor = fillColor.cgColor
+        layer.borderColor = borderColor.cgColor
     }
-    
     
     private func remakeConstraints() {
         guard self.superview != nil else {
             return
         }
-        updateCenterXConstraint()
-        updateCenterYConstraint()
-        updateHeightConstraint()
-        updateWidthConstraint()
-        updateCornerRadius()
+        updateSize()
+        updateGravity()
     }
 
-    private func updateHeight() {
-        updateHeightConstraint()
-        updateWidthConstraint()
-        updateCornerRadius()
+    private func updateSize() {
+        var size: CGSize
+        if let string = text, !string.isEmpty {
+            size = string.boundingSize(font: font)
+            size.width += padding * 2
+            size.height += padding * 2
+            if size.width < size.height {
+                size.width = size.height
+            }
+        } else {
+            size = CGSize(width: 8, height: 8)
+        }
+        sizeConstraint = updateSizeConstraint(sizeConstraint, size)
+        updateCornerRadius(size)
     }
 
-    private var centerXConstraint: NSLayoutConstraint?
-    private var centerYConstraint: NSLayoutConstraint?
-    private var heightConstraint: NSLayoutConstraint?
-    private var widthConstraint: NSLayoutConstraint?
+    private func updateGravity() {
+        updateGravityXConstraint()
+        updateGravityYConstraint()
+    }
+    
+    private var gravityXConstraint: NSLayoutConstraint?
+    private var gravityYConstraint: NSLayoutConstraint?
+    private var sizeConstraint: (NSLayoutConstraint, NSLayoutConstraint)? = nil
 
-    private func updateCenterXConstraint() {
+    private func updateGravityXConstraint() {
         guard let superView = self.superview else {
             return
         }
-        if let centerXConstraint = centerXConstraint {
-            centerXConstraint.constant = offset.x
+        let anchor: NSLayoutXAxisAnchor
+        let anchor2: NSLayoutXAxisAnchor
+        if (gravity & Gravity.LEFT) != 0 {
+            anchor = self.leftAnchor
+            anchor2 = superView.leftAnchor
+        } else if (gravity & Gravity.CENTER_HORIZONTAL) != 0 {
+            anchor = self.centerXAnchor
+            anchor2 = superView.centerXAnchor
+        } else if (gravity & Gravity.RIGHT) != 0 {
+            anchor = self.rightAnchor
+            anchor2 = superView.rightAnchor
         } else {
-            centerXConstraint = self.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: offset.x)
-            centerXConstraint?.isActive = true
+            anchor = self.rightAnchor
+            anchor2 = superView.rightAnchor
+        }
+        if let gravityXConstraint = gravityXConstraint, gravityXConstraint.firstAnchor == anchor {
+            gravityXConstraint.constant = offset.x
+        } else {
+            gravityXConstraint?.isActive = false
+            gravityXConstraint = anchor.constraint(equalTo: anchor2, constant: offset.x)
+            gravityXConstraint?.isActive = true
         }
     }
 
-    private func updateCenterYConstraint() {
+    private func updateGravityYConstraint() {
         guard let superView = self.superview else {
             return
         }
-        if let centerYConstraint = centerYConstraint {
-            centerYConstraint.constant = offset.y
+        let anchor: NSLayoutYAxisAnchor
+        let anchor2: NSLayoutYAxisAnchor
+        if (gravity & Gravity.TOP) != 0 {
+            anchor = self.topAnchor
+            anchor2 = superView.topAnchor
+        } else if (gravity & Gravity.CENTER_VERTICAL) != 0 {
+            anchor = self.centerYAnchor
+            anchor2 = superView.centerYAnchor
+        } else if (gravity & Gravity.BOTTOM) != 0 {
+            anchor = self.bottomAnchor
+            anchor2 = superView.bottomAnchor
         } else {
-            centerYConstraint = self.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: offset.y)
-            centerYConstraint?.isActive = true
+            anchor = self.topAnchor
+            anchor2 = superView.topAnchor
         }
-    }
-    private func updateHeightConstraint() {
-        if let heightConstraint = heightConstraint {
-            heightConstraint.constant = height
+        if let gravityYConstraint = gravityYConstraint, gravityXConstraint?.firstAnchor == anchor {
+            gravityYConstraint.constant = offset.y
         } else {
-            heightConstraint = self.heightAnchor.constraint(equalToConstant: height)
-            heightConstraint?.isActive = true
-        }
-    }
-
-    private func updateWidthConstraint() {
-        let width: CGFloat
-        if let string = self.text, !string.isEmpty {
-            width = string.boundingSize(with: CGSize.zero, font: self.font).width
-        } else {
-            width = height
-        }
-        if let widthConstraint = widthConstraint {
-            widthConstraint.constant = width
-        } else {
-            widthConstraint = self.widthAnchor.constraint(equalToConstant: width)
-            widthConstraint?.isActive = true
+            gravityYConstraint?.isActive = false
+            gravityYConstraint = anchor.constraint(equalTo: anchor2, constant: offset.y)
+            gravityYConstraint?.isActive = true
         }
     }
 
-
-    private func updateCornerRadius() {
+    private func updateCornerRadius(_ size: CGSize) {
         if cornerRadius >= 0 {
             self.layer.cornerRadius = cornerRadius
         } else {
-            self.layer.cornerRadius = height / 2
+            self.layer.cornerRadius = size.height / 2
         }
     }
 

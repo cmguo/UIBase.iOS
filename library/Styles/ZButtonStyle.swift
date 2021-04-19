@@ -80,6 +80,7 @@ public class XHBButtonStyle {
     public init() {
     }
     
+    @discardableResult
     public func text(_ value: String?) -> Self {
         self.text = value
         return self

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class StylesController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+public class StylesController : UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     private var viewStyles: ViewStyles?
     private var styles: Array<ComponentStyle> = []
@@ -49,6 +49,7 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         wrapper.addSubview(tableView)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        tap.delegate = self
         view.addGestureRecognizer(tap)
         
         //tableView.tableHeaderView = headerView;
@@ -85,6 +86,10 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     
     @objc func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
         view.removeFromSuperview()
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view == view
     }
     
     private func toggle(_ position: Int) {

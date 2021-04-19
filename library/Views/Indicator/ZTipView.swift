@@ -70,9 +70,9 @@ public class XHBTipView : UIView
     private static let iconSize: CGFloat = 16
     private static let iconPadding: CGFloat = 8
     private static let defaultFrameColor = UIColor(rgb: 0x1D2126)
-    private static let defaultTextColor = ThemeColor.shared.bluegrey_00
-    private static let defaultFont = systemFontSize(fontSize: 16, type: .regular)
-    private static let defaultSmallFont = systemFontSize(fontSize: 14, type: .regular)
+    private static let defaultTextColor = UIColor.bluegrey_00
+    private static let defaultFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    private static let defaultSmallFont = UIFont.systemFont(ofSize: 14, weight: .regular)
 
     public var location = Location.TopRight {
         didSet {

@@ -15,6 +15,4 @@ FOUNDATION_EXPORT const unsigned char libraryVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <library/PublicHeader.h>
 
-
-#import "UIAppearance+Swift.h"
-#import "SKTryCatch.h"
+#import <UIKit/UIKit.h>

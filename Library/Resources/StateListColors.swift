@@ -58,4 +58,58 @@ extension StateListColor {
         StateColor(.blue_200, .STATES_PRESSED),
         StateColor(.blue_100, .STATES_NORMAL)
     ])
+    
+    static let bluegrey_00_halfchecked_disabled = StateListColor([
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.brand_500, .STATES_HALF_CHECKED),
+        StateColor(.bluegrey_00, .STATES_NORMAL)
+    ])
+    
+    static let bluegrey_500_halfchecked_disabled = StateListColor([
+        StateColor(.bluegrey_300, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.brand_500, .STATES_HALF_CHECKED),
+        StateColor(.bluegrey_500, .STATES_NORMAL)
+    ])
+    
+    static let transparent_checked_disabled = StateListColor([
+        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
+        StateColor(.bluegrey_00, .STATES_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
+    ])
+    
+    static let transparent_halfchecked_disabled = StateListColor([
+        StateColor(.bluegrey_500, .STATES_DISABLED_HALF_CHECKED),
+        StateColor(.bluegrey_00, .STATES_HALF_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
+    ])
+
+    static let bluegrey_00_disabled = StateListColor([
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.bluegrey_00, .STATES_NORMAL)
+    ])
+    
+    static let bluegrey_500_checked_disabled = StateListColor([
+        StateColor(.bluegrey_300, .STATES_DISABLED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.bluegrey_500, .STATES_NORMAL)
+    ])
+    
+    static let transparent_checked_disabled2 = StateListColor([
+        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.clear, .STATES_NORMAL)
+    ])
+        
+    static let bluegrey_300_checked = StateListColor([
+        StateColor(.brand_500, .STATES_CHECKED),
+        StateColor(.bluegrey_300, .STATES_NORMAL)
+    ])
+        
+    static let bluegrey_00 = StateListColor([
+        StateColor(.bluegrey_00, .STATES_NORMAL)
+    ])
+
+
 }

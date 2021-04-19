@@ -237,7 +237,7 @@ public class XHBButton : UIButton
         }
         if size {
             self.setCornerBorder(cornerRadius: sizeStyles.radius)
-            self.titleLabel?.font = systemFontSize(fontSize: sizeStyles.textSize, type: .semibold)
+            self.titleLabel?.font = UIFont.systemFont(ofSize: sizeStyles.textSize, weight: .semibold)
             self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
             imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
             self.syncSize()
@@ -256,6 +256,8 @@ public class XHBButton : UIButton
             icon = url
         }
     }
+    
+    private var sizeConstraint: (NSLayoutConstraint, NSLayoutConstraint)? = nil
     
     fileprivate func syncSize() {
         minSize = CGSize.zero
@@ -285,8 +287,7 @@ public class XHBButton : UIButton
             }
         }
         let size = CGSize(width: minSize.width + sizeStyles.padding * 2, height: sizeStyles.height)
-        bounds = CGRect(origin: CGPoint.zero, size: size)
-        superview?.setNeedsLayout()
+        sizeConstraint = updateSizeConstraint(sizeConstraint, size)
     }
     
     fileprivate func syncStates() {

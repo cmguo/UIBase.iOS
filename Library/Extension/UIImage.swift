@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftSVG
 
-extension UIImage {
+public extension UIImage {
     
     static let transparent = UIImage.from(color: .clear)
     
@@ -22,5 +21,10 @@ extension UIImage {
             return colorImage
         }
         return nil
+    }
+    
+    class func from(url: URL) -> UIImage? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        return UIImage(data: data)
     }
 }

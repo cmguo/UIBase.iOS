@@ -69,8 +69,8 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         let button: UIView = createButton(state: state)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
-            make.width.equalTo(button.frame.width)
-            make.height.equalTo(button.frame.height)
+            //make.width.equalTo(button.frame.width)
+            //make.height.equalTo(button.frame.height)
             make.centerX.equalToSuperview().offset(75)
             make.centerY.equalToSuperview()
         }

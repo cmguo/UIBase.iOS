@@ -11,27 +11,6 @@
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
 		7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZTipView.swift */; };
 		711202A225FA1BA6004A3AA5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202A125FA1BA6004A3AA5 /* String.swift */; };
-		711202BC25FB4019004A3AA5 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BB25FB4019004A3AA5 /* SkinManager.swift */; };
-		71789F9A25E8C496004BA696 /* SKTryCatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 71789F7525E8C496004BA696 /* SKTryCatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71789F9B25E8C496004BA696 /* UIAppearance+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 71789F7625E8C496004BA696 /* UIAppearance+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71789F9C25E8C496004BA696 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7725E8C496004BA696 /* StringExtensions.swift */; };
-		71789F9D25E8C496004BA696 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7825E8C496004BA696 /* ColorExtensions.swift */; };
-		71789F9E25E8C496004BA696 /* SKTryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7925E8C496004BA696 /* SKTryCatch.m */; };
-		71789F9F25E8C496004BA696 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7A25E8C496004BA696 /* UIAppearance+Swift.m */; };
-		71789FA025E8C496004BA696 /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7C25E8C496004BA696 /* Apperance.swift */; };
-		71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F7F25E8C496004BA696 /* ThemeColor.swift */; };
-		71789FA525E8C496004BA696 /* DinRegularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8225E8C496004BA696 /* DinRegularLabel.swift */; };
-		71789FA625E8C496004BA696 /* ControlStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8425E8C496004BA696 /* ControlStateHelper.swift */; };
-		71789FA725E8C496004BA696 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8525E8C496004BA696 /* ColorHelper.swift */; };
-		71789FA925E8C496004BA696 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8725E8C496004BA696 /* FontHelper.swift */; };
-		71789FAA25E8C496004BA696 /* LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F8925E8C496004BA696 /* LocalizableHelper.swift */; };
-		71789FAB25E8C496004BA696 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71789F8B25E8C496004BA696 /* Localizable.strings */; };
-		71789FAC25E8C496004BA696 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71789F8D25E8C496004BA696 /* InfoPlist.strings */; };
-		71789FAD25E8C496004BA696 /* DarkMode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71789F8F25E8C496004BA696 /* DarkMode.bundle */; };
-		71789FAE25E8C496004BA696 /* ClassBuildInLogo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9025E8C496004BA696 /* ClassBuildInLogo.bundle */; };
-		71789FAF25E8C496004BA696 /* Default.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9125E8C496004BA696 /* Default.bundle */; };
-		71789FB025E8C496004BA696 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9325E8C496004BA696 /* .gitkeep */; };
-		71789FB125E8C496004BA696 /* Skin.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 71789F9425E8C496004BA696 /* Skin.podspec */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -66,6 +45,8 @@
 		71FF93C12626F8BA0033098B /* StateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* StateListColors.swift */; };
 		71FF93EC262843500033098B /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* UIColors.swift */; };
 		71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EE26284D970033098B /* ZBadgeView.swift */; };
+		71FF93F626296C8F0033098B /* Gravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93F526296C8F0033098B /* Gravity.swift */; };
+		71FF93FD26297A4E0033098B /* ZAvaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93FC26297A4E0033098B /* ZAvaterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,27 +54,6 @@
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
 		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Views/Indicator/ZTipView.swift; sourceTree = "<group>"; };
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
-		711202BB25FB4019004A3AA5 /* SkinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
-		71789F7525E8C496004BA696 /* SKTryCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTryCatch.h; sourceTree = "<group>"; };
-		71789F7625E8C496004BA696 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
-		71789F7725E8C496004BA696 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		71789F7825E8C496004BA696 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		71789F7925E8C496004BA696 /* SKTryCatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTryCatch.m; sourceTree = "<group>"; };
-		71789F7A25E8C496004BA696 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
-		71789F7C25E8C496004BA696 /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
-		71789F7F25E8C496004BA696 /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
-		71789F8225E8C496004BA696 /* DinRegularLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinRegularLabel.swift; sourceTree = "<group>"; };
-		71789F8425E8C496004BA696 /* ControlStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlStateHelper.swift; sourceTree = "<group>"; };
-		71789F8525E8C496004BA696 /* ColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
-		71789F8725E8C496004BA696 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
-		71789F8925E8C496004BA696 /* LocalizableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableHelper.swift; sourceTree = "<group>"; };
-		71789F8C25E8C496004BA696 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		71789F8E25E8C496004BA696 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		71789F8F25E8C496004BA696 /* DarkMode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DarkMode.bundle; sourceTree = "<group>"; };
-		71789F9025E8C496004BA696 /* ClassBuildInLogo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ClassBuildInLogo.bundle; sourceTree = "<group>"; };
-		71789F9125E8C496004BA696 /* Default.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Default.bundle; sourceTree = "<group>"; };
-		71789F9325E8C496004BA696 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		71789F9425E8C496004BA696 /* Skin.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skin.podspec; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -130,6 +90,8 @@
 		71FF93C02626F8BA0033098B /* StateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListColors.swift; sourceTree = "<group>"; };
 		71FF93EB262843500033098B /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColors.swift; path = ../../Library/Resources/UIColors.swift; sourceTree = "<group>"; };
 		71FF93EE26284D970033098B /* ZBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeView.swift; path = ../../../Library/Views/Indicator/ZBadgeView.swift; sourceTree = "<group>"; };
+		71FF93F526296C8F0033098B /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gravity.swift; path = ../../Library/Styles/Gravity.swift; sourceTree = "<group>"; };
+		71FF93FC26297A4E0033098B /* ZAvaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvaterView.swift; path = ../../../Library/Views/Indicator/ZAvaterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,109 +112,9 @@
 			children = (
 				71FF93EE26284D970033098B /* ZBadgeView.swift */,
 				7112029C25FA1500004A3AA5 /* ZTipView.swift */,
+				71FF93FC26297A4E0033098B /* ZAvaterView.swift */,
 			);
 			path = Indicator;
-			sourceTree = "<group>";
-		};
-		71789F6B25E8C496004BA696 /* Skin */ = {
-			isa = PBXGroup;
-			children = (
-				71789F6C25E8C496004BA696 /* Classes */,
-				71789F9425E8C496004BA696 /* Skin.podspec */,
-			);
-			name = Skin;
-			path = ../Library/Skin;
-			sourceTree = "<group>";
-		};
-		71789F6C25E8C496004BA696 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				71789F6D25E8C496004BA696 /* Classes */,
-				71789F8A25E8C496004BA696 /* Resources */,
-				71789F9225E8C496004BA696 /* Assets */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		71789F6D25E8C496004BA696 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				71789F7425E8C496004BA696 /* Utilities */,
-				71789F7B25E8C496004BA696 /* Manager */,
-				71789F8125E8C496004BA696 /* Extentions */,
-				71789F8325E8C496004BA696 /* Helpers */,
-				71789F8825E8C496004BA696 /* Localizable */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		71789F7425E8C496004BA696 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				71789F7525E8C496004BA696 /* SKTryCatch.h */,
-				71789F7625E8C496004BA696 /* UIAppearance+Swift.h */,
-				71789F7725E8C496004BA696 /* StringExtensions.swift */,
-				71789F7825E8C496004BA696 /* ColorExtensions.swift */,
-				71789F7925E8C496004BA696 /* SKTryCatch.m */,
-				71789F7A25E8C496004BA696 /* UIAppearance+Swift.m */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		71789F7B25E8C496004BA696 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				711202BB25FB4019004A3AA5 /* SkinManager.swift */,
-				71789F7C25E8C496004BA696 /* Apperance.swift */,
-				71789F7F25E8C496004BA696 /* ThemeColor.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		71789F8125E8C496004BA696 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				71789F8225E8C496004BA696 /* DinRegularLabel.swift */,
-			);
-			path = Extentions;
-			sourceTree = "<group>";
-		};
-		71789F8325E8C496004BA696 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				71789F8425E8C496004BA696 /* ControlStateHelper.swift */,
-				71789F8525E8C496004BA696 /* ColorHelper.swift */,
-				71789F8725E8C496004BA696 /* FontHelper.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		71789F8825E8C496004BA696 /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				71789F8925E8C496004BA696 /* LocalizableHelper.swift */,
-			);
-			path = Localizable;
-			sourceTree = "<group>";
-		};
-		71789F8A25E8C496004BA696 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				71789F8B25E8C496004BA696 /* Localizable.strings */,
-				71789F8D25E8C496004BA696 /* InfoPlist.strings */,
-				71789F8F25E8C496004BA696 /* DarkMode.bundle */,
-				71789F9025E8C496004BA696 /* ClassBuildInLogo.bundle */,
-				71789F9125E8C496004BA696 /* Default.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		71789F9225E8C496004BA696 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				71789F9325E8C496004BA696 /* .gitkeep */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		71789FC325E8C52C004BA696 /* Frameworks */ = {
@@ -362,7 +224,6 @@
 			children = (
 				71FF93B92626ED680033098B /* Styles */,
 				7178A1BC25F63207004BA696 /* Assets */,
-				71789F6B25E8C496004BA696 /* Skin */,
 				7178A17325F5C962004BA696 /* Views */,
 				7178A17225F5C952004BA696 /* Resources */,
 				7178A12D25ECB28E004BA696 /* Extension */,
@@ -393,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
+				71FF93F526296C8F0033098B /* Gravity.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -404,8 +266,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71789F9A25E8C496004BA696 /* SKTryCatch.h in Headers */,
-				71789F9B25E8C496004BA696 /* UIAppearance+Swift.h in Headers */,
 				7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,15 +328,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71789FB125E8C496004BA696 /* Skin.podspec in Resources */,
-				71789FAB25E8C496004BA696 /* Localizable.strings in Resources */,
-				71789FAE25E8C496004BA696 /* ClassBuildInLogo.bundle in Resources */,
 				7178A1EE25F8BEEE004BA696 /* checked.svg in Resources */,
-				71789FAF25E8C496004BA696 /* Default.bundle in Resources */,
-				71789FB025E8C496004BA696 /* .gitkeep in Resources */,
-				71789FAD25E8C496004BA696 /* DarkMode.bundle in Resources */,
 				7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */,
-				71789FAC25E8C496004BA696 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,69 +345,40 @@
 				71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */,
-				71789FA325E8C496004BA696 /* ThemeColor.swift in Sources */,
-				71789F9C25E8C496004BA696 /* StringExtensions.swift in Sources */,
 				7178A1B725F62792004BA696 /* ShapeLayer.swift in Sources */,
 				7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */,
 				7178A1A425F5CC14004BA696 /* IndicatorProtocol.swift in Sources */,
 				7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */,
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
-				71789FA625E8C496004BA696 /* ControlStateHelper.swift in Sources */,
 				7178A19F25F5CC14004BA696 /* BallPulseIndicator.swift in Sources */,
 				7178A1C925F63470004BA696 /* CGRect.swift in Sources */,
 				711202A225FA1BA6004A3AA5 /* String.swift in Sources */,
 				7178A1A525F5CC14004BA696 /* MaterialLoadingIndicator.swift in Sources */,
-				71789FA925E8C496004BA696 /* FontHelper.swift in Sources */,
 				7178A19025F5CBE5004BA696 /* UIColor.swift in Sources */,
 				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,
 				7178A18525F5CAED004BA696 /* ZButton.swift in Sources */,
-				71789FA725E8C496004BA696 /* ColorHelper.swift in Sources */,
-				71789FA025E8C496004BA696 /* Apperance.swift in Sources */,
 				7178A1AF25F61D7E004BA696 /* ZRadioButton.swift in Sources */,
-				71789FAA25E8C496004BA696 /* LocalizableHelper.swift in Sources */,
 				7178A1DA25F85A96004BA696 /* UITextView.swift in Sources */,
 				7178A1A225F5CC14004BA696 /* BallPulseSyncIndicator.swift in Sources */,
 				7178A19E25F5CC14004BA696 /* LineScaleIndicator.swift in Sources */,
 				7178A1D725F75031004BA696 /* Range.swift in Sources */,
 				7178A1A325F5CC14004BA696 /* LBIndicator.swift in Sources */,
-				71789F9D25E8C496004BA696 /* ColorExtensions.swift in Sources */,
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
-				711202BC25FB4019004A3AA5 /* SkinManager.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
+				71FF93F626296C8F0033098B /* Gravity.swift in Sources */,
 				71FF93EC262843500033098B /* UIColors.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
-				71789F9E25E8C496004BA696 /* SKTryCatch.m in Sources */,
+				71FF93FD26297A4E0033098B /* ZAvaterView.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,
-				71789F9F25E8C496004BA696 /* UIAppearance+Swift.m in Sources */,
-				71789FA525E8C496004BA696 /* DinRegularLabel.swift in Sources */,
 				7178A1D425F7487E004BA696 /* TextAttachment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		71789F8B25E8C496004BA696 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				71789F8C25E8C496004BA696 /* zh-Hans */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		71789F8D25E8C496004BA696 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				71789F8E25E8C496004BA696 /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7182AEBB25CCE98C00B0F1D3 /* Debug */ = {

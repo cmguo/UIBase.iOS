@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 import UIBase
 import SwiftyJSON
 
@@ -26,11 +25,10 @@ extension Dictionary {
 class Colors {
     
     class func stdColors() -> Dictionary<String, UIColor> {
-        SkinManager.instance.configNormalSkin()
-        let json = SkinManager.instance.json;
-        return json.dictionary?.filter({ (key: String, value: JSON) -> Bool in
-            return value.string?.starts(with: "#") ?? false
-        }).mapValues({ (value: JSON) in UIColor(hexString:value.string!) }) ?? [:]
+//        return json.dictionary?.filter({ (key: String, value: JSON) -> Bool in
+//            return value.string?.starts(with: "#") ?? false
+//        }).mapValues({ (value: JSON) in UIColor(hexString:value.string!) }) ?? [:]
+        return [:]
     }
     
     class func nonStdColors() -> Dictionary<String, UIColor> {

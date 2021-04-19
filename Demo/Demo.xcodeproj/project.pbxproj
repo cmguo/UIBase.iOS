@@ -11,8 +11,8 @@
 		7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */; };
 		7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */; };
 		7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */; };
-		7112027A25F8CE4A004A3AA5 /* ZBadgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027525F8CE4A004A3AA5 /* ZBadgeController.swift */; };
-		7112027B25F8CE4A004A3AA5 /* ZBadgeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027625F8CE4A004A3AA5 /* ZBadgeComponent.swift */; };
+		7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */; };
+		7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */; };
 		7112028225F8CF90004A3AA5 /* erase.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028025F8CF90004A3AA5 /* erase.svg */; };
 		7112028325F8CF90004A3AA5 /* union.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7112028125F8CF90004A3AA5 /* union.svg */; };
 		7112028625F8CF9D004A3AA5 /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */; };
@@ -63,6 +63,9 @@
 		71FF93D92627EB9F0033098B /* EnumStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93D82627EB9F0033098B /* EnumStyle.swift */; };
 		71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93DB2628093F0033098B /* ColorStyle.swift */; };
 		71FF93DF26280A5D0033098B /* IconStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93DE26280A5D0033098B /* IconStyle.swift */; };
+		71FF93F3262957F70033098B /* component.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71FF93F2262957F70033098B /* component.jpg */; };
+		71FF93FA262977B40033098B /* GravityStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93F9262977B40033098B /* GravityStyle.swift */; };
+		71FF940026297C3A0033098B /* ZAvaterViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93FF26297C3A0033098B /* ZAvaterViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +73,8 @@
 		7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZSwitchButtonComponent.swift; path = ../../../Demo/Components/Basic/ZSwitchButtonComponent.swift; sourceTree = "<group>"; };
 		7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZRatioButtonComponent.swift; path = ../../../Demo/Components/Basic/ZRatioButtonComponent.swift; sourceTree = "<group>"; };
 		7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZCompoundButtonController.swift; path = ../../../Demo/Components/Basic/ZCompoundButtonController.swift; sourceTree = "<group>"; };
-		7112027525F8CE4A004A3AA5 /* ZBadgeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeController.swift; path = ../../../Demo/Components/Basic/ZBadgeController.swift; sourceTree = "<group>"; };
-		7112027625F8CE4A004A3AA5 /* ZBadgeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeComponent.swift; path = ../../../Demo/Components/Basic/ZBadgeComponent.swift; sourceTree = "<group>"; };
+		7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewController.swift; path = ../../../Demo/Components/Basic/ZBadgeViewController.swift; sourceTree = "<group>"; };
+		7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewComponent.swift; path = ../../../Demo/Components/Basic/ZBadgeViewComponent.swift; sourceTree = "<group>"; };
 		7112028025F8CF90004A3AA5 /* erase.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = erase.svg; sourceTree = "<group>"; };
 		7112028125F8CF90004A3AA5 /* union.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = union.svg; sourceTree = "<group>"; };
 		7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +127,9 @@
 		71FF93D82627EB9F0033098B /* EnumStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnumStyle.swift; path = ../../../Demo/Core/Style/EnumStyle.swift; sourceTree = "<group>"; };
 		71FF93DB2628093F0033098B /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorStyle.swift; path = ../../../Demo/Core/Style/ColorStyle.swift; sourceTree = "<group>"; };
 		71FF93DE26280A5D0033098B /* IconStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IconStyle.swift; path = ../../../Demo/Core/Style/IconStyle.swift; sourceTree = "<group>"; };
+		71FF93F2262957F70033098B /* component.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = component.jpg; sourceTree = "<group>"; };
+		71FF93F9262977B40033098B /* GravityStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityStyle.swift; path = ../../../Demo/Core/Style/GravityStyle.swift; sourceTree = "<group>"; };
+		71FF93FF26297C3A0033098B /* ZAvaterViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvaterViewComponent.swift; path = ../../../Demo/Components/Basic/ZAvaterViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 		7112027E25F8CF90004A3AA5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				71FF93F1262957D10033098B /* Images */,
 				7112027F25F8CF90004A3AA5 /* Icons */,
 			);
 			name = Assets;
@@ -277,14 +284,15 @@
 		71F543DF25E504FB00AEB07A /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				7112027625F8CE4A004A3AA5 /* ZBadgeComponent.swift */,
-				7112027525F8CE4A004A3AA5 /* ZBadgeController.swift */,
+				7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */,
+				7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */,
 				7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */,
 				7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */,
 				7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */,
 				71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */,
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
+				71FF93FF26297C3A0033098B /* ZAvaterViewComponent.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				71FF93D82627EB9F0033098B /* EnumStyle.swift */,
 				71FF93DB2628093F0033098B /* ColorStyle.swift */,
 				71FF93DE26280A5D0033098B /* IconStyle.swift */,
+				71FF93F9262977B40033098B /* GravityStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -325,6 +334,14 @@
 				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
 			);
 			path = Simple;
+			sourceTree = "<group>";
+		};
+		71FF93F1262957D10033098B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				71FF93F2262957F70033098B /* component.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +421,7 @@
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
 				711202D226046A72004A3AA5 /* info.svg in Resources */,
 				711202D526046AA7004A3AA5 /* alert.svg in Resources */,
+				71FF93F3262957F70033098B /* component.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,18 +437,19 @@
 				7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */,
 				7128765025E633F10054A74B /* ComponentController.swift in Sources */,
 				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
-				7112027A25F8CE4A004A3AA5 /* ZBadgeController.swift in Sources */,
+				7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
 				71FF93DF26280A5D0033098B /* IconStyle.swift in Sources */,
 				71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */,
 				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
 				71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */,
-				7112027B25F8CE4A004A3AA5 /* ZBadgeComponent.swift in Sources */,
+				7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
 				71903B7725E0B53400437575 /* Component.swift in Sources */,
 				7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */,
+				71FF93FA262977B40033098B /* GravityStyle.swift in Sources */,
 				71FF93D92627EB9F0033098B /* EnumStyle.swift in Sources */,
 				712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */,
 				7128764D25E629390054A74B /* ComponentStyle.swift in Sources */,
@@ -455,6 +474,7 @@
 				71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */,
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 				71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */,
+				71FF940026297C3A0033098B /* ZAvaterViewComponent.swift in Sources */,
 				7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

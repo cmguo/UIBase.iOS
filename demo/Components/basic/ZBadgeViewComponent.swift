@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class XHBBadgeComponent : NSObject, Component
+class XHBBadgeViewComponent : NSObject, Component
 {    
-    var group: String = ""
+    var group: String = "基础交互控件"
         
     var id: Int = 0
         
@@ -23,6 +23,6 @@ class XHBBadgeComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBBadgeController()
+        return XHBBadgeViewController()
     }()
 }

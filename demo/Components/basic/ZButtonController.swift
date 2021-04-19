@@ -109,10 +109,10 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 make.leading.equalToSuperview().offset(150)
                 make.trailing.equalToSuperview()
             } else {
-                make.width.equalTo(button.bounds.width)
+                //make.width.equalTo(button.bounds.width)
                 make.centerX.equalToSuperview().offset(75)
             }
-            make.height.equalTo(button.frame.height)
+            //make.height.equalTo(button.frame.height)
             make.centerY.equalToSuperview()
         }
         return cell
@@ -137,7 +137,6 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.isLoading = self.styles.loading }
 //            } else if name == "sizeMode" {
 //                for b in self.buttons { _ = b }
-//                self.view.setNeedsLayout()
             } else if name == "iconPosition" {
                 for b in self.buttons { b.iconPosition = self.styles.iconPosition2 }
                 self.view.setNeedsLayout()
@@ -150,17 +149,6 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
             } else {
                 self.buttons.removeAll()
                 self.tableView.reloadData()
-            }
-        }
-    }
-    
-    public override func viewWillLayoutSubviews() {
-        if styles.widthMode2 == .WrapContent {
-            for b in self.buttons {
-                b.snp.updateConstraints { (maker) in
-                    maker.width.equalTo(b.bounds.width)
-                    maker.height.equalTo(b.bounds.height)
-                }
             }
         }
     }

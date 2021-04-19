@@ -8,22 +8,11 @@
 @IBDesignable
 public class XHBRadioButton: UIButton {
     
-    private static let backgroundFillColor = StateListColor([
-        StateColor(.bluegrey_100, .STATES_DISABLED),
-        StateColor(.bluegrey_00, .STATES_NORMAL)
-    ])
+    private static let backgroundFillColor = StateListColor.bluegrey_00_disabled
     
-    private static let backgroundBorderColor = StateListColor([
-        StateColor(.bluegrey_300, .STATES_DISABLED),
-        StateColor(.brand_500, .STATES_CHECKED),
-        StateColor(.bluegrey_500, .STATES_NORMAL)
-    ])
+    private static let backgroundBorderColor = StateListColor.bluegrey_500_checked_disabled
     
-    private static let foregroundFillColor = StateListColor([
-        StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
-        StateColor(.brand_500, .STATES_CHECKED),
-        StateColor(.clear, .STATES_NORMAL)
-    ])
+    private static let foregroundFillColor = StateListColor.transparent_checked_disabled2
         
     private static let height: CGFloat = 24.0
     private static let iconSize: CGFloat = 18.0
@@ -75,6 +64,7 @@ public class XHBRadioButton: UIButton {
         self.frame = frame
         
         updateStates()
+        _ = updateSizeConstraint(nil, frame.size)
     }
     
     required init?(coder: NSCoder) {
