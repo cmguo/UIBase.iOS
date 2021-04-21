@@ -53,7 +53,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         
         @objc static let _icon = ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
         @objc static let _iconStyle: NSObject = IconStyle(Styles.self, "icon")
-        @objc var icon: String = "delete"
+        @objc var icon: URL? = Icons.iconURL("delete")
         
         @objc static let _text = ["显示文字", "改变文字，按钮会自动适应文字宽度"]
         @objc var text: String = "按钮"
@@ -96,7 +96,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         cell.selectionStyle = .none
         let button = XHBButton()
             .text(styles.text)
-            .icon(Icons.iconURL(styles.icon))
+            .icon(styles.icon)
             .buttonType(type)
             .buttonSize(styles.buttonSize2)
         button.isEnabled = !styles.disabled
@@ -141,7 +141,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
                 for b in self.buttons { b.iconPosition = self.styles.iconPosition2 }
                 self.view.setNeedsLayout()
             } else if name == "icon" {
-                for b in self.buttons { b.icon = Icons.iconURL(self.styles.icon) }
+                for b in self.buttons { b.icon = self.styles.icon }
                 self.view.setNeedsLayout()
             } else if name == "text" {
                 for b in self.buttons { b.text = self.styles.text }

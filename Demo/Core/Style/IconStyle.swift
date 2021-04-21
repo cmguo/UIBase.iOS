@@ -13,4 +13,18 @@ class IconStyle : ComponentStyle {
         super.init(cls, field, values: Icons.icons.map { i in (i, i) })
     }
     
+    override func valueToString(_ value: Any?) -> String {
+        guard let url = value as? URL else {
+            return "<null>"
+        }
+        return url.pathComponents.last!.replacingOccurrences(of: ".svg", with: "")
+    }
+    
+    override func valueFromString(_ value: String) -> Any? {
+        if value == "<null>" {
+            return nil
+        }
+        return Icons.iconURL(value)
+    }
+    
 }

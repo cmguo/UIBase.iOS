@@ -86,6 +86,26 @@ public class XHBButton : UIButton
             self.syncContent()
         }
     }
+    
+    @objc public class ButtonId: NSObject {
+        private let desc: String
+        public init(desc: String) {
+            self.desc = desc
+        }
+        public override var description: String {
+            return desc
+        }
+        public static let Unknown = ButtonId(desc: "Unknown")
+        public static let Left = ButtonId(desc: "Left")
+        public static let Left2 = ButtonId(desc: "Left2")
+        public static let Top = ButtonId(desc: "Top")
+        public static let Right = ButtonId(desc: "Right")
+        public static let Right2 = ButtonId(desc: "Right2")
+        public static let Bottom = ButtonId(desc: "Bottom")
+    }
+    
+    public var id: ButtonId? = nil
+    
     /**
      Current loading state.
      */

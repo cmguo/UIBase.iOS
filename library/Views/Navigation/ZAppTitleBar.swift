@@ -8,79 +8,101 @@
 import Foundation
 
 
-@objc public protocol XHBTitleBarCallbackDelegate : XHBTipViewDelegate {
-    @objc optional func titleBarButtonClicked(_ titleBar: XHBAppTitleBar, index: Int)
+@objc public protocol XHBTitleBarCallbackDelegate {
+    @objc optional func titleBarButtonClicked(_ titleBar: XHBAppTitleBar, _ btnId: XHBButton.ButtonId?)
 }
 
 
 public class XHBAppTitleBar : UIView
 {
-    
-    private static let paddingX: CGFloat = 16
-    private static let paddingY: CGFloat = 12
-    private static let iconSize: CGFloat = 16
-    private static let iconPadding: CGFloat = 8
-    private static let defaultFrameColor = UIColor(rgb: 0x1D2126)
-    private static let defaultTextColor = UIColor.bluegrey_00
-    private static let defaultFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    private static let defaultLargeFont = UIFont.systemFont(ofSize: 14, weight: .regular)
 
     public var leftButton: Any? {
         didSet {
-            _leftButton.content = leftButton
+            if (leftButton == nil) {
+                if oldValue != nil {
+                    _leftButton.isHidden = true
+                }
+            } else {
+                _leftButton.content = leftButton
+                _leftButton.isHidden = false
+            }
             syncSize()
         }
     }
     
     public var rightButton: Any? {
         didSet {
-            _rightButton.content = rightButton
+            if (rightButton == nil) {
+                if oldValue != nil {
+                    _rightButton.isHidden = true
+                }
+            } else {
+                _rightButton.content = rightButton
+                _rightButton.isHidden = false
+            }
             syncSize()
         }
     }
     
     public var rightButton2: Any? {
         didSet {
-            _rightButton2.content = rightButton2
+            if (rightButton2 == nil) {
+                if oldValue != nil {
+                    _rightButton2.isHidden = true
+                }
+            } else {
+                _rightButton2.content = rightButton2
+                _rightButton2.isHidden = false
+            }
             syncSize()
         }
     }
     
     public var icon: URL? {
         didSet {
-            iconView.setIcon(svgURL: icon) {_ in }
+            _iconView.setIcon(svgURL: icon) {_ in }
             syncSize()
         }
     }
     
     public var title: String = "" {
         didSet {
-            messageLabel.text = title
-            syncSize()
+            _titleLabel.text = title
+            setNeedsLayout()
         }
     }
     
     public var content: Any? = nil {
         didSet {
-            
+            if let string = content as? String {
+                title = string
+            } else if let view = content as? UIView {
+                if _contentView != nil {
+                    _contentView?.removeFromSuperview()
+                }
+                _contentView = view
+                addSubview(view)
+            }
         }
     }
     
-    public var delegate: XHBTipViewDelegate? = nil
+    public var textAppearance: TextAppearance? = nil
+    
+    public var delegate: XHBTitleBarCallbackDelegate? = nil
     
     /* private variables */
     
-    private let messageLabel: UILabel = {
+    private let _titleLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         //label = .zero
         return label
     }()
     
     private lazy var _leftButton: XHBButton = {
         let button = XHBButton()
-        button.buttonType2 = .TextLink
-        button.buttonSize = .Thin
+        button.buttonAppearance = _style.buttonApperance
+        button.id = .Left
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
         return button
@@ -88,8 +110,9 @@ public class XHBAppTitleBar : UIView
     
     private lazy var _rightButton: XHBButton = {
         let button = XHBButton()
-        button.buttonType2 = .TextLink
-        button.buttonSize = .Thin
+        button.buttonAppearance = _style.buttonApperance
+        button.iconPosition = .Right
+        button.id = .Right
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
         return button
@@ -97,79 +120,109 @@ public class XHBAppTitleBar : UIView
     
     private lazy var _rightButton2: XHBButton = {
         let button = XHBButton()
-        button.buttonType2 = .TextLink
-        button.buttonSize = .Thin
+        button.buttonAppearance = _style.buttonApperance
+        button.id = .Right2
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
         return button
     }()
 
-    private lazy var iconView: UIImageView = {
+    private lazy var _iconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.bounds.width2 = Self.iconSize
-        imageView.bounds.height2 = Self.iconSize
         addSubview(imageView)
         return imageView
     }()
     
+    private var _contentView: UIView? = nil
+    
+    private let _style: XHBAppTitleBarStyle
+    
 
-    public init() {
-        super.init(frame: CGRect.zero)
-
-        messageLabel.font = Self.defaultFont
-        messageLabel.textColor = Self.defaultTextColor
-        addSubview(messageLabel)
+    public init(style: XHBAppTitleBarStyle = XHBAppTitleBarStyle()) {
+        _style = style
+        super.init(frame: .zero)
+        super.viewStyle = style
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        _titleLabel.font = _style.textAppearance.font
+        _titleLabel.textColor = _style.textAppearance.textColor
+        addSubview(_titleLabel)
     }
     
-    @objc func buttonClicked(_ sender: UIView) {
-        (delegate as? XHBTitleBarCallbackDelegate)?.titleBarButtonClicked?(
-            self, index: sender == _leftButton ? 0 : 1)
-    }
-
     public override func layoutSubviews() {
         var frame = self.bounds
-        frame.deflate(width: Self.paddingX, height: Self.paddingY)
+        frame.deflate(width: _style.padding, height: 0)
         if leftButton != nil {
-            let iconRect = frame.cutLeft(Self.paddingX + _leftButton.bounds.width)
-            _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
+            let btnRect = frame.cutLeft(_leftButton.bounds.width)
+            _leftButton.frame = btnRect.leftCenterPart(ofSize: _leftButton.bounds.size)
         }
         if rightButton != nil {
-            let iconRect = frame.cutRight(Self.paddingX + _rightButton.bounds.width)
-            _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
+            let btnRect = frame.cutRight(_rightButton.bounds.width)
+            _rightButton.frame = btnRect.rightCenterPart(ofSize: _rightButton.bounds.size)
         }
         if rightButton2 != nil {
-            let iconRect = frame.cutRight(Self.paddingX + _rightButton2.bounds.width)
-            _rightButton2.frame = iconRect.rightCenterPart(ofSize: _rightButton2.bounds.size)
+            let btnRect = frame.cutRight(_style.buttonPadding + _rightButton2.bounds.width)
+            _rightButton2.frame = btnRect.rightCenterPart(ofSize: _rightButton2.bounds.size)
+        }
+        // text & icon
+        _titleLabel.sizeToFit()
+        let width = (icon == nil ? 0 : _iconView.bounds.width + _style.iconPadding) + _titleLabel.bounds.width
+        if rightButton != nil || rightButton2 != nil {
+            _ = frame.cutRight(_style.textPadding)
+        }
+        if leftButton != nil {
+            // center text & icon
+            let c = self.bounds.centerX
+            _ = frame.cutLeft(_style.textPadding)
+            if frame.centerX > c {
+                _ = frame.cutRight((frame.centerX - c) * 2)
+            } else {
+                _ = frame.cutLeft((c - frame.centerX) * 2)
+            }
+            if width < frame.width {
+                frame = frame.centerPart(ofSize: CGSize(width: width, height: frame.height))
+            }
         }
         if icon != nil {
-            let iconRect = frame.cutLeft(Self.iconPadding + Self.iconSize)
-            iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
+            let iconRect = frame.cutLeft(_style.iconPadding + _iconView.bounds.width)
+            _iconView.frame = iconRect.leftCenterPart(ofSize: _iconView.bounds.size)
         }
-        messageLabel.frame = frame
+        _titleLabel.frame = frame
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func buttonClicked(_ sender: UIView) {
+        delegate?.titleBarButtonClicked?(self, (sender as! XHBButton).id)
+    }
+
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?
     
     fileprivate func syncSize() {
-        let mWidth: CGFloat = 0
-        var size = CGSize(width: Self.paddingX * 2, height: Self.paddingY * 2)
+        var size = CGSize(width: _style.padding * 2, height: _style.height)
         if leftButton != nil {
-            size.width += Self.paddingX + Self.iconSize
+            size.width += _leftButton.bounds.width
         }
         if icon != nil {
-            size.width += Self.iconPadding + Self.iconSize
+            size.width += _style.iconPadding + _iconView.bounds.width
         }
         if rightButton != nil {
-            size.width += Self.paddingX + Self.iconSize
+            size.width += _rightButton.bounds.width
         }
-        let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
-        size.width += textSize.width
-        size.height += textSize.height
-        _sizeConstrains = updateSizeConstraint(_sizeConstrains, size)
+        if rightButton2 != nil {
+            size.width += _rightButton2.bounds.width + _style.buttonPadding
+        }
+        size.width += 40 // minimum text width
+        if leftButton == nil && (rightButton != nil || rightButton2 != nil) {
+            _titleLabel.font = _style.textAppearanceLarge.font
+        } else {
+            _titleLabel.font = _style.textAppearance.font
+        }
+        self.bounds.size = size
+        _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1)
+        setNeedsLayout()
     }
     
 }

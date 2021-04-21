@@ -24,7 +24,7 @@ public class ComponentStyle : NSObject
     let title: String
     let desc: String
     let valueType: Any.Type
-    let values: Array<(String, String)>?
+    var values: Array<(String, String)>?
 
     var valueTypeName: String { get { return "\(valueType)" } }
     
@@ -66,15 +66,35 @@ public class ComponentStyle : NSObject
         //self.values = values
     }
     
-    func set(_ value: String, on styles: ViewStyles) {
-        if let value = valueFromString(value) {
-            styles.setValue(value, forKey: name)
-            styles.notify(name)
+    func _init(on styles: ViewStyles) {
+        guard let values = values else {
+            return
+        }
+        let value = getRaw(on: styles)
+        let name = valueToString(value)
+        if !values.contains(where: { k, v in v == name }) {
+            var vs = values
+            vs.insert(("<default>", name), at: 0)
+            self.values = vs
         }
     }
     
+    func set(_ value: String, on styles: ViewStyles) {
+        let value = valueFromString(value)
+        setRaw(value, on: styles)
+    }
+    
     func get(on styles: ViewStyles) -> String {
-        return valueToString(styles.value(forKey: name))
+        return valueToString(getRaw(on: styles))
+    }
+    
+    func getRaw(on styles: ViewStyles) -> Any? {
+        return styles.value(forKey: name)
+    }
+    
+    func setRaw(_ value: Any?, on styles: ViewStyles) {
+        styles.setValue(value, forKey: name)
+        styles.notify(name)
     }
     
     func valueFromString(_ value: String) -> Any? {

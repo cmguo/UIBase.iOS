@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIBase
 
 class Icons {
     
@@ -13,6 +14,10 @@ class Icons {
     
     static func iconURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "svg")
+    }
+
+    static func uibaseIconURL(_ icon: String) -> URL? {
+        return Bundle(for: StateColor.self).url(forResource: icon, withExtension: "svg")
     }
 
 }

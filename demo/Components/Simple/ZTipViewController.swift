@@ -40,8 +40,8 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         @objc var location = Location.TopRight
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
-        @objc static let _rightButtonStyle: NSObject = IconStyle(ToolTipStyles.self, "rightButton")
-        @objc var rightButton = "<null>"
+        @objc static let _rightButtonStyle: NSObject = ContentStyle(ToolTipStyles.self, "rightButton", ["<button>"])
+        @objc var rightButton: Any? = Icons.uibaseIconURL("icon_close")
 
         var location2: XHBTipView.Location {
             get { XHBTipView.Location.init(rawValue: location.rawValue)! }
@@ -53,12 +53,12 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         let location: XHBTipView.Location
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
-        @objc static let _rightButtonStyle: NSObject = IconStyle(SnackToastStyles.self, "rightButton")
-        @objc var rightButton = "erase"
+        @objc static let _rightButtonStyle: NSObject = ContentStyle(SnackToastStyles.self, "rightButton", ["<button>"])
+        @objc var rightButton: Any? = Icons.iconURL("erase")
         
         @objc static let _icon = ["提示图标", "附加在文字左侧的图标，URL 类型，不能点击"]
         @objc static let _iconStyle: NSObject = IconStyle(SnackToastStyles.self, "icon")
-        @objc var icon = "info"
+        @objc var icon: URL? = Icons.iconURL("info")
         
         init(_ location: XHBTipView.Location) {
             self.location = location
@@ -78,8 +78,8 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     class SnackStyles : SnackToastStyles {
         
         @objc static let _leftButton = ["左侧按钮", "左侧按钮的内容，详见按钮 content 属性；一般用于关闭，也可以自定义其他行为"]
-        @objc static let _leftButtonStyle: NSObject = IconStyle(SnackStyles.self, "leftButton")
-        @objc var leftButton = "<null>"
+        @objc static let _leftButtonStyle: NSObject = ContentStyle(SnackStyles.self, "leftButton", ["<button>"])
+        @objc var leftButton: Any? = nil
 
         init() {
             super.init(.ManualLayout)
@@ -164,35 +164,29 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     func tipViewLeftButton(_ tipView: XHBTipView) -> Any? {
-        guard  let icon = (styles as? SnackStyles)?.leftButton else {
-            return nil
-        }
-        return Icons.iconURL(icon)
+        return (styles as? SnackStyles)?.leftButton
     }
     
     func tipViewRightButton(_ tipView: XHBTipView) -> Any? {
         if let styles = styles as? ToolTipStyles {
-            return Icons.iconURL(styles.rightButton)
+            return styles.rightButton
         } else if let styles = styles as? SnackToastStyles {
-            return Icons.iconURL(styles.rightButton)
+            return styles.rightButton
         } else {
             return nil
         }
     }
     
     func tipViewIcon(_ tipView: XHBTipView) -> URL? {
-        guard  let icon = (styles as? SnackToastStyles)?.icon else {
-            return nil
-        }
-        return Icons.iconURL(icon)
+        return (styles as? SnackToastStyles)?.icon
     }
     
     func tipViewPerfectLocation(_ tipView: XHBTipView) -> XHBTipView.Location {
         return (styles as? ToolTipStyles)?.location2 ?? (styles as! SnackToastStyles).location
     }
     
-    func tipViewButtonClicked(_ tipView: XHBTipView, index: Int) {
-        XHBTipView.tip(tipView, "点击了按钮\(index)")
+    func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?) {
+        XHBTipView.tip(tipView, "点击了按钮 \(btnId ?? .Unknown)")
         tipView.dismissAnimated(true)
     }
     

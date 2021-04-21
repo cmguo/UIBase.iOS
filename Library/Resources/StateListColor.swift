@@ -38,12 +38,12 @@ extension UIControl.State {
 
 }
 
-class StateColor {
+public class StateColor {
         
     let color: UIColor
     let states: UIControl.State
     
-    init (_ color: UIColor, _ states: UIControl.State) {
+    public init (_ color: UIColor, _ states: UIControl.State) {
         self.color = color
         self.states = states
     }
@@ -54,15 +54,19 @@ class StateColor {
     
 }
 
-class StateListColor {
+public class StateListColor {
     
     let statesColors: [StateColor]
     
-    init(_ statesColors: [StateColor]) {
+    public init(singleColor: UIColor) {
+        self.statesColors = [StateColor(singleColor, .STATES_NORMAL)]
+    }
+    
+    public init(_ statesColors: [StateColor]) {
         self.statesColors = statesColors
     }
     
-    func color(for states: UIControl.State) -> UIColor {
+    public func color(for states: UIControl.State) -> UIColor {
         for sc in self.statesColors {
             if (sc.matchStates(states)) {
                 return sc.color
@@ -71,15 +75,15 @@ class StateListColor {
         return UIColor()
     }
     
-    func normalColor() -> UIColor {
+    public func normalColor() -> UIColor {
         return color(for: .STATES_NORMAL)
     }
     
-    func disabledColor() -> UIColor {
+    public func disabledColor() -> UIColor {
         return color(for: .STATES_DISABLED)
     }
     
-    func pressedColor() -> UIColor {
+    public func pressedColor() -> UIColor {
         return color(for: .STATES_PRESSED)
     }
 

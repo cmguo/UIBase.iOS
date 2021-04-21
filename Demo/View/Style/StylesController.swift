@@ -11,7 +11,7 @@ import UIKit
 public class StylesController : UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     private var viewStyles: ViewStyles?
-    private var styles: Array<ComponentStyle> = []
+    private var styles: [ComponentStyle] = []
     private var expandSyle = 0
     
     private let headerView = UIView()
@@ -20,6 +20,7 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     public func switchComponent(_ component: Component) {
         viewStyles = component.controller.getStyles()
         styles = ComponentStyles.get(styles: viewStyles!).allStyles()
+        for s in styles { s._init(on: viewStyles!) }
         tableView.reloadData()
     }
     

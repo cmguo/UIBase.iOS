@@ -23,7 +23,7 @@ import Foundation
 @objc public protocol XHBTipViewCallbackDelegate : XHBTipViewDelegate {
         
     @objc optional func tipViewDelayTime(_ tipView: XHBTipView) -> Double
-    @objc optional func tipViewButtonClicked(_ tipView: XHBTipView, index: Int)
+    @objc optional func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?)
     @objc optional func tipViewDismissed(_ tipView: XHBTipView, isFromUser: Bool)
 }
 
@@ -173,6 +173,7 @@ public class XHBTipView : UIView
         let button = XHBButton()
         button.buttonType2 = .TextLink
         button.buttonSize = .Thin
+        button.id = .Left
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
         return button
@@ -182,6 +183,7 @@ public class XHBTipView : UIView
         let button = XHBButton()
         button.buttonType2 = .TextLink
         button.buttonSize = .Thin
+        button.id = .Right
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
         return button
@@ -372,7 +374,7 @@ public class XHBTipView : UIView
     
     @objc func buttonClicked(_ sender: UIView) {
         (delegate as? XHBTipViewCallbackDelegate)?.tipViewButtonClicked?(
-            self, index: sender == _leftButton ? 0 : 1)
+            self, (sender as! XHBButton).id)
     }
 
     public override func layoutSubviews() {

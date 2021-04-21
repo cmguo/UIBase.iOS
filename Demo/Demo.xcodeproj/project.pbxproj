@@ -45,6 +45,8 @@
 		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
 		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
 		71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */; };
+		717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */; };
+		717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B71263017F3001A0E12 /* ZPanelController.swift */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -111,6 +113,8 @@
 		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelComponent.swift; path = ../../../Demo/Components/Simple/ZPanelComponent.swift; sourceTree = "<group>"; };
+		717C5B71263017F3001A0E12 /* ZPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelController.swift; path = ../../../Demo/Components/Simple/ZPanelController.swift; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,8 +139,8 @@
 		71FF93F9262977B40033098B /* GravityStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityStyle.swift; path = ../../../Demo/Core/Style/GravityStyle.swift; sourceTree = "<group>"; };
 		71FF93FF26297C3A0033098B /* ZAvatarViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvatarViewComponent.swift; path = ../../../Demo/Components/Basic/ZAvatarViewComponent.swift; sourceTree = "<group>"; };
 		71FF940A262D35850033098B /* ZAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvatarViewController.swift; path = ../../../Demo/Components/Basic/ZAvatarViewController.swift; sourceTree = "<group>"; };
-		71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAppTitleBarComponent.swift; path = ../../../Demo/Components/Basic/ZAppTitleBarComponent.swift; sourceTree = "<group>"; };
-		71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAppTitleBarController.swift; path = ../../../Demo/Components/Basic/ZAppTitleBarController.swift; sourceTree = "<group>"; };
+		71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppTitleBarComponent.swift; sourceTree = "<group>"; };
+		71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppTitleBarController.swift; sourceTree = "<group>"; };
 		71FF9416262D66940033098B /* ContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentStyle.swift; path = ../../../Demo/Core/Style/ContentStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,8 +306,6 @@
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
 				71FF93FF26297C3A0033098B /* ZAvatarViewComponent.swift */,
 				71FF940A262D35850033098B /* ZAvatarViewController.swift */,
-				71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */,
-				71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -336,6 +338,8 @@
 		71FF93E426282A420033098B /* Simple */ = {
 			isa = PBXGroup;
 			children = (
+				71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */,
+				71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */,
 				71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */,
 				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
 				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
@@ -344,6 +348,8 @@
 				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
 				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
 				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
+				717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */,
+				717C5B71263017F3001A0E12 /* ZPanelController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */,
 				7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
+				717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
 				71903B7725E0B53400437575 /* Component.swift in Sources */,
 				7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */,
@@ -468,6 +475,7 @@
 				7128766025E655010054A74B /* ButtonsController.swift in Sources */,
 				71F5440125E50B4700AEB07A /* ZTipViewController.swift in Sources */,
 				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
+				717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,
 				71FF9417262D66940033098B /* ContentStyle.swift in Sources */,
 				7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */,

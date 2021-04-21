@@ -73,6 +73,7 @@ class MainController: UIViewController {
             make.trailing.equalToSuperview()
         })
         addChild(controller)
+        component_ = component
         // Styles
         stylesController.switchComponent(component)
     }

@@ -78,7 +78,8 @@ class XHBAvatarViewController: ComponentController {
             } else if name == "clipType" {
                 for b in self.views { b.clipType = self.styles.clipType2 }
             } else if name == "roundRadius" {
-                for b in self.views { b.roundRadius = self.styles.roundRadius }            }
+                for b in self.views { b.roundRadius = self.styles.roundRadius }
+            }
         }
     }
 

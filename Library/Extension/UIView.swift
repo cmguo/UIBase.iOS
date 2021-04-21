@@ -9,6 +9,12 @@ import Foundation
 
 // MARK: UIView
 extension UIView {
+    
+    open var viewStyle: UIViewStyle {
+        get { return .Default }
+        set { backgroundColor = newValue.backgroundColor }
+    }
+    
     /**
      Set the corner radius of the view.
      

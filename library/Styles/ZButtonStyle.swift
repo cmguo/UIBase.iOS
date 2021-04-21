@@ -62,9 +62,20 @@ public struct XHBButtonSizeStyle {
         height: 24, radius: 0, padding: 0, textSize: 14, iconSize: 16, iconPadding: 3)
 }
 
-public struct XHBButtonAppearance {
-    let typeStyle: XHBButtonTypeStyle
-    let sizeStyle: XHBButtonSizeStyle
+public class XHBButtonAppearance {
+    
+    var typeStyle: XHBButtonTypeStyle
+    var sizeStyle: XHBButtonSizeStyle
+    
+    public init() {
+        typeStyle = .primitiveAppearance
+        sizeStyle = .largeAppearance
+    }
+    
+    public init(type: XHBButtonTypeStyle, size: XHBButtonSizeStyle) {
+        typeStyle = type
+        sizeStyle = size
+    }
 }
 
 public class XHBButtonStyle {
@@ -83,3 +94,4 @@ public class XHBButtonStyle {
     public static let defaultStyle = XHBButtonStyle()
 
 }
+

@@ -9,7 +9,7 @@ import Foundation
 
 class XHBAppTitleBarComponent : NSObject, Component
 {
-    var group: String = "基础交互控件"
+    var group: String = "页面跳转控件"
         
     var id: Int = 0
         
