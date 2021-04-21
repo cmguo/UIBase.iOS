@@ -94,11 +94,11 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button = XHBButton(style: XHBButtonStyle()
-                                .text(styles.text)
-                                .icon(Icons.iconURL(styles.icon))
-                                .buttonType(type)
-                                .buttonSize(styles.buttonSize2))
+        let button = XHBButton()
+            .text(styles.text)
+            .icon(Icons.iconURL(styles.icon))
+            .buttonType(type)
+            .buttonSize(styles.buttonSize2)
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
         button.iconPosition = styles.iconPosition2

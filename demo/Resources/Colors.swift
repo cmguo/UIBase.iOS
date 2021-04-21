@@ -25,9 +25,7 @@ extension Dictionary {
 class Colors {
     
     class func stdColors() -> Dictionary<String, UIColor> {
-//        return json.dictionary?.filter({ (key: String, value: JSON) -> Bool in
-//            return value.string?.starts(with: "#") ?? false
-//        }).mapValues({ (value: JSON) in UIColor(hexString:value.string!) }) ?? [:]
+        UIColor.self
         return [:]
     }
     

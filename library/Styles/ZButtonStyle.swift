@@ -69,51 +69,15 @@ public struct XHBButtonAppearance {
 
 public class XHBButtonStyle {
     
-    var text: String? = nil
-    var icon: URL? = nil
-    var loadingText: String? = nil
-    var loadingIcon: URL? = nil
-    var buttonType: XHBButton.ButtonType? = nil
-    var buttonSize: XHBButton.ButtonSize? = nil
-    var appearance: XHBButtonAppearance? = nil
+    public var text: String? = nil
+    public var icon: URL? = nil
+    public var loadingText: String? = nil
+    public var loadingIcon: URL? = nil
+    public var buttonType: XHBButton.ButtonType? = nil
+    public var buttonSize: XHBButton.ButtonSize? = nil
+    public var appearance: XHBButtonAppearance? = nil
     
     public init() {
-    }
-    
-    @discardableResult
-    public func text(_ value: String?) -> Self {
-        self.text = value
-        return self
-    }
-    
-    public func icon(_ value: URL?) -> Self {
-        self.icon = value
-        return self
-    }
-    
-    public func loadingText(_ value: String?) -> Self {
-        self.loadingText = value
-        return self
-    }
-    
-    public func loadingIcon(_ value: URL?) -> Self {
-        self.loadingIcon = value
-        return self
-    }
-    
-    public func buttonType(_ value: XHBButton.ButtonType?) -> Self {
-        self.buttonType = value
-        return self
-    }
-    
-    public func buttonSize(_ value: XHBButton.ButtonSize?) -> Self {
-        self.buttonSize = value
-        return self
-    }
-    
-    public func appearance(_ value: XHBButtonAppearance?) -> Self {
-        self.appearance = value
-        return self
     }
         
     public static let defaultStyle = XHBButtonStyle()

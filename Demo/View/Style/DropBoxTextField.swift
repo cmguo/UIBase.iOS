@@ -25,7 +25,12 @@ class DropBoxTextField: UIView, UITableViewDelegate, UITableViewDataSource {
     /// - Parameters:
     ///   - 入参: Row Index
     ///   - 出参: 标题 和 图标
-    open var itemForRowAt: ((Int) -> (String, UIImage?))!
+    open var itemForRowAt: ((Int) -> (String, UIImage?))! {
+        didSet {
+            _tableView.reloadData()
+        }
+    }
+    
     /// 选中某一项后的处理闭包
     open var didSelectedAt: ((Int, String, DropBoxTextField) -> Void)?
     

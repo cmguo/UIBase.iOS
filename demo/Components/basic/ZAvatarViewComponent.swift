@@ -1,28 +1,27 @@
 //
-//  XHBBadgeComponent.swift
+//  XHBAvatarComponent.swift
 //  demo
 //
-//  Created by 郭春茂 on 2021/2/23.
+//  Created by 郭春茂 on 2021/4/19.
 //
 
 import Foundation
-import UIKit
 
-class XHBBadgeViewComponent : NSObject, Component
-{    
+class XHBAvatarViewComponent : NSObject, Component
+{
     var group: String = "基础交互控件"
         
     var id: Int = 0
         
     var icon: Int = 0
     
-    var title: String = "徽章"
+    var title: String = "头像"
     
     var author: String = "cmguo"
     
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBBadgeViewController()
+        return XHBAvatarViewController()
     }()
 }

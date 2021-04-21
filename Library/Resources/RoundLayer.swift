@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShapeLayer : CALayer {
+class RoundLayer : CALayer {
     
     struct Config {
         let shape: Int = 0

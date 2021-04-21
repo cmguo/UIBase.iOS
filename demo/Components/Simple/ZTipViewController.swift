@@ -145,7 +145,6 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         button.text = model.buttonTitle
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (maker) in
-            maker.size.equalTo(button.bounds.size)
             maker.center.equalToSuperview()
         }
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)

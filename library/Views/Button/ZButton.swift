@@ -110,6 +110,42 @@ public class XHBButton : UIButton
      */
     open var indicator: UIView & IndicatorProtocol = MaterialLoadingIndicator()
 
+    public func text(_ value: String?) -> Self {
+        self.text = value
+        return self
+    }
+    
+    public func icon(_ value: URL?) -> Self {
+        self.icon = value
+        return self
+    }
+    
+//    public func loadingText(_ value: String?) -> Self {
+//        self.loadingText = value
+//        return self
+//    }
+//
+//    public func loadingIcon(_ value: URL?) -> Self {
+//        self.loadingIcon = value
+//        return self
+//    }
+    
+    public func buttonType(_ value: XHBButton.ButtonType) -> Self {
+        self.buttonType2 = value
+        return self
+    }
+    
+    public func buttonSize(_ value: XHBButton.ButtonSize) -> Self {
+        self.buttonSize = value
+        return self
+    }
+    
+    public func buttonAppearance(_ value: XHBButtonAppearance) -> Self {
+        self.buttonAppearance = value
+        return self
+    }
+        
+
     // Private properties
     private var typeStyles: XHBButtonTypeStyle
     private var sizeStyles: XHBButtonSizeStyle
@@ -135,6 +171,7 @@ public class XHBButton : UIButton
         iconPosition = typeStyles.iconPosition
         
         super.init(frame: CGRect.zero)
+        //translatesAutoresizingMaskIntoConstraints = false
         
         self.contentMode = .redraw
         self.syncAppearance()
@@ -287,7 +324,8 @@ public class XHBButton : UIButton
             }
         }
         let size = CGSize(width: minSize.width + sizeStyles.padding * 2, height: sizeStyles.height)
-        sizeConstraint = updateSizeConstraint(sizeConstraint, size)
+        self.bounds.size = size
+        sizeConstraint = updateSizeConstraint(sizeConstraint, size, widthRange: 1)
     }
     
     fileprivate func syncStates() {

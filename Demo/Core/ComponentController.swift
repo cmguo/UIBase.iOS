@@ -20,4 +20,8 @@ public class ComponentController : UIViewController, IComponentController {
         fatalError("getStyles() has not been implemented")
     }
     
+    public override func viewDidLoad() {
+        view.backgroundColor = .white
+    }
+    
 }

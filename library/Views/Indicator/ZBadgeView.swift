@@ -108,12 +108,17 @@ open class XHBBadgeView: UILabel {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        textAlignment = NSTextAlignment.center
+        font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        textColor = .white
+        clipsToBounds = false
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.backgroundColor = fillColor.cgColor
+        layer.borderColor = borderColor.cgColor
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setup()
     }
     
     public func attach(_ target: UIView) {
@@ -153,17 +158,7 @@ open class XHBBadgeView: UILabel {
             super.drawText(in: rectWithoutInsets)
         }
     }
-
-    private func setup() {
-        textAlignment = NSTextAlignment.center
-        font = UIFont.systemFont(ofSize: 10, weight: .regular)
-        textColor = .white
-        clipsToBounds = false
-        translatesAutoresizingMaskIntoConstraints = false
-        layer.backgroundColor = fillColor.cgColor
-        layer.borderColor = borderColor.cgColor
-    }
-    
+  
     private func remakeConstraints() {
         guard self.superview != nil else {
             return

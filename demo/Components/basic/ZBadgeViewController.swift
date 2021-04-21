@@ -56,6 +56,7 @@ class XHBBadgeViewController: ComponentController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
         label.backgroundColor = .yellow
         label.text = "文字"
@@ -83,8 +84,6 @@ class XHBBadgeViewController: ComponentController {
         button.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)
             maker.top.equalTo(imageView.snp.bottom).offset(20)
-            maker.width.equalTo(button.bounds.width)
-            maker.height.equalTo(button.bounds.height)
         }
         attachBadge(button)
 

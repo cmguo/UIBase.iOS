@@ -1,5 +1,5 @@
 //
-//  XHBTipView.swift
+//  style.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/11.
@@ -77,7 +77,7 @@ public class XHBTipView : UIView
     public var location = Location.TopRight {
         didSet {
             if (self.location >= .AutoToast) {
-                self.font = XHBTipView.defaultSmallFont
+                self.font = style.smallFont
                 if (self.location == .ManualLayout) {
                     self.frameRadius = 0
                 }
@@ -97,7 +97,7 @@ public class XHBTipView : UIView
         set { backLayer.cornerRadius = newValue }
     }
     
-    public var frameColor: UIColor = XHBTipView.defaultFrameColor {
+    public var frameColor: UIColor = .black {
         didSet {
             backLayer.backgroundColor = frameColor.cgColor
             arrowLayer.backgroundColor = frameColor.cgColor
@@ -189,24 +189,27 @@ public class XHBTipView : UIView
     
     private lazy var iconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.bounds.width2 = XHBTipView.iconSize
-        imageView.bounds.height2 = XHBTipView.iconSize
+        imageView.bounds.width2 = style.iconSize
+        imageView.bounds.height2 = style.iconSize
         addSubview(imageView)
         return imageView
     }()
     
+    private let style: XHBTipViewStyle
     private let backLayer = CALayer()
     private let arrowLayer = CAShapeLayer()
 
-    public init() {
+    public init(_ style: XHBTipViewStyle = XHBTipViewStyle()) {
+        self.style = style
+        self.frameColor = style.frameColor
         super.init(frame: CGRect.zero)
-        backLayer.backgroundColor = XHBTipView.defaultFrameColor.cgColor
-        arrowLayer.fillColor = XHBTipView.defaultFrameColor.cgColor
-        backLayer.cornerRadius = XHBTipView.radius
+        backLayer.backgroundColor = style.frameColor.cgColor
+        arrowLayer.fillColor = style.frameColor.cgColor
+        backLayer.cornerRadius = style.radius
         layer.addSublayer(backLayer)
 
-        messageLabel.font = XHBTipView.defaultFont
-        messageLabel.textColor = XHBTipView.defaultTextColor
+        messageLabel.font = style.font
+        messageLabel.textColor = style.textColor
         addSubview(messageLabel)
     }
     
@@ -239,18 +242,18 @@ public class XHBTipView : UIView
     }
     
     fileprivate func calcSize(_ mWidth: CGFloat) -> CGSize {
-        var size = CGSize(width: XHBTipView.paddingX * 2, height: XHBTipView.paddingY * 2)
+        var size = CGSize(width: style.paddingX * 2, height: style.paddingY * 2)
         if leftButton != nil {
-            size.width += XHBTipView.paddingX + XHBTipView.iconSize
+            size.width += style.paddingX + _leftButton.bounds.width
         }
         if icon != nil {
-            size.width += XHBTipView.iconPadding + XHBTipView.iconSize
+            size.width += style.iconPadding + style.iconSize
         }
         if rightButton != nil {
-            size.width += XHBTipView.paddingX + XHBTipView.iconSize
+            size.width += style.paddingX + _rightButton.bounds.width
         }
         if location < .AutoToast {
-            size.height += XHBTipView.arrowSize
+            size.height += style.arrowSize
         }
         let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
         size.width += textSize.width
@@ -270,14 +273,14 @@ public class XHBTipView : UIView
         let wbounds = target.window!.bounds
         // for toast location
         if location == .AutoToast {
-            if XHBTipView.toastCount <= 0 {
-                XHBTipView.toastY = wbounds.bottom - wbounds.width / 8
+            if Self.toastCount <= 0 {
+                Self.toastY = wbounds.bottom - wbounds.width / 8
             } else {
-                XHBTipView.toastY -= size.height + 20
+                Self.toastY -= size.height + 20
             }
-            XHBTipView.toastCount += 1
+            Self.toastCount += 1
             location2 = location
-            return CGPoint(x: wbounds.centerX - size.width / 2, y: XHBTipView.toastY - size.height / 2)
+            return CGPoint(x: wbounds.centerX - size.width / 2, y: Self.toastY - size.height / 2)
         }
         // for arrow locations
         var frame = CGRect(origin: CGPoint.zero, size: size)
@@ -285,11 +288,11 @@ public class XHBTipView : UIView
         let checkX: (Int) -> Int = { (x) in
             switch x {
             case 0: // Left
-                frame.right = tbounds.centerX + XHBTipView.arrowOffset
+                frame.right = tbounds.centerX + self.style.arrowOffset
             case 1:
                 frame.centerX = tbounds.centerX
             case 2:
-                frame.left = tbounds.centerX - XHBTipView.arrowOffset
+                frame.left = tbounds.centerX - self.style.arrowOffset
             default:
                 break
             }
@@ -363,7 +366,7 @@ public class XHBTipView : UIView
     @objc func finaliseDismiss() {
         removeFromSuperview()
         if location2 == .AutoToast {
-            XHBTipView.toastCount -= 1
+            Self.toastCount -= 1
         }
     }
     
@@ -373,42 +376,41 @@ public class XHBTipView : UIView
     }
 
     public override func layoutSubviews() {
-        var frame = self.frame
-        frame.origin = CGPoint.zero
+        var frame = self.bounds
         if let l = location2, l != .AutoToast {
             let x = l.rawValue % 3
             let y = l.rawValue >= 3
-            var arrowRect = y ? frame.cutTop(XHBTipView.arrowSize) : frame.cutBottom(XHBTipView.arrowSize)
-            if x == 2 { arrowRect.centerX = frame.left + XHBTipView.arrowOffset }
+            var arrowRect = y ? frame.cutTop(style.arrowSize) : frame.cutBottom(style.arrowSize)
+            if x == 2 { arrowRect.centerX = frame.left + style.arrowOffset }
             else if (x == 1) { arrowRect.centerX = frame.centerX }
-            else { arrowRect.centerX = frame.right - XHBTipView.arrowOffset }
+            else { arrowRect.centerX = frame.right - style.arrowOffset }
             let path = CGMutablePath()
             if !y { // down
                 path.move(to: CGPoint.zero)
-                path.addLine(to: CGPoint(x: XHBTipView.arrowSize * 2, y: 0))
-                path.addLine(to: CGPoint(x: XHBTipView.arrowSize, y: XHBTipView.arrowSize))
+                path.addLine(to: CGPoint(x: style.arrowSize * 2, y: 0))
+                path.addLine(to: CGPoint(x: style.arrowSize, y: style.arrowSize))
             } else {
-                path.move(to: CGPoint(x: 0, y: XHBTipView.arrowSize))
-                path.addLine(to: CGPoint(x: XHBTipView.arrowSize * 2, y: XHBTipView.arrowSize))
-                path.addLine(to: CGPoint(x: XHBTipView.arrowSize, y: 0))
+                path.move(to: CGPoint(x: 0, y: style.arrowSize))
+                path.addLine(to: CGPoint(x: style.arrowSize * 2, y: style.arrowSize))
+                path.addLine(to: CGPoint(x: style.arrowSize, y: 0))
             }
             path.closeSubpath()
             arrowLayer.path = path
-            arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: XHBTipView.arrowSize * 2, height: XHBTipView.arrowSize))
+            arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: style.arrowSize * 2, height: style.arrowSize))
             layer.addSublayer(arrowLayer)
         }
         backLayer.frame = frame
-        frame.deflate(width: XHBTipView.paddingX, height: XHBTipView.paddingY)
+        frame.deflate(width: style.paddingX, height: style.paddingY)
         if leftButton != nil {
-            let iconRect = frame.cutLeft(XHBTipView.paddingX + _leftButton.bounds.width)
+            let iconRect = frame.cutLeft(style.paddingX + _leftButton.bounds.width)
             _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
         }
         if rightButton != nil {
-            let iconRect = frame.cutRight(XHBTipView.paddingX + _rightButton.bounds.width)
+            let iconRect = frame.cutRight(style.paddingX + _rightButton.bounds.width)
             _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
         }
         if icon != nil {
-            let iconRect = frame.cutLeft(XHBTipView.iconPadding + XHBTipView.iconSize)
+            let iconRect = frame.cutLeft(style.iconPadding + style.iconSize)
             iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
         }
         messageLabel.frame = frame
