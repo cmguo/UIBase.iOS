@@ -50,9 +50,10 @@
 		717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B64263013A1001A0E12 /* ZPanelStyle.swift */; };
 		717C5B68263015E5001A0E12 /* TextAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B67263015E5001A0E12 /* TextAppearance.swift */; };
 		717C5B6B263015FB001A0E12 /* ZColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6A263015FB001A0E12 /* ZColors.swift */; };
+		717C5B752630370B001A0E12 /* icon_right.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5B742630370B001A0E12 /* icon_right.svg */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
-		71FF93C12626F8BA0033098B /* StateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* StateListColors.swift */; };
+		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
 		71FF93EC262843500033098B /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* UIColors.swift */; };
 		71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EE26284D970033098B /* ZBadgeView.swift */; };
 		71FF93F626296C8F0033098B /* Gravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93F526296C8F0033098B /* Gravity.swift */; };
@@ -105,11 +106,12 @@
 		717C5B64263013A1001A0E12 /* ZPanelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelStyle.swift; path = ../../Library/Styles/ZPanelStyle.swift; sourceTree = "<group>"; };
 		717C5B67263015E5001A0E12 /* TextAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextAppearance.swift; path = ../../Library/Resources/TextAppearance.swift; sourceTree = "<group>"; };
 		717C5B6A263015FB001A0E12 /* ZColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZColors.swift; path = ../../Library/Styles/ZColors.swift; sourceTree = "<group>"; };
+		717C5B742630370B001A0E12 /* icon_right.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_right.svg; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
-		71FF93C02626F8BA0033098B /* StateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListColors.swift; sourceTree = "<group>"; };
+		71FF93C02626F8BA0033098B /* ZStateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStateListColors.swift; sourceTree = "<group>"; };
 		71FF93EB262843500033098B /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColors.swift; path = ../../Library/Resources/UIColors.swift; sourceTree = "<group>"; };
 		71FF93EE26284D970033098B /* ZBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeView.swift; path = ../../../Library/Views/Indicator/ZBadgeView.swift; sourceTree = "<group>"; };
 		71FF93F526296C8F0033098B /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gravity.swift; path = ../../Library/Styles/Gravity.swift; sourceTree = "<group>"; };
@@ -191,7 +193,6 @@
 		7178A17225F5C952004BA696 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				71FF93C02626F8BA0033098B /* StateListColors.swift */,
 				7178A18725F5CB0B004BA696 /* StateListColor.swift */,
 				7178A1B625F62792004BA696 /* RoundLayer.swift */,
 				7178A17425F5C986004BA696 /* Indicators */,
@@ -239,6 +240,7 @@
 		7178A1EC25F8BEBE004BA696 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				717C5B742630370B001A0E12 /* icon_right.svg */,
 				717C5B5C263011B4001A0E12 /* icon_close.svg */,
 				717C5B55262FF0C3001A0E12 /* icon_more.svg */,
 				717C5B52262FF000001A0E12 /* icon_left.svg */,
@@ -290,6 +292,7 @@
 				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
 				717C5B64263013A1001A0E12 /* ZPanelStyle.swift */,
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
+				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				717C5B5D263011B4001A0E12 /* icon_close.svg in Resources */,
+				717C5B752630370B001A0E12 /* icon_right.svg in Resources */,
 				7178A1EE25F8BEEE004BA696 /* checked.svg in Resources */,
 				717C5B53262FF000001A0E12 /* icon_left.svg in Resources */,
 				7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */,
@@ -390,7 +394,7 @@
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
 				717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */,
 				717C5B4C262FCEFE001A0E12 /* ZAppTitleBarStyle.swift in Sources */,
-				71FF93C12626F8BA0033098B /* StateListColors.swift in Sources */,
+				71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */,
 				71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */,

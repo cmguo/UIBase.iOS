@@ -11,7 +11,7 @@ public class XHBSwitchButton : UISwitch
 {
     private static let trackColor = StateListColor.bluegrey_300_checked
         
-    private static let tumbColor = StateListColor.bluegrey_00
+    private static let tumbColor = StateListColor(singleColor: .bluegrey_00)
 
     public init() {
         super.init(frame: CGRect.zero)

@@ -74,15 +74,7 @@ public class XHBAppTitleBar : UIView
     
     public var content: Any? = nil {
         didSet {
-            if let string = content as? String {
-                title = string
-            } else if let view = content as? UIView {
-                if _contentView != nil {
-                    _contentView?.removeFromSuperview()
-                }
-                _contentView = view
-                addSubview(view)
-            }
+            syncContent()
         }
     }
     
@@ -220,9 +212,42 @@ public class XHBAppTitleBar : UIView
         } else {
             _titleLabel.font = _style.textAppearance.font
         }
+        if size.width < bounds.size.width {
+            size.width = bounds.size.width
+        }
         self.bounds.size = size
-        _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1)
+        if !translatesAutoresizingMaskIntoConstraints {
+            _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1)
+        }
         setNeedsLayout()
     }
-    
+
+    fileprivate func syncContent() {
+        if let string = content as? String {
+            title = string
+        } else if let view = content as? UIView {
+            if _contentView != nil {
+                _contentView?.removeFromSuperview()
+            }
+            _contentView = view
+            addSubview(view)
+        } else if let map = content as? NSDictionary {
+            if let btn = map["leftButton"] {
+                leftButton = btn
+            }
+            if let url = map["icon"] as? URL {
+                icon = url
+            }
+            if let btn = map["rightButton"] {
+                rightButton = btn
+            }
+            if let btn = map["rightButton2"] {
+                rightButton2 = btn
+            }
+            if let string = map["title"] as? String {
+                title = string
+            }
+        }
+    }
+
 }

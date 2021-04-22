@@ -68,7 +68,7 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
     }
     
     func panelButtonClicked(_ panel: XHBPanel, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.tip(panel, "点击了按钮 \(btnId ?? .Unknown)")
+        XHBTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
     }
 
 }

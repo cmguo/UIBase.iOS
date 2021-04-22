@@ -11,9 +11,9 @@ import SwiftSVG
 @IBDesignable
 public class XHBCheckBox: UIButton {
     
-    private static let fillColor = StateListColor.bluegrey_00_halfchecked_disabled
+    private static let fillColor = StateListColor.bluegrey_00_checked_disabled
     
-    private static let borderColor = StateListColor.bluegrey_500_halfchecked_disabled
+    private static let borderColor = StateListColor.bluegrey_500_checked_disabled
     
     private static let foregroundCheckedFillColor = StateListColor.transparent_checked_disabled
     

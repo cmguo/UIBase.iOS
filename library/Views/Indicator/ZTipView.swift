@@ -31,13 +31,20 @@ public class XHBTipView : UIView
 {
     
     public class func tip(_ target: UIView, _ message: String, delegate:  XHBTipViewDelegate? = nil) {
-        
         let tipView = XHBTipView()
         tipView.message = message
         tipView.delegate = delegate
         tipView.popAt(target)
     }
     
+    public class func toast(_ target: UIView, _ message: String, delegate:  XHBTipViewDelegate? = nil) {
+        let tipView = XHBTipView()
+        tipView.message = message
+        tipView.delegate = delegate
+        tipView.location = .AutoToast
+        tipView.popAt(target)
+    }
+
     public class func remove(from target: UIView, animate: Bool = false) {
         for c in target.subviews {
             if let tip = c as? XHBTipView {

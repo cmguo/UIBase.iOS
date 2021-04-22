@@ -186,7 +186,7 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.tip(tipView, "点击了按钮 \(btnId ?? .Unknown)")
+        XHBTipView.toast(tipView, "点击了按钮 \(btnId ?? .Unknown)")
         tipView.dismissAnimated(true)
     }
     

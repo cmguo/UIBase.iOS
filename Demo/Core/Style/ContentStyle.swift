@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import UIBase
 
 class ContentStyle: ComponentStyle {
     
@@ -16,8 +17,28 @@ class ContentStyle: ComponentStyle {
         "text_cancel": "取消",
         "text_confirm": "确定",
         "button_goto": ["去查看", Icons.uibaseIconURL("icon_right")] as [Any?] as NSArray,
-        "button_style": ["按钮", ],
-        "title_text": [:] as [String: Any?] as NSDictionary,
+        "button_style": [
+            "text": "按钮",
+            "icon": Icons.uibaseIconURL("icon_right")!,
+            "iconPosition": XHBButton.IconPosition.Right
+        ] as NSDictionary,
+        "title_icon": [
+            "title": "标题",
+            "leftButton": Icons.uibaseIconURL("icon_close")!,
+            "rightButton": Icons.uibaseIconURL("icon_more")!
+        ] as [String: Any?] as NSDictionary,
+        "title_text": [
+            "icon": {
+                let v = UILabel()
+                v.text = "标签"
+                v.textColor = .blue_600
+                v.layer.cornerRadius = 9
+                return v
+            }(),
+            "title": "标题",
+            "leftButton": "取消",
+            "rightButton": "确定"
+        ] as [String: Any?] as NSDictionary,
         "view_text": {
             let v = UILabel()
             v.text = "文字"

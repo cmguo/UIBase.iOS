@@ -304,13 +304,35 @@ public class XHBButton : UIButton
     fileprivate func syncContent() {
         if let string = content as? String {
             text = string
+            icon = nil
         } else if let url = content as? URL {
+            text = nil
             icon = url
         } else if let style = content as? XHBButtonStyle {
             applyStyle(style)
         } else if let (string, url) = content as? (String, URL) {
             text = string
             icon = url
+        } else if let array = content as? NSArray {
+            for item in array {
+                if let string = item as? String {
+                    text = string
+                } else if let url = item as? URL {
+                    icon = url
+                }
+            }
+        } else if let map = content as? NSDictionary {
+            icon = nil
+            text = nil
+            if let string = map["text"] as? String {
+                text = string
+            }
+            if let url = map["icon"] as? URL {
+                icon = url
+            }
+            if let pos = map["iconPosition"] as? IconPosition {
+                iconPosition = pos
+            }
         }
     }
     

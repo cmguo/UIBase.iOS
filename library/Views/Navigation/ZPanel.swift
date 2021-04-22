@@ -67,14 +67,17 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     
     private lazy var _titleBar: XHBAppTitleBar = {
         let bar = XHBAppTitleBar()
+        bar.translatesAutoresizingMaskIntoConstraints = true
         bar.textAppearance = TextAppearance.Head3
         bar.delegate = self
+        addSubview(bar)
         return bar
     }()
     
     private lazy var _titleSplitter: UIView = {
         let view = UIView()
         view.backgroundColor = .bluegrey_100
+        addSubview(view)
         return view
     }()
     
@@ -90,6 +93,7 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     private lazy var _bottomSplitter: UIView = {
         let view = UIView()
         view.backgroundColor = .bluegrey_50
+        addSubview(view)
         return view
     }()
     
@@ -119,6 +123,11 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     
     public override func layoutSubviews() {
         var frame = self.bounds
+        let path = UIBezierPath(roundedRect: frame, byRoundingCorners: [.topLeft, .topRight],
+                                cornerRadii: CGSize(width: _style.borderRadius, height: _style.borderRadius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
         if titleBar != nil {
             _titleBar.frame = frame.cutTop(_titleBar.bounds.height)
             _titleSplitter.frame = frame.cutTop(1)
@@ -147,8 +156,8 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
         if let c = _contentView {
             size.height += c.bounds.height
         }
-        if size.height < 100 {
-            size.height = 100
+        if size.height < 200 {
+            size.height = 200
         }
         _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1, heightRange: 1)
         setNeedsLayout()

@@ -21,6 +21,7 @@ extension UIControl.State {
     
     static let STATE_DISABLED = UIControl.State.disabled
     static let STATE_PRESSED = UIControl.State.highlighted
+    static let STATE_SELECTED = UIControl.State.selected
     static let STATE_FOCUSED = UIControl.State.focused
     static let STATE_CHECKED = UIControl.State(rawValue: 0x10000)
     static let STATE_HALF_CHECKED = UIControl.State(rawValue: 0x20000)
@@ -29,6 +30,7 @@ extension UIControl.State {
     static let STATES_NORMAL = UIControl.State.normal
     static let STATES_PRESSED = STATE_PRESSED
     static let STATES_DISABLED = STATE_DISABLED
+    static let STATES_SELECTED = STATE_SELECTED
     static let STATES_CHECKED = STATE_CHECKED
     static let STATES_HALF_CHECKED = STATE_HALF_CHECKED
     static let STATES_FOCUSED = STATE_FOCUSED
