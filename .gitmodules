@@ -6,7 +6,7 @@
 	url = https://github.com/SwiftyJSON/SwiftyJSON.git
 [submodule "SwiftReflection"]
 	path = SwiftReflection
-	url = https://github.com/Sajjon/SwiftReflection.git
+	url = https://github.com/cmguo/SwiftReflection.git
 [submodule "SwiftSVG"]
 	path = SwiftSVG
 	url = https://github.com/mchoe/SwiftSVG.git
