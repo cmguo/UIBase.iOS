@@ -49,6 +49,8 @@
 		717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B71263017F3001A0E12 /* ZPanelController.swift */; };
 		717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B8E26312398001A0E12 /* ZDropDownController.swift */; };
 		717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */; };
+		717C5B9B26316E12001A0E12 /* ZPickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */; };
+		717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -119,6 +121,8 @@
 		717C5B71263017F3001A0E12 /* ZPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelController.swift; path = ../../../Demo/Components/Simple/ZPanelController.swift; sourceTree = "<group>"; };
 		717C5B8E26312398001A0E12 /* ZDropDownController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownController.swift; path = ../../../Demo/Components/Simple/ZDropDownController.swift; sourceTree = "<group>"; };
 		717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownComponent.swift; path = ../../../Demo/Components/Simple/ZDropDownComponent.swift; sourceTree = "<group>"; };
+		717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewComponent.swift; path = ../../../Demo/Components/Simple/ZPickerViewComponent.swift; sourceTree = "<group>"; };
+		717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewController.swift; path = ../../../Demo/Components/Simple/ZPickerViewController.swift; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 				717C5B71263017F3001A0E12 /* ZPanelController.swift */,
 				717C5B8E26312398001A0E12 /* ZDropDownController.swift */,
 				717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */,
+				717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */,
+				717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */,
 				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
 				71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */,
+				717C5B9B26316E12001A0E12 /* ZPickerViewComponent.swift in Sources */,
 				7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */,
 				717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
@@ -508,6 +515,7 @@
 				71FF940B262D35860033098B /* ZAvatarViewController.swift in Sources */,
 				71FF940026297C3A0033098B /* ZAvatarViewComponent.swift in Sources */,
 				7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */,
+				717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

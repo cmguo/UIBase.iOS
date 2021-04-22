@@ -7,7 +7,19 @@
 
 import Foundation
 
-class ViewModel
+class ViewModel: NSObject
 {
     
+    private var listeners: [(String) -> Void] = []
+    
+    func listen(_ listener: @escaping (String) -> Void) {
+        listeners.append(listener)
+    }
+    
+    func notify(_ name: String) {
+        for l in listeners {
+            l(name)
+        }
+    }
+
 }

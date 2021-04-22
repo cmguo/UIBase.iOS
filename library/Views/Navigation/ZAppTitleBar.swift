@@ -9,7 +9,7 @@ import Foundation
 
 
 @objc public protocol XHBTitleBarCallbackDelegate {
-    @objc optional func titleBarButtonClicked(_ titleBar: XHBAppTitleBar, _ btnId: XHBButton.ButtonId?)
+    @objc optional func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?)
 }
 
 
@@ -187,7 +187,7 @@ public class XHBAppTitleBar : UIView
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        delegate?.titleBarButtonClicked?(self, (sender as! XHBButton).id)
+        delegate?.titleBarButtonClicked?(titleBar: self, btnId: (sender as! XHBButton).id)
     }
 
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?

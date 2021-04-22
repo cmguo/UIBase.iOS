@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ViewStyles : NSObject
+class ViewStyles : ViewModel
 {
     
     public override class func value(forUndefinedKey key: String) -> Any? {
@@ -28,16 +28,5 @@ public class ViewStyles : NSObject
             return NSDictionary.Element("\(c)(\(c.rawValue))", "\(c.rawValue)")
         } as NSArray
     }
-    
-    private var listeners: [(String) -> Void] = []
-    
-    func listen(_ listener: @escaping (String) -> Void) {
-        listeners.append(listener)
-    }
-    
-    func notify(_ name: String) {
-        for l in listeners {
-            l(name)
-        }
-    }
+
 }

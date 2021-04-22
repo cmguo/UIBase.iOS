@@ -17,7 +17,7 @@ extension UIControl.State {
     }
 }
 
-extension UIControl.State {
+public extension UIControl.State {
     
     static let STATE_DISABLED = UIControl.State.disabled
     static let STATE_PRESSED = UIControl.State.highlighted

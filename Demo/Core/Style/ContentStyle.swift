@@ -11,7 +11,7 @@ import UIBase
 
 class ContentStyle: ComponentStyle {
     
-    private static let Contents: [String: Any] = [
+    static let Contents: [String: Any] = [
         "icon_left": Icons.uibaseIconURL("icon_left")!,
         "icon_more": Icons.uibaseIconURL("icon_more")!,
         "text_cancel": "取消",

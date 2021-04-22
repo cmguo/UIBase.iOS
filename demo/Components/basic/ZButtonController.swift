@@ -80,7 +80,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     private let tableView = UITableView()
     private var buttons: [XHBButton] = []
     
-    public override func getStyles() -> ViewStyles {
+    override func getStyles() -> ViewStyles {
         return styles
     }
     

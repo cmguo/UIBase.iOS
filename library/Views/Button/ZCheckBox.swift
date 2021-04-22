@@ -8,7 +8,6 @@
 import Foundation
 import SwiftSVG
 
-@IBDesignable
 public class XHBCheckBox: UIButton {
     
     private static let fillColor = StateListColor.bluegrey_00_checked_disabled
@@ -37,6 +36,7 @@ public class XHBCheckBox: UIButton {
     public var checkedState: CheckedState = CheckedState.NotChecked {
         didSet {
             updateStates()
+            sendActions(for: .valueChanged)
         }
     }
     
@@ -99,6 +99,14 @@ public class XHBCheckBox: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func toggle() {
+        if self.checkedState == .FullChecked {
+            self.checkedState = .NotChecked
+        } else {
+            self.checkedState = .FullChecked
+        }
+    }
+    
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
         return contentRect.leftCenterPart(ofSize: CGSize(width: XHBCheckBox.iconSize, height: XHBCheckBox.iconSize))
     }
@@ -134,12 +142,7 @@ public class XHBCheckBox: UIButton {
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
-        if self.checkedState == .FullChecked {
-            self.checkedState = .NotChecked
-        } else {
-            self.checkedState = .FullChecked
-        }
-        updateStates()
-        sendActions(for: .valueChanged)
+        toggle()
     }
+    
 }

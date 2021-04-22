@@ -24,11 +24,11 @@ public class ComponentStyles : NSObject
         return cs
     }()
     
-    public class func get(styles: ViewStyles) -> ComponentStyles {
+    class func get(styles: ViewStyles) -> ComponentStyles {
         get(cls: type(of: styles))
     }
     
-    public class func get(cls: ViewStyles.Type) -> ComponentStyles {
+    class func get(cls: ViewStyles.Type) -> ComponentStyles {
         //if (let sup = cls.superclass())
         let clsName = String(cString: class_getName(cls))
         if let cs = classStyles[clsName] {

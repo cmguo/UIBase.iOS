@@ -60,7 +60,6 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
         _tableView.layer.cornerRadius = _style.borderRadius
         _tableView.register(XHBDropDownCell.self, forCellReuseIdentifier: "DropDown")
         _tableView.delegate = self
-        _tableView.separatorStyle = .singleLineEtched
         addSubview(_tableView)
     }
     
@@ -157,7 +156,7 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
     
     private func tableSize() -> CGSize {
-        _tableView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: _style.itemHeight * CGFloat(titles.count))
+        _tableView.frame.size = UIScreen.main.bounds.size
         _tableView.layoutSubviews()
         var width = self.width
         if width < 0 {

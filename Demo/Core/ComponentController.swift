@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public protocol IComponentController {
+protocol IComponentController {
     
     func getStyles() -> ViewStyles
     
@@ -16,7 +16,7 @@ public protocol IComponentController {
 
 public class ComponentController : UIViewController, IComponentController {
     
-    public func getStyles() -> ViewStyles {
+    func getStyles() -> ViewStyles {
         fatalError("getStyles() has not been implemented")
     }
     

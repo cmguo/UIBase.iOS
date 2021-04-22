@@ -8,7 +8,8 @@
 import Foundation
 
 @objc public protocol XHBPanelCallbackDelegate {
-    @objc optional func panelButtonClicked(_ panel: XHBPanel, _ btnId: XHBButton.ButtonId?)
+    @objc optional func panelButtonClicked(panel: XHBPanel, btnId: XHBButton.ButtonId?)
+    @objc optional func panelDismissed(panel: XHBPanel)
 }
 
 
@@ -106,19 +107,18 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
         super.init(frame: .zero)
         super.viewStyle = style
         translatesAutoresizingMaskIntoConstraints = false
-
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func buttonClicked(_ sender: UIView) {
-        delegate?.panelButtonClicked?(self, (sender as! XHBButton).id)
+    public func popUp(target: UIView) {
+        
     }
     
-    public func titleBarButtonClicked(_ titleBar: XHBAppTitleBar, _ btnId: XHBButton.ButtonId?) {
-        delegate?.panelButtonClicked?(self, btnId)
+    public func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?) {
+        delegate?.panelButtonClicked?(panel: self, btnId: btnId)
     }
     
     public override func layoutSubviews() {
@@ -140,6 +140,10 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     }
 
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?
+    
+    @objc private func buttonClicked(_ sender: UIView) {
+        delegate?.panelButtonClicked?(panel: self, btnId: (sender as! XHBButton).id)
+    }
     
     fileprivate func syncSize() {
         var size = CGSize(width: 100, height: 0)
