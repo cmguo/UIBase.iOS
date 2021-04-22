@@ -35,7 +35,6 @@
 		7178A1C925F63470004BA696 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1C825F63470004BA696 /* CGRect.swift */; };
 		7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1CC25F70E88004BA696 /* ZSwitchButton.swift */; };
 		7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1CF25F725ED004BA696 /* ZTextArea.swift */; };
-		7178A1D425F7487E004BA696 /* TextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1D325F7487E004BA696 /* TextAttachment.swift */; };
 		7178A1D725F75031004BA696 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1D625F75031004BA696 /* Range.swift */; };
 		7178A1DA25F85A96004BA696 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A1D925F85A96004BA696 /* UITextView.swift */; };
 		7178A1EE25F8BEEE004BA696 /* checked.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7178A1ED25F8BEEE004BA696 /* checked.svg */; };
@@ -51,6 +50,9 @@
 		717C5B68263015E5001A0E12 /* TextAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B67263015E5001A0E12 /* TextAppearance.swift */; };
 		717C5B6B263015FB001A0E12 /* ZColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6A263015FB001A0E12 /* ZColors.swift */; };
 		717C5B752630370B001A0E12 /* icon_right.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5B742630370B001A0E12 /* icon_right.svg */; };
+		717C5B7C263118EF001A0E12 /* TextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B7B263118EF001A0E12 /* TextAttachment.swift */; };
+		717C5B802631191D001A0E12 /* ZDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B7F2631191D001A0E12 /* ZDropDown.swift */; };
+		717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B8226311987001A0E12 /* ZDropDownStyle.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
@@ -90,8 +92,7 @@
 		7178A1C025F63297004BA696 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A1C825F63470004BA696 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRect.swift; path = ../../Library/Extension/CGRect.swift; sourceTree = "<group>"; };
 		7178A1CC25F70E88004BA696 /* ZSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZSwitchButton.swift; path = ../../../Library/Views/Button/ZSwitchButton.swift; sourceTree = "<group>"; };
-		7178A1CF25F725ED004BA696 /* ZTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTextArea.swift; path = ../../../Library/Views/Text/ZTextArea.swift; sourceTree = "<group>"; };
-		7178A1D325F7487E004BA696 /* TextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAttachment.swift; path = "../../../../blackboard-ios/submodules/Core/Core/Classes/GrowingTextview/TextAttachment.swift"; sourceTree = "<group>"; };
+		7178A1CF25F725ED004BA696 /* ZTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextArea.swift; sourceTree = "<group>"; };
 		7178A1D625F75031004BA696 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Range.swift; path = ../../Library/Extension/Range.swift; sourceTree = "<group>"; };
 		7178A1D925F85A96004BA696 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = ../../Library/Extension/UITextView.swift; sourceTree = "<group>"; };
 		7178A1ED25F8BEEE004BA696 /* checked.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = checked.svg; sourceTree = "<group>"; };
@@ -107,6 +108,10 @@
 		717C5B67263015E5001A0E12 /* TextAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextAppearance.swift; path = ../../Library/Resources/TextAppearance.swift; sourceTree = "<group>"; };
 		717C5B6A263015FB001A0E12 /* ZColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZColors.swift; path = ../../Library/Styles/ZColors.swift; sourceTree = "<group>"; };
 		717C5B742630370B001A0E12 /* icon_right.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_right.svg; sourceTree = "<group>"; };
+		717C5B7B263118EF001A0E12 /* TextAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttachment.swift; sourceTree = "<group>"; };
+		717C5B7F2631191D001A0E12 /* ZDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDown.swift; path = ../../../Library/Views/Input/ZDropDown.swift; sourceTree = "<group>"; };
+		717C5B8226311987001A0E12 /* ZDropDownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownStyle.swift; path = ../../Library/Styles/ZDropDownStyle.swift; sourceTree = "<group>"; };
+		717C5B8726312380001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownComponent.swift; path = ../../../demo/Components/Simple/ZDropDownComponent.swift; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,15 +168,6 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
-		7178A12225ECAB60004BA696 /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
-				7178A1D325F7487E004BA696 /* TextAttachment.swift */,
-			);
-			path = Text;
-			sourceTree = "<group>";
-		};
 		7178A12D25ECB28E004BA696 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +201,9 @@
 		7178A17325F5C962004BA696 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				717C5B7A263118D2001A0E12 /* Input */,
 				71FF9419262D68660033098B /* Navigation */,
 				7112029425F9FB78004A3AA5 /* Indicator */,
-				7178A12225ECAB60004BA696 /* Text */,
 				7178A12125ECAB57004BA696 /* Button */,
 			);
 			path = Views;
@@ -250,6 +246,17 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		717C5B7A263118D2001A0E12 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
+				717C5B7B263118EF001A0E12 /* TextAttachment.swift */,
+				717C5B7F2631191D001A0E12 /* ZDropDown.swift */,
+				717C5B8726312380001A0E12 /* ZDropDownComponent.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		7182AEAB25CCE98C00B0F1D3 = {
 			isa = PBXGroup;
 			children = (
@@ -288,9 +295,10 @@
 				71FF93F526296C8F0033098B /* Gravity.swift */,
 				71FF941D262D6B560033098B /* ZTipViewStyle.swift */,
 				717C5B4B262FCEFE001A0E12 /* ZAppTitleBarStyle.swift */,
+				717C5B8226311987001A0E12 /* ZDropDownStyle.swift */,
+				717C5B64263013A1001A0E12 /* ZPanelStyle.swift */,
 				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
 				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
-				717C5B64263013A1001A0E12 /* ZPanelStyle.swift */,
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
 				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
 			);
@@ -391,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717C5B802631191D001A0E12 /* ZDropDown.swift in Sources */,
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
 				717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */,
 				717C5B4C262FCEFE001A0E12 /* ZAppTitleBarStyle.swift in Sources */,
@@ -433,8 +442,9 @@
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
 				71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
+				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,
-				7178A1D425F7487E004BA696 /* TextAttachment.swift in Sources */,
+				717C5B7C263118EF001A0E12 /* TextAttachment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

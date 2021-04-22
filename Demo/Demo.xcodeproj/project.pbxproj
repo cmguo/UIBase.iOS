@@ -47,6 +47,8 @@
 		71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */; };
 		717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */; };
 		717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B71263017F3001A0E12 /* ZPanelController.swift */; };
+		717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B8E26312398001A0E12 /* ZDropDownController.swift */; };
+		717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -115,6 +117,8 @@
 		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelComponent.swift; path = ../../../Demo/Components/Simple/ZPanelComponent.swift; sourceTree = "<group>"; };
 		717C5B71263017F3001A0E12 /* ZPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelController.swift; path = ../../../Demo/Components/Simple/ZPanelController.swift; sourceTree = "<group>"; };
+		717C5B8E26312398001A0E12 /* ZDropDownController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownController.swift; path = ../../../Demo/Components/Simple/ZDropDownController.swift; sourceTree = "<group>"; };
+		717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownComponent.swift; path = ../../../Demo/Components/Simple/ZDropDownComponent.swift; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
 				717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */,
 				717C5B71263017F3001A0E12 /* ZPanelController.swift */,
+				717C5B8E26312398001A0E12 /* ZDropDownController.swift */,
+				717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
 				71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */,
 				7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */,
+				717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
@@ -496,6 +503,7 @@
 				71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */,
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 				71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */,
+				717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */,
 				71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */,
 				71FF940B262D35860033098B /* ZAvatarViewController.swift in Sources */,
 				71FF940026297C3A0033098B /* ZAvatarViewComponent.swift in Sources */,

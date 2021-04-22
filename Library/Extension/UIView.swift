@@ -26,7 +26,7 @@ extension UIView {
         self.layer.borderColor = color != nil ? color!.cgColor : UIColor.clear.cgColor
         self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = true
+//        self.clipsToBounds = true
     }
     
     func updateSizeConstraint(_ constraint: (NSLayoutConstraint, NSLayoutConstraint)?, _ size: CGSize, widthRange: Int = 0, heightRange: Int = 0) -> (NSLayoutConstraint, NSLayoutConstraint) {

@@ -12,6 +12,10 @@ class Icons {
     
     static let icons = ["<null>", "delete", "erase", "union", "info", "alert"]
     
+    static let iconURLs = ["delete", "erase", "union", "info", "alert"].map() { icon in
+        iconURL(icon)
+    }
+
     static func iconURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "svg")
     }
