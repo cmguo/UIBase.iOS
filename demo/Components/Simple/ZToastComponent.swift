@@ -12,7 +12,7 @@ class XHBToastComponent : NSObject, Component
 {
     var id: Int = 0
     
-    var group: String = "简单交互控件"
+    var group: ComponentGroup = .Indicator
 
     var icon: Int = 0
     

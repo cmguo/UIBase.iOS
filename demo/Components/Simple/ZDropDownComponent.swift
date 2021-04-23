@@ -9,8 +9,8 @@ import Foundation
 
 class XHBDropDownComponent : NSObject, Component
 {
-    var group: String = "选择交互控件"
-        
+    var group: ComponentGroup = .MenuList
+
     var id: Int = 0
         
     var icon: Int = 0

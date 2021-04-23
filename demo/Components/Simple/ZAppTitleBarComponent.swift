@@ -9,8 +9,8 @@ import Foundation
 
 class XHBAppTitleBarComponent : NSObject, Component
 {
-    var group: String = "页面跳转控件"
-        
+    var group: ComponentGroup = .Navigation
+
     var id: Int = 0
         
     var icon: Int = 0

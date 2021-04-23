@@ -12,8 +12,8 @@ class ButtonsComponent : NSObject, Component
 {
     var id: Int = 0
     
-    var group: String = "基础样式"
-    
+    var group: ComponentGroup = .Style
+
     var icon: Int = 0
     
     var title: String = "按钮"

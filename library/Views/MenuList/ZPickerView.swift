@@ -71,7 +71,7 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         _tableView.dataSource = self
         addSubview(_tableView)
     
-        _selectImage.setIcon(svgURL: .icon_left)
+        _selectImage.setImage(withURL: .icon_left)
         _selectImage.isHidden = true
         addSubview(_selectImage)
     }
@@ -207,7 +207,7 @@ class XHBPickerCell : UITableViewCell {
     func setContent(_ title: Any, icon: Any?, state: UIControl.State?, checkedState: XHBCheckBox.CheckedState) {
         textLabel?.text = "\(title)"
         if let url = icon as? URL {
-            _imageView.setIcon(svgURL: url) { _ in }
+            _imageView.setImage(withURL: url)
             _imageView.isHidden = false
         } else {
             _imageView.isHidden = true

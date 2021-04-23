@@ -9,7 +9,7 @@ import UIKit
 
 public class ComponentsController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var components_: [String: Array<Component>] = Components.allGroups()
+    private var components_: [ComponentGroup: Array<Component>] = Components.allGroups()
     
     private let headerView = UIView()
     private let tableView = UITableView()
@@ -50,7 +50,7 @@ public class ComponentsController : UIViewController, UITableViewDataSource, UIT
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let index = components_.index(components_.startIndex, offsetBy: section)
-        return components_.keys[index]
+        return components_.keys[index].description()
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

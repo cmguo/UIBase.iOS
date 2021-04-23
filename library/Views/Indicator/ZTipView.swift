@@ -140,10 +140,7 @@ public class XHBTipView : UIView
     
     public var icon: URL? {
         didSet {
-            iconView.setIcon(svgURL: icon) {_ in
-                //self.iconView.bounds = boundingBox.centerBounding()
-                //self.iconView.setIconColor(color: self.textColor)
-            }
+            iconView.setImage(withURL: icon)
         }
     }
     

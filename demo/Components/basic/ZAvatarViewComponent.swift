@@ -9,7 +9,7 @@ import Foundation
 
 class XHBAvatarViewComponent : NSObject, Component
 {
-    var group: String = "基础交互控件"
+    var group: ComponentGroup = .Basic
         
     var id: Int = 0
         

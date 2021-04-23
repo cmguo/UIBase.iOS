@@ -51,6 +51,13 @@
 		717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */; };
 		717C5B9B26316E12001A0E12 /* ZPickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */; };
 		717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */; };
+		717C5BE82632C093001A0E12 /* ZActivityViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */; };
+		717C5BEB2632C09C001A0E12 /* ZActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */; };
+		717C5BF22632C426001A0E12 /* img_share_class.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BED2632C426001A0E12 /* img_share_class.png */; };
+		717C5BF32632C426001A0E12 /* img_share_space.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BEE2632C426001A0E12 /* img_share_space.png */; };
+		717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BEF2632C426001A0E12 /* img_share_weixin.png */; };
+		717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BF02632C426001A0E12 /* img_share_moment.png */; };
+		717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BF12632C426001A0E12 /* img_share_qq.png */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -123,6 +130,13 @@
 		717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownComponent.swift; path = ../../../Demo/Components/Simple/ZDropDownComponent.swift; sourceTree = "<group>"; };
 		717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewComponent.swift; path = ../../../Demo/Components/Simple/ZPickerViewComponent.swift; sourceTree = "<group>"; };
 		717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewController.swift; path = ../../../Demo/Components/Simple/ZPickerViewController.swift; sourceTree = "<group>"; };
+		717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewComponent.swift; path = ../../../Demo/Components/Simple/ZActivityViewComponent.swift; sourceTree = "<group>"; };
+		717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewController.swift; path = ../../../Demo/Components/Simple/ZActivityViewController.swift; sourceTree = "<group>"; };
+		717C5BED2632C426001A0E12 /* img_share_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_class.png; sourceTree = "<group>"; };
+		717C5BEE2632C426001A0E12 /* img_share_space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_space.png; sourceTree = "<group>"; };
+		717C5BEF2632C426001A0E12 /* img_share_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_weixin.png; sourceTree = "<group>"; };
+		717C5BF02632C426001A0E12 /* img_share_moment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_moment.png; sourceTree = "<group>"; };
+		717C5BF12632C426001A0E12 /* img_share_qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_qq.png; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -362,6 +376,8 @@
 				717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */,
 				717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */,
 				717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */,
+				717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */,
+				717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -369,6 +385,11 @@
 		71FF93F1262957D10033098B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				717C5BED2632C426001A0E12 /* img_share_class.png */,
+				717C5BF02632C426001A0E12 /* img_share_moment.png */,
+				717C5BF12632C426001A0E12 /* img_share_qq.png */,
+				717C5BEE2632C426001A0E12 /* img_share_space.png */,
+				717C5BEF2632C426001A0E12 /* img_share_weixin.png */,
 				71FF93F2262957F70033098B /* component.jpg */,
 			);
 			path = Images;
@@ -444,10 +465,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
+				717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */,
 				711202D826046AB6004A3AA5 /* delete.svg in Resources */,
 				7112028325F8CF90004A3AA5 /* union.svg in Resources */,
+				717C5BF22632C426001A0E12 /* img_share_class.png in Resources */,
 				711202CF260469E7004A3AA5 /* arrowR.svg in Resources */,
+				717C5BF32632C426001A0E12 /* img_share_space.png in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
+				717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
 				711202D226046A72004A3AA5 /* info.svg in Resources */,
 				711202D526046AA7004A3AA5 /* alert.svg in Resources */,
@@ -509,6 +535,8 @@
 				7161CDB725E0E1FF00BF6B71 /* ComponentStyles.swift in Sources */,
 				71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */,
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
+				717C5BE82632C093001A0E12 /* ZActivityViewComponent.swift in Sources */,
+				717C5BEB2632C09C001A0E12 /* ZActivityViewController.swift in Sources */,
 				71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */,
 				717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */,
 				71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */,

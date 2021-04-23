@@ -14,11 +14,11 @@ class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate
         
         @objc static let _leftButton = ["左侧按钮", "左侧按钮的内容，参见按钮的 content 样式"]
         @objc static let _leftButtonStyle = ContentStyle(Styles.self, "leftButton", ["<button>"])
-        @objc var leftButton: Any? = Icons.uibaseIconURL("icon_left")
+        @objc var leftButton: Any? = URL.icon_left
 
         @objc static let _rightButton = ["右侧按钮", "右侧按钮的内容，参见按钮的 content 样式"]
         @objc static let _rightButtonStyle = ContentStyle(Styles.self, "rightButton", ["<button>"])
-        @objc var rightButton: Any? = Icons.uibaseIconURL("icon_more")
+        @objc var rightButton: Any? = URL.icon_more
 
         @objc static let _rightButton2 = ["右侧按钮2", "右侧第2个按钮的内容，参见按钮的 content 样式"]
         @objc static let _rightButton2Style = ContentStyle(Styles.self, "rightButton2", ["<button>"])

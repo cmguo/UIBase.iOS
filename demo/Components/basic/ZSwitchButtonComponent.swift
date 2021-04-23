@@ -12,7 +12,7 @@ class XHBSwitchButtonComponent : NSObject, Component
 {
     var id: Int = 0
     
-    var group: String = "基础交互控件"
+    var group: ComponentGroup = .Basic
 
     var icon: Int = 0
     

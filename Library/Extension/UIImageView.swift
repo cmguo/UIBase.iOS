@@ -9,19 +9,33 @@ import Foundation
 import SwiftSVG
 
 extension UIImageView {
+    
+    public func setImage(withURL url: URL?, completion: ( () -> Void)? = nil) {
+        if url?.pathExtension == "svg" {
+            setSvgIcon(svgURL: url, completion: completion)
+        } else {
+            if let sublayers = self.layer.sublayers {
+                for sl in sublayers {
+                    sl.removeFromSuperlayer()
+                }
+            }
+            image = url == nil ? nil : UIImage(withUrl: url!)
+            completion?()
+        }
+    }
 
-    public func setIcon(svgURL : URL?, completion: ( (CGRect) -> Void)? = nil) {
-        setIcon(svgURL: svgURL, inBounds: nil, completion: completion)
+    public func setSvgIcon(svgURL : URL?, completion: ( () -> Void)? = nil) {
+        setSvgIcon(svgURL: svgURL, inBounds: nil, completion: completion)
     }
     
-    public func setIcon(svgURL : URL?, inBounds: CGRect?, completion: ( (CGRect) -> Void)?) {
+    public func setSvgIcon(svgURL : URL?, inBounds: CGRect?, completion: ( () -> Void)?) {
         if let sublayers = self.layer.sublayers {
             for sl in sublayers {
                 sl.removeFromSuperlayer()
             }
         }
         guard let svgURL = svgURL else {
-            completion?(CGRect.zero)
+            completion?()
             return
         }
         //self.image = UIImage.transparent
@@ -38,7 +52,7 @@ extension UIImageView {
                 layer.frame = bounds//.centerPart(ofSize: size)
             }
             DispatchQueue.main.async {
-                completion?(layer.boundingBox)
+                completion?()
             }
         }
         self.layer.addSublayer(icon)

@@ -41,7 +41,7 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
         @objc static let _rightButtonStyle: NSObject = ContentStyle(ToolTipStyles.self, "rightButton", ["<button>"])
-        @objc var rightButton: Any? = Icons.uibaseIconURL("icon_close")
+        @objc var rightButton: Any? = URL.icon_close
 
         var location2: XHBTipView.Location {
             get { XHBTipView.Location.init(rawValue: location.rawValue)! }

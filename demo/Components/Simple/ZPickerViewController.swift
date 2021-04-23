@@ -132,10 +132,6 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
         }
     }
     
-    func panelButtonClicked(_ panel: XHBPanel, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
-    }
-    
     func onSelectionChanged(picker: XHBPickerView, selection: Int) {
         model.selection = selection >= 0 ? selection : nil
     }
@@ -154,8 +150,14 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
     }
     
     func panelDismissed(panel: XHBPanel) {
-        picker.removeFromSuperview()
+        panel.content = nil
         view.addSubview(picker)
+        picker.snp.makeConstraints { (maker) in
+            maker.leading.equalToSuperview()
+            maker.trailing.equalToSuperview()
+            maker.top.equalToSuperview().offset(20)
+            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+        }
     }
 }
 

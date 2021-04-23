@@ -9,14 +9,14 @@ import Foundation
 
 public class Components : NSObject
 {
-    static var groups: Dictionary<String, Array<Component>>? = nil
+    static var groups: Dictionary<ComponentGroup, Array<Component>>? = nil
     
-    public class func allGroups() -> Dictionary<String, Array<Component>> {
+    public class func allGroups() -> Dictionary<ComponentGroup, Array<Component>> {
         if let g = groups {
             return g
         }
         let components = allComponents("^Demo\\..+Component")
-        var groups : Dictionary<String, Array<Component>> = [:]
+        var groups : Dictionary<ComponentGroup, Array<Component>> = [:]
         for component in components {
             var group = groups[component.group] ?? []
             group.append(component)

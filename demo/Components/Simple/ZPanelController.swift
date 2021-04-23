@@ -12,9 +12,9 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
 
     class Styles : ViewStyles {
         
-        @objc static let _bottomButton = ["左侧按钮", "左侧按钮的内容，参见按钮的 content 样式"]
+        @objc static let _bottomButton = ["底部按钮", "底部按钮的内容，参见按钮的 content 样式"]
         @objc static let _bottomButtonStyle = ContentStyle(Styles.self, "bottomButton", ["<button>"])
-        @objc var bottomButton: Any? = Icons.uibaseIconURL("icon_left")
+        @objc var bottomButton: Any? = nil
 
         @objc static let _content = ["内容", "中间或者整体内容，资源ID：布局（layout，中间内容）或者样式（style，整体内容）"]
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["@Dictionary", "@UIView"])
@@ -35,6 +35,9 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
     private let model = Model()
     private let panel = XHBPanel()
     private var views = [XHBPanel]()
+    
+    private let button = XHBButton()
+
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -55,6 +58,14 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
         }
         views.append(panel)
 
+        button.text = "弹出面板"
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        view.addSubview(button)
+        button.snp.makeConstraints { (maker) in
+            maker.bottom.equalToSuperview().offset(-20)
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(200)
+        }
 
         styles.listen { (name: String) in
             if name == "bottomButton" {
@@ -67,9 +78,24 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
         }
     }
     
+    @objc func buttonClicked(_ sender: UIView) {
+        panel.popUp(target: view)
+    }
+    
     func panelButtonClicked(_ panel: XHBPanel, _ btnId: XHBButton.ButtonId?) {
         XHBTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
     }
 
+    func panelDismissed(panel: XHBPanel) {
+        if view.window != nil {
+            XHBTipView.toast(view, "面板消失")
+            view.addSubview(panel)
+            panel.snp.makeConstraints { (maker) in
+                maker.leading.equalToSuperview().offset(20)
+                maker.trailing.equalToSuperview().offset(-20)
+                maker.top.equalToSuperview().offset(20)
+            }
+        }
+    }
 }
 

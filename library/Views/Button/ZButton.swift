@@ -41,17 +41,26 @@ public class XHBButton : UIButton
     
     public var buttonType2: ButtonType {
         didSet {
+            if oldValue == buttonType2 {
+                return
+            }
             self.syncAppearance(true, false)
         }
     }
     public var buttonSize: ButtonSize {
         didSet {
+            if oldValue == buttonSize {
+                return
+            }
             self.syncAppearance(false, true)
         }
     }
     
     public var iconPosition = IconPosition.Left {
         didSet {
+            if oldValue == iconPosition {
+                return
+            }
             self.syncSize()
             self.setNeedsLayout()
         }
@@ -73,9 +82,16 @@ public class XHBButton : UIButton
     
     public var icon: URL? = nil {
         didSet {
-            self.setImage(UIImage.transparent)
-            self.imageView?.setIcon(svgURL: icon, inBounds: CGRect(origin: CGPoint.zero, size: imageSize)) {_ in
-                self.syncStates()
+            if icon?.pathExtension == "svg" {
+                self.setImage(UIImage.transparent)
+                self.imageView?.setImage(withURL: icon) {
+                    self.syncStates()
+                    self.postHandleIcon()
+                }
+            } else if let url = icon {
+                self.setImage(UIImage(withUrl: url))
+            } else {
+                self.setImage(nil)
             }
             self.syncSize()
         }
@@ -167,8 +183,13 @@ public class XHBButton : UIButton
         
 
     // Private properties
-    private var typeStyles: XHBButtonTypeStyle
-    private var sizeStyles: XHBButtonSizeStyle
+    var typeStyles: XHBButtonTypeStyle
+    var sizeStyles: XHBButtonSizeStyle
+    
+    open func postHandleIcon() {
+    }
+    
+    // Private properties
     private var minSize = CGSize.zero // not include paddding
     
     private var loaderWorkItem: DispatchWorkItem?
@@ -186,8 +207,8 @@ public class XHBButton : UIButton
         buttonAppearance = style.appearance
         buttonType2 = style.buttonType ?? .Primitive
         buttonSize = style.buttonSize ?? .Large
-        typeStyles = style.appearance?.typeStyle ?? XHBButton.typeStyles[style.buttonType ?? .Primitive]!
-        sizeStyles = style.appearance?.sizeStyle ?? XHBButton.sizeStyles[style.buttonSize ?? .Large]!
+        typeStyles = style.appearance?.typeStyle ?? XHBButton.TypeStyles[style.buttonType ?? .Primitive]!
+        sizeStyles = style.appearance?.sizeStyle ?? XHBButton.SizeStyles[style.buttonSize ?? .Large]!
         iconPosition = typeStyles.iconPosition
         
         super.init(frame: CGRect.zero)
@@ -206,7 +227,7 @@ public class XHBButton : UIButton
         if let icon = style.icon {
             self.icon = icon
             self.setImage(UIImage.transparent)
-            self.imageView?.setIcon(svgURL: icon, inBounds: CGRect(origin: CGPoint.zero, size: imageSize)) {_ in
+            self.imageView?.setImage(withURL: icon) {
                 self.syncStates()
                 self.imageView?.frame = self.imageRect(forContentRect: self.bounds)
             }
@@ -262,7 +283,7 @@ public class XHBButton : UIButton
         self.icon = style.icon
     }
     
-    private static let typeStyles: [ButtonType: XHBButtonTypeStyle] = [
+    private static let TypeStyles: [ButtonType: XHBButtonTypeStyle] = [
         .Primitive: .primitiveAppearance,
         .Secondary: .secondaryAppearance,
         .Tertiary: .tertiaryAppearance,
@@ -270,7 +291,7 @@ public class XHBButton : UIButton
         .TextLink: .textLinkAppearance
     ]
     
-    private static let sizeStyles: [ButtonSize: XHBButtonSizeStyle] = [
+    private static let SizeStyles: [ButtonSize: XHBButtonSizeStyle] = [
         .Large: .largeAppearance,
         .Middle: .middleAppearance,
         .Small: .smallAppearance,
@@ -281,8 +302,8 @@ public class XHBButton : UIButton
     private var titleSize = CGSize.zero
     
     fileprivate func syncAppearance(_ type: Bool = true, _ size: Bool = true) {
-        typeStyles = buttonAppearance?.typeStyle ?? XHBButton.typeStyles[buttonType2]!
-        sizeStyles = buttonAppearance?.sizeStyle ?? XHBButton.sizeStyles[buttonSize]!
+        typeStyles = buttonAppearance?.typeStyle ?? XHBButton.TypeStyles[buttonType2]!
+        sizeStyles = buttonAppearance?.sizeStyle ?? XHBButton.SizeStyles[buttonSize]!
         if type {
             iconPosition = typeStyles.iconPosition
             self.setTitleColor(typeStyles.textColor.normalColor(), for: .normal)
@@ -314,6 +335,8 @@ public class XHBButton : UIButton
             text = string
             icon = url
         } else if let array = content as? NSArray {
+            icon = nil
+            text = nil
             for item in array {
                 if let string = item as? String {
                     text = string
@@ -343,7 +366,7 @@ public class XHBButton : UIButton
         if self.text != nil {
             self.titleLabel?.sizeToFit()
             titleSize = self.titleLabel!.bounds.size
-            minSize.width += titleSize.width
+            minSize.width = titleSize.width
             minSize.height = titleSize.height
         }
         if self.icon != nil {
@@ -367,7 +390,7 @@ public class XHBButton : UIButton
         }
         let size = CGSize(width: minSize.width + sizeStyles.padding * 2, height: sizeStyles.height)
         self.bounds.size = size
-        sizeConstraint = updateSizeConstraint(sizeConstraint, size, widthRange: 1)
+        sizeConstraint = updateSizeConstraint(sizeConstraint, size, widthRange: 1, heightRange: 1)
     }
     
     fileprivate func syncStates() {

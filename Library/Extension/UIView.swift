@@ -76,6 +76,36 @@ extension UIView {
             return heightConstraint
         }
     }
+    
+    func widthConstraint() -> (Int, CGFloat) {
+        return dimenConstraint(widthAnchor, bounds.width)
+    }
+    
+    func heightConstraint() -> (Int, CGFloat) {
+        return dimenConstraint(heightAnchor, bounds.height)
+    }
+    
+    func dimenConstraint(_ dimen: NSLayoutDimension, _ size: CGFloat) -> (Int, CGFloat) {
+        var range = 0
+        var value = size
+        for c in constraints {
+            if c.firstAnchor == dimen  {
+                switch c.relation {
+                case .equal:
+                    value = c.constant
+                case .greaterThanOrEqual:
+                    range = 1
+                    value = c.constant
+                case .lessThanOrEqual:
+                    range = -1
+                    value = c.constant
+                @unknown default:
+                    break;
+                }
+            }
+        }
+        return (range, value)
+    }
 
 
 }

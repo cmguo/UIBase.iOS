@@ -232,7 +232,7 @@ class XHBDropDownCell : UITableViewCell {
     func setContent(_ title: Any, icon: Any?) {
         textLabel?.text = "\(title)"
         if let url = icon as? URL {
-            _imageView.setIcon(svgURL: url) { _ in }
+            _imageView.setImage(withURL: url)
             _imageView.isHidden = false
         } else {
             _imageView.isHidden = true

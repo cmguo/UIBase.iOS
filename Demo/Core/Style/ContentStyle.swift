@@ -12,20 +12,20 @@ import UIBase
 class ContentStyle: ComponentStyle {
     
     static let Contents: [String: Any] = [
-        "icon_left": Icons.uibaseIconURL("icon_left")!,
-        "icon_more": Icons.uibaseIconURL("icon_more")!,
+        "icon_left": URL.icon_left,
+        "icon_more": URL.icon_more,
         "text_cancel": "取消",
         "text_confirm": "确定",
-        "button_goto": ["去查看", Icons.uibaseIconURL("icon_right")] as [Any?] as NSArray,
+        "button_goto": ["去查看", URL.icon_right] as [Any?] as NSArray,
         "button_style": [
             "text": "按钮",
-            "icon": Icons.uibaseIconURL("icon_right")!,
+            "icon": URL.icon_right,
             "iconPosition": XHBButton.IconPosition.Right
         ] as NSDictionary,
         "title_icon": [
             "title": "标题",
-            "leftButton": Icons.uibaseIconURL("icon_close")!,
-            "rightButton": Icons.uibaseIconURL("icon_more")!
+            "leftButton": URL.icon_close,
+            "rightButton": URL.icon_more
         ] as [String: Any?] as NSDictionary,
         "title_text": [
             "icon": {

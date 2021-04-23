@@ -60,7 +60,7 @@ public class XHBAppTitleBar : UIView
     
     public var icon: URL? {
         didSet {
-            _iconView.setIcon(svgURL: icon) {_ in }
+            _iconView.setImage(withURL: icon)
             syncSize()
         }
     }

@@ -56,7 +56,7 @@ class XHBAvatarViewController: ComponentController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         
-        imageView.image = UIImage.from(url: Bundle(for: Self.self).url(forResource: "component", withExtension: "jpg")!)
+        imageView.image = UIImage(withUrl: Icons.jpgURL("component")!)
         imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)

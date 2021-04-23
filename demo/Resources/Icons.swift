@@ -20,8 +20,12 @@ class Icons {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "svg")
     }
 
-    static func uibaseIconURL(_ icon: String) -> URL? {
-        return Bundle(for: StateColor.self).url(forResource: icon, withExtension: "svg")
+    static func pngURL(_ icon: String) -> URL? {
+        return Bundle(for: Icons.self).url(forResource: icon, withExtension: "png")
+    }
+
+    static func jpgURL(_ icon: String) -> URL? {
+        return Bundle(for: Icons.self).url(forResource: icon, withExtension: "jpg")
     }
 
 }

@@ -23,8 +23,8 @@ public extension UIImage {
         return nil
     }
     
-    class func from(url: URL) -> UIImage? {
+    convenience init?(withUrl url: URL) {
         guard let data = try? Data(contentsOf: url) else { return nil }
-        return UIImage(data: data)
+        self.init(data: data)
     }
 }

@@ -410,7 +410,7 @@ public class XHBTextArea: UIView {
         let hidden = !optionalViewVisible(index)
         if let icon = icon {
             let imageView = index == 0 ? leftImage : rightImage
-            imageView.setIcon(svgURL: icon) { (boundingBox: CGRect) in
+            imageView.setImage(withURL: icon) {
                 imageView.isHidden = false
                 self.setNeedsLayout()
             }

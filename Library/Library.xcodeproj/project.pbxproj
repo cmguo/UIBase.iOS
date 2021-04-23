@@ -57,6 +57,17 @@
 		717C5BA126317081001A0E12 /* ZPickerViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */; };
 		717C5BB3263176E8001A0E12 /* URLPropretyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */; };
 		717C5BB626317872001A0E12 /* ZURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BB526317872001A0E12 /* ZURLs.swift */; };
+		717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */; };
+		717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BDF2632B50F001A0E12 /* ZActivityView.swift */; };
+		717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */; };
+		717C5BF92632C5FE001A0E12 /* icon_repost.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BF82632C5FE001A0E12 /* icon_repost.svg */; };
+		717C5BFC2632C62C001A0E12 /* icon_recall.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BFB2632C62C001A0E12 /* icon_recall.svg */; };
+		717C5BFF2632C64E001A0E12 /* icon_star.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BFE2632C64E001A0E12 /* icon_star.svg */; };
+		717C5C022632C67B001A0E12 /* icon_copy.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C012632C67B001A0E12 /* icon_copy.svg */; };
+		717C5C052632C68E001A0E12 /* icon_stick.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C042632C68E001A0E12 /* icon_stick.svg */; };
+		717C5C082632C6B5001A0E12 /* icon_weblink.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C072632C6B4001A0E12 /* icon_weblink.svg */; };
+		717C5C0B2632C6BF001A0E12 /* icon_refresh.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */; };
+		717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
@@ -113,12 +124,23 @@
 		717C5B6A263015FB001A0E12 /* ZColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZColors.swift; path = ../../Library/Styles/ZColors.swift; sourceTree = "<group>"; };
 		717C5B742630370B001A0E12 /* icon_right.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_right.svg; sourceTree = "<group>"; };
 		717C5B7B263118EF001A0E12 /* TextAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttachment.swift; sourceTree = "<group>"; };
-		717C5B7F2631191D001A0E12 /* ZDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDown.swift; path = ../../../Library/Views/Input/ZDropDown.swift; sourceTree = "<group>"; };
+		717C5B7F2631191D001A0E12 /* ZDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDropDown.swift; sourceTree = "<group>"; };
 		717C5B8226311987001A0E12 /* ZDropDownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownStyle.swift; path = ../../Library/Styles/ZDropDownStyle.swift; sourceTree = "<group>"; };
-		717C5B9626316D07001A0E12 /* ZPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerView.swift; path = ../../../Library/Views/Input/ZPickerView.swift; sourceTree = "<group>"; };
+		717C5B9626316D07001A0E12 /* ZPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPickerView.swift; sourceTree = "<group>"; };
 		717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewStyle.swift; path = ../../Library/Styles/ZPickerViewStyle.swift; sourceTree = "<group>"; };
 		717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPropretyWrapper.swift; path = ../../Library/Resources/URLPropretyWrapper.swift; sourceTree = "<group>"; };
 		717C5BB526317872001A0E12 /* ZURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZURLs.swift; path = ../../Library/Styles/ZURLs.swift; sourceTree = "<group>"; };
+		717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZMaskDialog.swift; path = ../../../Library/Views/Navigation/ZMaskDialog.swift; sourceTree = "<group>"; };
+		717C5BDF2632B50F001A0E12 /* ZActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityView.swift; path = ../../../Library/Views/MenuList/ZActivityView.swift; sourceTree = "<group>"; };
+		717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewStyle.swift; path = ../../Library/Styles/ZActivityViewStyle.swift; sourceTree = "<group>"; };
+		717C5BF82632C5FE001A0E12 /* icon_repost.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_repost.svg; sourceTree = "<group>"; };
+		717C5BFB2632C62C001A0E12 /* icon_recall.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_recall.svg; sourceTree = "<group>"; };
+		717C5BFE2632C64E001A0E12 /* icon_star.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_star.svg; sourceTree = "<group>"; };
+		717C5C012632C67B001A0E12 /* icon_copy.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_copy.svg; sourceTree = "<group>"; };
+		717C5C042632C68E001A0E12 /* icon_stick.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_stick.svg; sourceTree = "<group>"; };
+		717C5C072632C6B4001A0E12 /* icon_weblink.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_weblink.svg; sourceTree = "<group>"; };
+		717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_refresh.svg; sourceTree = "<group>"; };
+		717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionButton.swift; path = ../../../Library/Views/Button/ZActionButton.swift; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +193,7 @@
 				7178A1A725F60515004BA696 /* ZCheckBox.swift */,
 				7178A1AE25F61D7E004BA696 /* ZRadioButton.swift */,
 				7178A1CC25F70E88004BA696 /* ZSwitchButton.swift */,
+				717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -209,6 +232,7 @@
 		7178A17325F5C962004BA696 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				717C5BDE2632B4E3001A0E12 /* MenuList */,
 				717C5B7A263118D2001A0E12 /* Input */,
 				71FF9419262D68660033098B /* Navigation */,
 				7112029425F9FB78004A3AA5 /* Indicator */,
@@ -244,6 +268,13 @@
 		7178A1EC25F8BEBE004BA696 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */,
+				717C5C072632C6B4001A0E12 /* icon_weblink.svg */,
+				717C5C042632C68E001A0E12 /* icon_stick.svg */,
+				717C5C012632C67B001A0E12 /* icon_copy.svg */,
+				717C5BFE2632C64E001A0E12 /* icon_star.svg */,
+				717C5BFB2632C62C001A0E12 /* icon_recall.svg */,
+				717C5BF82632C5FE001A0E12 /* icon_repost.svg */,
 				717C5B742630370B001A0E12 /* icon_right.svg */,
 				717C5B5C263011B4001A0E12 /* icon_close.svg */,
 				717C5B55262FF0C3001A0E12 /* icon_more.svg */,
@@ -259,10 +290,18 @@
 			children = (
 				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
 				717C5B7B263118EF001A0E12 /* TextAttachment.swift */,
-				717C5B7F2631191D001A0E12 /* ZDropDown.swift */,
-				717C5B9626316D07001A0E12 /* ZPickerView.swift */,
 			);
 			path = Input;
+			sourceTree = "<group>";
+		};
+		717C5BDE2632B4E3001A0E12 /* MenuList */ = {
+			isa = PBXGroup;
+			children = (
+				717C5B9626316D07001A0E12 /* ZPickerView.swift */,
+				717C5B7F2631191D001A0E12 /* ZDropDown.swift */,
+				717C5BDF2632B50F001A0E12 /* ZActivityView.swift */,
+			);
+			path = MenuList;
 			sourceTree = "<group>";
 		};
 		7182AEAB25CCE98C00B0F1D3 = {
@@ -299,18 +338,19 @@
 		71FF93B92626ED680033098B /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
 				71FF93F526296C8F0033098B /* Gravity.swift */,
-				71FF941D262D6B560033098B /* ZTipViewStyle.swift */,
-				717C5B4B262FCEFE001A0E12 /* ZAppTitleBarStyle.swift */,
-				717C5B8226311987001A0E12 /* ZDropDownStyle.swift */,
-				717C5B64263013A1001A0E12 /* ZPanelStyle.swift */,
 				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
 				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
 				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
 				717C5BB526317872001A0E12 /* ZURLs.swift */,
+				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
+				71FF941D262D6B560033098B /* ZTipViewStyle.swift */,
+				717C5B4B262FCEFE001A0E12 /* ZAppTitleBarStyle.swift */,
+				717C5B64263013A1001A0E12 /* ZPanelStyle.swift */,
+				717C5B8226311987001A0E12 /* ZDropDownStyle.swift */,
 				717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */,
+				717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -320,6 +360,7 @@
 			children = (
 				71FF941A262D68930033098B /* ZAppTitleBar.swift */,
 				717C5B612630134C001A0E12 /* ZPanel.swift */,
+				717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -393,11 +434,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717C5BFF2632C64E001A0E12 /* icon_star.svg in Resources */,
+				717C5C0B2632C6BF001A0E12 /* icon_refresh.svg in Resources */,
+				717C5BFC2632C62C001A0E12 /* icon_recall.svg in Resources */,
 				717C5B5D263011B4001A0E12 /* icon_close.svg in Resources */,
+				717C5C052632C68E001A0E12 /* icon_stick.svg in Resources */,
 				717C5B752630370B001A0E12 /* icon_right.svg in Resources */,
+				717C5BF92632C5FE001A0E12 /* icon_repost.svg in Resources */,
+				717C5C082632C6B5001A0E12 /* icon_weblink.svg in Resources */,
 				7178A1EE25F8BEEE004BA696 /* checked.svg in Resources */,
 				717C5B53262FF000001A0E12 /* icon_left.svg in Resources */,
 				7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */,
+				717C5C022632C67B001A0E12 /* icon_copy.svg in Resources */,
 				717C5B56262FF0C3001A0E12 /* icon_more.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +487,7 @@
 				717C5B5A262FF48D001A0E12 /* UIViewStyle.swift in Sources */,
 				7178A1DA25F85A96004BA696 /* UITextView.swift in Sources */,
 				7178A1A225F5CC14004BA696 /* BallPulseSyncIndicator.swift in Sources */,
+				717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */,
 				717C5B9726316D07001A0E12 /* ZPickerView.swift in Sources */,
 				7178A19E25F5CC14004BA696 /* LineScaleIndicator.swift in Sources */,
 				7178A1D725F75031004BA696 /* Range.swift in Sources */,
@@ -446,14 +495,17 @@
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
+				717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */,
 				71FF93F626296C8F0033098B /* Gravity.swift in Sources */,
 				71FF93EC262843500033098B /* UIColorPropretyWrapper.swift in Sources */,
+				717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
 				717C5BB626317872001A0E12 /* ZURLs.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
 				71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */,
+				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
 				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,

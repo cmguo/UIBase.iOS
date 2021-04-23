@@ -10,8 +10,8 @@ import UIKit
 
 class XHBBadgeViewComponent : NSObject, Component
 {    
-    var group: String = "基础交互控件"
-        
+    var group: ComponentGroup = .Basic
+
     var id: Int = 0
         
     var icon: Int = 0

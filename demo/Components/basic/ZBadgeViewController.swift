@@ -63,12 +63,12 @@ class XHBBadgeViewController: ComponentController {
         view.addSubview(label)
         label.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)
-            maker.trailing.equalToSuperview().offset(-20)
+            maker.width.equalTo(150)
             maker.top.equalToSuperview().offset(150)
         }
         attachBadge(label)
 
-        imageView.image = UIImage.from(url: Bundle(for: Self.self).url(forResource: "component", withExtension: "jpg")!)
+        imageView.image = UIImage(withUrl: Icons.pngURL("img_share_weixin")!)
         view.addSubview(imageView)
         imageView.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)

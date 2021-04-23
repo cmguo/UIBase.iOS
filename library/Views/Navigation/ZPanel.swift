@@ -52,11 +52,22 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
             if let string = content as? String {
                 titleBar = string
             } else if let view = content as? UIView {
+                if view == _contentView {
+                    return
+                }
                 if _contentView != nil {
                     _contentView?.removeFromSuperview()
+                    _contentView?.translatesAutoresizingMaskIntoConstraints = false
                 }
+                view.translatesAutoresizingMaskIntoConstraints = true
                 _contentView = view
                 addSubview(view)
+                syncSize()
+            } else if (_contentView != nil) {
+                _contentView?.removeFromSuperview()
+                _contentView?.translatesAutoresizingMaskIntoConstraints = false
+                _contentView = nil
+                syncSize()
             }
         }
     }
@@ -114,11 +125,21 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     }
     
     public func popUp(target: UIView) {
-        
+        XHBMaskDialog(content: self).show(window: target.window!)
+    }
+    
+    public func dismiss() {
+        XHBMaskDialog.dismiss(content: self)
     }
     
     public func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?) {
         delegate?.panelButtonClicked?(panel: self, btnId: btnId)
+    }
+    
+    public override func didMoveToWindow() {
+        if window == nil  {
+            delegate?.panelDismissed?(panel: self)
+        }
     }
     
     public override func layoutSubviews() {
@@ -136,7 +157,9 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
             _bottomButton.frame = frame.cutBottom(_style.bottomHeight)
             _bottomSplitter.frame = frame.cutBottom(10)
         }
-        _contentView?.frame = frame
+        if let c = _contentView {
+            c.frame = frame
+        }
     }
 
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?
@@ -157,13 +180,16 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
             }
             size.height += 10 + _style.bottomHeight
         }
+        var heightRange = 0
         if let c = _contentView {
-            size.height += c.bounds.height
+            let ch = c.heightConstraint()
+            heightRange = ch.0
+            size.height += ch.1
         }
         if size.height < 200 {
             size.height = 200
         }
-        _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1, heightRange: 1)
+        _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1, heightRange: heightRange)
         setNeedsLayout()
     }
 
