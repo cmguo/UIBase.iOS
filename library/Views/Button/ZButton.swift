@@ -141,46 +141,16 @@ public class XHBButton : UIButton
         }
     }
     
+    public override var isSelected: Bool {
+        didSet {
+            self.syncStates()
+        }
+    }
+    
     /**
      The loading indicator used with the button.
      */
     open var indicator: UIView & IndicatorProtocol = MaterialLoadingIndicator()
-
-    public func text(_ value: String?) -> Self {
-        self.text = value
-        return self
-    }
-    
-    public func icon(_ value: URL?) -> Self {
-        self.icon = value
-        return self
-    }
-    
-//    public func loadingText(_ value: String?) -> Self {
-//        self.loadingText = value
-//        return self
-//    }
-//
-//    public func loadingIcon(_ value: URL?) -> Self {
-//        self.loadingIcon = value
-//        return self
-//    }
-    
-    public func buttonType(_ value: XHBButton.ButtonType) -> Self {
-        self.buttonType2 = value
-        return self
-    }
-    
-    public func buttonSize(_ value: XHBButton.ButtonSize) -> Self {
-        self.buttonSize = value
-        return self
-    }
-    
-    public func buttonAppearance(_ value: XHBButtonAppearance) -> Self {
-        self.buttonAppearance = value
-        return self
-    }
-        
 
     // Private properties
     var typeStyles: XHBButtonTypeStyle
@@ -307,6 +277,7 @@ public class XHBButton : UIButton
         if type {
             iconPosition = typeStyles.iconPosition
             self.setTitleColor(typeStyles.textColor.normalColor(), for: .normal)
+            self.setTitleColor(typeStyles.textColor.color(for: .selected), for: .selected)
             self.setTitleColor(typeStyles.textColor.disabledColor(), for: .disabled)
             self.setBackgroundColor(color: typeStyles.backgroundColor.normalColor(), forState: .normal)
             self.setBackgroundColor(color: typeStyles.backgroundColor.disabledColor(), forState: .disabled)
@@ -395,6 +366,7 @@ public class XHBButton : UIButton
     
     fileprivate func syncStates() {
         if self.icon != nil {
+            // TODO: split with title color
             self.imageView?.setIconColor(color: currentTitleColor)
         }
     }
@@ -467,4 +439,43 @@ public class XHBButton : UIButton
             self.loaderWorkItem?.perform()
         }
     }
+}
+
+public extension XHBButton {
+    
+    func text(_ value: String?) -> Self {
+        self.text = value
+        return self
+    }
+    
+    func icon(_ value: URL?) -> Self {
+        self.icon = value
+        return self
+    }
+    
+//    public func loadingText(_ value: String?) -> Self {
+//        self.loadingText = value
+//        return self
+//    }
+//
+//    public func loadingIcon(_ value: URL?) -> Self {
+//        self.loadingIcon = value
+//        return self
+//    }
+    
+    func buttonType(_ value: XHBButton.ButtonType) -> Self {
+        self.buttonType2 = value
+        return self
+    }
+    
+    func buttonSize(_ value: XHBButton.ButtonSize) -> Self {
+        self.buttonSize = value
+        return self
+    }
+    
+    func buttonAppearance(_ value: XHBButtonAppearance) -> Self {
+        self.buttonAppearance = value
+        return self
+    }
+
 }

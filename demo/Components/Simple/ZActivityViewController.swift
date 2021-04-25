@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import UIBase
 
 class XHBActivityViewController: ComponentController, XHBActivityViewCallback, XHBPanelCallbackDelegate {

@@ -136,8 +136,7 @@ public class XHBAppTitleBar : UIView
         super.viewStyle = style
         translatesAutoresizingMaskIntoConstraints = false
         
-        _titleLabel.font = _style.textAppearance.font
-        _titleLabel.textColor = _style.textAppearance.textColor
+        _titleLabel.textAppearance = _style.textAppearance
         addSubview(_titleLabel)
     }
     

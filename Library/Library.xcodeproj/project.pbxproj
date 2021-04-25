@@ -68,6 +68,9 @@
 		717C5C082632C6B5001A0E12 /* icon_weblink.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C072632C6B4001A0E12 /* icon_weblink.svg */; };
 		717C5C0B2632C6BF001A0E12 /* icon_refresh.svg in Resources */ = {isa = PBXBuildFile; fileRef = 717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */; };
 		717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */; };
+		717C5C11263502F2001A0E12 /* ZActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C10263502F2001A0E12 /* ZActionSheet.swift */; };
+		717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */; };
+		717C5C1D26350D1C001A0E12 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1C26350D1C001A0E12 /* UILabel.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
@@ -141,6 +144,9 @@
 		717C5C072632C6B4001A0E12 /* icon_weblink.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_weblink.svg; sourceTree = "<group>"; };
 		717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_refresh.svg; sourceTree = "<group>"; };
 		717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionButton.swift; path = ../../../Library/Views/Button/ZActionButton.swift; sourceTree = "<group>"; };
+		717C5C10263502F2001A0E12 /* ZActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheet.swift; path = ../../../Library/Views/MenuList/ZActionSheet.swift; sourceTree = "<group>"; };
+		717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetStyle.swift; path = ../../Library/Styles/ZActionSheetStyle.swift; sourceTree = "<group>"; };
+		717C5C1C26350D1C001A0E12 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = ../../Library/Extension/UILabel.swift; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				7178A1C825F63470004BA696 /* CGRect.swift */,
 				7178A1D625F75031004BA696 /* Range.swift */,
 				7178A1D925F85A96004BA696 /* UITextView.swift */,
+				717C5C1C26350D1C001A0E12 /* UILabel.swift */,
 				7112028E25F9C55A004A3AA5 /* UIImageView.swift */,
 				7112029825FA04EC004A3AA5 /* DispatchQueue.swift */,
 				711202A125FA1BA6004A3AA5 /* String.swift */,
@@ -300,6 +307,7 @@
 				717C5B9626316D07001A0E12 /* ZPickerView.swift */,
 				717C5B7F2631191D001A0E12 /* ZDropDown.swift */,
 				717C5BDF2632B50F001A0E12 /* ZActivityView.swift */,
+				717C5C10263502F2001A0E12 /* ZActionSheet.swift */,
 			);
 			path = MenuList;
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 				717C5B8226311987001A0E12 /* ZDropDownStyle.swift */,
 				717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */,
 				717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */,
+				717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -464,6 +473,7 @@
 				71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */,
 				71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
+				717C5C1D26350D1C001A0E12 /* UILabel.swift in Sources */,
 				7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */,
 				7178A1B725F62792004BA696 /* RoundLayer.swift in Sources */,
 				7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */,
@@ -494,6 +504,8 @@
 				7178A1A325F5CC14004BA696 /* LBIndicator.swift in Sources */,
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
+				717C5C11263502F2001A0E12 /* ZActionSheet.swift in Sources */,
+				717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
 				717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */,
 				71FF93F626296C8F0033098B /* Gravity.swift in Sources */,

@@ -9,6 +9,14 @@ import Foundation
 
 extension UITextView {
     
+    var textAppearance: TextAppearance {
+        get { return TextAppearance() }
+        set {
+            font = newValue.font
+            textColor = newValue.textColor
+        }
+    }
+    
     func limitWordCount(_ maxWords: Int, _ position: Int) {
         if markedTextRange == nil {
             //DispatchQueue.main.async {

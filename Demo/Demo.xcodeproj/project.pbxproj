@@ -58,6 +58,8 @@
 		717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BEF2632C426001A0E12 /* img_share_weixin.png */; };
 		717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BF02632C426001A0E12 /* img_share_moment.png */; };
 		717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 717C5BF12632C426001A0E12 /* img_share_qq.png */; };
+		717C5C14263504CD001A0E12 /* ZActionSheetComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */; };
+		717C5C17263504D7001A0E12 /* ZActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C16263504D7001A0E12 /* ZActionSheetController.swift */; };
 		7182AED025CCE9E500B0F1D3 /* Demo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AECE25CCE9E500B0F1D3 /* Demo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
@@ -137,6 +139,8 @@
 		717C5BEF2632C426001A0E12 /* img_share_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_weixin.png; sourceTree = "<group>"; };
 		717C5BF02632C426001A0E12 /* img_share_moment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_moment.png; sourceTree = "<group>"; };
 		717C5BF12632C426001A0E12 /* img_share_qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_qq.png; sourceTree = "<group>"; };
+		717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetComponent.swift; path = ../../../Demo/Components/Simple/ZActionSheetComponent.swift; sourceTree = "<group>"; };
+		717C5C16263504D7001A0E12 /* ZActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetController.swift; path = ../../../Demo/Components/Simple/ZActionSheetController.swift; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 				717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */,
 				717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */,
 				717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */,
+				717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */,
+				717C5C16263504D7001A0E12 /* ZActionSheetController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -506,9 +512,11 @@
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
+				717C5C14263504CD001A0E12 /* ZActionSheetComponent.swift in Sources */,
 				71903B7725E0B53400437575 /* Component.swift in Sources */,
 				7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */,
 				71FF93FA262977B40033098B /* GravityStyle.swift in Sources */,
+				717C5C17263504D7001A0E12 /* ZActionSheetController.swift in Sources */,
 				71FF93D92627EB9F0033098B /* EnumStyle.swift in Sources */,
 				712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */,
 				7128764D25E629390054A74B /* ComponentStyle.swift in Sources */,
