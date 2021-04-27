@@ -1,5 +1,5 @@
 //
-//  XHBAppTitleBarController.swift
+//  ZAppTitleBarController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate {
+class ZAppTitleBarController: ComponentController, ZTitleBarCallbackDelegate {
 
     class Styles : ViewStyles {
         
@@ -24,7 +24,7 @@ class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate
         @objc static let _rightButton2Style = ContentStyle(Styles.self, "rightButton2", ["<button>"])
         @objc var rightButton2 = 0
 
-        @objc static let _content = ["内容", "中间或者整体内容，资源ID：布局（layout，中间内容）或者样式（style，整体内容）"]
+        @objc static let _content = ["内容", "中间或者整体内容，字符串、或者样式集（Dictionary）"]
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["<title>"])
         @objc var content: Any? = nil
 
@@ -51,8 +51,8 @@ class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate
     
     private let styles = Styles()
     private let model = Model()
-    private let titleBar = XHBAppTitleBar()
-    private var views = [XHBAppTitleBar]()
+    private let titleBar = ZAppTitleBar()
+    private var views = [ZAppTitleBar]()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -95,8 +95,8 @@ class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate
         }
     }
     
-    func titleBarButtonClicked(_ titleBar: XHBAppTitleBar, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.toast(titleBar, "点击了按钮 \(btnId ?? .Unknown)")
+    func titleBarButtonClicked(_ titleBar: ZAppTitleBar, _ btnId: ZButton.ButtonId?) {
+        ZTipView.toast(titleBar, "点击了按钮 \(btnId ?? .Unknown)")
     }
 
 }

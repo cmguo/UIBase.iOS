@@ -1,5 +1,5 @@
 //
-//  XHBToolTipComponent.swift
+//  ZToolTipComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBToolTipComponent : NSObject, Component
+class ZToolTipComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class XHBToolTipComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBTipViewController(self)
+        return ZTipViewController(self)
     }()
 }

@@ -1,5 +1,5 @@
 //
-//  XHBActionSheetComponent.swift
+//  ZActionSheetComponent.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBActionSheetComponent : NSObject, Component
+class ZActionSheetComponent : NSObject, Component
 {
     var group: ComponentGroup = .MenuList
 
@@ -22,6 +22,6 @@ class XHBActionSheetComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBActionSheetController()
+        return ZActionSheetController()
     }()
 }

@@ -1,5 +1,5 @@
 //
-//  XHBAppTitleBarStyle.swift
+//  ZAppTitleBarStyle.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBAppTitleBarStyle : UIViewStyle {
+public class ZAppTitleBarStyle : UIViewStyle {
     
     public var height: CGFloat = 48
     public var padding: CGFloat = 16
@@ -16,7 +16,7 @@ public class XHBAppTitleBarStyle : UIViewStyle {
     public var textPadding: CGFloat = 20
     public var textAppearance = TextAppearance.Head2
     public var textAppearanceLarge = TextAppearance.Head1
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
+    public var buttonApperance = ZButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
 
     public override init() {
         super.init()

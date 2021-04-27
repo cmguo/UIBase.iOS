@@ -1,5 +1,5 @@
 //
-//  XHBCheckboxComponent.swift
+//  ZCheckboxComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class XHBCheckboxComponent : NSObject, Component
+class ZCheckboxComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -23,6 +23,6 @@ class XHBCheckboxComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBCompoundButtonController(self)
+        return ZCompoundButtonController(self)
     }()
 }

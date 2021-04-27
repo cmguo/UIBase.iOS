@@ -1,5 +1,5 @@
 //
-//  XHBTipViewStyle.swift
+//  ZTipViewStyle.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBTipViewStyle {
+public class ZTipViewStyle {
     
     public var arrowSize: CGFloat = 6
     public var arrowOffset: CGFloat = 16

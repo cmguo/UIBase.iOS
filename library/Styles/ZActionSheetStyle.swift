@@ -1,5 +1,5 @@
 //
-//  XHBActionSheetStyle.swift
+//  ZActionSheetStyle.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBActionSheetStyle : UIViewStyle {
+public class ZActionSheetStyle : UIViewStyle {
     
     public var maxHeight: CGFloat = 360
     public var paddingY: CGFloat = 12
@@ -16,7 +16,7 @@ public class XHBActionSheetStyle : UIViewStyle {
     public var titlePadding: CGFloat = 12
     public var textAppearance = TextAppearance.Head3
     public var textAppearance2 = TextAppearance.Body_Small
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .middleAppearance)
+    public var buttonApperance = ZButtonAppearance(type: .textLinkAppearance, size: .middleAppearance)
 
     public override init() {
         super.init()

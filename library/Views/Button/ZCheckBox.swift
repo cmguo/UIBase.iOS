@@ -1,5 +1,5 @@
 //
-//  XHBCheckBox.swift
+//  Self.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/8.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSVG
 
-public class XHBCheckBox: UIButton {
+public class ZCheckBox: UIButton {
     
     private static let fillColor = StateListColor.bluegrey_00_checked_disabled
     
@@ -24,8 +24,8 @@ public class XHBCheckBox: UIButton {
     private static let iconSize: CGFloat = 18.0
     private static let textPadding: CGFloat = 7.0
     
-    private static let svg_checked = Bundle(for: XHBCheckBox.self).url(forResource: "checked", withExtension: "svg")!
-    private static let svg_half_checked = Bundle(for: XHBCheckBox.self).url(forResource: "half_checked", withExtension: "svg")!
+    private static let svg_checked = Bundle(for: ZCheckBox.self).url(forResource: "checked", withExtension: "svg")!
+    private static let svg_half_checked = Bundle(for: ZCheckBox.self).url(forResource: "half_checked", withExtension: "svg")!
 
     public enum CheckedState : Int, RawRepresentable, CaseIterable {
         case NotChecked
@@ -53,38 +53,38 @@ public class XHBCheckBox: UIButton {
     public init(text: String? = nil) {
         super.init(frame: CGRect.zero)
         
-        var frame = CGRect(x: 0, y: 0, width: XHBCheckBox.iconSize, height: XHBCheckBox.height)
+        var frame = CGRect(x: 0, y: 0, width: Self.iconSize, height: Self.height)
         self.frame = frame
 
         self.setImage(UIImage.transparent)
-        self.imageView?.layer.cornerRadius = XHBCheckBox.radius
-        self.imageView?.layer.borderWidth = XHBCheckBox.borderSize
+        self.imageView?.layer.cornerRadius = Self.radius
+        self.imageView?.layer.borderWidth = Self.borderSize
         
-        let foregroundLayerChecked = CALayer(svgURL: XHBCheckBox.svg_checked) { (layer: SVGLayer) in
-            layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
+        let foregroundLayerChecked = CALayer(svgURL: Self.svg_checked) { (layer: SVGLayer) in
+            layer.frame = layer.boundingBox.centeredAt(CGPoint(x: Self.iconSize / 2, y: Self.iconSize / 2))
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerChecked = layer
-                layer.fillColor = XHBCheckBox.foregroundCheckedFillColor.color(for: self.states()).cgColor
+                layer.fillColor = Self.foregroundCheckedFillColor.color(for: self.states()).cgColor
             }
         }
         self.imageView?.layer.addSublayer(foregroundLayerChecked)
         
-        let foregroundLayerHalfChecked = CALayer(svgURL: XHBCheckBox.svg_half_checked) { (layer: SVGLayer) in
-            layer.frame = layer.boundingBox.centeredAt(CGPoint(x: XHBCheckBox.iconSize / 2, y: XHBCheckBox.iconSize / 2))
+        let foregroundLayerHalfChecked = CALayer(svgURL: Self.svg_half_checked) { (layer: SVGLayer) in
+            layer.frame = layer.boundingBox.centeredAt(CGPoint(x: Self.iconSize / 2, y: Self.iconSize / 2))
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerHalfChecked = layer
-                layer.fillColor = XHBCheckBox.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor
+                layer.fillColor = Self.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor
             }
         }
         self.imageView?.layer.addSublayer(foregroundLayerHalfChecked)
 
-        if let text = text {
+        if let text = text, !text.isEmpty {
             self.setTitle(text)
             self.titleLabel?.sizeToFit()
             let size = self.titleLabel!.sizeThatFits(CGSize())
-            frame.size.width = frame.width + XHBCheckBox.textPadding + size.width
+            frame.size.width = frame.width + Self.textPadding + size.width
         }
 
         self.frame = frame
@@ -108,11 +108,21 @@ public class XHBCheckBox: UIButton {
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return contentRect.leftCenterPart(ofSize: CGSize(width: XHBCheckBox.iconSize, height: XHBCheckBox.iconSize))
+        return contentRect.leftCenterPart(ofSize: CGSize(width: Self.iconSize, height: Self.iconSize))
     }
     
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - XHBCheckBox.iconSize - XHBCheckBox.textPadding, height: XHBCheckBox.height))
+        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - Self.iconSize - Self.textPadding, height: Self.height))
+    }
+    
+    public override func sizeToFit() {
+        var size = CGSize(width: Self.iconSize, height: Self.height)
+        if currentTitle != nil && !currentTitle!.isEmpty {
+            self.titleLabel?.sizeToFit()
+            let tsize = self.titleLabel!.sizeThatFits(CGSize())
+            size.width += Self.textPadding + tsize.width
+        }
+        bounds.size = size
     }
     
     private func states() -> UIControl.State {
@@ -130,14 +140,14 @@ public class XHBCheckBox: UIButton {
     
     private func updateStates() {
         let states = self.states()
-        self.setTitleColor(XHBCheckBox.borderColor.color(for: states), for: .normal)
-        self.imageView?.layer.borderColor = XHBCheckBox.borderColor.color(for: states).cgColor
-        self.imageView?.layer.backgroundColor = XHBCheckBox.fillColor.color(for: states).cgColor
+        self.setTitleColor(Self.borderColor.color(for: states), for: .normal)
+        self.imageView?.layer.borderColor = Self.borderColor.color(for: states).cgColor
+        self.imageView?.layer.backgroundColor = Self.fillColor.color(for: states).cgColor
         if let l = foregroundLayerChecked as? SVGLayer {
-            l.fillColor = XHBCheckBox.foregroundCheckedFillColor.color(for: states).cgColor
+            l.fillColor = Self.foregroundCheckedFillColor.color(for: states).cgColor
         }
         if let l = foregroundLayerHalfChecked as? SVGLayer {
-            l.fillColor = XHBCheckBox.foregroundHalfCheckedFillColor.color(for: states).cgColor
+            l.fillColor = Self.foregroundHalfCheckedFillColor.color(for: states).cgColor
         }
     }
     

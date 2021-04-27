@@ -1,5 +1,5 @@
 //
-//  XHBActivityViewController.swift
+//  ZActivityViewController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBActivityViewController: ComponentController, XHBActivityViewCallback, XHBPanelCallbackDelegate {
+class ZActivityViewController: ComponentController, ZActivityViewCallback, ZPanelCallbackDelegate {
 
     class Styles : ViewStyles {
     }
@@ -37,10 +37,10 @@ class XHBActivityViewController: ComponentController, XHBActivityViewCallback, X
     
     private let styles = Styles()
     private let model = Model()
-    private let activityView = XHBActivityView()
-    private var views = [XHBActivityView]()
+    private let activityView = ZActivityView()
+    private var views = [ZActivityView]()
     
-    private let button = XHBButton()
+    private let button = ZButton()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -74,12 +74,12 @@ class XHBActivityViewController: ComponentController, XHBActivityViewCallback, X
         }
     }
     
-    func activityViewButtonClicked(view: XHBActivityView, line: Int, index: Int) {
-        XHBTipView.toast(view, "点击了按钮 \(line) - \(index)")
+    func activityViewButtonClicked(view: ZActivityView, line: Int, index: Int) {
+        ZTipView.toast(view, "点击了按钮 \(line) - \(index)")
     }
 
     @objc func buttonClicked(_ sender: UIView) {
-        let panel = XHBPanel()
+        let panel = ZPanel()
         panel.titleBar = ContentStyle.Contents["title_text"]
         panel.bottomButton = "取消"
         activityView.removeFromSuperview()
@@ -88,7 +88,7 @@ class XHBActivityViewController: ComponentController, XHBActivityViewCallback, X
         panel.popUp(target: view)
     }
     
-    func panelDismissed(panel: XHBPanel) {
+    func panelDismissed(panel: ZPanel) {
         panel.content = nil
         view.addSubview(activityView)
         activityView.snp.makeConstraints { (maker) in

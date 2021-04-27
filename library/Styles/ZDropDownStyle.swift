@@ -1,5 +1,5 @@
 //
-//  XHBDropDown.swift
+//  ZDropDown.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBDropDownStyle : UIViewStyle {
+public class ZDropDownStyle : UIViewStyle {
     
     public var shadowRadius: CGFloat = 6
     public var borderRadius: CGFloat = 8

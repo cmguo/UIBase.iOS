@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class XHBBadgeView: UILabel {
+open class ZBadgeView: UILabel {
 
     public var maximum: Int = 0 {
         didSet {

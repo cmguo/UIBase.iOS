@@ -1,5 +1,5 @@
 //
-//  XHBPanelController.swift
+//  ZPanelController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/21.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
+class ZPanelController: ComponentController, ZPanelCallbackDelegate {
 
     class Styles : ViewStyles {
         
@@ -16,7 +16,7 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
         @objc static let _bottomButtonStyle = ContentStyle(Styles.self, "bottomButton", ["<button>"])
         @objc var bottomButton: Any? = nil
 
-        @objc static let _content = ["内容", "中间或者整体内容，资源ID：布局（layout，中间内容）或者样式（style，整体内容）"]
+        @objc static let _content = ["内容", "中间或者整体内容，UIView 实例或者样式集（Dictionary）"]
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["@Dictionary", "@UIView"])
         @objc var content: Any? = nil
 
@@ -33,10 +33,10 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
     
     private let styles = Styles()
     private let model = Model()
-    private let panel = XHBPanel()
-    private var views = [XHBPanel]()
+    private let panel = ZPanel()
+    private var views = [ZPanel]()
     
-    private let button = XHBButton()
+    private let button = ZButton()
 
 
     override func getStyles() -> ViewStyles {
@@ -82,13 +82,13 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
         panel.popUp(target: view)
     }
     
-    func panelButtonClicked(_ panel: XHBPanel, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
+    func panelButtonClicked(_ panel: ZPanel, _ btnId: ZButton.ButtonId?) {
+        ZTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
     }
 
-    func panelDismissed(panel: XHBPanel) {
+    func panelDismissed(panel: ZPanel) {
         if view.window != nil {
-            XHBTipView.toast(view, "面板消失")
+            ZTipView.toast(view, "面板消失")
             view.addSubview(panel)
             panel.snp.makeConstraints { (maker) in
                 maker.leading.equalToSuperview().offset(20)

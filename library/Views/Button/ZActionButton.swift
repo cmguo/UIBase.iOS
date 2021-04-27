@@ -1,5 +1,5 @@
 //
-//  XHBActionButton.swift
+//  ZActionButton.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/23.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public class XHBActionButton : XHBButton {
+public class ZActionButton : ZButton {
     
     private let _wrapLayer = CALayer()
     
-    public override init(style: XHBButtonStyle = .defaultStyle) {
+    public override init(style: ZButtonStyle = .defaultStyle) {
         super.init(style: style)
         _wrapLayer.backgroundColor = UIColor.bluegrey_100.cgColor
     }

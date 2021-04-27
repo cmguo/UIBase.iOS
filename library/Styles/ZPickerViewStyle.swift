@@ -1,5 +1,5 @@
 //
-//  XHBPickerViewStyle.swift
+//  ZPickerViewStyle.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBPickerViewStyle : UIViewStyle {
+public class ZPickerViewStyle : UIViewStyle {
     
     public var maxHeight: CGFloat = 360
     public var itemHeight: CGFloat = 48

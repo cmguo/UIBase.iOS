@@ -22,10 +22,15 @@ public class ComponentsController : UIViewController, UITableViewDataSource, UIT
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        tableView.frame = view.frame
+        
         tableView.tableHeaderView = headerView;
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,28 +1,27 @@
 //
-//  ZNoticeBarComponent.swift
+//  ZDialogComponent.swift
 //  Demo
 //
-//  Created by 郭春茂 on 2021/3/19.
+//  Created by 郭春茂 on 2021/4/27.
 //
 
 import Foundation
-import UIKit
 
-class ZSnackBarComponent : NSObject, Component
+class ZDialogComponent : NSObject, Component
 {
-    var id: Int = 0
-    
     var group: ComponentGroup = .Indicator
 
+    var id: Int = 0
+        
     var icon: Int = 0
     
-    var title: String = "横幅提示"
+    var title: String = "对话框"
     
     var author: String = "cmguo"
     
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return ZTipViewController(self)
+        return ZDialogController()
     }()
 }

@@ -1,5 +1,5 @@
 //
-//  XHBMaskDialog.swift
+//  ZMaskDialog.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBMaskDialog : UIView, UIGestureRecognizerDelegate {
+public class ZMaskDialog : UIView, UIGestureRecognizerDelegate {
     
     private let content: UIView
     private let gravity: Int

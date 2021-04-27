@@ -1,5 +1,5 @@
 //
-//  XHBActionSheet.swift
+//  ZActionSheet.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/25.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public protocol XHBActionSheetCallback {
-    @objc optional func onAction(sheet: XHBActionSheet, index: Int)
+@objc public protocol ZActionSheetCallback {
+    @objc optional func onAction(sheet: ZActionSheet, index: Int)
 }
 
-public class XHBActionSheet : UIView {
+public class ZActionSheet : UIView {
     
     public var icon: URL? = nil {
         didSet {
@@ -49,18 +49,18 @@ public class XHBActionSheet : UIView {
         }
     }
     
-    public var callback: XHBActionSheetCallback? = nil
+    public var callback: ZActionSheetCallback? = nil
     
     private let _imageView = UIImageView()
     private let _label = UILabel()
     private let _label2 = UILabel()
     private let _spplitter = UIView()
 
-    private var _buttons: [XHBButton] = []
+    private var _buttons: [ZButton] = []
     
-    private let _style: XHBActionSheetStyle
+    private let _style: ZActionSheetStyle
     
-    public init(style: XHBActionSheetStyle = XHBActionSheetStyle()) {
+    public init(style: ZActionSheetStyle = ZActionSheetStyle()) {
         _style = style
         super.init(frame: .zero)
         addSubview(_imageView)
@@ -123,7 +123,7 @@ public class XHBActionSheet : UIView {
     
     private func syncButtons() {
         while _buttons.count < buttons.count {
-            let button = XHBButton()
+            let button = ZButton()
                 .buttonAppearance(_style.buttonApperance)
             button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
             addSubview(button)

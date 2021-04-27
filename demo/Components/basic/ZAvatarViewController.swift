@@ -1,5 +1,5 @@
 //
-//  XHBButtonController.swift
+//  ZButtonController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBAvatarViewController: ComponentController {
+class ZAvatarViewController: ComponentController {
 
     class Styles : ViewStyles {
         
         @objc static let _clipType = ["剪切方式", "剪切图片的方式，有 None，Circle，Ellipse，RoundSquare，RoundRect五种方式，默认Circle方式"]
-        @objc static let _clipTypeStyle: NSObject = EnumStyle(Styles.self, "clipType", XHBAvatarView.ClipType.self)
-        @objc var clipType = XHBAvatarView.ClipType.Circle.rawValue
+        @objc static let _clipTypeStyle: NSObject = EnumStyle(Styles.self, "clipType", ZAvatarView.ClipType.self)
+        @objc var clipType = ZAvatarView.ClipType.Circle.rawValue
 
         @objc static let _clipRegion = ["剪切区域", "剪切区域，有视图区域（WholeView）、图片区域（Drawable）两种方式"]
-        @objc static let _clipRegionStyle: NSObject = EnumStyle(Styles.self, "clipRegion", XHBAvatarView.ClipRegion.self)
-        @objc var clipRegion = XHBAvatarView.ClipRegion.Drawable.rawValue
+        @objc static let _clipRegionStyle: NSObject = EnumStyle(Styles.self, "clipRegion", ZAvatarView.ClipRegion.self)
+        @objc var clipRegion = ZAvatarView.ClipRegion.Drawable.rawValue
 
         @objc static let _roundRadius = ["剪切半径", "圆角剪切时，剪切圆角半径，设为0，则为直角"]
         @objc var roundRadius: CGFloat = 0
@@ -31,12 +31,12 @@ class XHBAvatarViewController: ComponentController {
         @objc static let _borderColorStyle = ColorStyle(Styles.self, "borderColor")
         @objc var borderColor = UIColor.red
         
-        var clipRegion2: XHBAvatarView.ClipRegion {
-            XHBAvatarView.ClipRegion.init(rawValue: clipRegion)!
+        var clipRegion2: ZAvatarView.ClipRegion {
+            ZAvatarView.ClipRegion.init(rawValue: clipRegion)!
         }
         
-        var clipType2: XHBAvatarView.ClipType {
-            XHBAvatarView.ClipType.init(rawValue: clipType)!
+        var clipType2: ZAvatarView.ClipType {
+            ZAvatarView.ClipType.init(rawValue: clipType)!
         }
     }
     
@@ -45,8 +45,8 @@ class XHBAvatarViewController: ComponentController {
     
     private let styles = Styles()
     private let model = Model()
-    private let imageView = XHBAvatarView()
-    private var views = [XHBAvatarView]()
+    private let imageView = ZAvatarView()
+    private var views = [ZAvatarView]()
 
     override func getStyles() -> ViewStyles {
         return styles

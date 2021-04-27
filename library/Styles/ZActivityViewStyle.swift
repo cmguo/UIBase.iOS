@@ -1,5 +1,5 @@
 //
-//  XHBActivityViewStyle.swift
+//  ZActivityViewStyle.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/23.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-public class XHBActivityViewStyle : UIViewStyle {
+public class ZActivityViewStyle : UIViewStyle {
     
     public var itemWidth: CGFloat = 56
     public var itemPaddingX: CGFloat = 16
     public var itemPaddingY: CGFloat = 12
     public var itemPadding: CGFloat = 2
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
+    public var buttonApperance = ZButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
 
     public override init() {
         super.init()

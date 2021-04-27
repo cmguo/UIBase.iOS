@@ -1,5 +1,5 @@
 //
-//  XHBButtonController.swift
+//  ZButtonController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBBadgeViewController: ComponentController {
+class ZBadgeViewController: ComponentController {
 
     class Styles : ViewStyles {
         
@@ -47,8 +47,8 @@ class XHBBadgeViewController: ComponentController {
     private let model = Model()
     private let label = UILabel()
     private let imageView = UIImageView()
-    private let button = XHBButton()
-    private var badges = [XHBBadgeView]()
+    private let button = ZButton()
+    private var badges = [ZBadgeView]()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -112,7 +112,7 @@ class XHBBadgeViewController: ComponentController {
     }
 
     private func attachBadge(_ view: UIView) {
-        let badge = XHBBadgeView()
+        let badge = ZBadgeView()
         badge.text = styles.text
         badge.maximum = styles.maximum
         badge.number = styles.number

@@ -1,5 +1,5 @@
 //
-//  XHBTextAreaController.swift
+//  ZTextAreaController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -11,7 +11,7 @@ import UIBase
 import SnapKit
 import SwiftSVG
 
-class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
+class ZTextAreaController: ComponentController, ZTextAreaDelegate {
 
     class Styles : ViewStyles {
         
@@ -53,8 +53,8 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
     
     private let styles = Styles()
     private let model = Model()
-    private let textInput = XHBTextArea(single: true)
-    private let textArea = XHBTextArea()
+    private let textInput = ZTextArea(single: true)
+    private let textArea = ZTextArea()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -114,8 +114,8 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
         }
     }
    
-    func textAreaIconTapped(_ textArea: XHBTextArea, index: Int) {
-        XHBTipView.tip(textArea, "点击了图标\(index)")
+    func textAreaIconTapped(_ textArea: ZTextArea, index: Int) {
+        ZTipView.tip(textArea, "点击了图标\(index)")
     }
    
     override func viewWillLayoutSubviews() {

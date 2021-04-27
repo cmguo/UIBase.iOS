@@ -1,5 +1,5 @@
 //
-//  XHBActionSheetController.swift
+//  ZActionSheetController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/25.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHBPanelCallbackDelegate {
+class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelCallbackDelegate {
 
     class Styles : ViewStyles {
         
@@ -33,10 +33,10 @@ class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHB
     
     private let styles = Styles()
     private let model = Model()
-    private let sheet = XHBActionSheet()
-    private var views = [XHBActionSheet]()
+    private let sheet = ZActionSheet()
+    private var views = [ZActionSheet]()
     
-    private let button = XHBButton()
+    private let button = ZButton()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -83,12 +83,12 @@ class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHB
         
     }
     
-    func onAction(sheet: XHBActionSheet, index: Int) {
-        XHBTipView.toast(sheet, "点击了按钮 \(index)")
+    func onAction(sheet: ZActionSheet, index: Int) {
+        ZTipView.toast(sheet, "点击了按钮 \(index)")
     }
 
     @objc func buttonClicked(_ sender: UIView) {
-        let panel = XHBPanel()
+        let panel = ZPanel()
         panel.bottomButton = "取消"
         sheet.removeFromSuperview()
         panel.content = sheet
@@ -96,7 +96,7 @@ class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHB
         panel.popUp(target: view)
     }
     
-    func panelDismissed(panel: XHBPanel) {
+    func panelDismissed(panel: ZPanel) {
         panel.content = nil
         view.addSubview(sheet)
         sheet.snp.makeConstraints { (maker) in

@@ -1,5 +1,5 @@
 //
-//  XHBAppTitleBar.swift
+//  ZAppTitleBar.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -8,12 +8,12 @@
 import Foundation
 
 
-@objc public protocol XHBTitleBarCallbackDelegate {
-    @objc optional func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?)
+@objc public protocol ZTitleBarCallbackDelegate {
+    @objc optional func titleBarButtonClicked(titleBar: ZAppTitleBar, btnId: ZButton.ButtonId?)
 }
 
 
-public class XHBAppTitleBar : UIView
+public class ZAppTitleBar : UIView
 {
 
     public var leftButton: Any? {
@@ -80,7 +80,7 @@ public class XHBAppTitleBar : UIView
     
     public var textAppearance: TextAppearance? = nil
     
-    public var delegate: XHBTitleBarCallbackDelegate? = nil
+    public var delegate: ZTitleBarCallbackDelegate? = nil
     
     /* private variables */
     
@@ -91,8 +91,8 @@ public class XHBAppTitleBar : UIView
         return label
     }()
     
-    private lazy var _leftButton: XHBButton = {
-        let button = XHBButton()
+    private lazy var _leftButton: ZButton = {
+        let button = ZButton()
         button.buttonAppearance = _style.buttonApperance
         button.id = .Left
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -100,8 +100,8 @@ public class XHBAppTitleBar : UIView
         return button
     }()
     
-    private lazy var _rightButton: XHBButton = {
-        let button = XHBButton()
+    private lazy var _rightButton: ZButton = {
+        let button = ZButton()
         button.buttonAppearance = _style.buttonApperance
         button.iconPosition = .Right
         button.id = .Right
@@ -110,8 +110,8 @@ public class XHBAppTitleBar : UIView
         return button
     }()
     
-    private lazy var _rightButton2: XHBButton = {
-        let button = XHBButton()
+    private lazy var _rightButton2: ZButton = {
+        let button = ZButton()
         button.buttonAppearance = _style.buttonApperance
         button.id = .Right2
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -127,10 +127,10 @@ public class XHBAppTitleBar : UIView
     
     private var _contentView: UIView? = nil
     
-    private let _style: XHBAppTitleBarStyle
+    private let _style: ZAppTitleBarStyle
     
 
-    public init(style: XHBAppTitleBarStyle = XHBAppTitleBarStyle()) {
+    public init(style: ZAppTitleBarStyle = ZAppTitleBarStyle()) {
         _style = style
         super.init(frame: .zero)
         super.viewStyle = style
@@ -186,7 +186,7 @@ public class XHBAppTitleBar : UIView
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        delegate?.titleBarButtonClicked?(titleBar: self, btnId: (sender as! XHBButton).id)
+        delegate?.titleBarButtonClicked?(titleBar: self, btnId: (sender as! ZButton).id)
     }
 
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?

@@ -1,5 +1,5 @@
 //
-//  XHBPanel.swift
+//  ZPanel.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/21.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-@objc public protocol XHBPanelCallbackDelegate {
-    @objc optional func panelButtonClicked(panel: XHBPanel, btnId: XHBButton.ButtonId?)
-    @objc optional func panelDismissed(panel: XHBPanel)
+@objc public protocol ZPanelCallbackDelegate {
+    @objc optional func panelButtonClicked(panel: ZPanel, btnId: ZButton.ButtonId?)
+    @objc optional func panelDismissed(panel: ZPanel)
 }
 
 
-public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
+public class ZPanel : UIView, ZTitleBarCallbackDelegate {
     
     public var titleBar: Any? {
         didSet {
@@ -49,36 +49,17 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     
     public var content: Any? = nil {
         didSet {
-            if let string = content as? String {
-                titleBar = string
-            } else if let view = content as? UIView {
-                if view == _contentView {
-                    return
-                }
-                if _contentView != nil {
-                    _contentView?.removeFromSuperview()
-                    _contentView?.translatesAutoresizingMaskIntoConstraints = false
-                }
-                view.translatesAutoresizingMaskIntoConstraints = true
-                _contentView = view
-                addSubview(view)
-                syncSize()
-            } else if (_contentView != nil) {
-                _contentView?.removeFromSuperview()
-                _contentView?.translatesAutoresizingMaskIntoConstraints = false
-                _contentView = nil
-                syncSize()
-            }
+            syncContent()
         }
     }
     
-    public var delegate: XHBPanelCallbackDelegate? = nil
+    public var delegate: ZPanelCallbackDelegate? = nil
 
     
     /* private propertis */
     
-    private lazy var _titleBar: XHBAppTitleBar = {
-        let bar = XHBAppTitleBar()
+    private lazy var _titleBar: ZAppTitleBar = {
+        let bar = ZAppTitleBar()
         bar.translatesAutoresizingMaskIntoConstraints = true
         bar.textAppearance = TextAppearance.Head3
         bar.delegate = self
@@ -93,8 +74,8 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
         return view
     }()
     
-    private lazy var _bottomButton: XHBButton = {
-        let button = XHBButton()
+    private lazy var _bottomButton: ZButton = {
+        let button = ZButton()
         button.buttonAppearance = _style.buttonApperance
         button.id = .Bottom
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -111,9 +92,9 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     
     private var _contentView: UIView? = nil
 
-    private let _style: XHBPanelStyle
+    private let _style: ZPanelStyle
     
-    public init(style: XHBPanelStyle = XHBPanelStyle()) {
+    public init(style: ZPanelStyle = ZPanelStyle()) {
         _style = style
         super.init(frame: .zero)
         super.viewStyle = style
@@ -125,14 +106,14 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     }
     
     public func popUp(target: UIView) {
-        XHBMaskDialog(content: self).show(window: target.window!)
+        ZMaskDialog(content: self).show(window: target.window!)
     }
     
     public func dismiss() {
-        XHBMaskDialog.dismiss(content: self)
+        ZMaskDialog.dismiss(content: self)
     }
     
-    public func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?) {
+    public func titleBarButtonClicked(titleBar: ZAppTitleBar, btnId: ZButton.ButtonId?) {
         delegate?.panelButtonClicked?(panel: self, btnId: btnId)
     }
     
@@ -165,7 +146,30 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?
     
     @objc private func buttonClicked(_ sender: UIView) {
-        delegate?.panelButtonClicked?(panel: self, btnId: (sender as! XHBButton).id)
+        delegate?.panelButtonClicked?(panel: self, btnId: (sender as! ZButton).id)
+    }
+    
+    fileprivate func syncContent() {
+        if let string = content as? String {
+            titleBar = string
+        } else if let view = content as? UIView {
+            if view == _contentView {
+                return
+            }
+            if _contentView != nil {
+                _contentView?.removeFromSuperview()
+                _contentView?.translatesAutoresizingMaskIntoConstraints = false
+            }
+            view.translatesAutoresizingMaskIntoConstraints = true
+            _contentView = view
+            addSubview(view)
+            syncSize()
+        } else if (_contentView != nil) {
+            _contentView?.removeFromSuperview()
+            _contentView?.translatesAutoresizingMaskIntoConstraints = false
+            _contentView = nil
+            syncSize()
+        }
     }
     
     fileprivate func syncSize() {

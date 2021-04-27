@@ -14,6 +14,7 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     private var styles: [ComponentStyle] = []
     private var expandSyle = 0
     
+    let wrapper = UIView()
     private let headerView = UIView()
     private let tableView = UITableView()
 
@@ -33,20 +34,11 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         tableView.register(DescTableViewCell.self, forCellReuseIdentifier: "Desc")
 
         view.backgroundColor = UIColor(white: 0, alpha: 0.2)
-        var frame = view.frame
 
-        let wrapper = UIView()
+        
         wrapper.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        frame.origin.y = 400
-        frame.size.height -= 400
-        wrapper.frame = frame
         view.addSubview(wrapper)
 
-        frame.origin.x = 10
-        frame.origin.y = 10
-        frame.size.width -= 20
-        frame.size.height -= 20
-        tableView.frame = frame
         wrapper.addSubview(tableView)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -56,6 +48,19 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         //tableView.tableHeaderView = headerView;
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var frame = view.bounds
+        frame.origin.y = 400
+        frame.size.height -= 400
+        wrapper.frame = frame
+        frame.origin.x = 10
+        frame.origin.y = 10
+        frame.size.width -= 20
+        frame.size.height -= 20
+        tableView.frame = frame
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

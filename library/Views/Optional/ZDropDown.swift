@@ -1,5 +1,5 @@
 //
-//  XHBDropDown.swift
+//  ZDropDown.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public protocol XHBDropDownCallback {
-    @objc optional func dropDownFinished(dropDown: XHBDropDown, selection: Int)
+@objc public protocol ZDropDownCallback {
+    @objc optional func dropDownFinished(dropDown: ZDropDown, selection: Int)
 }
 
-public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
+public class ZDropDown : UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     public var titles: [Any] = []
     
@@ -37,9 +37,9 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     private let _shadowFrame = UIView()
     private let _tableView = UITableView()
     
-    private let _style: XHBDropDownStyle
+    private let _style: ZDropDownStyle
     
-    public init(style: XHBDropDownStyle = XHBDropDownStyle()) {
+    public init(style: ZDropDownStyle = ZDropDownStyle()) {
         _style = style
         shadowRadius = _style.shadowRadius
         borderRadius = _style.borderRadius
@@ -58,7 +58,7 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
         addSubview(_shadowFrame)
 
         _tableView.layer.cornerRadius = _style.borderRadius
-        _tableView.register(XHBDropDownCell.self, forCellReuseIdentifier: "DropDown")
+        _tableView.register(ZDropDownCell.self, forCellReuseIdentifier: "DropDown")
         _tableView.delegate = self
         addSubview(_tableView)
     }
@@ -68,9 +68,9 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
     
     private var _isDrop = false
-    private var _callback: XHBDropDownCallback? = nil
+    private var _callback: ZDropDownCallback? = nil
     
-    public func popAt(_ target: UIView, withCallback: XHBDropDownCallback? = nil) {
+    public func popAt(_ target: UIView, withCallback: ZDropDownCallback? = nil) {
         if(_isDrop) {
             return
         }
@@ -125,7 +125,7 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DropDown") as! XHBDropDownCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DropDown") as! ZDropDownCell
         let row = indexPath.row
         cell.setStyle(_style)
         cell.setContent(titles[row], icon: row < (icons?.count ?? 0) ? icons?[row] : nil)
@@ -163,7 +163,7 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
             width += UIScreen.main.bounds.width
         }
         for i in 0..<titles.count {
-            let w = (_tableView.cellForRow(at: IndexPath(item: i, section: 0)) as! XHBDropDownCell).width()
+            let w = (_tableView.cellForRow(at: IndexPath(item: i, section: 0)) as! ZDropDownCell).width()
             if w > width {
                 width = w
             }
@@ -201,9 +201,9 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
 }
 
-class XHBDropDownCell : UITableViewCell {
+class ZDropDownCell : UITableViewCell {
     
-    private var _style: XHBDropDownStyle? = nil
+    private var _style: ZDropDownStyle? = nil
     
     private let _imageView = UIImageView()
     
@@ -219,7 +219,7 @@ class XHBDropDownCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setStyle(_ style: XHBDropDownStyle) {
+    func setStyle(_ style: ZDropDownStyle) {
         if _style != nil {
             return
         }

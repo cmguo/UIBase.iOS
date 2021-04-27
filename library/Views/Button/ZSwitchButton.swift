@@ -1,5 +1,5 @@
 //
-//  XHBSwitchButton.swift
+//  ZSwitchButton.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/9.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBSwitchButton : UISwitch
+public class ZSwitchButton : UISwitch
 {
     private static let trackColor = StateListColor.bluegrey_300_checked
         
@@ -16,9 +16,9 @@ public class XHBSwitchButton : UISwitch
     public init() {
         super.init(frame: CGRect.zero)
         
-        self.tintColor = XHBSwitchButton.trackColor.color(for: .STATES_NORMAL)
-        self.onTintColor = XHBSwitchButton.trackColor.color(for: .STATES_CHECKED)
-        self.thumbTintColor = XHBSwitchButton.tumbColor.color(for: .STATES_NORMAL)
+        self.tintColor = ZSwitchButton.trackColor.color(for: .STATES_NORMAL)
+        self.onTintColor = ZSwitchButton.trackColor.color(for: .STATES_CHECKED)
+        self.thumbTintColor = ZSwitchButton.tumbColor.color(for: .STATES_NORMAL)
     }
     
     required init?(coder: NSCoder) {

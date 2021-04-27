@@ -1,5 +1,5 @@
 //
-//  XHBAvatarView.swift
+//  ZAvatarView.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/16.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XHBAvatarView : UIImageView {
+public class ZAvatarView : UIImageView {
     
     public enum ClipType : Int, RawRepresentable, CaseIterable {
         case None

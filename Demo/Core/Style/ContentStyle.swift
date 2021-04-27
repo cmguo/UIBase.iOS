@@ -16,11 +16,12 @@ class ContentStyle: ComponentStyle {
         "icon_more": URL.icon_more,
         "text_cancel": "取消",
         "text_confirm": "确定",
+        "image_dialog": Icons.pngURL("dialog1")!,
         "button_goto": ["去查看", URL.icon_right] as [Any?] as NSArray,
         "button_style": [
             "text": "按钮",
             "icon": URL.icon_right,
-            "iconPosition": XHBButton.IconPosition.Right
+            "iconPosition": ZButton.IconPosition.Right
         ] as NSDictionary,
         "title_icon": [
             "title": "标题",

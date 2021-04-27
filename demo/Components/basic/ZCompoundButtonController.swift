@@ -1,5 +1,5 @@
 //
-//  XHBCompoundButtonController.swift
+//  ZCompoundButtonController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBCompoundButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
+class ZCompoundButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     class Styles : ViewStyles {
         
@@ -23,11 +23,11 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
     class Model : ViewModel {
         let states: [Any]
         init(_ component: Component) {
-            if component is XHBCheckboxComponent {
-                states = XHBCheckBox.CheckedState.allCases
-            } else if (component is XHBRatioButtonComponent) {
+            if component is ZCheckboxComponent {
+                states = ZCheckBox.CheckedState.allCases
+            } else if (component is ZRatioButtonComponent) {
                 states = [false, true]
-            } else if (component is XHBSwitchButtonComponent) {
+            } else if (component is ZSwitchButtonComponent) {
                 states = [false, true]
             } else {
                 states = []
@@ -40,7 +40,7 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
     private let model: Model
     private let tableView = UITableView()
     private var buttons: [UIButton] = []
-    private var switchs: [XHBSwitchButton] = []
+    private var switchs: [ZSwitchButton] = []
 
     init (_ component: Component) {
         self.component = component
@@ -97,20 +97,20 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
     }
     
     func createButton(state: Any) -> UIView {
-        if component is XHBCheckboxComponent {
-            let button = XHBCheckBox(text: styles.text)
-            button.checkedState = state as! XHBCheckBox.CheckedState
+        if component is ZCheckboxComponent {
+            let button = ZCheckBox(text: styles.text)
+            button.checkedState = state as! ZCheckBox.CheckedState
             button.isEnabled = !styles.disabled
             buttons.append(button)
             return button
-        } else if (component is XHBRatioButtonComponent) {
-            let button = XHBRadioButton(text: styles.text)
+        } else if (component is ZRatioButtonComponent) {
+            let button = ZRadioButton(text: styles.text)
             button.checked = state as! Bool
             button.isEnabled = !styles.disabled
             buttons.append(button)
             return button
-        } else if (component is XHBSwitchButtonComponent) {
-            let button = XHBSwitchButton()
+        } else if (component is ZSwitchButtonComponent) {
+            let button = ZSwitchButton()
             button.isOn = state as! Bool
             button.isEnabled = !styles.disabled
             switchs.append(button)

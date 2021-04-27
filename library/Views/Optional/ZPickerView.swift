@@ -1,5 +1,5 @@
 //
-//  XHBPickerView.swift
+//  ZPickerView.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-@objc public protocol XHBPickerViewCallback {
-    @objc optional func onSelectionChanged(picker: XHBPickerView, selection: Int)
-    @objc optional func onSelectionsChanged(picker: XHBPickerView, selections: [Int])
+@objc public protocol ZPickerViewCallback {
+    @objc optional func onSelectionChanged(picker: ZPickerView, selection: Int)
+    @objc optional func onSelectionsChanged(picker: ZPickerView, selections: [Int])
 }
 
-public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
+public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
     
     public var titles: [Any] = [] {
         didSet {
@@ -55,18 +55,18 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
-    public var callback: XHBPickerViewCallback? = nil
+    public var callback: ZPickerViewCallback? = nil
 
     private let _tableView = UITableView()
     private let _selectImage = UIImageView()
 
-    private let _style: XHBPickerViewStyle
+    private let _style: ZPickerViewStyle
 
-    public init(style: XHBPickerViewStyle = XHBPickerViewStyle()) {
+    public init(style: ZPickerViewStyle = ZPickerViewStyle()) {
         _style = style
         super.init(frame: .zero)
         
-        _tableView.register(XHBPickerCell.self, forCellReuseIdentifier: "Picker")
+        _tableView.register(ZPickerCell.self, forCellReuseIdentifier: "Picker")
         _tableView.delegate = self
         _tableView.dataSource = self
         addSubview(_tableView)
@@ -85,9 +85,9 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picker") as! XHBPickerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picker") as! ZPickerCell
         let row = indexPath.row
-        let checkedState: XHBCheckBox.CheckedState = singleSelection ? .HalfChecked : (selections.contains(row) ? .FullChecked : .NotChecked)
+        let checkedState: ZCheckBox.CheckedState = singleSelection ? .HalfChecked : (selections.contains(row) ? .FullChecked : .NotChecked)
         cell.setStyle(self, _style)
         cell.setContent(titles[row], icon: row < (icons?.count ?? 0) ? icons?[row] : nil, state: row < (states?.count ?? 0) ? states?[row] : nil, checkedState: checkedState)
         if (row == titles.count - 1) {
@@ -104,7 +104,7 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         if singleSelection {
             select(indexPath.row, true)
         } else {
-            (_tableView.cellForRow(at: indexPath) as! XHBPickerCell)._checkBox.toggle()
+            (_tableView.cellForRow(at: indexPath) as! ZPickerCell)._checkBox.toggle()
         }
     }
     
@@ -132,10 +132,10 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
     }
     
     @objc fileprivate func checkBoxValueChanged(_ sender: UIView) {
-        let cell = sender.superview?.superview as! XHBPickerCell
+        let cell = sender.superview?.superview as! ZPickerCell
         let path = _tableView.indexPath(for: cell)
         if let path = path {
-            select(path.row, (sender as! XHBCheckBox).checkedState == .FullChecked)
+            select(path.row, (sender as! ZCheckBox).checkedState == .FullChecked)
         }
     }
     
@@ -143,7 +143,7 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         guard singleSelection, let s = selection else {
             return
         }
-        let cb = (_tableView.cellForRow(at: IndexPath(item: s, section: 0)) as? XHBPickerCell)?._checkBox
+        let cb = (_tableView.cellForRow(at: IndexPath(item: s, section: 0)) as? ZPickerCell)?._checkBox
         if let cb = cb {
             _selectImage.frame = cb.convert(cb.bounds, to: self)
         } else {
@@ -156,7 +156,7 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         _tableView.layoutSubviews()
         var width: CGFloat = 0
         for i in 0..<titles.count {
-            let w = (_tableView.cellForRow(at: IndexPath(item: i, section: 0)) as! XHBPickerCell).width()
+            let w = (_tableView.cellForRow(at: IndexPath(item: i, section: 0)) as! ZPickerCell).width()
             if w > width {
                 width = w
             }
@@ -173,12 +173,12 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
 }
 
 
-class XHBPickerCell : UITableViewCell {
+class ZPickerCell : UITableViewCell {
     
-    private var _style: XHBPickerViewStyle? = nil
+    private var _style: ZPickerViewStyle? = nil
     
     private let _imageView = UIImageView()
-    fileprivate let _checkBox = XHBCheckBox()
+    fileprivate let _checkBox = ZCheckBox()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -193,18 +193,18 @@ class XHBPickerCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setStyle(_ picker: XHBPickerView, _ style: XHBPickerViewStyle) {
+    func setStyle(_ picker: ZPickerView, _ style: ZPickerViewStyle) {
         if _style != nil {
             return
         }
-        _checkBox.addTarget(picker, action: #selector(XHBPickerView.checkBoxValueChanged(_:)), for: .valueChanged)
+        _checkBox.addTarget(picker, action: #selector(ZPickerView.checkBoxValueChanged(_:)), for: .valueChanged)
         _style = style
         _imageView.bounds.size = CGSize(width: _style!.iconSize, height: _style!.iconSize)
         textLabel?.font = _style?.textAppearance.font
         textLabel?.textColor = _style?.textAppearance.textColor
     }
     
-    func setContent(_ title: Any, icon: Any?, state: UIControl.State?, checkedState: XHBCheckBox.CheckedState) {
+    func setContent(_ title: Any, icon: Any?, state: UIControl.State?, checkedState: ZCheckBox.CheckedState) {
         textLabel?.text = "\(title)"
         if let url = icon as? URL {
             _imageView.setImage(withURL: url)

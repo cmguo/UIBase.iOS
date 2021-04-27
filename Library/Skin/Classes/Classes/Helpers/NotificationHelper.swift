@@ -56,7 +56,7 @@ public enum NotificationNameOption: String {
     case childChangedSuccess
 
     public var stringValue: String {
-        return "XHB" + rawValue
+        return "Z" + rawValue
     }
 
     public var notificationName: NSNotification.Name {

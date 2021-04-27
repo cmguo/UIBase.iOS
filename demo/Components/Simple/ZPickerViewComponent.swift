@@ -1,5 +1,5 @@
 //
-//  XHBPickerViewComponent.swift
+//  ZPickerViewComponent.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBPickerViewComponent : NSObject, Component
+class ZPickerViewComponent : NSObject, Component
 {
     var group: ComponentGroup = .MenuList
 
@@ -22,6 +22,6 @@ class XHBPickerViewComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBPickerViewController()
+        return ZPickerViewController()
     }()
 }

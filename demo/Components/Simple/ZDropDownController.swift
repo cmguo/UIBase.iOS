@@ -1,5 +1,5 @@
 //
-//  XHBDropDownController.swift
+//  ZDropDownController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBDropDownController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBDropDownCallback {
+class ZDropDownController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, ZDropDownCallback {
 
     class Styles : ViewStyles {
         
@@ -59,7 +59,7 @@ class XHBDropDownController: ComponentController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = gridView.dequeueReusableCell(withReuseIdentifier: "DropDown", for: indexPath)
-        let button = XHBButton()
+        let button = ZButton()
         button.text = "点我"
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (maker) in
@@ -70,14 +70,14 @@ class XHBDropDownController: ComponentController, UICollectionViewDataSource, UI
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        let dropDown = XHBDropDown()
+        let dropDown = ZDropDown()
         dropDown.titles = model.titles
         dropDown.icons = model.icons
         dropDown.popAt(sender, withCallback: self)
     }
     
-    func dropDownFinished(dropDown: XHBDropDown, selection: Int) {
-        XHBTipView.toast(view, "选择了项目 \(selection)")
+    func dropDownFinished(dropDown: ZDropDown, selection: Int) {
+        ZTipView.toast(view, "选择了项目 \(selection)")
     }
 }
 

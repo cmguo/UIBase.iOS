@@ -1,5 +1,5 @@
 //
-//  XHBPickerViewController.swift
+//  ZPickerViewController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPanelCallbackDelegate {
+class ZPickerViewController: ComponentController, ZPickerViewCallback, ZPanelCallbackDelegate {
 
     class Styles : ViewStyles {
         
@@ -48,14 +48,14 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
     
     private let styles = Styles()
     private let model = Model()
-    private let picker = XHBPickerView()
-    private var views = [XHBPickerView]()
+    private let picker = ZPickerView()
+    private var views = [ZPickerView]()
     
     private let label1 = UILabel()
     private let label2 = UILabel()
     private let text1 = UILabel()
     private let text2 = UILabel()
-    private let button = XHBButton()
+    private let button = ZButton()
 
     override func getStyles() -> ViewStyles {
         return styles
@@ -132,16 +132,16 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
         }
     }
     
-    func onSelectionChanged(picker: XHBPickerView, selection: Int) {
+    func onSelectionChanged(picker: ZPickerView, selection: Int) {
         model.selection = selection >= 0 ? selection : nil
     }
     
-    func onSelectionsChanged(picker: XHBPickerView, selections: [Int]) {
+    func onSelectionsChanged(picker: ZPickerView, selections: [Int]) {
         model.selections = selections
     }
 
     @objc func buttonClicked(_ sender: UIView) {
-        let panel = XHBPanel()
+        let panel = ZPanel()
         panel.titleBar = ContentStyle.Contents["title_icon"]
         picker.removeFromSuperview()
         panel.content = picker
@@ -149,7 +149,7 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
         panel.popUp(target: view)
     }
     
-    func panelDismissed(panel: XHBPanel) {
+    func panelDismissed(panel: ZPanel) {
         panel.content = nil
         view.addSubview(picker)
         picker.snp.makeConstraints { (maker) in

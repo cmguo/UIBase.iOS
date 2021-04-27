@@ -1,5 +1,5 @@
 //
-//  XHBAvatarComponent.swift
+//  ZAvatarComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBAvatarViewComponent : NSObject, Component
+class ZAvatarViewComponent : NSObject, Component
 {
     var group: ComponentGroup = .Basic
         
@@ -22,6 +22,6 @@ class XHBAvatarViewComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBAvatarViewController()
+        return ZAvatarViewController()
     }()
 }

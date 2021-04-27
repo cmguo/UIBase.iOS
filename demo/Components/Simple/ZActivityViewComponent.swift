@@ -1,5 +1,5 @@
 //
-//  XHBActivityViewComponent.swift
+//  ZActivityViewComponent.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBActivityViewComponent : NSObject, Component
+class ZActivityViewComponent : NSObject, Component
 {
     var group: ComponentGroup = .MenuList
 
@@ -22,6 +22,6 @@ class XHBActivityViewComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBActivityViewController()
+        return ZActivityViewController()
     }()
 }

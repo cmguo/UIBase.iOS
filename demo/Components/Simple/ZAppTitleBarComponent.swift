@@ -1,5 +1,5 @@
 //
-//  XHBAppTitleBarComponent.swift
+//  ZAppTitleBarComponent.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBAppTitleBarComponent : NSObject, Component
+class ZAppTitleBarComponent : NSObject, Component
 {
     var group: ComponentGroup = .Navigation
 
@@ -22,6 +22,6 @@ class XHBAppTitleBarComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBAppTitleBarController()
+        return ZAppTitleBarController()
     }()
 }

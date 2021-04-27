@@ -1,12 +1,12 @@
 //
-//  XHBRadioButton.swift
+//  Self.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/8.
 //
 
 @IBDesignable
-public class XHBRadioButton: UIButton {
+public class ZRadioButton: UIButton {
     
     private static let backgroundFillColor = StateListColor.bluegrey_00_disabled
     
@@ -40,25 +40,25 @@ public class XHBRadioButton: UIButton {
     public init(text: String? = nil) {
         super.init(frame: CGRect.zero)
         
-        var frame = CGRect(x: 0, y: 0, width: XHBRadioButton.iconSize, height: XHBRadioButton.height)
+        var frame = CGRect(x: 0, y: 0, width: Self.iconSize, height: Self.height)
         self.frame = frame
 
         self.setImage(UIImage.from(color: .clear))
-        backgroundLayer.frame = CGRect(x: 0, y: 0, width: XHBRadioButton.iconSize, height: XHBRadioButton.iconSize)
-        backgroundLayer.cornerRadius = XHBRadioButton.radius
-        backgroundLayer.borderWidth = XHBRadioButton.borderSize
+        backgroundLayer.frame = CGRect(x: 0, y: 0, width: Self.iconSize, height: Self.iconSize)
+        backgroundLayer.cornerRadius = Self.radius
+        backgroundLayer.borderWidth = Self.borderSize
         self.imageView?.layer.addSublayer(backgroundLayer)
 
-        foregroundLayer.frame = CGRect(x: XHBRadioButton.borderSize2, y: XHBRadioButton.borderSize2, width: XHBRadioButton.iconSize - XHBRadioButton.borderSize2 * 2, height: XHBRadioButton.iconSize - XHBRadioButton.borderSize2 * 2)
-        foregroundLayer.cornerRadius = XHBRadioButton.radius - XHBRadioButton.borderSize2
+        foregroundLayer.frame = CGRect(x: Self.borderSize2, y: Self.borderSize2, width: Self.iconSize - Self.borderSize2 * 2, height: Self.iconSize - Self.borderSize2 * 2)
+        foregroundLayer.cornerRadius = Self.radius - Self.borderSize2
         foregroundLayer.borderWidth = 0
         self.imageView?.layer.addSublayer(foregroundLayer)
 
-        if let text = text {
+        if let text = text, !text.isEmpty {
             self.setTitle(text)
             self.titleLabel?.sizeToFit()
             let size = self.titleLabel!.sizeThatFits(CGSize())
-            frame.size.width = frame.width + XHBRadioButton.textPadding + size.width
+            frame.size.width = frame.width + Self.textPadding + size.width
         }
 
         self.frame = frame
@@ -72,11 +72,21 @@ public class XHBRadioButton: UIButton {
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return contentRect.leftCenterPart(ofSize: CGSize(width: XHBRadioButton.iconSize, height: XHBRadioButton.iconSize))
+        return contentRect.leftCenterPart(ofSize: CGSize(width: Self.iconSize, height: Self.iconSize))
     }
     
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - XHBRadioButton.iconSize - XHBRadioButton.textPadding, height: XHBRadioButton.height))
+        return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - Self.iconSize - Self.textPadding, height: Self.height))
+    }
+    
+    public override func sizeToFit() {
+        var size = CGSize(width: Self.iconSize, height: Self.height)
+        if currentTitle != nil && !currentTitle!.isEmpty {
+            self.titleLabel?.sizeToFit()
+            let tsize = self.titleLabel!.sizeThatFits(CGSize())
+            size.width += Self.textPadding + tsize.width
+        }
+        bounds.size = size
     }
     
     func updateStates() {
@@ -84,10 +94,10 @@ public class XHBRadioButton: UIButton {
         if checked {
             states = states.union(.STATE_CHECKED)
         }
-        self.setTitleColor(XHBRadioButton.backgroundBorderColor.color(for: states), for: .normal)
-        backgroundLayer.borderColor = XHBRadioButton.backgroundBorderColor.color(for: states).cgColor
-        backgroundLayer.backgroundColor = XHBRadioButton.backgroundFillColor.color(for: states).cgColor
-        foregroundLayer.backgroundColor = XHBRadioButton.foregroundFillColor.color(for: states).cgColor
+        self.setTitleColor(Self.backgroundBorderColor.color(for: states), for: .normal)
+        backgroundLayer.borderColor = Self.backgroundBorderColor.color(for: states).cgColor
+        backgroundLayer.backgroundColor = Self.backgroundFillColor.color(for: states).cgColor
+        foregroundLayer.backgroundColor = Self.foregroundFillColor.color(for: states).cgColor
     }
     
     @objc func buttonClicked(_ sender: UIButton) {

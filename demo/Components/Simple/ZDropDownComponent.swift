@@ -1,5 +1,5 @@
 //
-//  XHBDropDownComponent.swift
+//  ZDropDownComponent.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBDropDownComponent : NSObject, Component
+class ZDropDownComponent : NSObject, Component
 {
     var group: ComponentGroup = .MenuList
 
@@ -22,6 +22,6 @@ class XHBDropDownComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBDropDownController()
+        return ZDropDownController()
     }()
 }

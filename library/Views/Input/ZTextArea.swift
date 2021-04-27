@@ -1,5 +1,5 @@
 //
-//  XHBTextArea.swift
+//  ZTextArea.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/9.
@@ -58,25 +58,25 @@ public class MediaTextView: UITextView {
     
 }
 
-@objc public protocol XHBTextAreaDelegate {
+@objc public protocol ZTextAreaDelegate {
     
-    @objc optional func textAreaShouldChangeTextInRange(_ textArea: XHBTextArea, _ range: NSRange, _ replacementText: String) -> Bool
-    @objc optional func textAreaShouldBegainEditing(_ textArea: XHBTextArea) -> Bool
-    @objc optional func textAreaDidBeginEditing(_ textArea: XHBTextArea)
-    @objc optional func textAreaDidEndEditing(_ textArea: XHBTextArea)
+    @objc optional func textAreaShouldChangeTextInRange(_ textArea: ZTextArea, _ range: NSRange, _ replacementText: String) -> Bool
+    @objc optional func textAreaShouldBegainEditing(_ textArea: ZTextArea) -> Bool
+    @objc optional func textAreaDidBeginEditing(_ textArea: ZTextArea)
+    @objc optional func textAreaDidEndEditing(_ textArea: ZTextArea)
 
-    @objc optional func textAreaIconTapping(_ textArea: XHBTextArea, index: Int, holding: Bool)
-    @objc optional func textAreaIconTapped(_ textArea: XHBTextArea, index: Int)
+    @objc optional func textAreaIconTapping(_ textArea: ZTextArea, index: Int, holding: Bool)
+    @objc optional func textAreaIconTapped(_ textArea: ZTextArea, index: Int)
 }
 
 
 /*
- XHBTextArea
+ ZTextArea
    MediaTextView (text)
    UILabel (placeholder)
  */
 
-public class XHBTextArea: UIView {
+public class ZTextArea: UIView {
     
     private static let defaultPlaceHolderTextColor = UIColor.bluegrey_500
     private static let defaultWordCountTextColor = UIColor.bluegrey_700
@@ -153,14 +153,14 @@ public class XHBTextArea: UIView {
     public var showBorder: Bool = false {
         didSet {
             if showBorder {
-                self.layer.borderColor = XHBTextArea.borderColor.color(for: states()).cgColor
+                self.layer.borderColor = ZTextArea.borderColor.color(for: states()).cgColor
             } else {
                 self.layer.borderColor = UIColor.clear.cgColor
             }
         }
     }
 
-    public var delegate: XHBTextAreaDelegate? = nil
+    public var delegate: ZTextAreaDelegate? = nil
     
     public var font: UIFont {
         didSet {
@@ -228,7 +228,7 @@ public class XHBTextArea: UIView {
         label.numberOfLines = 1
         label.backgroundColor = .clear
         label.font = font
-        label.textColor = XHBTextArea.defaultPlaceHolderTextColor
+        label.textColor = ZTextArea.defaultPlaceHolderTextColor
         addSubview(label)
         optionalViews[2] = label
         return label
@@ -237,8 +237,8 @@ public class XHBTextArea: UIView {
     fileprivate lazy var wordCountLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = XHBTextArea.defaultWordCounFont
-        label.textColor = XHBTextArea.defaultWordCountTextColor
+        label.font = ZTextArea.defaultWordCounFont
+        label.textColor = ZTextArea.defaultWordCountTextColor
         label.textAlignment = .right
         addSubview(label)
         optionalViews[3] = label
@@ -262,10 +262,10 @@ public class XHBTextArea: UIView {
         textContainer.maximumNumberOfLines = single ? 1 : 0
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
 
-        font = XHBTextArea.defaultFont
+        font = ZTextArea.defaultFont
         textView.font = font
         returnKeyType = UIReturnKeyType.send
-        paddings = single ? UIEdgeInsets(top: XHBTextArea.paddingV, left: XHBTextArea.paddingH, bottom: XHBTextArea.paddingV, right: XHBTextArea.paddingH) : UIEdgeInsets(top: XHBTextArea.padding, left: XHBTextArea.padding, bottom: XHBTextArea.padding, right: XHBTextArea.padding)
+        paddings = single ? UIEdgeInsets(top: ZTextArea.paddingV, left: ZTextArea.paddingH, bottom: ZTextArea.paddingV, right: ZTextArea.paddingH) : UIEdgeInsets(top: ZTextArea.padding, left: ZTextArea.padding, bottom: ZTextArea.padding, right: ZTextArea.padding)
 
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
 
@@ -275,8 +275,8 @@ public class XHBTextArea: UIView {
     private var textViewConstraintMaker: (ConstraintMaker) -> Void = { (maker) in }
     
     private func initialize() {
-        self.layer.cornerRadius = XHBTextArea.borderRadius
-        self.layer.borderWidth = XHBTextArea.borderWidth
+        self.layer.cornerRadius = ZTextArea.borderRadius
+        self.layer.borderWidth = ZTextArea.borderWidth
         self.autoresizesSubviews = true
         
         textView.delegate = self
@@ -324,7 +324,7 @@ public class XHBTextArea: UIView {
         return textView
     }
 
-    public var fieldBackgroundDidTapClosure: ((XHBTextArea) -> Void)?
+    public var fieldBackgroundDidTapClosure: ((ZTextArea) -> Void)?
 
     @objc private func fieldBackgroundDidTap() {
         fieldBackgroundDidTapClosure?(self)
@@ -477,7 +477,7 @@ public class XHBTextArea: UIView {
     
 }
 
-extension XHBTextArea: UITextViewDelegate {
+extension ZTextArea: UITextViewDelegate {
 
     public func textViewDidBeginEditing(_: UITextView) {
         delegate?.textAreaDidBeginEditing?(self)
@@ -532,7 +532,7 @@ extension XHBTextArea: UITextViewDelegate {
     }
 }
 
-public extension XHBTextArea {
+public extension ZTextArea {
 
     private func shouldChangeTextIn(range: NSRange, with text: String) -> Bool {
         return delegate?.textAreaShouldChangeTextInRange?(self, range, text) ?? true
@@ -697,7 +697,7 @@ public extension XHBTextArea {
     }
 }
 
-extension XHBTextArea {
+extension ZTextArea {
 
     override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if #available(iOS 9.0, *) {

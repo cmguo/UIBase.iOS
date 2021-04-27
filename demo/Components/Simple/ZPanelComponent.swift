@@ -1,5 +1,5 @@
 //
-//  XHBPanelComponent.swift
+//  ZPanelComponent.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/4/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XHBPanelComponent : NSObject, Component
+class ZPanelComponent : NSObject, Component
 {
     var group: ComponentGroup = .Navigation
 
@@ -22,6 +22,6 @@ class XHBPanelComponent : NSObject, Component
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return XHBPanelController()
+        return ZPanelController()
     }()
 }

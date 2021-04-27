@@ -1,5 +1,5 @@
 //
-//  XHBButton.swift
+//  ZButton.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/3/1.
@@ -8,7 +8,7 @@
 import Foundation
 
 @IBDesignable
-public class XHBButton : UIButton
+public class ZButton : UIButton
 {
     public enum ButtonType : CaseIterable {
         case Primitive
@@ -66,7 +66,7 @@ public class XHBButton : UIButton
         }
     }
     
-    public var buttonAppearance: XHBButtonAppearance? = nil {
+    public var buttonAppearance: ZButtonAppearance? = nil {
         didSet {
             self.syncAppearance()
         }
@@ -153,8 +153,8 @@ public class XHBButton : UIButton
     open var indicator: UIView & IndicatorProtocol = MaterialLoadingIndicator()
 
     // Private properties
-    var typeStyles: XHBButtonTypeStyle
-    var sizeStyles: XHBButtonSizeStyle
+    var typeStyles: ZButtonTypeStyle
+    var sizeStyles: ZButtonSizeStyle
     
     open func postHandleIcon() {
     }
@@ -173,12 +173,12 @@ public class XHBButton : UIButton
      - Parameter icon:      the icon of the button, it is be nil by default.
      - Parameter text:      the title of the button.
      */
-    public init(style: XHBButtonStyle = .defaultStyle) {
+    public init(style: ZButtonStyle = .defaultStyle) {
         buttonAppearance = style.appearance
         buttonType2 = style.buttonType ?? .Primitive
         buttonSize = style.buttonSize ?? .Large
-        typeStyles = style.appearance?.typeStyle ?? XHBButton.TypeStyles[style.buttonType ?? .Primitive]!
-        sizeStyles = style.appearance?.sizeStyle ?? XHBButton.SizeStyles[style.buttonSize ?? .Large]!
+        typeStyles = style.appearance?.typeStyle ?? ZButton.TypeStyles[style.buttonType ?? .Primitive]!
+        sizeStyles = style.appearance?.sizeStyle ?? ZButton.SizeStyles[style.buttonSize ?? .Large]!
         iconPosition = typeStyles.iconPosition
         
         super.init(frame: CGRect.zero)
@@ -245,7 +245,7 @@ public class XHBButton : UIButton
     
     /* private */
     
-    fileprivate func applyStyle(_ style: XHBButtonStyle) {
+    fileprivate func applyStyle(_ style: ZButtonStyle) {
         buttonType2 = style.buttonType ?? .Primitive
         buttonSize = style.buttonSize ?? .Large
         buttonAppearance = style.appearance
@@ -253,7 +253,7 @@ public class XHBButton : UIButton
         self.icon = style.icon
     }
     
-    private static let TypeStyles: [ButtonType: XHBButtonTypeStyle] = [
+    private static let TypeStyles: [ButtonType: ZButtonTypeStyle] = [
         .Primitive: .primitiveAppearance,
         .Secondary: .secondaryAppearance,
         .Tertiary: .tertiaryAppearance,
@@ -261,7 +261,7 @@ public class XHBButton : UIButton
         .TextLink: .textLinkAppearance
     ]
     
-    private static let SizeStyles: [ButtonSize: XHBButtonSizeStyle] = [
+    private static let SizeStyles: [ButtonSize: ZButtonSizeStyle] = [
         .Large: .largeAppearance,
         .Middle: .middleAppearance,
         .Small: .smallAppearance,
@@ -272,8 +272,8 @@ public class XHBButton : UIButton
     private var titleSize = CGSize.zero
     
     fileprivate func syncAppearance(_ type: Bool = true, _ size: Bool = true) {
-        typeStyles = buttonAppearance?.typeStyle ?? XHBButton.TypeStyles[buttonType2]!
-        sizeStyles = buttonAppearance?.sizeStyle ?? XHBButton.SizeStyles[buttonSize]!
+        typeStyles = buttonAppearance?.typeStyle ?? ZButton.TypeStyles[buttonType2]!
+        sizeStyles = buttonAppearance?.sizeStyle ?? ZButton.SizeStyles[buttonSize]!
         if type {
             iconPosition = typeStyles.iconPosition
             self.setTitleColor(typeStyles.textColor.normalColor(), for: .normal)
@@ -300,7 +300,7 @@ public class XHBButton : UIButton
         } else if let url = content as? URL {
             text = nil
             icon = url
-        } else if let style = content as? XHBButtonStyle {
+        } else if let style = content as? ZButtonStyle {
             applyStyle(style)
         } else if let (string, url) = content as? (String, URL) {
             text = string
@@ -441,7 +441,7 @@ public class XHBButton : UIButton
     }
 }
 
-public extension XHBButton {
+public extension ZButton {
     
     func text(_ value: String?) -> Self {
         self.text = value
@@ -463,17 +463,17 @@ public extension XHBButton {
 //        return self
 //    }
     
-    func buttonType(_ value: XHBButton.ButtonType) -> Self {
+    func buttonType(_ value: ZButton.ButtonType) -> Self {
         self.buttonType2 = value
         return self
     }
     
-    func buttonSize(_ value: XHBButton.ButtonSize) -> Self {
+    func buttonSize(_ value: ZButton.ButtonSize) -> Self {
         self.buttonSize = value
         return self
     }
     
-    func buttonAppearance(_ value: XHBButtonAppearance) -> Self {
+    func buttonAppearance(_ value: ZButtonAppearance) -> Self {
         self.buttonAppearance = value
         return self
     }

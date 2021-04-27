@@ -1,5 +1,5 @@
 //
-//  XHBActivityView.swift
+//  ZActivityView.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/4/23.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public protocol XHBActivityViewCallback {
-    @objc optional func activityViewButtonClicked(view: XHBActivityView, line: Int, index: Int)
+@objc public protocol ZActivityViewCallback {
+    @objc optional func activityViewButtonClicked(view: ZActivityView, line: Int, index: Int)
 }
 
-public class XHBActivityView : UIView {
+public class ZActivityView : UIView {
 
     public var items1: [Any] = [] {
         didSet {
@@ -27,17 +27,17 @@ public class XHBActivityView : UIView {
         }
     }
     
-    public var callback: XHBActivityViewCallback? = nil
+    public var callback: ZActivityViewCallback? = nil
 
-    private let _line1: XHBActivityLine
-    private let _line2: XHBActivityLine
+    private let _line1: ZActivityLine
+    private let _line2: ZActivityLine
     
-    private let _style: XHBActivityViewStyle
+    private let _style: ZActivityViewStyle
     
-    public init(style: XHBActivityViewStyle = XHBActivityViewStyle()) {
+    public init(style: ZActivityViewStyle = ZActivityViewStyle()) {
         _style = style
-        _line1 = XHBActivityLine(style: style)
-        _line2 = XHBActivityLine(style: style)
+        _line1 = ZActivityLine(style: style)
+        _line2 = ZActivityLine(style: style)
         super.init(frame: .zero)
         
         addSubview(_line1)
@@ -81,7 +81,7 @@ public class XHBActivityView : UIView {
     
 }
 
-public class XHBActivityLine: UIScrollView {
+public class ZActivityLine: UIScrollView {
 
     public var items: [Any] = [] {
         didSet {
@@ -89,9 +89,9 @@ public class XHBActivityLine: UIScrollView {
         }
     }
     
-    private let _style: XHBActivityViewStyle
+    private let _style: ZActivityViewStyle
     
-    public init(style: XHBActivityViewStyle) {
+    public init(style: ZActivityViewStyle) {
         _style = style
         super.init(frame: .zero)
         showsHorizontalScrollIndicator = false
@@ -106,7 +106,7 @@ public class XHBActivityLine: UIScrollView {
         var frame = CGRect(origin: .zero, size: CGSize(width: _style.itemWidth, height: _style.buttonApperance.sizeStyle.height))
         frame.left = _style.itemPaddingX
         frame.top = _style.itemPaddingY
-        var buttons = subviews as! [XHBButton]
+        var buttons = subviews as! [ZButton]
         buttons.forEach { v in v.removeFromSuperview() }
         for i in items {
             let button = buttons.isEmpty ? createButton() : buttons.removeLast()
@@ -122,10 +122,10 @@ public class XHBActivityLine: UIScrollView {
         bounds = frame
     }
     
-    open func createButton() -> XHBButton {
-        let button = XHBActionButton()
+    open func createButton() -> ZButton {
+        let button = ZActionButton()
         button.buttonAppearance = _style.buttonApperance
-        button.addTarget(superview, action: #selector(XHBActivityView.buttonClicked(_:)), for: .touchUpInside)
+        button.addTarget(superview, action: #selector(ZActivityView.buttonClicked(_:)), for: .touchUpInside)
         return button
     }
 

@@ -7,38 +7,38 @@
 
 import Foundation
 
-@objc public protocol XHBTipViewDelegate {
+@objc public protocol ZTipViewDelegate {
 }
 
-@objc public protocol XHBTipViewContentDelegate : XHBTipViewDelegate {
+@objc public protocol ZTipViewContentDelegate : ZTipViewDelegate {
     
-    @objc optional func tipViewMaxWidth(_ tipView: XHBTipView) -> CGFloat
-    @objc optional func tipViewNumberOfLines(_ tipView: XHBTipView) -> Int
-    @objc optional func tipViewPerfectLocation(_ tipView: XHBTipView) -> XHBTipView.Location
-    @objc optional func tipViewIcon(_ tipView: XHBTipView) -> URL?
-    @objc optional func tipViewLeftButton(_ tipView: XHBTipView) -> Any?
-    @objc optional func tipViewRightButton(_ tipView: XHBTipView) -> Any?
+    @objc optional func tipViewMaxWidth(_ tipView: ZTipView) -> CGFloat
+    @objc optional func tipViewNumberOfLines(_ tipView: ZTipView) -> Int
+    @objc optional func tipViewPerfectLocation(_ tipView: ZTipView) -> ZTipView.Location
+    @objc optional func tipViewIcon(_ tipView: ZTipView) -> URL?
+    @objc optional func tipViewLeftButton(_ tipView: ZTipView) -> Any?
+    @objc optional func tipViewRightButton(_ tipView: ZTipView) -> Any?
 }
 
-@objc public protocol XHBTipViewCallbackDelegate : XHBTipViewDelegate {
+@objc public protocol ZTipViewCallbackDelegate : ZTipViewDelegate {
         
-    @objc optional func tipViewDelayTime(_ tipView: XHBTipView) -> Double
-    @objc optional func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?)
-    @objc optional func tipViewDismissed(_ tipView: XHBTipView, isFromUser: Bool)
+    @objc optional func tipViewDelayTime(_ tipView: ZTipView) -> Double
+    @objc optional func tipViewButtonClicked(_ tipView: ZTipView, _ btnId: ZButton.ButtonId?)
+    @objc optional func tipViewDismissed(_ tipView: ZTipView, isFromUser: Bool)
 }
 
-public class XHBTipView : UIView
+public class ZTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, delegate:  XHBTipViewDelegate? = nil) {
-        let tipView = XHBTipView()
+    public class func tip(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
+        let tipView = ZTipView()
         tipView.message = message
         tipView.delegate = delegate
         tipView.popAt(target)
     }
     
-    public class func toast(_ target: UIView, _ message: String, delegate:  XHBTipViewDelegate? = nil) {
-        let tipView = XHBTipView()
+    public class func toast(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
+        let tipView = ZTipView()
         tipView.message = message
         tipView.delegate = delegate
         tipView.location = .AutoToast
@@ -47,7 +47,7 @@ public class XHBTipView : UIView
 
     public class func remove(from target: UIView, animate: Bool = false) {
         for c in target.subviews {
-            if let tip = c as? XHBTipView {
+            if let tip = c as? ZTipView {
                 tip.dismissAnimated(animate)
             }
         }
@@ -55,7 +55,7 @@ public class XHBTipView : UIView
     
     @objc public enum Location : Int, RawRepresentable, CaseIterable, Comparable {
         
-        public static func < (lhs: XHBTipView.Location, rhs: XHBTipView.Location) -> Bool {
+        public static func < (lhs: ZTipView.Location, rhs: ZTipView.Location) -> Bool {
             return lhs.rawValue < rhs.rawValue
         }
         
@@ -144,9 +144,9 @@ public class XHBTipView : UIView
         }
     }
     
-    public var delegate: XHBTipViewDelegate? = nil {
+    public var delegate: ZTipViewDelegate? = nil {
         didSet {
-            if let delegate = self.delegate as? XHBTipViewContentDelegate {
+            if let delegate = self.delegate as? ZTipViewContentDelegate {
                 self.numberOfLines = delegate.tipViewNumberOfLines?(self) ?? self.numberOfLines
                 self.maxWidth = delegate.tipViewMaxWidth?(self) ?? self.maxWidth
                 self.location = delegate.tipViewPerfectLocation?(self) ?? self.location
@@ -173,8 +173,8 @@ public class XHBTipView : UIView
         return label
     }()
     
-    private lazy var _leftButton: XHBButton = {
-        let button = XHBButton()
+    private lazy var _leftButton: ZButton = {
+        let button = ZButton()
         button.buttonType2 = .TextLink
         button.buttonSize = .Thin
         button.id = .Left
@@ -183,8 +183,8 @@ public class XHBTipView : UIView
         return button
     }()
     
-    private lazy var _rightButton: XHBButton = {
-        let button = XHBButton()
+    private lazy var _rightButton: ZButton = {
+        let button = ZButton()
         button.buttonType2 = .TextLink
         button.buttonSize = .Thin
         button.id = .Right
@@ -201,11 +201,11 @@ public class XHBTipView : UIView
         return imageView
     }()
     
-    private let style: XHBTipViewStyle
+    private let style: ZTipViewStyle
     private let backLayer = CALayer()
     private let arrowLayer = CAShapeLayer()
 
-    public init(_ style: XHBTipViewStyle = XHBTipViewStyle()) {
+    public init(_ style: ZTipViewStyle = ZTipViewStyle()) {
         self.style = style
         self.frameColor = style.frameColor
         super.init(frame: CGRect.zero)
@@ -238,7 +238,7 @@ public class XHBTipView : UIView
         self.frame = frame
         
         if location != .ManualLayout {
-            let delayTime = (delegate as? XHBTipViewCallbackDelegate)?.tipViewDelayTime?(self) ?? 3
+            let delayTime = (delegate as? ZTipViewCallbackDelegate)?.tipViewDelayTime?(self) ?? 3
             if delayTime > 0 {
                 DispatchQueue.main.delay(delayTime) {
                     self.dismissAnimated(true)
@@ -377,8 +377,8 @@ public class XHBTipView : UIView
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        (delegate as? XHBTipViewCallbackDelegate)?.tipViewButtonClicked?(
-            self, (sender as! XHBButton).id)
+        (delegate as? ZTipViewCallbackDelegate)?.tipViewButtonClicked?(
+            self, (sender as! ZButton).id)
     }
 
     public override func layoutSubviews() {

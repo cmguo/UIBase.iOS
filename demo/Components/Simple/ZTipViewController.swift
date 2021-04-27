@@ -1,5 +1,5 @@
 //
-//  XHBTipViewController.swift
+//  ZTipViewController.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/23.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBTipViewContentDelegate, XHBTipViewCallbackDelegate {
+class ZTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, ZTipViewContentDelegate, ZTipViewCallbackDelegate {
 
     @objc enum Location : Int {
         case TopLeft
@@ -36,21 +36,21 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     class ToolTipStyles : Styles {
 
         @objc static let _location = ["建议位置", "建议弹出位置，如果左右或者上下超过窗口区域，则会分别自动调整为其他适当位置"]
-        @objc static let _locationStyle: NSObject = EnumStyle(ToolTipStyles.self, "location", XHBTipView.Location.self)
+        @objc static let _locationStyle: NSObject = EnumStyle(ToolTipStyles.self, "location", ZTipView.Location.self)
         @objc var location = Location.TopRight
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
         @objc static let _rightButtonStyle: NSObject = ContentStyle(ToolTipStyles.self, "rightButton", ["<button>"])
         @objc var rightButton: Any? = URL.icon_close
 
-        var location2: XHBTipView.Location {
-            get { XHBTipView.Location.init(rawValue: location.rawValue)! }
+        var location2: ZTipView.Location {
+            get { ZTipView.Location.init(rawValue: location.rawValue)! }
         }
     }
     
     class SnackToastStyles : Styles {
         
-        let location: XHBTipView.Location
+        let location: ZTipView.Location
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
         @objc static let _rightButtonStyle: NSObject = ContentStyle(SnackToastStyles.self, "rightButton", ["<button>"])
@@ -60,7 +60,7 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         @objc static let _iconStyle: NSObject = IconStyle(SnackToastStyles.self, "icon")
         @objc var icon: URL? = Icons.iconURL("info")
         
-        init(_ location: XHBTipView.Location) {
+        init(_ location: ZTipView.Location) {
             self.location = location
             super.init()
             maxWidth = 300
@@ -103,8 +103,8 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     
     init(_ component: Component) {
         self.component = component
-        styles = component is XHBToolTipComponent ? ToolTipStyles()
-            : (component is XHBToastComponent ? ToastStyles() : SnackStyles())
+        styles = component is ZToolTipComponent ? ToolTipStyles()
+            : (component is ZToastComponent ? ToastStyles() : SnackStyles())
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -125,23 +125,23 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         gridView.dataSource = self
         gridView.delegate = self
                 
-        if component is XHBSnackBarComponent {
-            XHBTipView.tip(gridView, styles.message, delegate: self)
+        if component is ZSnackBarComponent {
+            ZTipView.tip(gridView, styles.message, delegate: self)
             styles.listen() {_ in
-                XHBTipView.remove(from: self.gridView)
-                XHBTipView.tip(self.gridView, self.styles.message, delegate: self)
+                ZTipView.remove(from: self.gridView)
+                ZTipView.tip(self.gridView, self.styles.message, delegate: self)
             }
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        styles is ToolTipStyles ? 15 : (component is XHBSnackBarComponent ? 0 : 1)
+        styles is ToolTipStyles ? 15 : (component is ZSnackBarComponent ? 0 : 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = gridView.dequeueReusableCell(withReuseIdentifier: "ToolTip", for: indexPath)
-        let button = XHBButton()
+        let button = ZButton()
         button.text = model.buttonTitle
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (maker) in
@@ -152,22 +152,22 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        XHBTipView.tip(sender, styles.message, delegate: self)
+        ZTipView.tip(sender, styles.message, delegate: self)
     }
         
-    func tipViewMaxWidth(_ tipView: XHBTipView) -> CGFloat {
+    func tipViewMaxWidth(_ tipView: ZTipView) -> CGFloat {
         return styles.maxWidth
     }
     
-    func tipViewNumberOfLines(_ tipView: XHBTipView) -> Int {
+    func tipViewNumberOfLines(_ tipView: ZTipView) -> Int {
         return styles.numberOfLines
     }
     
-    func tipViewLeftButton(_ tipView: XHBTipView) -> Any? {
+    func tipViewLeftButton(_ tipView: ZTipView) -> Any? {
         return (styles as? SnackStyles)?.leftButton
     }
     
-    func tipViewRightButton(_ tipView: XHBTipView) -> Any? {
+    func tipViewRightButton(_ tipView: ZTipView) -> Any? {
         if let styles = styles as? ToolTipStyles {
             return styles.rightButton
         } else if let styles = styles as? SnackToastStyles {
@@ -177,16 +177,16 @@ class XHBTipViewController: ComponentController, UICollectionViewDataSource, UIC
         }
     }
     
-    func tipViewIcon(_ tipView: XHBTipView) -> URL? {
+    func tipViewIcon(_ tipView: ZTipView) -> URL? {
         return (styles as? SnackToastStyles)?.icon
     }
     
-    func tipViewPerfectLocation(_ tipView: XHBTipView) -> XHBTipView.Location {
+    func tipViewPerfectLocation(_ tipView: ZTipView) -> ZTipView.Location {
         return (styles as? ToolTipStyles)?.location2 ?? (styles as! SnackToastStyles).location
     }
     
-    func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?) {
-        XHBTipView.toast(tipView, "点击了按钮 \(btnId ?? .Unknown)")
+    func tipViewButtonClicked(_ tipView: ZTipView, _ btnId: ZButton.ButtonId?) {
+        ZTipView.toast(tipView, "点击了按钮 \(btnId ?? .Unknown)")
         tipView.dismissAnimated(true)
     }
     
