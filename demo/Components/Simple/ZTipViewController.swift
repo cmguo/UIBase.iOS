@@ -32,7 +32,15 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         @objc static let _message = ["消息内容", "自适应消息内容的宽度和高度"]
         @objc var message = "你点击了按钮"
         
-        open func buttonClick(view: UIView, callback: ZTipViewCallback) {
+        @objc static let _tipAppearance = ["视觉样式", "视觉样式集，包括背景色，圆角尺寸，文字样式"]
+        @objc static let _tipAppearanceStyle: NSObject = AppearanceStyle(Styles.self, "tipAppearance", ["TipView"])
+        @objc var tipAppearance: ZTipViewAppearance? = nil
+        
+        func apply(_ tip: ZTipView) {
+            tip.maxWidth = maxWidth
+            tip.numberOfLines = numberOfLines
+            tip.tipAppearance = tipAppearance
+            tip.message = message
         }
     }
     
@@ -50,15 +58,11 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
             get { ZTipView.Location.init(rawValue: location.rawValue)! }
         }
         
-        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
-            let tip = ZTipView()
+        override func apply(_ tip: ZTipView) {
+            super.apply(tip)
             tip.location = location2
-            tip.dismissDelay = 0
-            tip.maxWidth = maxWidth
-            tip.numberOfLines = numberOfLines
             tip.rightButton = rightButton
-            tip.callback = callback
-            tip.popAt(view)
+            tip.dismissDelay = 0
         }
     }
     
@@ -79,6 +83,12 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
             super.init()
             maxWidth = 300
         }
+        
+        override func apply(_ tip: ZTipView) {
+            super.apply(tip)
+            tip.rightButton = rightButton
+            tip.icon = icon
+        }
     }
     
     class ToastStyles : SnackToastStyles {
@@ -88,16 +98,11 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
             message = "网络不给力，请稍后重试"
         }
         
-        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
-            let tip = ZTipView()
+        override func apply(_ tip: ZTipView) {
+            super.apply(tip)
             tip.location = .AutoToast
-            tip.rightButton = rightButton
-            tip.icon = icon
-            tip.maxWidth = maxWidth
-            tip.numberOfLines = numberOfLines
-            tip.callback = callback
-            tip.popAt(view)
         }
+
     }
     
     class SnackStyles : SnackToastStyles {
@@ -111,17 +116,11 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
             message = "我们会基于您所填写的年级和学科来提供对应功能"
         }
         
-        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
-            let tip = ZTipView()
+        override func apply(_ tip: ZTipView) {
+            super.apply(tip)
             tip.location = .ManualLayout
             tip.dismissDelay = 0
             tip.leftButton = leftButton
-            tip.rightButton = rightButton
-            tip.icon = icon
-            tip.maxWidth = maxWidth
-            tip.numberOfLines = numberOfLines
-            tip.callback = callback
-            tip.popAt(view)
         }
     }
     
@@ -190,12 +189,15 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        ZTipView.tip(sender, styles.message, callback: self)
+        let tip = ZTipView()
+        styles.apply(tip)
+        tip.callback = self
+        tip.popAt(sender)
     }
     
     func tipViewButtonClicked(_ tipView: ZTipView, _ btnId: ZButton.ButtonId?) {
         ZTipView.toast(tipView, "点击了按钮 \(btnId ?? .Unknown)")
-        tipView.dismissAnimated(true)
+        tipView.dismiss()
     }
     
 }

@@ -37,6 +37,8 @@
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
+		715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDC26394066005A265C /* ResourceStyle.swift */; };
+		715FBFE0263940F4005A265C /* AppearanceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDF263940F4005A265C /* AppearanceStyle.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -124,6 +126,8 @@
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
+		715FBFDC26394066005A265C /* ResourceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStyle.swift; sourceTree = "<group>"; };
+		715FBFDF263940F4005A265C /* AppearanceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceStyle.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -360,7 +364,9 @@
 				71FF93DE26280A5D0033098B /* IconStyle.swift */,
 				71FF93F9262977B40033098B /* GravityStyle.swift */,
 				71FF9416262D66940033098B /* ContentStyle.swift */,
+				715FBFDC26394066005A265C /* ResourceStyle.swift */,
 				715FBFD9263914B0005A265C /* TimeStyle.swift */,
+				715FBFDF263940F4005A265C /* AppearanceStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
 				7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
+				715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */,
 				715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
 				719536362638043F00C82D2F /* ZDialogComponent.swift in Sources */,
@@ -533,6 +540,7 @@
 				717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */,
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */,
+				715FBFE0263940F4005A265C /* AppearanceStyle.swift in Sources */,
 				719536392638047300C82D2F /* ZDialogController.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
 				717C5C14263504CD001A0E12 /* ZActionSheetComponent.swift in Sources */,

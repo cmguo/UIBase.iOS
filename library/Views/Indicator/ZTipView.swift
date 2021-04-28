@@ -33,9 +33,9 @@ public class ZTipView : UIView
     }
 
     public class func remove(from target: UIView, animate: Bool = false) {
-        for c in target.subviews {
+        for c in target.window?.subviews ?? [] {
             if let tip = c as? ZTipView {
-                tip.dismissAnimated(animate)
+                tip.dismiss(animated: animate)
             }
         }
     }
@@ -55,25 +55,12 @@ public class ZTipView : UIView
         case AutoToast // No arrow
         case ManualLayout // No arrow
     }
-    
-    private static let arrowSize: CGFloat = 6
-    private static let arrowOffset: CGFloat = 16
-    private static let radius: CGFloat = 8
-    private static let paddingX: CGFloat = 16
-    private static let paddingY: CGFloat = 12
-    private static let iconSize: CGFloat = 16
-    private static let iconPadding: CGFloat = 8
-    private static let defaultFrameColor = UIColor(rgb: 0x1D2126)
-    private static let defaultTextColor = UIColor.bluegrey_00
-    private static let defaultFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    private static let defaultSmallFont = UIFont.systemFont(ofSize: 14, weight: .regular)
 
     public var location = Location.TopRight {
         didSet {
             if (self.location >= .AutoToast) {
-                self.textAppearance = _style.textAppearanceSmall
-                if (self.location == .ManualLayout) {
-                    self.frameRadius = 0
+                if tipAppearance == nil {
+                    syncAppearance()
                 }
             }
         }
@@ -91,16 +78,36 @@ public class ZTipView : UIView
         set { _backLayer.cornerRadius = newValue }
     }
     
+    public var frameAlpha: Float {
+        get { _backLayer.opacity }
+        set {
+            _backLayer.opacity = newValue
+            _arrowLayer.opacity = newValue
+        }
+    }
+    
     public var frameColor: UIColor = .black {
         didSet {
             _backLayer.backgroundColor = frameColor.cgColor
-            _arrowLayer.backgroundColor = frameColor.cgColor
+            _arrowLayer.fillColor = frameColor.cgColor
         }
     }
     
     public var textAppearance = TextAppearance() {
         didSet {
             messageLabel.textAppearance = textAppearance
+        }
+    }
+    
+    public var textColor: UIColor = .bluegrey_00 {
+        didSet {
+            messageLabel.textColor = textColor
+        }
+    }
+    
+    public var tipAppearance: ZTipViewAppearance? = nil {
+        didSet {
+            syncAppearance()
         }
     }
     
@@ -174,17 +181,27 @@ public class ZTipView : UIView
 
     public init(_ style: ZTipViewStyle = ZTipViewStyle()) {
         self._style = style
-        self.frameColor = style.frameColor
+        self.tipAppearance = style.tipAppearance
+        self.dismissDelay = style.dismissDelay
+
         super.init(frame: CGRect.zero)
-        dismissDelay = style.dismissDelay
         
-        _backLayer.backgroundColor = style.frameColor.cgColor
-        _arrowLayer.fillColor = style.frameColor.cgColor
-        _backLayer.cornerRadius = style.radius
+        syncAppearance()
+        
+        _backLayer.backgroundColor = frameColor.cgColor
+        _arrowLayer.fillColor = frameColor.cgColor
+        _backLayer.cornerRadius = frameRadius
+        _backLayer.opacity = frameAlpha
+        _arrowLayer.opacity = frameAlpha
         layer.addSublayer(_backLayer)
 
-        messageLabel.textAppearance = style.textAppearance
+        messageLabel.textAppearance = textAppearance
+        messageLabel.textColor = textColor
         addSubview(messageLabel)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     public func popAt(_ target: UIView) {
@@ -205,13 +222,83 @@ public class ZTipView : UIView
         }
         self.frame = frame
         
-        if location != .ManualLayout {
-            if _style.dismissDelay > 0 {
-                DispatchQueue.main.delay(dismissDelay) {
-                    self.dismissAnimated(true)
-                }
+        if dismissDelay > 0 {
+            DispatchQueue.main.delay(dismissDelay) {
+                self.dismiss(animated: true)
             }
         }
+        if location < Location.AutoToast {
+            Self.overlayFrame.attach(self)
+        }
+    }
+
+    public override func layoutSubviews() {
+        var frame = self.bounds
+        if let l = location2, l != .AutoToast {
+            let x = l.rawValue % 3
+            let y = l.rawValue >= 3
+            var arrowRect = y ? frame.cutTop(_style.arrowSize) : frame.cutBottom(_style.arrowSize)
+            if x == 2 { arrowRect.centerX = frame.left + _style.arrowOffset }
+            else if (x == 1) { arrowRect.centerX = frame.centerX }
+            else { arrowRect.centerX = frame.right - _style.arrowOffset }
+            let path = CGMutablePath()
+            if !y { // down
+                path.move(to: CGPoint.zero)
+                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: 0))
+                path.addLine(to: CGPoint(x: _style.arrowSize, y: _style.arrowSize))
+            } else {
+                path.move(to: CGPoint(x: 0, y: _style.arrowSize))
+                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: _style.arrowSize))
+                path.addLine(to: CGPoint(x: _style.arrowSize, y: 0))
+            }
+            path.closeSubpath()
+            _arrowLayer.path = path
+            _arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: _style.arrowSize * 2, height: _style.arrowSize))
+            layer.addSublayer(_arrowLayer)
+        }
+        _backLayer.frame = frame
+        frame.deflate(width: _style.paddingX, height: _style.paddingY)
+        if leftButton != nil {
+            let iconRect = frame.cutLeft(_style.paddingX + _leftButton.bounds.width)
+            _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
+        }
+        if rightButton != nil {
+            let iconRect = frame.cutRight(_style.paddingX + _rightButton.bounds.width)
+            _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
+        }
+        if icon != nil {
+            let iconRect = frame.cutLeft(_style.iconPadding + _style.iconSize)
+            _iconView.frame = iconRect.leftCenterPart(ofSize: _iconView.bounds.size)
+        }
+        messageLabel.frame = frame
+    }
+    
+    public func dismiss(animated: Bool = true) {
+        if animated {
+            var customFrame = frame
+            customFrame.origin.y += 10
+
+            UIView.beginAnimations(nil, context: nil)
+            alpha = 0
+            frame = customFrame
+            UIView.setAnimationDelegate(self)
+            UIView.setAnimationDidStop(#selector(finaliseDismiss))
+            UIView.commitAnimations()
+        } else {
+            finaliseDismiss()
+        }
+    }
+
+
+    /* private */
+    
+    private func syncAppearance() {
+        let a: ZTipViewAppearance = tipAppearance ?? (location < Location.AutoToast ? .ToolTip : (location == Location.AutoToast ? .Toast : .Snack))
+        frameColor = a.frameColor
+        frameRadius = a.frameRadius
+        frameAlpha = a.frameAlpha
+        textAppearance = a.textAppearance
+        textColor = a.textColor
     }
     
     fileprivate func calcSize(_ mWidth: CGFloat) -> CGSize {
@@ -320,26 +407,13 @@ public class ZTipView : UIView
         return frame.origin
     }
 
-    public func dismissAnimated(_ animated: Bool) {
-        if animated {
-            var customFrame = frame
-            customFrame.origin.y += 10
-
-            UIView.beginAnimations(nil, context: nil)
-            alpha = 0
-            frame = customFrame
-            UIView.setAnimationDelegate(self)
-            UIView.setAnimationDidStop(#selector(finaliseDismiss))
-            UIView.commitAnimations()
-        } else {
-            finaliseDismiss()
-        }
-    }
-
     @objc func finaliseDismiss() {
         removeFromSuperview()
         if location2 == .AutoToast {
             Self.toastCount -= 1
+        }
+        if location < Location.AutoToast {
+            Self.overlayFrame.detach(self)
         }
     }
     
@@ -347,49 +421,47 @@ public class ZTipView : UIView
         callback?.tipViewButtonClicked?(self, (sender as! ZButton).id)
     }
 
-    public override func layoutSubviews() {
-        var frame = self.bounds
-        if let l = location2, l != .AutoToast {
-            let x = l.rawValue % 3
-            let y = l.rawValue >= 3
-            var arrowRect = y ? frame.cutTop(_style.arrowSize) : frame.cutBottom(_style.arrowSize)
-            if x == 2 { arrowRect.centerX = frame.left + _style.arrowOffset }
-            else if (x == 1) { arrowRect.centerX = frame.centerX }
-            else { arrowRect.centerX = frame.right - _style.arrowOffset }
-            let path = CGMutablePath()
-            if !y { // down
-                path.move(to: CGPoint.zero)
-                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: 0))
-                path.addLine(to: CGPoint(x: _style.arrowSize, y: _style.arrowSize))
-            } else {
-                path.move(to: CGPoint(x: 0, y: _style.arrowSize))
-                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: _style.arrowSize))
-                path.addLine(to: CGPoint(x: _style.arrowSize, y: 0))
+    private static let overlayFrame = OverlayFrame()
+
+    private class OverlayFrame : UIView, UIGestureRecognizerDelegate {
+        
+        private var tipList: [ZTipView] = []
+
+        init() {
+            super.init(frame: .zero)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+            tap.delegate = self
+            addGestureRecognizer(tap)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+            return touch.view == self
+        }
+        
+        @objc private func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
+            for tip in tipList {
+                tip.dismiss(animated: false)
             }
-            path.closeSubpath()
-            _arrowLayer.path = path
-            _arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: _style.arrowSize * 2, height: _style.arrowSize))
-            layer.addSublayer(_arrowLayer)
+            removeFromSuperview()
         }
-        _backLayer.frame = frame
-        frame.deflate(width: _style.paddingX, height: _style.paddingY)
-        if leftButton != nil {
-            let iconRect = frame.cutLeft(_style.paddingX + _leftButton.bounds.width)
-            _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
+
+        fileprivate func attach(_ tip: ZTipView) {
+            if !tipList.contains(tip) {
+                tipList.append(tip)
+            }
+            frame = tip.window!.bounds
+            tip.window?.addSubview(self)
         }
-        if rightButton != nil {
-            let iconRect = frame.cutRight(_style.paddingX + _rightButton.bounds.width)
-            _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
+
+        fileprivate func detach(_ tip: ZTipView) {
+            tipList.removeAll(where: { t in t == tip })
+            if tipList.isEmpty {
+                removeFromSuperview()
+            }
         }
-        if icon != nil {
-            let iconRect = frame.cutLeft(_style.iconPadding + _style.iconSize)
-            _iconView.frame = iconRect.leftCenterPart(ofSize: _iconView.bounds.size)
-        }
-        messageLabel.frame = frame
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
