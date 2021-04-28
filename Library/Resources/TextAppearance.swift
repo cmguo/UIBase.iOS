@@ -35,6 +35,11 @@ public class TextAppearance {
         return self
     }
     
+    public func textColor(_ color: UIColor) -> TextAppearance {
+        textColors = StateListColor(singleColor: color)
+        return self
+    }
+    
     public func textWeight(_ weight: UIFont.Weight) -> TextAppearance {
         textWeight = weight
         return self

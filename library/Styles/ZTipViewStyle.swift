@@ -18,9 +18,9 @@ public class ZTipViewStyle {
     public var iconPadding: CGFloat = 8
     public var frameColor = UIColor(rgb: 0x1D2126)
     public var textColor = UIColor.bluegrey_00
-    public var font = UIFont.systemFont(ofSize: 16, weight: .regular)
-    public var smallFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+    public var dismissDelay: Double = 3000
+    public var textAppearance = TextAppearance(copy: .Body_Middle).textColor(.bluegrey_00)
+    public var textAppearanceSmall = TextAppearance(copy: .Body_Small).textColor(.bluegrey_00)
     
     public init() {}
 }
-

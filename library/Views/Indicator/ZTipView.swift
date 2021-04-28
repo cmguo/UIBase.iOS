@@ -7,20 +7,7 @@
 
 import Foundation
 
-@objc public protocol ZTipViewDelegate {
-}
-
-@objc public protocol ZTipViewContentDelegate : ZTipViewDelegate {
-    
-    @objc optional func tipViewMaxWidth(_ tipView: ZTipView) -> CGFloat
-    @objc optional func tipViewNumberOfLines(_ tipView: ZTipView) -> Int
-    @objc optional func tipViewPerfectLocation(_ tipView: ZTipView) -> ZTipView.Location
-    @objc optional func tipViewIcon(_ tipView: ZTipView) -> URL?
-    @objc optional func tipViewLeftButton(_ tipView: ZTipView) -> Any?
-    @objc optional func tipViewRightButton(_ tipView: ZTipView) -> Any?
-}
-
-@objc public protocol ZTipViewCallbackDelegate : ZTipViewDelegate {
+@objc public protocol ZTipViewCallback {
         
     @objc optional func tipViewDelayTime(_ tipView: ZTipView) -> Double
     @objc optional func tipViewButtonClicked(_ tipView: ZTipView, _ btnId: ZButton.ButtonId?)
@@ -30,17 +17,17 @@ import Foundation
 public class ZTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
+    public class func tip(_ target: UIView, _ message: String, callback:  ZTipViewCallback? = nil) {
         let tipView = ZTipView()
         tipView.message = message
-        tipView.delegate = delegate
+        tipView.callback = callback
         tipView.popAt(target)
     }
     
-    public class func toast(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
+    public class func toast(_ target: UIView, _ message: String, callback:  ZTipViewCallback? = nil) {
         let tipView = ZTipView()
         tipView.message = message
-        tipView.delegate = delegate
+        tipView.callback = callback
         tipView.location = .AutoToast
         tipView.popAt(target)
     }
@@ -84,7 +71,7 @@ public class ZTipView : UIView
     public var location = Location.TopRight {
         didSet {
             if (self.location >= .AutoToast) {
-                self.font = style.smallFont
+                self.textAppearance = _style.textAppearanceSmall
                 if (self.location == .ManualLayout) {
                     self.frameRadius = 0
                 }
@@ -100,25 +87,21 @@ public class ZTipView : UIView
     }
     
     public var frameRadius: CGFloat {
-        get { backLayer.cornerRadius }
-        set { backLayer.cornerRadius = newValue }
+        get { _backLayer.cornerRadius }
+        set { _backLayer.cornerRadius = newValue }
     }
     
     public var frameColor: UIColor = .black {
         didSet {
-            backLayer.backgroundColor = frameColor.cgColor
-            arrowLayer.backgroundColor = frameColor.cgColor
+            _backLayer.backgroundColor = frameColor.cgColor
+            _arrowLayer.backgroundColor = frameColor.cgColor
         }
     }
     
-    public var textColor: UIColor {
-        get { messageLabel.textColor }
-        set { messageLabel.textColor = newValue }
-    }
-    
-    public var font: UIFont {
-        get { messageLabel.font }
-        set { messageLabel.font = newValue }
+    public var textAppearance = TextAppearance() {
+        didSet {
+            messageLabel.textAppearance = textAppearance
+        }
     }
     
     public var numberOfLines: Int {
@@ -140,29 +123,13 @@ public class ZTipView : UIView
     
     public var icon: URL? {
         didSet {
-            iconView.setImage(withURL: icon)
+            _iconView.setImage(withURL: icon)
         }
     }
     
-    public var delegate: ZTipViewDelegate? = nil {
-        didSet {
-            if let delegate = self.delegate as? ZTipViewContentDelegate {
-                self.numberOfLines = delegate.tipViewNumberOfLines?(self) ?? self.numberOfLines
-                self.maxWidth = delegate.tipViewMaxWidth?(self) ?? self.maxWidth
-                self.location = delegate.tipViewPerfectLocation?(self) ?? self.location
-                if let button = delegate.tipViewLeftButton?(self) {
-                    self.leftButton = button
-                }
-                if let button = delegate.tipViewRightButton?(self) {
-                    self.rightButton = button
-                }
-                if let icon = delegate.tipViewIcon?(self) {
-                    self.icon = icon
-                }
-            }
-
-        }
-    }
+    public var dismissDelay: Double = 0
+    
+    public var callback: ZTipViewCallback? = nil
     
     /* private variables */
     
@@ -193,29 +160,30 @@ public class ZTipView : UIView
         return button
     }()
     
-    private lazy var iconView: UIImageView = {
+    private lazy var _iconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.bounds.width2 = style.iconSize
-        imageView.bounds.height2 = style.iconSize
+        imageView.bounds.width2 = _style.iconSize
+        imageView.bounds.height2 = _style.iconSize
         addSubview(imageView)
         return imageView
     }()
     
-    private let style: ZTipViewStyle
-    private let backLayer = CALayer()
-    private let arrowLayer = CAShapeLayer()
+    private let _style: ZTipViewStyle
+    private let _backLayer = CALayer()
+    private let _arrowLayer = CAShapeLayer()
 
     public init(_ style: ZTipViewStyle = ZTipViewStyle()) {
-        self.style = style
+        self._style = style
         self.frameColor = style.frameColor
         super.init(frame: CGRect.zero)
-        backLayer.backgroundColor = style.frameColor.cgColor
-        arrowLayer.fillColor = style.frameColor.cgColor
-        backLayer.cornerRadius = style.radius
-        layer.addSublayer(backLayer)
+        dismissDelay = style.dismissDelay
+        
+        _backLayer.backgroundColor = style.frameColor.cgColor
+        _arrowLayer.fillColor = style.frameColor.cgColor
+        _backLayer.cornerRadius = style.radius
+        layer.addSublayer(_backLayer)
 
-        messageLabel.font = style.font
-        messageLabel.textColor = style.textColor
+        messageLabel.textAppearance = style.textAppearance
         addSubview(messageLabel)
     }
     
@@ -238,9 +206,8 @@ public class ZTipView : UIView
         self.frame = frame
         
         if location != .ManualLayout {
-            let delayTime = (delegate as? ZTipViewCallbackDelegate)?.tipViewDelayTime?(self) ?? 3
-            if delayTime > 0 {
-                DispatchQueue.main.delay(delayTime) {
+            if _style.dismissDelay > 0 {
+                DispatchQueue.main.delay(dismissDelay) {
                     self.dismissAnimated(true)
                 }
             }
@@ -248,18 +215,18 @@ public class ZTipView : UIView
     }
     
     fileprivate func calcSize(_ mWidth: CGFloat) -> CGSize {
-        var size = CGSize(width: style.paddingX * 2, height: style.paddingY * 2)
+        var size = CGSize(width: _style.paddingX * 2, height: _style.paddingY * 2)
         if leftButton != nil {
-            size.width += style.paddingX + _leftButton.bounds.width
+            size.width += _style.paddingX + _leftButton.bounds.width
         }
         if icon != nil {
-            size.width += style.iconPadding + style.iconSize
+            size.width += _style.iconPadding + _style.iconSize
         }
         if rightButton != nil {
-            size.width += style.paddingX + _rightButton.bounds.width
+            size.width += _style.paddingX + _rightButton.bounds.width
         }
         if location < .AutoToast {
-            size.height += style.arrowSize
+            size.height += _style.arrowSize
         }
         let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
         size.width += textSize.width
@@ -294,11 +261,11 @@ public class ZTipView : UIView
         let checkX: (Int) -> Int = { (x) in
             switch x {
             case 0: // Left
-                frame.right = tbounds.centerX + self.style.arrowOffset
+                frame.right = tbounds.centerX + self._style.arrowOffset
             case 1:
                 frame.centerX = tbounds.centerX
             case 2:
-                frame.left = tbounds.centerX - self.style.arrowOffset
+                frame.left = tbounds.centerX - self._style.arrowOffset
             default:
                 break
             }
@@ -377,8 +344,7 @@ public class ZTipView : UIView
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        (delegate as? ZTipViewCallbackDelegate)?.tipViewButtonClicked?(
-            self, (sender as! ZButton).id)
+        callback?.tipViewButtonClicked?(self, (sender as! ZButton).id)
     }
 
     public override func layoutSubviews() {
@@ -386,38 +352,38 @@ public class ZTipView : UIView
         if let l = location2, l != .AutoToast {
             let x = l.rawValue % 3
             let y = l.rawValue >= 3
-            var arrowRect = y ? frame.cutTop(style.arrowSize) : frame.cutBottom(style.arrowSize)
-            if x == 2 { arrowRect.centerX = frame.left + style.arrowOffset }
+            var arrowRect = y ? frame.cutTop(_style.arrowSize) : frame.cutBottom(_style.arrowSize)
+            if x == 2 { arrowRect.centerX = frame.left + _style.arrowOffset }
             else if (x == 1) { arrowRect.centerX = frame.centerX }
-            else { arrowRect.centerX = frame.right - style.arrowOffset }
+            else { arrowRect.centerX = frame.right - _style.arrowOffset }
             let path = CGMutablePath()
             if !y { // down
                 path.move(to: CGPoint.zero)
-                path.addLine(to: CGPoint(x: style.arrowSize * 2, y: 0))
-                path.addLine(to: CGPoint(x: style.arrowSize, y: style.arrowSize))
+                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: 0))
+                path.addLine(to: CGPoint(x: _style.arrowSize, y: _style.arrowSize))
             } else {
-                path.move(to: CGPoint(x: 0, y: style.arrowSize))
-                path.addLine(to: CGPoint(x: style.arrowSize * 2, y: style.arrowSize))
-                path.addLine(to: CGPoint(x: style.arrowSize, y: 0))
+                path.move(to: CGPoint(x: 0, y: _style.arrowSize))
+                path.addLine(to: CGPoint(x: _style.arrowSize * 2, y: _style.arrowSize))
+                path.addLine(to: CGPoint(x: _style.arrowSize, y: 0))
             }
             path.closeSubpath()
-            arrowLayer.path = path
-            arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: style.arrowSize * 2, height: style.arrowSize))
-            layer.addSublayer(arrowLayer)
+            _arrowLayer.path = path
+            _arrowLayer.frame = arrowRect.centerPart(ofSize: CGSize(width: _style.arrowSize * 2, height: _style.arrowSize))
+            layer.addSublayer(_arrowLayer)
         }
-        backLayer.frame = frame
-        frame.deflate(width: style.paddingX, height: style.paddingY)
+        _backLayer.frame = frame
+        frame.deflate(width: _style.paddingX, height: _style.paddingY)
         if leftButton != nil {
-            let iconRect = frame.cutLeft(style.paddingX + _leftButton.bounds.width)
+            let iconRect = frame.cutLeft(_style.paddingX + _leftButton.bounds.width)
             _leftButton.frame = iconRect.leftCenterPart(ofSize: _leftButton.bounds.size)
         }
         if rightButton != nil {
-            let iconRect = frame.cutRight(style.paddingX + _rightButton.bounds.width)
+            let iconRect = frame.cutRight(_style.paddingX + _rightButton.bounds.width)
             _rightButton.frame = iconRect.rightCenterPart(ofSize: _rightButton.bounds.size)
         }
         if icon != nil {
-            let iconRect = frame.cutLeft(style.iconPadding + style.iconSize)
-            iconView.frame = iconRect.leftCenterPart(ofSize: iconView.bounds.size)
+            let iconRect = frame.cutLeft(_style.iconPadding + _style.iconSize)
+            _iconView.frame = iconRect.leftCenterPart(ofSize: _iconView.bounds.size)
         }
         messageLabel.frame = frame
     }

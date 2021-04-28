@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class ZTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, ZTipViewContentDelegate, ZTipViewCallbackDelegate {
+class ZTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, ZTipViewCallback {
 
     @objc enum Location : Int {
         case TopLeft
@@ -31,6 +31,9 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         
         @objc static let _message = ["消息内容", "自适应消息内容的宽度和高度"]
         @objc var message = "你点击了按钮"
+        
+        open func buttonClick(view: UIView, callback: ZTipViewCallback) {
+        }
     }
     
     class ToolTipStyles : Styles {
@@ -45,6 +48,17 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
 
         var location2: ZTipView.Location {
             get { ZTipView.Location.init(rawValue: location.rawValue)! }
+        }
+        
+        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
+            let tip = ZTipView()
+            tip.location = location2
+            tip.dismissDelay = 0
+            tip.maxWidth = maxWidth
+            tip.numberOfLines = numberOfLines
+            tip.rightButton = rightButton
+            tip.callback = callback
+            tip.popAt(view)
         }
     }
     
@@ -73,6 +87,17 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
             super.init(.AutoToast)
             message = "网络不给力，请稍后重试"
         }
+        
+        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
+            let tip = ZTipView()
+            tip.location = .AutoToast
+            tip.rightButton = rightButton
+            tip.icon = icon
+            tip.maxWidth = maxWidth
+            tip.numberOfLines = numberOfLines
+            tip.callback = callback
+            tip.popAt(view)
+        }
     }
     
     class SnackStyles : SnackToastStyles {
@@ -84,6 +109,19 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         init() {
             super.init(.ManualLayout)
             message = "我们会基于您所填写的年级和学科来提供对应功能"
+        }
+        
+        override func buttonClick(view: UIView, callback: ZTipViewCallback) {
+            let tip = ZTipView()
+            tip.location = .ManualLayout
+            tip.dismissDelay = 0
+            tip.leftButton = leftButton
+            tip.rightButton = rightButton
+            tip.icon = icon
+            tip.maxWidth = maxWidth
+            tip.numberOfLines = numberOfLines
+            tip.callback = callback
+            tip.popAt(view)
         }
     }
     
@@ -126,10 +164,10 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         gridView.delegate = self
                 
         if component is ZSnackBarComponent {
-            ZTipView.tip(gridView, styles.message, delegate: self)
+            ZTipView.tip(gridView, styles.message, callback: self)
             styles.listen() {_ in
                 ZTipView.remove(from: self.gridView)
-                ZTipView.tip(self.gridView, self.styles.message, delegate: self)
+                ZTipView.tip(self.gridView, self.styles.message, callback: self)
             }
         }
         
@@ -152,37 +190,7 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        ZTipView.tip(sender, styles.message, delegate: self)
-    }
-        
-    func tipViewMaxWidth(_ tipView: ZTipView) -> CGFloat {
-        return styles.maxWidth
-    }
-    
-    func tipViewNumberOfLines(_ tipView: ZTipView) -> Int {
-        return styles.numberOfLines
-    }
-    
-    func tipViewLeftButton(_ tipView: ZTipView) -> Any? {
-        return (styles as? SnackStyles)?.leftButton
-    }
-    
-    func tipViewRightButton(_ tipView: ZTipView) -> Any? {
-        if let styles = styles as? ToolTipStyles {
-            return styles.rightButton
-        } else if let styles = styles as? SnackToastStyles {
-            return styles.rightButton
-        } else {
-            return nil
-        }
-    }
-    
-    func tipViewIcon(_ tipView: ZTipView) -> URL? {
-        return (styles as? SnackToastStyles)?.icon
-    }
-    
-    func tipViewPerfectLocation(_ tipView: ZTipView) -> ZTipView.Location {
-        return (styles as? ToolTipStyles)?.location2 ?? (styles as! SnackToastStyles).location
+        ZTipView.tip(sender, styles.message, callback: self)
     }
     
     func tipViewButtonClicked(_ tipView: ZTipView, _ btnId: ZButton.ButtonId?) {
