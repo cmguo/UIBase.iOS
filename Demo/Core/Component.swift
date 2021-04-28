@@ -12,7 +12,7 @@ public enum ComponentGroup: Int {
     case Basic
     case Indicator
     case Input
-    case MenuList
+    case Optional
     case Navigation
     case DataView
     case Complex

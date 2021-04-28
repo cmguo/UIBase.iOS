@@ -13,6 +13,7 @@
 		711202A225FA1BA6004A3AA5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202A125FA1BA6004A3AA5 /* String.swift */; };
 		714D7FC42637EF3200DCCEE0 /* ZDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D7FC32637EF3200DCCEE0 /* ZDialog.swift */; };
 		714D7FCC2637F30100DCCEE0 /* ZDialogStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */; };
+		715FBFCD2638FF77005A265C /* ZTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCC2638FF77005A265C /* ZTimePickerView.swift */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -91,6 +92,7 @@
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
 		714D7FC32637EF3200DCCEE0 /* ZDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDialog.swift; sourceTree = "<group>"; };
 		714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDialogStyle.swift; sourceTree = "<group>"; };
+		715FBFCC2638FF77005A265C /* ZTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerView.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				717C5B7F2631191D001A0E12 /* ZDropDown.swift */,
 				717C5BDF2632B50F001A0E12 /* ZActivityView.swift */,
 				717C5C10263502F2001A0E12 /* ZActionSheet.swift */,
+				715FBFCC2638FF77005A265C /* ZTimePickerView.swift */,
 			);
 			path = Optional;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				717C5B802631191D001A0E12 /* ZDropDown.swift in Sources */,
+				715FBFCD2638FF77005A265C /* ZTimePickerView.swift in Sources */,
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
 				717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */,
 				717C5B4C262FCEFE001A0E12 /* ZAppTitleBarStyle.swift in Sources */,

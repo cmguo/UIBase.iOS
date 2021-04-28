@@ -9,7 +9,7 @@ import Foundation
 
 class ZActionSheetComponent : NSObject, Component
 {
-    var group: ComponentGroup = .MenuList
+    var group: ComponentGroup = .Optional
 
     var id: Int = 0
         

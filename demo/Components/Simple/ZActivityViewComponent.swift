@@ -9,7 +9,7 @@ import Foundation
 
 class ZActivityViewComponent : NSObject, Component
 {
-    var group: ComponentGroup = .MenuList
+    var group: ComponentGroup = .Optional
 
     var id: Int = 0
         

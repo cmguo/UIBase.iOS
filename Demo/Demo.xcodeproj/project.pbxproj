@@ -34,6 +34,9 @@
 		712876DD25E743C80054A74B /* StyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876DB25E743C80054A74B /* StyleTableViewCell.swift */; };
 		712876E825E746A40054A74B /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876E625E746A40054A74B /* TextTableViewCell.swift */; };
 		712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876EB25E746CB0054A74B /* ListTableViewCell.swift */; };
+		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
+		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
+		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -118,6 +121,9 @@
 		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTableViewCell.swift; sourceTree = "<group>"; };
 		712876E625E746A40054A74B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		712876EB25E746CB0054A74B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
+		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
+		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 				71FF93DE26280A5D0033098B /* IconStyle.swift */,
 				71FF93F9262977B40033098B /* GravityStyle.swift */,
 				71FF9416262D66940033098B /* ContentStyle.swift */,
+				715FBFD9263914B0005A265C /* TimeStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -392,6 +399,8 @@
 				717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */,
 				717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */,
 				717C5C16263504D7001A0E12 /* ZActionSheetController.swift */,
+				715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */,
+				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -511,8 +520,10 @@
 				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
 				7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
+				715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
 				719536362638043F00C82D2F /* ZDialogComponent.swift in Sources */,
+				715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */,
 				71FF93DF26280A5D0033098B /* IconStyle.swift in Sources */,
 				71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */,
 				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
@@ -540,6 +551,7 @@
 				71FF9417262D66940033098B /* ContentStyle.swift in Sources */,
 				7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */,
 				71F5440525E50B4700AEB07A /* ZTextInputController.swift in Sources */,
+				715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */,
 				712876DD25E743C80054A74B /* StyleTableViewCell.swift in Sources */,
 				71F5440325E50B4700AEB07A /* ZTextAreaController.swift in Sources */,
 				71F543E425E5054900AEB07A /* ZButtonController.swift in Sources */,
