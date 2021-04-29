@@ -11,32 +11,47 @@ import Foundation
     @objc optional func timePickerSelectTimeChanged(picker: ZTimePickerView, time: Date)
 }
 
-public class ZTimePickerView : UIDatePicker {
+public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     public enum TimeMode : Int, RawRepresentable, CaseIterable {
-        case HourMinute
-        case YearMonthDay
-        case MonthWithDayWithWeekHourMinute
+        case YearMonthDay = 0b110100000
+        case YearMonthWithDayWithWeek = 0b1110010000
+        case MonthWithDayWithWeekHourMinute = 0b1010010110
     }
     
-    public var timeMode: TimeMode {
-        get { TimeMode(rawValue: datePickerMode.rawValue)! }
-        set { datePickerMode = Mode(rawValue: newValue.rawValue)! }
+    public var timeMode: TimeMode = .YearMonthDay {
+        didSet {
+            syncTimeMode()
+        }
     }
     
-    public var startTime: Date? {
-        get { return minimumDate }
-        set { minimumDate = newValue }
+    public var timeMode2: Int = 0 {
+        didSet {
+            syncTimeMode()
+        }
     }
     
-    public var endTime: Date? {
-        get { return maximumDate }
-        set { maximumDate = newValue }
+    private var labels: [String] = [
+        "x秒", "x分", "x时", "上午/下午",
+        "x日 周x", "第x周", "x月", "x年"]
+    
+    public var startTime: Date? = nil {
+        didSet {
+            syncTimeRange()
+        }
+    }
+    
+    public var endTime: Date? = nil {
+        didSet {
+            syncTimeRange()
+        }
     }
     
     public var selectTime: Date {
-        get { return date }
-        set { date = newValue }
+        get { state.current! }
+        set {
+            state.setCurrent(newValue)
+        }
     }
 
     public var textAppearance: TextAppearance? = nil {
@@ -47,30 +62,91 @@ public class ZTimePickerView : UIDatePicker {
         }
     }
     
-    public var highlightsToday: Bool {
-        get { return self.value(forKey: "highlightsToday") as! Bool }
-        set { setValue(newValue, forKey: "highlightsToday") }
+    public var timeInterval: Int = 1 {
+        didSet {
+            if oldValue != timeInterval {
+                state.setInterval(timeInterval)
+            }
+        }
     }
     
     public var callback: ZTimePickerViewCallback? = nil
     
-    public init() {
+    fileprivate let state = CalendarState()
+    
+    private let _style: ZTimePickerViewStyle
+    private var _reloadMask = 0
+        
+    public init(style: ZTimePickerViewStyle = ZTimePickerViewStyle()) {
+        _style = style
+        textAppearance = style.textAppearance
         super.init(frame: .zero)
-        locale = Locale(identifier: "zh_CN")
-        calendar = .current
-        if #available(iOS 13.4, *) {
-            preferredDatePickerStyle = .wheels
+        self.state.fieldUpdated = { f in
+            self._reloadMask |= 1 << f.index
+            self.reloadComponent(f.index)
         }
-        addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        self.dataSource = self
+        self.delegate = self
+        syncTimeMode()
+        self.state.setCurrent(selectTime)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
-    /* private */
-    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        callback?.timePickerSelectTimeChanged?(picker: self, time: date)
+    
+    public override func rowSize(forComponent component: Int) -> CGSize {
+        var size = super.rowSize(forComponent: component)
+        if (_reloadMask & (1 << component)) != 0 {
+            size.width = pickerView(self, widthForComponent: component)
+            _reloadMask &= ~(1 << component)
+        }
+        return size
     }
     
+    /* private */
+    
+    private func syncTimeMode() {
+        let mode = timeMode2 == 0 ? timeMode.rawValue : timeMode2
+        state.setMode(mode >> 4, mode & 15, labels, timeInterval)
+        reloadAllComponents()
+    }
+    
+    private func syncTimeRange() {
+        state.setRange(startTime, endTime)
+    }
+    
+    private func syncTime() {
+        state.setCurrent(selectTime)
+    }
+    
+    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
+        callback?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
+    }
+ 
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return state.fields.count
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return state.fields[component].count
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        // TODO: update on reloadComponent
+        return state.getMaxTitle(component).boundingSize(font: textAppearance!.font).width
+    }
+    
+//    public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+//        return state.getCurrent(component).boundingSize(font: textAppearance!.font).height
+//    }
+    
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        state.setCurrent(component, row)
+        callback?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        state.title(component, row)
+    }
 }

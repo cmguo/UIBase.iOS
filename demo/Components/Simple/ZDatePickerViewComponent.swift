@@ -1,13 +1,13 @@
 //
-//  ZTimePickerViewComponent.swift
+//  ZDatePickerViewComponent.swift
 //  Demo
 //
-//  Created by 郭春茂 on 2021/4/28.
+//  Created by 郭春茂 on 2021/4/29.
 //
 
 import Foundation
 
-class ZTimePickerViewComponent : NSObject, Component
+class ZDatePickerViewComponent : NSObject, Component
 {
     var group: ComponentGroup = .Optional
 
@@ -15,7 +15,7 @@ class ZTimePickerViewComponent : NSObject, Component
         
     var icon: Int = 0
     
-    var title: String = "时间选择器"
+    var title: String = "日期选择器"
     
     var author: String = "cmguo"
     

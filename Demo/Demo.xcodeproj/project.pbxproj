@@ -39,6 +39,7 @@
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
 		715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDC26394066005A265C /* ResourceStyle.swift */; };
 		715FBFE0263940F4005A265C /* AppearanceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDF263940F4005A265C /* AppearanceStyle.swift */; };
+		715FBFEA263A5CA4005A265C /* ZDatePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -128,6 +129,7 @@
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
 		715FBFDC26394066005A265C /* ResourceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStyle.swift; sourceTree = "<group>"; };
 		715FBFDF263940F4005A265C /* AppearanceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceStyle.swift; sourceTree = "<group>"; };
+		715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDatePickerViewComponent.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */,
 				717C5C16263504D7001A0E12 /* ZActionSheetController.swift */,
 				715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */,
+				715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */,
 				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
 			);
 			path = Simple;
@@ -547,6 +550,7 @@
 				71903B7725E0B53400437575 /* Component.swift in Sources */,
 				7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */,
 				71FF93FA262977B40033098B /* GravityStyle.swift in Sources */,
+				715FBFEA263A5CA4005A265C /* ZDatePickerViewComponent.swift in Sources */,
 				717C5C17263504D7001A0E12 /* ZActionSheetController.swift in Sources */,
 				71FF93D92627EB9F0033098B /* EnumStyle.swift in Sources */,
 				712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */,
