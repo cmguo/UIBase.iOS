@@ -33,7 +33,7 @@ public class ZTipView : UIView
     }
 
     public class func remove(from target: UIView, animate: Bool = false) {
-        for c in target.window?.subviews ?? [] {
+        for c in target.subviews {
             if let tip = c as? ZTipView {
                 tip.dismiss(animated: animate)
             }

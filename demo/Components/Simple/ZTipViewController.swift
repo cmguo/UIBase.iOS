@@ -163,10 +163,10 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         gridView.delegate = self
                 
         if component is ZSnackBarComponent {
-            ZTipView.tip(gridView, styles.message, callback: self)
+            buttonClicked(gridView)
             styles.listen() {_ in
                 ZTipView.remove(from: self.gridView)
-                ZTipView.tip(self.gridView, self.styles.message, callback: self)
+                self.buttonClicked(self.gridView)
             }
         }
         
