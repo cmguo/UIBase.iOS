@@ -83,11 +83,26 @@ class CalendarState {
         var minMax: (Int, Int) = (0, 0)
         var interval = 1
         
-        var count: Int { (minMax.1 - minMax.0 + interval) / interval }
+        var count: Int {
+            let min = (minMax.0 + interval - 1) / interval
+            let max = minMax.1 / interval
+            return max - min + 1
+        }
         
         init(_ index: Int, _ field: Field) {
             self.index = index
             self.field = field
+        }
+
+        subscript(index: Int) -> Int {
+            let min = (minMax.0 + interval - 1) / interval
+            return (min + index) * interval
+        }
+        
+        func indexOf(_ value: Int) -> Int {
+            let min = (minMax.0 + interval - 1) / interval
+            // will return -1 if current < next interval
+            return value / interval - min
         }
     }
     
@@ -116,6 +131,12 @@ class CalendarState {
 
     func setCurrent(_ date: Date) {
         var diff = false
+        var date = date
+        if date < start {
+            date = start
+        } else if date > end {
+            date = end
+        }
         if (current == nil) {
             current = Date(copy: date)
             diff = true
@@ -149,8 +170,8 @@ class CalendarState {
         let MODE_MONTH = 8
         let MODE_YEAR = 16
         let MODE_COMBINE = 32
-        let MODE_SECOND = 1
-        let MODE_MINUTE = 2
+        //let MODE_SECOND = 1
+        //let MODE_MINUTE = 2
         let MODE_HOUR = 4
         let MODE_AMPM = 8
 
@@ -287,27 +308,36 @@ class CalendarState {
         self.fields = fieldStates
     }
     
-    func setCurrent(_ field: Int, _ value: Int) {
+    func setCurrent(_ field: Int, _ index: Int) {
         guard let current = current else {
             return
         }
         let f = fields[field]
         let cur = get(current, f.field)
-        let date = add(current, f.field, f.minMax.0 + value * f.interval - cur)
+        let date = add(current, f.field, f[index] - cur)
         setCurrent(date)
+    }
+    
+    func getCurrent(_ field: Int) -> Int {
+        guard let current = current else {
+            return -1
+        }
+        let f = fields[field]
+        let cur = get(current, f.field)
+        return f.indexOf(cur)
     }
     
     func getMaxTitle(_ field: Int) -> String {
         return title(field, fields[field].minMax.1 - fields[field].minMax.0)
     }
 
-    func title(_ field: Int, _ value: Int) -> String {
+    func title(_ field: Int, _ index: Int) -> String {
         guard let current = current else {
             return ""
         }
         let f = fields[field]
         let cur = get(current, f.field)
-        let date = add(current, f.field, f.minMax.0 + value * f.interval - cur)
+        let date = add(current, f.field, f[index] - cur)
         return f.format(self, date)
     }
     

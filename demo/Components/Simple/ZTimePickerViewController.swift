@@ -14,7 +14,7 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewCallback, Z
         
         @objc static let _timeMode = ["时间模式", "时间模式枚举"]
         @objc static let _timeModeStyle: NSObject = EnumStyle(Styles.self, "timeMode", ZTimePickerView.TimeMode.self)
-        @objc var timeMode: Int = 0
+        @objc var timeMode: Int = ZTimePickerView.TimeMode.YearMonthDay.rawValue
         
         @objc static let _startTime = ["开始时间", "开始时间"]
         @objc static let _startTimeStyle = TimeStyle(Styles.self, "startTime")
@@ -168,7 +168,16 @@ extension ZTimePickerView : TimePickerView {
 extension ZDatePickerView : TimePickerView {
     var timeModeInt: Int {
         get { return dateMode.rawValue }
-        set { dateMode = DateMode(rawValue: newValue)! }
+        set {
+            switch newValue {
+            case ZTimePickerView.TimeMode.YearMonthDay.rawValue:
+                dateMode = .YearMonthDay
+            case ZTimePickerView.TimeMode.YearMonthWithDayWithWeek.rawValue:
+                dateMode = .MonthWithDayWithWeekHourMinute
+            default:
+                dateMode = .HourMinute
+            }
+        }
     }
     var startTime: Date? {
         get { startDate }

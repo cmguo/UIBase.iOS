@@ -75,15 +75,14 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
     fileprivate let state = CalendarState()
     
     private let _style: ZTimePickerViewStyle
-    private var _reloadMask = 0
         
     public init(style: ZTimePickerViewStyle = ZTimePickerViewStyle()) {
         _style = style
         textAppearance = style.textAppearance
         super.init(frame: .zero)
         self.state.fieldUpdated = { f in
-            self._reloadMask |= 1 << f.index
             self.reloadComponent(f.index)
+            self.selectRow(self.state.getCurrent(f.index), inComponent: f.index, animated: false)
         }
         self.dataSource = self
         self.delegate = self
@@ -95,21 +94,16 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func rowSize(forComponent component: Int) -> CGSize {
-        var size = super.rowSize(forComponent: component)
-        if (_reloadMask & (1 << component)) != 0 {
-            size.width = pickerView(self, widthForComponent: component)
-            _reloadMask &= ~(1 << component)
-        }
-        return size
-    }
-    
     /* private */
     
     private func syncTimeMode() {
         let mode = timeMode2 == 0 ? timeMode.rawValue : timeMode2
         state.setMode(mode >> 4, mode & 15, labels, timeInterval)
         reloadAllComponents()
+        for i in 0..<state.fields.count {
+            self.selectRow(self.state.getCurrent(i), inComponent: i, animated: false)
+        }
+        setNeedsLayout()
     }
     
     private func syncTimeRange() {
