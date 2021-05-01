@@ -29,15 +29,55 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewCallback, Z
         @objc var selectTime: Date = Date()
         
         @objc static let _timeInterval = ["时间间隔", "显示时间时，减少精度，如 interval = 5，则只显示 0、5、10 ..."]
-        @objc var timeInterval = 0
+        @objc var timeInterval = 1
         
-        var timeMode2: ZTimePickerView.TimeMode {
-            return ZTimePickerView.TimeMode(rawValue: timeMode)!
-        }
-        
+        @objc static let _timeMode2 = ["日历模式2", "通用日历模式，由 6 + 4 个 bit 位描述，从高到低依次是：合并模式、年、月、周次、日、周，上下午，时、分、秒"]
+        @objc var timeMode2 = 0
+
+        @objc static let _timeModeBit9 = ["合并", "通用日历模式第 10 个 bit 位，表示是否使用合并模式"]
+        @objc var timeModeBit9 = false
+
+        @objc static let _timeModeBit8 = ["年", "通用日历模式第 9 个 bit 位，表示是否显示年"]
+        @objc var timeModeBit8 = false
+
+        @objc static let _timeModeBit7 = ["月", "通用日历模式第 8 个 bit 位，表示是否显示月"]
+        @objc var timeModeBit7 = false
+
+        @objc static let _timeModeBit6 = ["周次", "通用日历模式第 7 个 bit 位，表示是否显示周次；如果显示月，则为当月的周次，否则为当年的周次"]
+        @objc var timeModeBit6 = false
+
+        @objc static let _timeModeBit5 = ["日", "通用日历模式第 6 个 bit 位，表示是否显示日"]
+        @objc var timeModeBit5 = false
+
+        @objc static let _timeModeBit4 = ["周", "通用日历模式第 5 个 bit 位，表示是否显示周"]
+        @objc var timeModeBit4 = false
+
+        @objc static let _timeModeBit3 = ["上下午", "通用日历模式第 4 个 bit 位，表示是否显示上午、下午"]
+        @objc var timeModeBit3 = false
+
+        @objc static let _timeModeBit2 = ["小时", "通用日历模式第 3 个 bit 位，表示是否显示小时"]
+        @objc var timeModeBit2 = false
+
+        @objc static let _timeModeBit1 = ["分钟", "通用日历模式第 2 个 bit 位，表示是否显示分钟"]
+        @objc var timeModeBit1 = false
+
+        @objc static let _timeModeBit0 = ["秒", "通用日历模式第 1 个 bit 位，表示是否显示秒"]
+        @objc var timeModeBit0 = false
+
         override init() {
             startTime = selectTime.addingTimeInterval(-10 * 24 * 3600)
             endTime = selectTime.addingTimeInterval(10 * 24 * 3600)
+        }
+        
+        override func notify(_ name: String) {
+            if name.starts(with: "timeModeBit") {
+                let index = name.replacingOccurrences(of: "timeModeBit", with: "").description
+                let i = Int(index)!
+                timeMode2 = timeMode2 ^ (1 << i)
+                notify("timeMode2")
+                return
+            }
+            super.notify(name)
         }
     }
     
@@ -115,6 +155,8 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewCallback, Z
                 for b in self.views { b.selectTime = self.styles.selectTime }
             } else if name == "timeInterval" {
                 for b in self.views { b.timeInterval = self.styles.timeInterval }
+            } else if name == "timeMode2" {
+                for b in self.views { b.timeMode2 = self.styles.timeMode2 }
             }
         }
     }
@@ -147,6 +189,7 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewCallback, Z
 
 protocol TimePickerView : AnyObject {
     var timeModeInt: Int { get set }
+    var timeMode2: Int { get set }
     var startTime: Date? { get set }
     var endTime: Date? { get set }
     var selectTime: Date { get set }
@@ -178,6 +221,10 @@ extension ZDatePickerView : TimePickerView {
                 dateMode = .HourMinute
             }
         }
+    }
+    var timeMode2: Int {
+        get { return 0 }
+        set {}
     }
     var startTime: Date? {
         get { startDate }
