@@ -18,6 +18,11 @@
 		715FBFE62639700C005A265C /* ZDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFE52639700C005A265C /* ZDatePickerView.swift */; };
 		715FBFED263AC1D7005A265C /* CalendarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFEC263AC1D7005A265C /* CalendarState.swift */; };
 		715FBFF0263ACAF0005A265C /* ZTimePickerViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFEF263ACAF0005A265C /* ZTimePickerViewStyle.swift */; };
+		715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFFA263D578E005A265C /* ZNumberView.swift */; };
+		715FBFFF263D59A3005A265C /* ZNumberViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFFE263D59A3005A265C /* ZNumberViewStyle.swift */; };
+		715FC005263D6CF6005A265C /* icon_minus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 715FC004263D6CF6005A265C /* icon_minus.svg */; };
+		715FC008263D6D05005A265C /* icon_plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 715FC007263D6D05005A265C /* icon_plus.svg */; };
+		715FC011263D9118005A265C /* UIRepeatTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -101,6 +106,11 @@
 		715FBFE52639700C005A265C /* ZDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDatePickerView.swift; sourceTree = "<group>"; };
 		715FBFEC263AC1D7005A265C /* CalendarState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarState.swift; sourceTree = "<group>"; };
 		715FBFEF263ACAF0005A265C /* ZTimePickerViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewStyle.swift; sourceTree = "<group>"; };
+		715FBFFA263D578E005A265C /* ZNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberView.swift; sourceTree = "<group>"; };
+		715FBFFE263D59A3005A265C /* ZNumberViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberViewStyle.swift; sourceTree = "<group>"; };
+		715FC004263D6CF6005A265C /* icon_minus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_minus.svg; sourceTree = "<group>"; };
+		715FC007263D6D05005A265C /* icon_plus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_plus.svg; sourceTree = "<group>"; };
+		715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRepeatTapGestureRecognizer.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -147,7 +157,7 @@
 		717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewStyle.swift; path = ../../Library/Styles/ZPickerViewStyle.swift; sourceTree = "<group>"; };
 		717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPropretyWrapper.swift; path = ../../Library/Resources/URLPropretyWrapper.swift; sourceTree = "<group>"; };
 		717C5BB526317872001A0E12 /* ZURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZURLs.swift; path = ../../Library/Styles/ZURLs.swift; sourceTree = "<group>"; };
-		717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZMaskDialog.swift; path = ../../../Library/Views/Navigation/ZMaskDialog.swift; sourceTree = "<group>"; };
+		717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMaskDialog.swift; sourceTree = "<group>"; };
 		717C5BDF2632B50F001A0E12 /* ZActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityView.swift; path = ../../../Library/Views/Optional/ZActivityView.swift; sourceTree = "<group>"; };
 		717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewStyle.swift; path = ../../Library/Styles/ZActivityViewStyle.swift; sourceTree = "<group>"; };
 		717C5BF82632C5FE001A0E12 /* icon_repost.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_repost.svg; sourceTree = "<group>"; };
@@ -194,6 +204,7 @@
 				7112029C25FA1500004A3AA5 /* ZTipView.swift */,
 				71FF93FC26297A4E0033098B /* ZAvatarView.swift */,
 				714D7FC32637EF3200DCCEE0 /* ZDialog.swift */,
+				717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */,
 			);
 			path = Indicator;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				71FF9419262D68660033098B /* Navigation */,
 				7112029425F9FB78004A3AA5 /* Indicator */,
 				7178A12125ECAB57004BA696 /* Button */,
+				715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +304,8 @@
 			children = (
 				717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */,
 				717C5C072632C6B4001A0E12 /* icon_weblink.svg */,
+				715FC004263D6CF6005A265C /* icon_minus.svg */,
+				715FC007263D6D05005A265C /* icon_plus.svg */,
 				717C5C042632C68E001A0E12 /* icon_stick.svg */,
 				717C5C012632C67B001A0E12 /* icon_copy.svg */,
 				717C5BFE2632C64E001A0E12 /* icon_star.svg */,
@@ -310,8 +324,9 @@
 		717C5B7A263118D2001A0E12 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
 				717C5B7B263118EF001A0E12 /* TextAttachment.swift */,
+				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
+				715FBFFA263D578E005A265C /* ZNumberView.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -380,6 +395,7 @@
 				717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */,
 				715FBFEF263ACAF0005A265C /* ZTimePickerViewStyle.swift */,
 				714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */,
+				715FBFFE263D59A3005A265C /* ZNumberViewStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -389,7 +405,6 @@
 			children = (
 				71FF941A262D68930033098B /* ZAppTitleBar.swift */,
 				717C5B612630134C001A0E12 /* ZPanel.swift */,
-				717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */,
 				715FBFE226395915005A265C /* ZTabBar.swift */,
 			);
 			path = Navigation;
@@ -468,6 +483,7 @@
 				717C5C0B2632C6BF001A0E12 /* icon_refresh.svg in Resources */,
 				717C5BFC2632C62C001A0E12 /* icon_recall.svg in Resources */,
 				717C5B5D263011B4001A0E12 /* icon_close.svg in Resources */,
+				715FC005263D6CF6005A265C /* icon_minus.svg in Resources */,
 				717C5C052632C68E001A0E12 /* icon_stick.svg in Resources */,
 				717C5B752630370B001A0E12 /* icon_right.svg in Resources */,
 				717C5BF92632C5FE001A0E12 /* icon_repost.svg in Resources */,
@@ -477,6 +493,7 @@
 				7178A1F225F8BF1F004BA696 /* half_checked.svg in Resources */,
 				717C5C022632C67B001A0E12 /* icon_copy.svg in Resources */,
 				717C5B56262FF0C3001A0E12 /* icon_more.svg in Resources */,
+				715FC008263D6D05005A265C /* icon_plus.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +533,7 @@
 				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,
 				71FF941E262D6B560033098B /* ZTipViewStyle.swift in Sources */,
 				7178A18525F5CAED004BA696 /* ZButton.swift in Sources */,
+				715FC011263D9118005A265C /* UIRepeatTapGestureRecognizer.swift in Sources */,
 				7178A1AF25F61D7E004BA696 /* ZRadioButton.swift in Sources */,
 				717C5B4F262FCFD5001A0E12 /* ZTextAppearance.swift in Sources */,
 				717C5B5A262FF48D001A0E12 /* UIViewStyle.swift in Sources */,
@@ -528,6 +546,7 @@
 				7178A1D725F75031004BA696 /* Range.swift in Sources */,
 				7178A1A325F5CC14004BA696 /* LBIndicator.swift in Sources */,
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
+				715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
 				717C5C11263502F2001A0E12 /* ZActionSheet.swift in Sources */,
 				717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */,
@@ -546,6 +565,7 @@
 				71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */,
 				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
+				715FBFFF263D59A3005A265C /* ZNumberViewStyle.swift in Sources */,
 				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,
 				714D7FC42637EF3200DCCEE0 /* ZDialog.swift in Sources */,
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,

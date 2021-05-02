@@ -367,7 +367,8 @@ public class ZButton : UIButton
     fileprivate func syncStates() {
         if self.icon != nil {
             // TODO: split with title color
-            self.imageView?.setIconColor(color: currentTitleColor)
+            //self.imageView?.setIconColor(color: currentTitleColor)
+            self.imageView?.setIconColor(color: typeStyles.textColor.color(for: state))
         }
     }
     

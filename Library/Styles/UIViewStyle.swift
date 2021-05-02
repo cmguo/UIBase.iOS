@@ -10,6 +10,7 @@ import Foundation
 public class UIViewStyle {
     
     public var backgroundColor = UIColor.clear
+    public var cornerRadius: CGFloat = 0
     
     public init() {
     }

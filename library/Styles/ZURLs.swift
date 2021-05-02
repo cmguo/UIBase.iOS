@@ -42,4 +42,10 @@ extension URL {
     @SvgIconURLWrapper("icon_close")
     public static var icon_close
 
+    @SvgIconURLWrapper("icon_minus")
+    public static var icon_minus
+    
+    @SvgIconURLWrapper("icon_plus")
+    public static var icon_plus
+    
 }

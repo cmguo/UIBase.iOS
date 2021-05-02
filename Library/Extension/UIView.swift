@@ -12,7 +12,10 @@ extension UIView {
     
     open var viewStyle: UIViewStyle {
         get { return .Default }
-        set { backgroundColor = newValue.backgroundColor }
+        set {
+            backgroundColor = newValue.backgroundColor
+            layer.cornerRadius = newValue.cornerRadius
+        }
     }
     
     /**

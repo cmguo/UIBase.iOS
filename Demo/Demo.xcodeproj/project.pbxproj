@@ -40,6 +40,8 @@
 		715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDC26394066005A265C /* ResourceStyle.swift */; };
 		715FBFE0263940F4005A265C /* AppearanceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFDF263940F4005A265C /* AppearanceStyle.swift */; };
 		715FBFEA263A5CA4005A265C /* ZDatePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */; };
+		715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */; };
+		715FC00E263D6D82005A265C /* ZNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC00D263D6D82005A265C /* ZNumberViewController.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -130,6 +132,8 @@
 		715FBFDC26394066005A265C /* ResourceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStyle.swift; sourceTree = "<group>"; };
 		715FBFDF263940F4005A265C /* AppearanceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceStyle.swift; sourceTree = "<group>"; };
 		715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDatePickerViewComponent.swift; sourceTree = "<group>"; };
+		715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberViewComponent.swift; sourceTree = "<group>"; };
+		715FC00D263D6D82005A265C /* ZNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberViewController.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 				715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */,
 				715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */,
 				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
+				715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */,
+				715FC00D263D6D82005A265C /* ZNumberViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 				715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */,
 				71FF93DF26280A5D0033098B /* IconStyle.swift in Sources */,
 				71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */,
+				715FC00E263D6D82005A265C /* ZNumberViewController.swift in Sources */,
 				7128766325E6557B0054A74B /* StylesController.swift in Sources */,
 				71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */,
 				717C5B9B26316E12001A0E12 /* ZPickerViewComponent.swift in Sources */,
@@ -575,6 +582,7 @@
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */,
+				715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */,
 				7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */,
 				7161CDB725E0E1FF00BF6B71 /* ComponentStyles.swift in Sources */,
 				71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */,
