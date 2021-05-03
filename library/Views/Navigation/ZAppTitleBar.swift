@@ -93,7 +93,7 @@ public class ZAppTitleBar : UIView
     
     private lazy var _leftButton: ZButton = {
         let button = ZButton()
-        button.buttonAppearance = _style.buttonApperance
+        button.buttonAppearance = _style.buttonAppearance
         button.id = .Left
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
@@ -102,7 +102,7 @@ public class ZAppTitleBar : UIView
     
     private lazy var _rightButton: ZButton = {
         let button = ZButton()
-        button.buttonAppearance = _style.buttonApperance
+        button.buttonAppearance = _style.buttonAppearance
         button.iconPosition = .Right
         button.id = .Right
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -112,7 +112,7 @@ public class ZAppTitleBar : UIView
     
     private lazy var _rightButton2: ZButton = {
         let button = ZButton()
-        button.buttonAppearance = _style.buttonApperance
+        button.buttonAppearance = _style.buttonAppearance
         button.id = .Right2
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
@@ -130,7 +130,7 @@ public class ZAppTitleBar : UIView
     private let _style: ZAppTitleBarStyle
     
 
-    public init(style: ZAppTitleBarStyle = ZAppTitleBarStyle()) {
+    public init(style: ZAppTitleBarStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         super.viewStyle = style

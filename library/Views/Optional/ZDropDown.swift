@@ -39,7 +39,7 @@ public class ZDropDown : UIView, UITableViewDataSource, UITableViewDelegate, UIG
     
     private let _style: ZDropDownStyle
     
-    public init(style: ZDropDownStyle = ZDropDownStyle()) {
+    public init(style: ZDropDownStyle = .init()) {
         _style = style
         shadowRadius = _style.shadowRadius
         borderRadius = _style.borderRadius

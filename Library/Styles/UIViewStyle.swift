@@ -9,11 +9,28 @@ import Foundation
 
 public class UIViewStyle {
     
-    public var backgroundColor = UIColor.clear
+    public var backgroundColor: UIColor {
+        get { backgroundColors.normalColor() }
+        set { backgroundColors = StateListColor(singleColor: newValue) }
+    }
+    public var backgroundColors = StateListColor(singleColor: .clear)
     public var cornerRadius: CGFloat = 0
-    
+    public var borderWidth: CGFloat = 0
+    public var borderColor: UIColor {
+        get { borderColors.normalColor() }
+        set { borderColors = StateListColor(singleColor: newValue) }
+    }
+    public var borderColors = StateListColor(singleColor: .clear)
+
     public init() {
     }
+    
+    public init(copy: UIViewStyle) {
+        borderColors = copy.backgroundColors
+        cornerRadius = copy.cornerRadius
+        borderWidth = copy.borderWidth
+        borderColors = copy.borderColors
+    }
 
-    public static var Default = UIViewStyle()
+    public static let Default = UIViewStyle()
 }

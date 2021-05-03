@@ -23,6 +23,13 @@
 		715FC005263D6CF6005A265C /* icon_minus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 715FC004263D6CF6005A265C /* icon_minus.svg */; };
 		715FC008263D6D05005A265C /* icon_plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 715FC007263D6D05005A265C /* icon_plus.svg */; };
 		715FC011263D9118005A265C /* UIRepeatTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */; };
+		715FC015263E7AE9005A265C /* ZTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC014263E7AE9005A265C /* ZTextFieldStyle.swift */; };
+		715FC018263E8092005A265C /* UITextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC017263E8092005A265C /* UITextViewStyle.swift */; };
+		715FC01B263EB2FD005A265C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC01A263EB2FD005A265C /* UITextField.swift */; };
+		715FC01E263EBF72005A265C /* ZTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC01D263EBF72005A265C /* ZTextField.swift */; };
+		715FC021263EC0CF005A265C /* UITextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC020263EC0CF005A265C /* UITextFieldStyle.swift */; };
+		715FC026263F940C005A265C /* ZTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC025263F940C005A265C /* ZTextView.swift */; };
+		715FC029263F943C005A265C /* ZTextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC028263F943C005A265C /* ZTextViewStyle.swift */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -111,6 +118,13 @@
 		715FC004263D6CF6005A265C /* icon_minus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_minus.svg; sourceTree = "<group>"; };
 		715FC007263D6D05005A265C /* icon_plus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_plus.svg; sourceTree = "<group>"; };
 		715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRepeatTapGestureRecognizer.swift; sourceTree = "<group>"; };
+		715FC014263E7AE9005A265C /* ZTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextFieldStyle.swift; sourceTree = "<group>"; };
+		715FC017263E8092005A265C /* UITextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewStyle.swift; sourceTree = "<group>"; };
+		715FC01A263EB2FD005A265C /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		715FC01D263EBF72005A265C /* ZTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextField.swift; sourceTree = "<group>"; };
+		715FC020263EC0CF005A265C /* UITextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldStyle.swift; sourceTree = "<group>"; };
+		715FC025263F940C005A265C /* ZTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextView.swift; sourceTree = "<group>"; };
+		715FC028263F943C005A265C /* ZTextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextViewStyle.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -241,6 +255,7 @@
 				7178A1C825F63470004BA696 /* CGRect.swift */,
 				7178A1D625F75031004BA696 /* Range.swift */,
 				7178A1D925F85A96004BA696 /* UITextView.swift */,
+				715FC01A263EB2FD005A265C /* UITextField.swift */,
 				717C5C1C26350D1C001A0E12 /* UILabel.swift */,
 				7112028E25F9C55A004A3AA5 /* UIImageView.swift */,
 				7112029825FA04EC004A3AA5 /* DispatchQueue.swift */,
@@ -327,6 +342,8 @@
 				717C5B7B263118EF001A0E12 /* TextAttachment.swift */,
 				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
 				715FBFFA263D578E005A265C /* ZNumberView.swift */,
+				715FC01D263EBF72005A265C /* ZTextField.swift */,
+				715FC025263F940C005A265C /* ZTextView.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -381,6 +398,8 @@
 			children = (
 				71FF93F526296C8F0033098B /* Gravity.swift */,
 				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
+				715FC020263EC0CF005A265C /* UITextFieldStyle.swift */,
+				715FC017263E8092005A265C /* UITextViewStyle.swift */,
 				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
 				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
@@ -396,6 +415,8 @@
 				715FBFEF263ACAF0005A265C /* ZTimePickerViewStyle.swift */,
 				714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */,
 				715FBFFE263D59A3005A265C /* ZNumberViewStyle.swift */,
+				715FC014263E7AE9005A265C /* ZTextFieldStyle.swift */,
+				715FC028263F943C005A265C /* ZTextViewStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -525,6 +546,7 @@
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
 				7178A19F25F5CC14004BA696 /* BallPulseIndicator.swift in Sources */,
 				714D7FCC2637F30100DCCEE0 /* ZDialogStyle.swift in Sources */,
+				715FC026263F940C005A265C /* ZTextView.swift in Sources */,
 				717C5B68263015E5001A0E12 /* TextAppearance.swift in Sources */,
 				7178A1C925F63470004BA696 /* CGRect.swift in Sources */,
 				711202A225FA1BA6004A3AA5 /* String.swift in Sources */,
@@ -542,9 +564,12 @@
 				715FBFE326395915005A265C /* ZTabBar.swift in Sources */,
 				717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */,
 				717C5B9726316D07001A0E12 /* ZPickerView.swift in Sources */,
+				715FC015263E7AE9005A265C /* ZTextFieldStyle.swift in Sources */,
 				7178A19E25F5CC14004BA696 /* LineScaleIndicator.swift in Sources */,
 				7178A1D725F75031004BA696 /* Range.swift in Sources */,
+				715FC021263EC0CF005A265C /* UITextFieldStyle.swift in Sources */,
 				7178A1A325F5CC14004BA696 /* LBIndicator.swift in Sources */,
+				715FC018263E8092005A265C /* UITextViewStyle.swift in Sources */,
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
 				715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
@@ -553,6 +578,7 @@
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
 				717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */,
 				715FBFE62639700C005A265C /* ZDatePickerView.swift in Sources */,
+				715FC01B263EB2FD005A265C /* UITextField.swift in Sources */,
 				71FF93F626296C8F0033098B /* Gravity.swift in Sources */,
 				71FF93EC262843500033098B /* UIColorPropretyWrapper.swift in Sources */,
 				717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */,
@@ -563,7 +589,9 @@
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
 				71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */,
+				715FC029263F943C005A265C /* ZTextViewStyle.swift in Sources */,
 				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
+				715FC01E263EBF72005A265C /* ZTextField.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
 				715FBFFF263D59A3005A265C /* ZNumberViewStyle.swift in Sources */,
 				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,

@@ -62,7 +62,7 @@ public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
 
     private let _style: ZPickerViewStyle
 
-    public init(style: ZPickerViewStyle = ZPickerViewStyle()) {
+    public init(style: ZPickerViewStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         

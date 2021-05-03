@@ -94,7 +94,7 @@ public class ZPanel : UIView, ZTitleBarCallbackDelegate {
 
     private let _style: ZPanelStyle
     
-    public init(style: ZPanelStyle = ZPanelStyle()) {
+    public init(style: ZPanelStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         super.viewStyle = style

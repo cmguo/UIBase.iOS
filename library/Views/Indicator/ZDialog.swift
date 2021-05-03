@@ -110,7 +110,7 @@ public class ZDialog : UIView {
 
     private let _style: ZDialogStyle
     
-    public init(style: ZDialogStyle = ZDialogStyle()) {
+    public init(style: ZDialogStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         backgroundColor = .white

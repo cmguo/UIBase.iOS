@@ -179,7 +179,7 @@ public class ZTipView : UIView
     private let _backLayer = CALayer()
     private let _arrowLayer = CAShapeLayer()
 
-    public init(_ style: ZTipViewStyle = ZTipViewStyle()) {
+    public init(_ style: ZTipViewStyle = .init()) {
         self._style = style
         self.tipAppearance = style.tipAppearance
         self.dismissDelay = style.dismissDelay

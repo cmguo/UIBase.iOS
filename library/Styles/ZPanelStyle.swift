@@ -11,7 +11,7 @@ public class ZPanelStyle : UIViewStyle {
     
     public var borderRadius: CGFloat = 12
     public var bottomHeight: CGFloat = 48
-    public var buttonApperance = ZAppTitleBarStyle().buttonApperance
+    public var buttonApperance = ZAppTitleBarStyle().buttonAppearance
 
     public override init() {
         super.init()

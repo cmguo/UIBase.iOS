@@ -30,10 +30,26 @@ extension UIButton {
         }
     }
     
-    func setBackgroundColor(color: UIColor, forState: UIControl.State) {
-        self.clipsToBounds = true  // add this to maintain corner radius
-        if let image = UIImage.from(color: color) {
-            self.setBackgroundImage(image, for: forState)
+    open var backgroundColors: StateListColor {
+        get { StateListColor(singleColor: .clear) }
+        set {
+            self.clipsToBounds = true  // add this to maintain corner radius
+            let states: [State] = [.normal, .highlighted, .disabled, .selected]
+            for state in states {
+                if let image = UIImage.from(color: newValue.color(for: state)) {
+                    self.setBackgroundImage(image, for: state)
+                }
+            }
+        }
+    }
+
+    open var titleColors: StateListColor {
+        get { StateListColor(singleColor: .clear) }
+        set {
+            let states: [State] = [.normal, .highlighted, .disabled, .selected]
+            for state in states {
+                self.setTitleColor(newValue.color(for: state), for: state)
+            }
         }
     }
 }

@@ -25,7 +25,6 @@ extension Dictionary {
 class Colors {
     
     class func stdColors() -> Dictionary<String, UIColor> {
-        UIColor.self
         return [:]
     }
     

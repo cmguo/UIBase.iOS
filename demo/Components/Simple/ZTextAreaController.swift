@@ -32,11 +32,11 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         
         @objc static let _leftIcon = ["左图标", "设置左边的图标，URL 类型，控件内部会自动重新布局"]
         @objc static let _leftIconStyle: NSObject = IconStyle(Styles.self, "leftIcon")
-        @objc var leftIcon: String = "<null>"
+        @objc var leftIcon: URL? = nil
         
         @objc static let _rightIcon = ["右图标", "设置右边的图标，URL 类型，控件内部会自动重新布局"]
         @objc static let _rightIconStyle: NSObject = IconStyle(Styles.self, "rightIcon")
-        @objc var rightIcon: String = "<null>"
+        @objc var rightIcon: URL? = nil
     }
     
     class Model : ViewModel {
@@ -53,7 +53,7 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
     
     private let styles = Styles()
     private let model = Model()
-    private let textInput = ZTextArea(single: true)
+    private let textInput = ZTextView()
     private let textArea = ZTextArea()
 
     override func getStyles() -> ViewStyles {
@@ -67,14 +67,14 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         textInput.backgroundColor = .white
         textInput.maxWords = styles.maximumCharCount
         textInput.placeholder = styles.placeholder
-        textInput.showBorder = styles.showBorder
-        textInput.delegate = self
+        //textInput.showBorder = styles.showBorder
+        //textInput.delegate = self
         view.addSubview(textInput)
         textInput.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)
             maker.trailing.equalToSuperview().offset(-20)
             maker.top.equalToSuperview().offset(150)
-            maker.height.equalTo(textInput.frame.height)
+            //maker.height.equalTo(textInput.frame.height)
         }
 
         textArea.backgroundColor = .white
@@ -104,12 +104,12 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
                 self.textInput.placeholder = self.styles.placeholder
                 self.textArea.placeholder = self.styles.placeholder
             } else if name == "showBorder" {
-                self.textInput.showBorder = self.styles.showBorder
+                //self.textInput.showBorder = self.styles.showBorder
                 self.textArea.showBorder = self.styles.showBorder
             } else if name == "leftIcon" {
-                self.textInput.leftIcon = Icons.iconURL(self.styles.leftIcon)
+                //self.textInput.leftButton = self.styles.leftIcon
             } else if name == "rightIcon" {
-                self.textInput.rigthIcon = Icons.iconURL(self.styles.rightIcon)
+                //self.textInput.rightButton = self.styles.rightIcon
             }
         }
     }

@@ -9,6 +9,8 @@ import Foundation
 
 extension StateListColor {
     
+    static let clear = StateListColor(singleColor: .clear)
+    
     static let blue_100_pressed_disabled = StateListColor([
         StateColor(.bluegrey_100, .STATES_DISABLED),
         StateColor(.blue_200, .STATES_PRESSED),

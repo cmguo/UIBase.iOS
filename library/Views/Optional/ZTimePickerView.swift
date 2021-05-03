@@ -76,7 +76,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
     
     private let _style: ZTimePickerViewStyle
         
-    public init(style: ZTimePickerViewStyle = ZTimePickerViewStyle()) {
+    public init(style: ZTimePickerViewStyle = .init()) {
         _style = style
         textAppearance = style.textAppearance
         super.init(frame: .zero)

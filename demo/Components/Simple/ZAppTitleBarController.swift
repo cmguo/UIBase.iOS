@@ -90,12 +90,12 @@ class ZAppTitleBarController: ComponentController, ZTitleBarCallbackDelegate {
             } else if name == "content" {
                 for b in self.views { b.content = self.styles.content }
             } else if name == "textAppearance" {
-                for b in self.views { /* b.textAppearance = self.styles.textAppearance */ }
+                for b in self.views { b.textAppearance = self.styles.textAppearance2 }
             }
         }
     }
     
-    func titleBarButtonClicked(_ titleBar: ZAppTitleBar, _ btnId: ZButton.ButtonId?) {
+    func titleBarButtonClicked(titleBar: ZAppTitleBar, btnId: ZButton.ButtonId?) {
         ZTipView.toast(titleBar, "点击了按钮 \(btnId ?? .Unknown)")
     }
 

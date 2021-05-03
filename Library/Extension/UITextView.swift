@@ -9,8 +9,16 @@ import Foundation
 
 extension UITextView {
     
+    open var textViewStyle: UITextViewStyle {
+        get { return UITextViewStyle() }
+        set {
+            super.viewStyle = newValue
+            textAppearance = newValue.textAppearance
+        }
+    }
+    
     var textAppearance: TextAppearance {
-        get { return TextAppearance() }
+        get { return textViewStyle.textAppearance }
         set {
             font = newValue.font
             textColor = newValue.textColor

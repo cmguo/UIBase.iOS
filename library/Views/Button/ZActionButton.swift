@@ -11,7 +11,7 @@ public class ZActionButton : ZButton {
     
     private let _wrapLayer = CALayer()
     
-    public override init(style: ZButtonStyle = .defaultStyle) {
+    public override init(style: ZButtonStyle = .init()) {
         super.init(style: style)
         _wrapLayer.backgroundColor = UIColor.bluegrey_100.cgColor
     }

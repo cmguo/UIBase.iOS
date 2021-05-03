@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ZNumberView : UIControl, UITextViewDelegate {
+public class ZNumberView : UIControl, UITextFieldDelegate {
 
     public var minimum = 0 {
         didSet {
@@ -82,7 +82,7 @@ public class ZNumberView : UIControl, UITextViewDelegate {
     
     private let _buttonInc = ZButton()
     private let _buttonDec = ZButton()
-    private let _editText = UITextView()
+    private let _editText = UITextField()
     private let _style: ZNumberViewStyle
     
     private var _repeatGestureDec: UIGestureRecognizer? = nil
@@ -91,14 +91,14 @@ public class ZNumberView : UIControl, UITextViewDelegate {
     private var _inCallbacks = false
     private var _inInteraction = false
 
-    public init(style: ZNumberViewStyle = ZNumberViewStyle()) {
+    public init(style: ZNumberViewStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         super.viewStyle = style
         _editText.textAppearance = style.textAppearance
         _editText.backgroundColor = .clear
         _editText.textAlignment = .center
-        _editText.textContainer.maximumNumberOfLines = 1
+        _editText.keyboardType = .numberPad
         _buttonDec.icon = .icon_minus
         _buttonInc.icon = .icon_plus
         _buttonInc.buttonAppearance = style.buttonAppearance
@@ -124,19 +124,21 @@ public class ZNumberView : UIControl, UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func textViewDidChange(_ textView: UITextView) {
-        number = Int(String(textView.text)) ?? number
-        if (textView.text.isEmpty) { return }
-        guard let value = Int(String(textView.text)) else {
-            textView.text = String(number)
-            return
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {
+            return true
+        }
+        let newText = (text as NSString).replacingCharacters(in: range, with: string)
+        if newText.isEmpty {
+            return true
+        }
+        guard let value = Int(String(newText)), value >= minimum && (maximum == 0 || value <= maximum) else {
+            return false
         }
         _inCallbacks = true
         number = value
         _inCallbacks = false
-        if (number != value) {
-            textView.text = String(number)
-        }
+        return true
     }
     
     public override func layoutSubviews() {

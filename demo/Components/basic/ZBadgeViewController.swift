@@ -92,15 +92,12 @@ class ZBadgeViewController: ComponentController {
                 for b in self.badges { b.borderWidth = self.styles.borderWidth }
             } else if name == "gravity" {
                 for b in self.badges { b.gravity = self.styles.gravity }
-            } else if name == "offset" {
-                for b in self.badges { /* b.offset = self.styles.offset */ }
-                self.view.setNeedsLayout()
-            } else if name == "dragable" {
-                for b in self.badges { /* b.dragable = self.styles.dragable */ }
-                self.view.setNeedsLayout()
-            } else if name == "dragRadius" {
-                for b in self.badges { /* b.dragRadius = self.styles.dragRadius */ }
-                self.view.setNeedsLayout()
+//            } else if name == "offset" {
+//                for b in self.badges { /* b.offset = self.styles.offset */ }
+//            } else if name == "dragable" {
+//                for b in self.badges { /* b.dragable = self.styles.dragable */ }
+//            } else if name == "dragRadius" {
+//                for b in self.badges { /* b.dragRadius = self.styles.dragRadius */ }
             } else if name == "text" {
                 for b in self.badges { b.text = self.styles.text }
             } else if name == "number" {

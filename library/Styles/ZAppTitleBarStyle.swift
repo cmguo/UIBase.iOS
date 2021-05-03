@@ -16,14 +16,14 @@ public class ZAppTitleBarStyle : UIViewStyle {
     public var textPadding: CGFloat = 20
     public var textAppearance = TextAppearance.Head2
     public var textAppearanceLarge = TextAppearance.Head1
-    public var buttonApperance = ZButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
+    public var buttonAppearance = ZButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
 
     public override init() {
         super.init()
         backgroundColor = .white
-        buttonApperance.typeStyle.textColor = StateListColor(singleColor: .bluegrey_800)
-        buttonApperance.sizeStyle.iconSize = 20
-        buttonApperance.sizeStyle.iconPadding = 5
+        buttonAppearance.typeStyle.textColor = StateListColor(singleColor: .bluegrey_800)
+        buttonAppearance.sizeStyle.iconSize = 20
+        buttonAppearance.sizeStyle.iconPadding = 5
     }
 }
 

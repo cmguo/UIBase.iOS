@@ -173,7 +173,7 @@ public class ZButton : UIButton
      - Parameter icon:      the icon of the button, it is be nil by default.
      - Parameter text:      the title of the button.
      */
-    public init(style: ZButtonStyle = .defaultStyle) {
+    public init(style: ZButtonStyle = .init()) {
         buttonAppearance = style.appearance
         buttonType2 = style.buttonType ?? .Primitive
         buttonSize = style.buttonSize ?? .Large
@@ -276,12 +276,8 @@ public class ZButton : UIButton
         sizeStyles = buttonAppearance?.sizeStyle ?? ZButton.SizeStyles[buttonSize]!
         if type {
             iconPosition = typeStyles.iconPosition
-            self.setTitleColor(typeStyles.textColor.normalColor(), for: .normal)
-            self.setTitleColor(typeStyles.textColor.color(for: .selected), for: .selected)
-            self.setTitleColor(typeStyles.textColor.disabledColor(), for: .disabled)
-            self.setBackgroundColor(color: typeStyles.backgroundColor.normalColor(), forState: .normal)
-            self.setBackgroundColor(color: typeStyles.backgroundColor.disabledColor(), forState: .disabled)
-            self.setBackgroundColor(color: typeStyles.backgroundColor.pressedColor(), forState: .highlighted)
+            self.titleColors = typeStyles.textColor
+            self.backgroundColors = typeStyles.backgroundColor
             indicator.color = typeStyles.textColor.normalColor()
         }
         if size {
@@ -294,11 +290,11 @@ public class ZButton : UIButton
     }
     
     fileprivate func syncContent() {
+        icon = nil
+        text = nil
         if let string = content as? String {
             text = string
-            icon = nil
         } else if let url = content as? URL {
-            text = nil
             icon = url
         } else if let style = content as? ZButtonStyle {
             applyStyle(style)
@@ -306,8 +302,6 @@ public class ZButton : UIButton
             text = string
             icon = url
         } else if let array = content as? NSArray {
-            icon = nil
-            text = nil
             for item in array {
                 if let string = item as? String {
                     text = string
@@ -316,8 +310,6 @@ public class ZButton : UIButton
                 }
             }
         } else if let map = content as? NSDictionary {
-            icon = nil
-            text = nil
             if let string = map["text"] as? String {
                 text = string
             }
@@ -365,7 +357,7 @@ public class ZButton : UIButton
     }
     
     fileprivate func syncStates() {
-        if self.icon != nil {
+        if self.icon != nil, self.text != nil {
             // TODO: split with title color
             //self.imageView?.setIconColor(color: currentTitleColor)
             self.imageView?.setIconColor(color: typeStyles.textColor.color(for: state))

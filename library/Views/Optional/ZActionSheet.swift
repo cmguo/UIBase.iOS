@@ -60,7 +60,7 @@ public class ZActionSheet : UIView {
     
     private let _style: ZActionSheetStyle
     
-    public init(style: ZActionSheetStyle = ZActionSheetStyle()) {
+    public init(style: ZActionSheetStyle = .init()) {
         _style = style
         super.init(frame: .zero)
         addSubview(_imageView)

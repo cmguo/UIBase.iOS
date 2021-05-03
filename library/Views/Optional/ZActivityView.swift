@@ -34,7 +34,7 @@ public class ZActivityView : UIView {
     
     private let _style: ZActivityViewStyle
     
-    public init(style: ZActivityViewStyle = ZActivityViewStyle()) {
+    public init(style: ZActivityViewStyle = .init()) {
         _style = style
         _line1 = ZActivityLine(style: style)
         _line2 = ZActivityLine(style: style)

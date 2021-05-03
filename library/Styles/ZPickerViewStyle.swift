@@ -18,6 +18,7 @@ public class ZPickerViewStyle : UIViewStyle {
     public var textAppearance = TextAppearance.Body_Middle
 
     public override init() {
+        super.init()
     }
 
 }

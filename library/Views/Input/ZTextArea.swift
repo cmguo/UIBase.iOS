@@ -261,6 +261,8 @@ public class ZTextArea: UIView {
         textContainer.widthTracksTextView = true
         textContainer.maximumNumberOfLines = single ? 1 : 0
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
+        textView.contentInset = .zero
+        textView.textContainerInset = .zero
 
         font = ZTextArea.defaultFont
         textView.font = font

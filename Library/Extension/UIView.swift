@@ -13,8 +13,10 @@ extension UIView {
     open var viewStyle: UIViewStyle {
         get { return .Default }
         set {
-            backgroundColor = newValue.backgroundColor
+            layer.backgroundColor = newValue.backgroundColor.cgColor
             layer.cornerRadius = newValue.cornerRadius
+            layer.borderWidth = newValue.borderWidth
+            layer.borderColor = newValue.borderColor.cgColor
         }
     }
     
