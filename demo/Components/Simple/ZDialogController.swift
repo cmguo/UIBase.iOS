@@ -93,6 +93,8 @@ class ZDialogController: ComponentController, ZDialogCallback {
                 for b in self.views { b.title = self.styles.title }
             } else if name == "image" {
                 for b in self.views { b.image = self.styles.image }
+            } else if name == "closeIconColor" {
+                for b in self.views { b.closeIconColor = self.styles.closeIconColor }
             } else if name == "subTitle" {
                 for b in self.views { b.subTitle = self.styles.subTitle }
             } else if name == "content" {

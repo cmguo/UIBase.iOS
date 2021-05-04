@@ -91,7 +91,7 @@ public class ZDialog : UIView {
     
     public var closeIconColor: UIColor = .clear {
         didSet {
-            _closeIcon.tintColor = closeIconColor
+            _closeIcon.setIconColor(color: closeIconColor)
             _closeIcon.isHidden = closeIconColor.cgColor.alpha == 0
         }
     }
@@ -122,6 +122,9 @@ public class ZDialog : UIView {
         _closeIcon.isHidden = true
         _closeIcon.setImage(withURL: .icon_close) {
         }
+        _closeIcon.isUserInteractionEnabled = true
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(closeIconClicked(_:)))
+        _closeIcon.addGestureRecognizer(singleTap)
         addSubview(_closeIcon)
         
         _label.numberOfLines = 1
@@ -161,13 +164,16 @@ public class ZDialog : UIView {
     
     public override func layoutSubviews() {
         var frame = bounds
+        let icsize = CGSize(width: 20, height: 20)
+        _closeIcon.frame = frame.rightTopPart(ofSize: CGSize(width: _style.closePadding, height: _style.closePadding))
+            .leftBottomPart(ofSize: icsize)
+            .offsetBy(dx: -icsize.width, dy: icsize.height)
         if image != nil {
             let isize = _imageView.sizeThatFits(CGSize(width: _style.width, height: .greatestFiniteMagnitude))
             _imageView.frame = frame.cutTop(isize.height)
         } else {
             _ = frame.cutTop(_style.imagePadding)
         }
-        _closeIcon.frame = frame.rightTopPart(ofSize: CGSize(width: _style.closePadding, height: _style.closePadding)).leftBottomPart(ofSize: .zero)
         _ = frame.cutLeft(_style.paddingX)
         _ = frame.cutRight(_style.paddingX)
         if title != nil {
@@ -247,6 +253,12 @@ public class ZDialog : UIView {
     
     @objc private func moreButtonClicked(_ sender: UIView) {
         callback?.dialogMoreButtonClicked?(dialog: self, index: _moreButtons.firstIndex(of: sender as! ZButton) ?? -1)
+    }
+    
+    @objc private func closeIconClicked(_ recognizer: UIGestureRecognizer) {
+        if recognizer.state == .recognized {
+            dismiss()
+        }
     }
     
     private var _sizeConstrains: (NSLayoutConstraint, NSLayoutConstraint)?

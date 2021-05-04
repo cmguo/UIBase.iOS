@@ -32,7 +32,7 @@ BEGIN {
     if ($4 != "") $4 = " //" $4
     if ($1 != "" && substr($2, 1, 2) == "0x") {
       if (substr($3, 1, 2) == "0x" && $3 != $2) {
-        lines[length(lines)] = "    @DayNightColorWrapper(dayColor: " $2 ", nightColor: " $3 ")"
+        lines[length(lines)] = "    @DayNightColorWrapper(name: \"" $1 "\", dayColor: " $2 ", nightColor: " $3 ")"
         lines[length(lines)] = "    public static var " $1 $4
       } else {
         lines[length(lines)] = "    public static var " $1 " = UIColor(rgba: " $2 ")" $4

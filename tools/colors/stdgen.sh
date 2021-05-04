@@ -10,5 +10,5 @@ TOOLS=`dirname $0`
 # mv temp Classes/Manager/ThemeColor.swift 
 
 
-${TOOLS}/stdgen2.awk ${TOOLS}/stdcolors.txt UIColors.swift > temp
-mv temp UIColors.swift 
+${TOOLS}/stdgen2.awk ${TOOLS}/stdcolors.txt ZColors.swift > temp
+mv temp ZColors.swift

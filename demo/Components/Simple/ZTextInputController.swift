@@ -28,7 +28,7 @@ class ZTextInputController: ComponentController, UITableViewDataSource, UITableV
     }
     
     class Model : ViewModel {
-        let colors = Colors.stdColors()
+        let colors = Colors.stdDynamicColors()
     }
     
     private let styles = Styles()

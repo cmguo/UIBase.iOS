@@ -15,7 +15,7 @@ class ColorsController: ComponentController, UITableViewDataSource, UITableViewD
     }
     
     class Model : ViewModel {
-        let colors = Colors.stdColors()
+        let colors = Colors.stdDynamicColors()
     }
     
     private let styles = Styles()

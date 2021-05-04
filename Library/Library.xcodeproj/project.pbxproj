@@ -97,7 +97,7 @@
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
-		71FF93EC262843500033098B /* UIColorPropretyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* UIColorPropretyWrapper.swift */; };
+		71FF93EC262843500033098B /* DayNightColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* DayNightColors.swift */; };
 		71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EE26284D970033098B /* ZBadgeView.swift */; };
 		71FF93F626296C8F0033098B /* Gravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93F526296C8F0033098B /* Gravity.swift */; };
 		71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93FC26297A4E0033098B /* ZAvatarView.swift */; };
@@ -198,7 +198,7 @@
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
 		71FF93C02626F8BA0033098B /* ZStateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStateListColors.swift; sourceTree = "<group>"; };
-		71FF93EB262843500033098B /* UIColorPropretyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColorPropretyWrapper.swift; path = ../../Library/Resources/UIColorPropretyWrapper.swift; sourceTree = "<group>"; };
+		71FF93EB262843500033098B /* DayNightColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightColors.swift; sourceTree = "<group>"; };
 		71FF93EE26284D970033098B /* ZBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeView.swift; path = ../../../Library/Views/Indicator/ZBadgeView.swift; sourceTree = "<group>"; };
 		71FF93F526296C8F0033098B /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gravity.swift; path = ../../Library/Styles/Gravity.swift; sourceTree = "<group>"; };
 		71FF93FC26297A4E0033098B /* ZAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvatarView.swift; path = ../../../Library/Views/Indicator/ZAvatarView.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 				7178A18725F5CB0B004BA696 /* StateListColor.swift */,
 				7178A1B625F62792004BA696 /* RoundLayer.swift */,
 				7178A17425F5C986004BA696 /* Indicators */,
-				71FF93EB262843500033098B /* UIColorPropretyWrapper.swift */,
+				71FF93EB262843500033098B /* DayNightColors.swift */,
 				717C5B67263015E5001A0E12 /* TextAppearance.swift */,
 				717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */,
 			);
@@ -595,7 +595,7 @@
 				715FBFE62639700C005A265C /* ZDatePickerView.swift in Sources */,
 				715FC01B263EB2FD005A265C /* UITextField.swift in Sources */,
 				71FF93F626296C8F0033098B /* Gravity.swift in Sources */,
-				71FF93EC262843500033098B /* UIColorPropretyWrapper.swift in Sources */,
+				71FF93EC262843500033098B /* DayNightColors.swift in Sources */,
 				717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */,
 				715FBFF0263ACAF0005A265C /* ZTimePickerViewStyle.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,

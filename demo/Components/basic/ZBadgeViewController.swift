@@ -40,7 +40,6 @@ class ZBadgeViewController: ComponentController {
     }
     
     class Model : ViewModel {
-        let colors = Colors.stdColors()
     }
     
     private let styles = Styles()

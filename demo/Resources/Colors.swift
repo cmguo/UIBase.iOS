@@ -7,7 +7,6 @@
 
 import Foundation
 import UIBase
-import SwiftyJSON
 
 extension Dictionary {
     func mapValues<T>(transform: (Value)->T) -> Dictionary<Key,T> {
@@ -24,8 +23,8 @@ extension Dictionary {
 
 class Colors {
     
-    class func stdColors() -> Dictionary<String, UIColor> {
-        return [:]
+    class func stdDynamicColors() -> Dictionary<String, UIColor> {
+        return DayNightColors.colors()
     }
     
     class func nonStdColors() -> Dictionary<String, UIColor> {
