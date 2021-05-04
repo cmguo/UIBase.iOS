@@ -15,11 +15,17 @@ public class ZTextView : UITextView {
         }
     }
     
-    public var maxWords: Int = 0 {
+    open var maxWordCount: Int = 0 {
         didSet {
-            if maxWords > 0, let text = text, maxWords < text.count {
-                self.text = text[0..<maxWords]
+            if maxWordCount > 0, let text = text, maxWordCount < text.count {
+                self.text = text[0..<maxWordCount]
             }
+        }
+    }
+    
+    open var singleLine = false {
+        didSet {
+            _textContainer.maximumNumberOfLines = singleLine ? 1 : 0
         }
     }
     
@@ -59,6 +65,10 @@ public class ZTextView : UITextView {
         super.textViewStyle = style
         super.delegate = _delegate
         
+        let menuController = UIMenuController.shared
+        let wrapItem = UIMenuItem(title: "换行", action: #selector(wrap(_:)))
+        menuController.menuItems = [wrapItem]
+        
         self.textContainerInset = _style.padding
         updateHeight()
     }
@@ -80,7 +90,13 @@ public class ZTextView : UITextView {
             ph.draw(at: point, withAttributes: _placeholderAttrs)
         }
     }
+
+    /* private */
     
+    @objc private func wrap(_ sender: Any?) {
+        self.wrap()
+    }
+
     private var _heightConstraint: NSLayoutConstraint? = nil
     
     private func updateHeight() {
@@ -117,14 +133,7 @@ class UITextViewDelegateWrapper : NSObject, UITextViewDelegate {
     
     @available(iOS 2.0, *)
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText string: String) -> Bool { // return NO to not change text
-        if let should = delegate?.textView?(textView, shouldChangeTextIn: range, replacementText: string), !should {
-            return false
-        }
-        if let tf = textView as? ZTextView, let text = tf.text,
-           tf.maxWords < text.count - range.length + string.count {
-            return false
-        }
-        return true
+        return delegate?.textView?(textView, shouldChangeTextIn: range, replacementText: string) ?? true
     }
     
     @available(iOS 2.0, *)
@@ -167,7 +176,7 @@ class ZTextViewDelegate : UITextViewDelegateWrapper {
             return false
         }
         if let tf = textView as? ZTextView, let text = tf.text,
-           tf.maxWords < text.count - range.length + string.count {
+           tf.maxWordCount < text.count - range.length + string.count {
             return false
         }
         return true

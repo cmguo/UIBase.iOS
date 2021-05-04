@@ -263,6 +263,7 @@ public class ZTextArea: UIView {
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
         textView.contentInset = .zero
         textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0
 
         font = ZTextArea.defaultFont
         textView.font = font
@@ -294,7 +295,7 @@ public class ZTextArea: UIView {
         recalcHeight()
 
         textView.willCopyData = { [weak self] in
-            return self?.getCopyText()
+            return self?.textView.getCopyText() ?? ""
         }
     }
 
@@ -427,7 +428,7 @@ public class ZTextArea: UIView {
     fileprivate func showPlaceholderIfNeed() {
         if let label = optionalViews[2] {
             if textView.hasText {
-                if placeholderPrefix != nil && getTextAndSegmentContext().0 == placeholderPrefix! {
+                if placeholderPrefix != nil && textView.getTextAndSegmentContext().0 == placeholderPrefix! {
                     label.isHidden = false
                 } else {
                     label.isHidden = true
@@ -534,173 +535,13 @@ extension ZTextArea: UITextViewDelegate {
     }
 }
 
-public extension ZTextArea {
+extension ZTextArea {
+
 
     private func shouldChangeTextIn(range: NSRange, with text: String) -> Bool {
         return delegate?.textAreaShouldChangeTextInRange?(self, range, text) ?? true
     }
     
-    @objc func append(image: UIImage, imageSize size: CGSize, altName alt: String?) {
-        let imageAttachment = ImageTextAttachment()
-        imageAttachment.alt = alt
-        imageAttachment.image = image
-        imageAttachment.bounds = CGRect(x: 0, y: -(size.height - font.pointSize) / 2 - 2, width: size.width, height: size.height)
-        append(imageAttachment: imageAttachment)
-    }
-
-    @objc func append(imageAttachment attachment: NSTextAttachment) {
-        self.textStorage.beginEditing()
-        let currentIndexLength = self.textStorage.length
-        let imageAttributeString = NSAttributedString(attachment: attachment)
-        self.textStorage.replaceCharacters(in: self.textView.selectedRange, with: imageAttributeString)
-        self.textStorage.endEditing()
-        self.textView.font = self.font
-        let range = NSRange(location: 0, length: self.textStorage.length)
-        if currentIndexLength == 0 || self.textView.selectedRange.location > 0 {
-            self.textStorage.beginEditing()
-            self.textStorage.addAttribute(NSAttributedString.Key.font, value: self.font, range: range)
-            self.textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: self.textView.textColor ?? UIColor.black, range: range)
-            self.textStorage.endEditing()
-        }
-        self.textView.selectedRange = NSRange(location: self.textView.selectedRange.location + 1, length: 0)
-        self.textViewDidChange(self.textView)
-    }
-
-    @objc func append(segmentText text: String?, additionData context: Dictionary<String, Any>? = nil) {
-        if let text = text, let image = generateImage(from: text) {
-            let attachment = SegmentTextAttachment()
-            attachment.alt = text
-            attachment.image = image
-            attachment.bounds = CGRect(x: 0, y: -(image.size.height - font.pointSize) / 2 - 2, width: image.size.width, height: image.size.height)
-            attachment.additionalData = context
-            append(imageAttachment: attachment)
-        }
-    }
-
-    @objc func append(_ text: String) {
-        if !shouldChangeTextIn(range: NSRange(location: textStorage.length, length: 0), with: text) {
-            return
-        }
-        textStorage.beginEditing()
-        textStorage.append(NSAttributedString(string: text))
-        if let font = textView.font {
-            let range = NSRange(location: 0, length: textStorage.length)
-            textStorage.addAttribute(NSAttributedString.Key.font, value: font, range: range)
-            textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: textView.textColor ?? UIColor.black, range: range)
-        }
-        textStorage.endEditing()
-        textView.selectedRange = NSRange(location: textStorage.length, length: 0)
-        textViewDidChange(textView)
-    }
-
-    @objc func insert(text: String, range: NSRange) {
-        if !shouldChangeTextIn(range: range, with: text) {
-            return
-        }
-        textStorage.beginEditing()
-        textStorage.insert(NSAttributedString(string: text), at: range.location)
-        if let font = textView.font {
-            let range = NSRange(location: 0, length: textStorage.length)
-            textStorage.addAttribute(NSAttributedString.Key.font, value: font, range: range)
-            textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: textView.textColor ?? UIColor.black, range: range)
-        }
-        textStorage.endEditing()
-        let newRange = NSRange(location: range.location + text.count, length: range.length)
-        textView.selectedRange = newRange
-        textViewDidChange(textView)
-    }
-
-    func deleteBackward() {
-        textView.deleteBackward()
-    }
-
-    private func generateImage(from text: String) -> UIImage? {
-        var size: CGSize = (text as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
-        let maxWidth: CGFloat = max(frame.width - 50, 100)
-        size = CGSize(width: CGFloat(min(maxWidth, size.width)), height: CGFloat(size.height))
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        UIColor.black.set()
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
-        text.draw(in: CGRect(x: 0, y: 0, width: CGFloat(size.width), height: CGFloat(size.height)), withAttributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    private func getCopyText() -> String {
-        var result = String()
-        textStorage.enumerateAttributes(in: textView.selectedRange) { attrs, range, _ in
-            if let attachment = attrs[NSAttributedString.Key.attachment] {
-                if let textAttachment = attachment as? SegmentTextAttachment {
-                    result += textAttachment.alt ?? ""
-                } else if let imageAttachment = attachment as? ImageTextAttachment {
-                    result += imageAttachment.alt ?? ""
-                }
-            } else {
-                let item = textView.attributedText.attributedSubstring(from: range).string
-                result += item
-            }
-        }
-        return result
-    }
-
-    func getTextAndSegmentContext() -> (String, [[String: Any]]) {
-        var result = String()
-        var context = [[String: Any]]()
-        textStorage.enumerateAttributes(in: NSRange(location: 0, length: textStorage.length)) { attrs, range, _ in
-            if let attachment = attrs[NSAttributedString.Key.attachment] {
-                if let textAttachment = attachment as? SegmentTextAttachment {
-                    result += textAttachment.alt ?? ""
-                    if textAttachment.additionalData != nil {
-                        context.append(textAttachment.additionalData!)
-                    }
-                } else if let imageAttachment = attachment as? ImageTextAttachment {
-                    result += imageAttachment.alt ?? ""
-                }
-            } else {
-                let item = textView.attributedText.attributedSubstring(from: range).string
-                result += item
-            }
-        }
-        return (result, context)
-    }
-
-    @objc var richTextValue: String {
-        return getTextAndSegmentContext().0
-    }
-
-    @objc func replace(range: NSRange, text: String) {
-        if range.length + range.location > textStorage.length {
-            return
-        }
-        textStorage.beginEditing()
-        textStorage.replaceCharacters(in: range, with: text)
-        textStorage.endEditing()
-        textView.selectedRange = NSRange(location: range.location + text.count, length: 0)
-    }
-    
-    @objc func replace(range: NSRange, image: UIImage, imageSize size: CGSize, altName alt: String?) {
-        if range.length + range.location > textStorage.length {
-            return
-        }
-        let imageAttachment = ImageTextAttachment()
-        imageAttachment.alt = alt
-        imageAttachment.image = image
-        imageAttachment.bounds = CGRect(x: 0, y: -(size.height - font.pointSize) / 2 - 2, width: size.width, height: size.height)
-        textStorage.beginEditing()
-        textStorage.addAttribute(NSAttributedString.Key.font, value: self.font, range: NSRange(location: 0, length: textStorage.length))
-        textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: self.textView.textColor ?? UIColor.black,
-                                 range: NSRange(location: 0, length: textStorage.length))
-        let imageAttributeString = NSAttributedString(attachment: imageAttachment)
-        textStorage.replaceCharacters(in: range, with: imageAttributeString)
-        textStorage.endEditing()
-        textView.selectedRange = NSRange(location: textStorage.length, length: 0)
-    }
-}
-
-extension ZTextArea {
-
     override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if #available(iOS 9.0, *) {
             let menuController = UIMenuController.shared
@@ -713,6 +554,6 @@ extension ZTextArea {
     }
 
     @objc func wrap(_ sender: Any?) {
-        insert(text: "\n", range: textView.selectedRange)
+        textView.wrap()
     }
 }

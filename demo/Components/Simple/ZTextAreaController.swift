@@ -15,8 +15,8 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
 
     class Styles : ViewStyles {
         
-        @objc static let _maximumCharCount = ["最大字数", "设为0不限制；如果有限制，将展现字数指示"]
-        @objc var maximumCharCount = 100
+        @objc static let _maxWordCount = ["最大字数", "设为0不限制；如果有限制，将展现字数指示"]
+        @objc var maxWordCount = 100
         
         @objc static let _minimunHeight = ["最小高度", "没有文字时的高度"]
         @objc var minimunHeight: CGFloat = 100
@@ -41,19 +41,11 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
     
     class Model : ViewModel {
         let text = ""
-        let leftIcon = CALayer(svgURL: Bundle(for: Model.self).url(forResource: "union", withExtension: "svg")!) { (layer: SVGLayer) in
-            layer.frame = layer.boundingBox
-            layer.superlayer?.frame = layer.boundingBox
-        }
-        let rightIcon = CALayer(svgURL: Bundle(for: Model.self).url(forResource: "erase", withExtension: "svg")!) { (layer: SVGLayer) in
-            layer.frame = layer.boundingBox
-            layer.superlayer?.frame = layer.boundingBox
-       }
     }
     
     private let styles = Styles()
     private let model = Model()
-    private let textInput = ZTextView()
+    private let textInput = ZTextInput()
     private let textArea = ZTextArea()
 
     override func getStyles() -> ViewStyles {
@@ -65,8 +57,9 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         view.backgroundColor = .lightGray
         
         textInput.backgroundColor = .white
-        textInput.maxWords = styles.maximumCharCount
+        textInput.maxWordCount = styles.maxWordCount
         textInput.placeholder = styles.placeholder
+        textInput.singleLine = true
         //textInput.showBorder = styles.showBorder
         //textInput.delegate = self
         view.addSubview(textInput)
@@ -80,7 +73,7 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         textArea.backgroundColor = .white
         textArea.minHeight = styles.minimunHeight
         textArea.maxHeight = styles.maximunHeight
-        textArea.maxWords = styles.maximumCharCount
+        textArea.maxWords = styles.maxWordCount
         textArea.placeholder = styles.placeholder
         textArea.showBorder = styles.showBorder
         textArea.delegate = self
@@ -93,9 +86,9 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         }
 
         styles.listen { (name: String) in
-            if name == "maximumCharCount" {
-                self.textInput.maxWords = self.styles.maximumCharCount
-                self.textArea.maxWords = self.styles.maximumCharCount
+            if name == "maxWordCount" {
+                self.textInput.maxWordCount = self.styles.maxWordCount
+                self.textArea.maxWords = self.styles.maxWordCount
             } else if name == "minimunHeight" {
                 self.textArea.minHeight = self.styles.minimunHeight
             } else if name == "maximunHeight" {
@@ -107,9 +100,9 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
                 //self.textInput.showBorder = self.styles.showBorder
                 self.textArea.showBorder = self.styles.showBorder
             } else if name == "leftIcon" {
-                //self.textInput.leftButton = self.styles.leftIcon
+                self.textInput.leftButton = self.styles.leftIcon
             } else if name == "rightIcon" {
-                //self.textInput.rightButton = self.styles.rightIcon
+                self.textInput.rightButton = self.styles.rightIcon
             }
         }
     }

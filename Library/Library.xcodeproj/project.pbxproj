@@ -30,6 +30,8 @@
 		715FC021263EC0CF005A265C /* UITextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC020263EC0CF005A265C /* UITextFieldStyle.swift */; };
 		715FC026263F940C005A265C /* ZTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC025263F940C005A265C /* ZTextView.swift */; };
 		715FC029263F943C005A265C /* ZTextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC028263F943C005A265C /* ZTextViewStyle.swift */; };
+		715FC02C263FEC68005A265C /* ZTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC02B263FEC68005A265C /* ZTextInput.swift */; };
+		715FC02F263FEE1E005A265C /* ZTextInputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -125,6 +127,8 @@
 		715FC020263EC0CF005A265C /* UITextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldStyle.swift; sourceTree = "<group>"; };
 		715FC025263F940C005A265C /* ZTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextView.swift; sourceTree = "<group>"; };
 		715FC028263F943C005A265C /* ZTextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextViewStyle.swift; sourceTree = "<group>"; };
+		715FC02B263FEC68005A265C /* ZTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextInput.swift; sourceTree = "<group>"; };
+		715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextInputStyle.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -340,9 +344,10 @@
 			isa = PBXGroup;
 			children = (
 				717C5B7B263118EF001A0E12 /* TextAttachment.swift */,
-				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
 				715FBFFA263D578E005A265C /* ZNumberView.swift */,
+				7178A1CF25F725ED004BA696 /* ZTextArea.swift */,
 				715FC01D263EBF72005A265C /* ZTextField.swift */,
+				715FC02B263FEC68005A265C /* ZTextInput.swift */,
 				715FC025263F940C005A265C /* ZTextView.swift */,
 			);
 			path = Input;
@@ -416,6 +421,7 @@
 				714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */,
 				715FBFFE263D59A3005A265C /* ZNumberViewStyle.swift */,
 				715FC014263E7AE9005A265C /* ZTextFieldStyle.swift */,
+				715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */,
 				715FC028263F943C005A265C /* ZTextViewStyle.swift */,
 			);
 			path = Styles;
@@ -544,6 +550,7 @@
 				7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */,
 				71FF941B262D68940033098B /* ZAppTitleBar.swift in Sources */,
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
+				715FC02C263FEC68005A265C /* ZTextInput.swift in Sources */,
 				7178A19F25F5CC14004BA696 /* BallPulseIndicator.swift in Sources */,
 				714D7FCC2637F30100DCCEE0 /* ZDialogStyle.swift in Sources */,
 				715FC026263F940C005A265C /* ZTextView.swift in Sources */,
@@ -570,6 +577,7 @@
 				715FC021263EC0CF005A265C /* UITextFieldStyle.swift in Sources */,
 				7178A1A325F5CC14004BA696 /* LBIndicator.swift in Sources */,
 				715FC018263E8092005A265C /* UITextViewStyle.swift in Sources */,
+				715FC02F263FEE1E005A265C /* ZTextInputStyle.swift in Sources */,
 				7178A19125F5CBE5004BA696 /* UIActivityIndicatorView.swift in Sources */,
 				715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,

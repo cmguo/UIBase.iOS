@@ -12,11 +12,7 @@ public class ZTextViewStyle : UITextViewStyle {
     public var placeholderTextColor = UIColor.bluegrey_500
     
     public var minHeight: CGFloat = 32
-    public var padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
-    public var buttonAppearance = ZButtonAppearance(
-        type: .init(textColor: .red_600_disabled, backgroundColor: .clear),
-        size: .init(height: 32, radius: 0, padding: 5, textSize: 10, iconSize: 12, iconPadding: 0))
+    public var padding = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
 
     public override init() {
         super.init()

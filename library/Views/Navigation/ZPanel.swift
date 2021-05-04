@@ -158,7 +158,7 @@ public class ZPanel : UIView, ZTitleBarCallbackDelegate {
             }
             if _contentView != nil {
                 _contentView?.removeFromSuperview()
-                _contentView?.translatesAutoresizingMaskIntoConstraints = false
+                //_contentView?.translatesAutoresizingMaskIntoConstraints = false
             }
             view.translatesAutoresizingMaskIntoConstraints = true
             _contentView = view
@@ -166,7 +166,7 @@ public class ZPanel : UIView, ZTitleBarCallbackDelegate {
             syncSize()
         } else if (_contentView != nil) {
             _contentView?.removeFromSuperview()
-            _contentView?.translatesAutoresizingMaskIntoConstraints = false
+            //_contentView?.translatesAutoresizingMaskIntoConstraints = false
             _contentView = nil
             syncSize()
         }

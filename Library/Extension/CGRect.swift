@@ -122,12 +122,15 @@ extension CGRect {
     
     public mutating func moveLeftTop(toSize size: CGSize) {
         left = right - size.width
+        width2 = size.width
         top = bottom - size.height
+        height2 = size.height
     }
     
     public mutating func moveRightTop(toSize size: CGSize) {
         width2 = size.width
         top = bottom - size.height
+        height2 = size.height
     }
     
     public mutating func moveRightBottom(toSize size: CGSize) {
@@ -136,6 +139,7 @@ extension CGRect {
     
     public mutating func moveLeftBottom(toSize size: CGSize) {
         left = right - size.width
+        width2 = size.width
         height2 = size.height
     }
     
