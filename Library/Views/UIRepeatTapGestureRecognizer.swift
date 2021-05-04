@@ -28,7 +28,7 @@ public class UIRepeatTapGestureRecognizer : UIGestureRecognizer {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         working = true
         target.perform(action, with: self)
-        DispatchQueue.main.asyncAfter(deadline: .now() + initialInterval, execute: {
+        DispatchQueue.main.delay(initialInterval, execute: {
             self.handleAsync()
         })
     }
@@ -52,7 +52,7 @@ public class UIRepeatTapGestureRecognizer : UIGestureRecognizer {
             // we can't control .change rate, so keep in .possible state
             // state = .begin
             target.perform(action, with: self)
-            DispatchQueue.main.asyncAfter(deadline: .now() + repeatInterval, execute: {
+            DispatchQueue.main.delay(repeatInterval, execute: {
                 self.handleAsync()
             })
         }

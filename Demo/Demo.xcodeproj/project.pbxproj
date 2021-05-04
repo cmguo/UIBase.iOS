@@ -42,6 +42,8 @@
 		715FBFEA263A5CA4005A265C /* ZDatePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */; };
 		715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */; };
 		715FC00E263D6D82005A265C /* ZNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC00D263D6D82005A265C /* ZNumberViewController.swift */; };
+		715FC03826411033005A265C /* ZSearchBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC03726411033005A265C /* ZSearchBarComponent.swift */; };
+		715FC03B26411041005A265C /* ZSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC03A26411041005A265C /* ZSearchBarController.swift */; };
 		7161CDA925E0D84000BF6B71 /* ButtonsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */; };
 		7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */; };
 		7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB025E0D92C00BF6B71 /* Components.swift */; };
@@ -134,6 +136,8 @@
 		715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDatePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberViewComponent.swift; sourceTree = "<group>"; };
 		715FC00D263D6D82005A265C /* ZNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZNumberViewController.swift; sourceTree = "<group>"; };
+		715FC03726411033005A265C /* ZSearchBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBarComponent.swift; sourceTree = "<group>"; };
+		715FC03A26411041005A265C /* ZSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBarController.swift; sourceTree = "<group>"; };
 		7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsComponent.swift; sourceTree = "<group>"; };
 		7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsComponent.swift; sourceTree = "<group>"; };
 		7161CDB025E0D92C00BF6B71 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
 				715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */,
 				715FC00D263D6D82005A265C /* ZNumberViewController.swift */,
+				715FC03726411033005A265C /* ZSearchBarComponent.swift */,
+				715FC03A26411041005A265C /* ZSearchBarController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -589,8 +595,10 @@
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 				717C5BE82632C093001A0E12 /* ZActivityViewComponent.swift in Sources */,
 				717C5BEB2632C09C001A0E12 /* ZActivityViewController.swift in Sources */,
+				715FC03826411033005A265C /* ZSearchBarComponent.swift in Sources */,
 				71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */,
 				717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */,
+				715FC03B26411041005A265C /* ZSearchBarController.swift in Sources */,
 				71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */,
 				71FF940B262D35860033098B /* ZAvatarViewController.swift in Sources */,
 				71FF940026297C3A0033098B /* ZAvatarViewComponent.swift in Sources */,

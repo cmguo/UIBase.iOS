@@ -32,6 +32,8 @@
 		715FC029263F943C005A265C /* ZTextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC028263F943C005A265C /* ZTextViewStyle.swift */; };
 		715FC02C263FEC68005A265C /* ZTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC02B263FEC68005A265C /* ZTextInput.swift */; };
 		715FC02F263FEE1E005A265C /* ZTextInputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */; };
+		715FC03226410B50005A265C /* ZSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC03126410B50005A265C /* ZSearchBar.swift */; };
+		715FC03526410E36005A265C /* ZSearchBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC03426410E36005A265C /* ZSearchBarStyle.swift */; };
 		71789FC525E8C52C004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789FC425E8C52C004BA696 /* SwiftyJSON.framework */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
@@ -129,6 +131,8 @@
 		715FC028263F943C005A265C /* ZTextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextViewStyle.swift; sourceTree = "<group>"; };
 		715FC02B263FEC68005A265C /* ZTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextInput.swift; sourceTree = "<group>"; };
 		715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextInputStyle.swift; sourceTree = "<group>"; };
+		715FC03126410B50005A265C /* ZSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBar.swift; sourceTree = "<group>"; };
+		715FC03426410E36005A265C /* ZSearchBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBarStyle.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 				715FC01D263EBF72005A265C /* ZTextField.swift */,
 				715FC02B263FEC68005A265C /* ZTextInput.swift */,
 				715FC025263F940C005A265C /* ZTextView.swift */,
+				715FC03126410B50005A265C /* ZSearchBar.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				715FC014263E7AE9005A265C /* ZTextFieldStyle.swift */,
 				715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */,
 				715FC028263F943C005A265C /* ZTextViewStyle.swift */,
+				715FC03426410E36005A265C /* ZSearchBarStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 			files = (
 				717C5B802631191D001A0E12 /* ZDropDown.swift in Sources */,
 				715FBFCD2638FF77005A265C /* ZTimePickerView.swift in Sources */,
+				715FC03226410B50005A265C /* ZSearchBar.swift in Sources */,
 				7178A1A125F5CC14004BA696 /* LineScalePulseIndicator.swift in Sources */,
 				717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */,
 				717C5B4C262FCEFE001A0E12 /* ZAppTitleBarStyle.swift in Sources */,
@@ -592,6 +599,7 @@
 				717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */,
 				715FBFF0263ACAF0005A265C /* ZTimePickerViewStyle.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
+				715FC03526410E36005A265C /* ZSearchBarStyle.swift in Sources */,
 				717C5BB626317872001A0E12 /* ZURLs.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,

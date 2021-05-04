@@ -281,7 +281,7 @@ public class ZButton : UIButton
             indicator.color = typeStyles.textColor.normalColor()
         }
         if size {
-            self.setCornerBorder(cornerRadius: sizeStyles.radius)
+            self.layer.cornerRadius = sizeStyles.radius
             self.titleLabel?.font = UIFont.systemFont(ofSize: sizeStyles.textSize, weight: .semibold)
             self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
             imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)

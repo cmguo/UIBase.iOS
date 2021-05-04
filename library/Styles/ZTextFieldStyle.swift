@@ -9,8 +9,6 @@ import Foundation
 
 public class ZTextFieldStyle : UITextFieldStyle {
     
-    public var placeholderTextColor = UIColor.bluegrey_500
-    
     public var height: CGFloat = 32
 
     public var buttonAppearance = ZButtonAppearance(

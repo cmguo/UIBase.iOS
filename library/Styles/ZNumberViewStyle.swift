@@ -22,5 +22,4 @@ public class ZNumberViewStyle : UIViewStyle {
         cornerRadius = 16
     }
     
-    
 }

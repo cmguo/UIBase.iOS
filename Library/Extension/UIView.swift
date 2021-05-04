@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: UIView
 extension UIView {
     
     open var viewStyle: UIViewStyle {
@@ -20,20 +19,25 @@ extension UIView {
         }
     }
     
-    /**
-     Set the corner radius of the view.
-     
-     - Parameter color:        The color of the border.
-     - Parameter cornerRadius: The radius of the rounded corner.
-     - Parameter borderWidth:  The width of the border.
-     */
-    open func setCornerBorder(color: UIColor? = nil, cornerRadius: CGFloat = 15.0, borderWidth: CGFloat = 1.5) {
-        self.layer.borderColor = color != nil ? color!.cgColor : UIColor.clear.cgColor
-        self.layer.borderWidth = borderWidth
-        self.layer.cornerRadius = cornerRadius
-//        self.clipsToBounds = true
-    }
+}
+
+extension UIView {
     
+    func subview<T: UIView>(ofType type: T.Type) -> T? {
+        for v in subviews {
+            if let vt = v as? T {
+                return vt
+            }
+            if let vt = v.subview(ofType: type) {
+                return vt
+            }
+        }
+        return nil
+    }
+}
+
+extension UIView {
+
     func updateSizeConstraint(_ constraint: (NSLayoutConstraint, NSLayoutConstraint)?, _ size: CGSize, widthRange: Int = 0, heightRange: Int = 0) -> (NSLayoutConstraint, NSLayoutConstraint) {
         if let (widthConstraint, heightConstraint) = constraint {
             widthConstraint.constant = size.width
