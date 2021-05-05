@@ -34,6 +34,18 @@ extension UIView {
         }
         return nil
     }
+    
+    func snapshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext();
+            return nil
+        }
+        self.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
 }
 
 extension UIView {

@@ -25,6 +25,7 @@ public class ComponentStyle : NSObject
     let desc: String
     let valueType: Any.Type
     var values: Array<(String, String)>?
+    var defValue: Any = ""
 
     var valueTypeName: String { get { return "\(valueType)" } }
     
@@ -70,12 +71,15 @@ public class ComponentStyle : NSObject
         guard let values = values else {
             return
         }
-        let value = getRaw(on: styles)
+        guard let value = getRaw(on: styles) else {
+            return
+        }
         let name = valueToString(value)
         if !values.contains(where: { k, v in v == name }) {
             var vs = values
-            vs.insert(("<default>", name), at: 0)
+            vs.insert(("<default>", "<default>"), at: 0)
             self.values = vs
+            self.defValue = value
         }
     }
     
@@ -106,12 +110,19 @@ public class ComponentStyle : NSObject
             return Double.init(value)
         } else if valueType == NSString.self {
             return value
+        } else if value == "<default>" {
+            return defValue
         } else {
             return value
         }
     }
     
     func valueToString(_ value: Any?) -> String {
+        if let cv = value as? AnyObject, let cl = defValue as? AnyObject {
+            if cv === cl {
+                return "<default>"
+            }
+        }
         return "\(value ?? "")"
     }
 }

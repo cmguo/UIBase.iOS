@@ -58,10 +58,12 @@ public class ZAppTitleBar : UIView
         }
     }
     
-    public var icon: URL? {
+    public var icon: Any? {
         didSet {
-            _iconView.setImage(withURL: icon)
-            syncSize()
+            _iconView.bounds.size = .zero
+            _iconView.setImage(wild: icon) {
+                self.syncSize()
+            }
         }
     }
     

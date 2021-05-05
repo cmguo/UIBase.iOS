@@ -22,7 +22,7 @@ class ZAppTitleBarController: ComponentController, ZTitleBarCallbackDelegate {
 
         @objc static let _rightButton2 = ["右侧按钮2", "右侧第2个按钮的内容，参见按钮的 content 样式"]
         @objc static let _rightButton2Style = ContentStyle(Styles.self, "rightButton2", ["<button>"])
-        @objc var rightButton2 = 0
+        @objc var rightButton2: Any? = nil
 
         @objc static let _content = ["内容", "中间或者整体内容，字符串、或者样式集（Dictionary）"]
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["<title>"])
@@ -32,8 +32,8 @@ class ZAppTitleBarController: ComponentController, ZTitleBarCallbackDelegate {
         @objc var data: Any? = nil
 
         @objc static let _icon = ["图标", "附加在文字标题左侧的图标，资源ID类型，不能点击"]
-        @objc static let _iconStyle = IconStyle(Styles.self, "icon")
-        @objc var icon: URL? = Icons.iconURL("erase")
+        @objc static let _iconStyle = ContentStyle(Styles.self, "icon", ["icon"])
+        @objc var icon: Any? = Icons.iconURL("erase")
 
         @objc static let _title = ["标题", "标题文字，一般在中间显示；如果没有左侧按钮内容，则在左侧大标题样式展示"]
         @objc var title = "标题"

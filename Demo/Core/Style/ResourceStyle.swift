@@ -38,14 +38,14 @@ class ResourceStyle: ComponentStyle {
         if value == nil {
             return "<null>"
         }
-        if let cv = value as? AnyClass {
+        if let cv = value as? AnyObject {
             for (k, v) in contents {
-                if let cl = v as? AnyClass, cv == cl {
+                if let cl = v as? AnyObject, cv === cl {
                     return k
                 }
             }
         }
-        return ""
+        return super.valueToString(value)
     }
     
     override func valueFromString(_ value: String) -> Any? {
@@ -57,7 +57,7 @@ class ResourceStyle: ComponentStyle {
                 return v
             }
         }
-        return nil
+        return super.valueFromString(value)
     }
     
     
@@ -69,19 +69,23 @@ class ResourceStyle: ComponentStyle {
             if let tt = Self.Templates[p] {
                 for s in tt {
                     if s.starts(with: "@") {
-                        types.append(s)
+                        types.append(s[1..<p.count])
                     } else {
                         prefs.append(s)
                     }
                 }
             } else if p.starts(with: "@") {
-                types.append(p)
+                types.append(p[1..<p.count])
             } else {
                 prefs.append(p)
             }
         }
         for (k, v) in resources {
             if !prefs.isEmpty && !prefs.contains(where: { s in k.starts(with: s)}) {
+                continue
+            }
+            let t = "\(type(of: v))"
+            if !types.isEmpty && !types.contains(where: { s in t.contains(s) }) {
                 continue
             }
             r[k] = v

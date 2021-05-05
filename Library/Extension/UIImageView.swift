@@ -10,9 +10,24 @@ import SwiftSVG
 
 extension UIImageView {
     
+    public func setImage(wild: Any?, completion: ( () -> Void)? = nil) {
+        if let url = wild as? URL {
+            setImage(withURL: url, completion: completion)
+        } else {
+            setImage(svgURL: nil) { }
+            if let image = wild as? UIImage {
+                self.image = image
+            } else if let view = wild as? UIView {
+                self.image = view.snapshot()
+            } else {
+                self.image = nil
+            }
+        }
+    }
+    
     public func setImage(withURL url: URL?, completion: ( () -> Void)? = nil) {
         if url?.pathExtension == "svg" {
-            setSvgIcon(svgURL: url, completion: completion)
+            setImage(svgURL: url, completion: completion)
         } else {
             if let sublayers = self.layer.sublayers {
                 for sl in sublayers {
@@ -24,11 +39,11 @@ extension UIImageView {
         }
     }
 
-    public func setSvgIcon(svgURL : URL?, completion: ( () -> Void)? = nil) {
-        setSvgIcon(svgURL: svgURL, inBounds: nil, completion: completion)
+    public func setImage(svgURL : URL?, completion: ( () -> Void)? = nil) {
+        setImage(svgURL: svgURL, inBounds: nil, completion: completion)
     }
     
-    public func setSvgIcon(svgURL : URL?, inBounds: CGRect?, completion: ( () -> Void)?) {
+    public func setImage(svgURL : URL?, inBounds: CGRect?, completion: ( () -> Void)?) {
         if let sublayers = self.layer.sublayers {
             for sl in sublayers {
                 sl.removeFromSuperlayer()

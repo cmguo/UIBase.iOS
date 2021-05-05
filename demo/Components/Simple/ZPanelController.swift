@@ -17,7 +17,7 @@ class ZPanelController: ComponentController, ZPanelCallbackDelegate {
         @objc var bottomButton: Any? = nil
 
         @objc static let _content = ["内容", "中间或者整体内容，UIView 实例或者样式集（Dictionary）"]
-        @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["@Dictionary", "@UIView"])
+        @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["@Dictionary", "@UIView", "@String"])
         @objc var content: Any? = nil
 
         @objc static let _data = ["数据", "通过 BindingAdapter 实现的虚拟属性，间接设置给扩展内容，仅用于基于 DataBinding 的布局"]
