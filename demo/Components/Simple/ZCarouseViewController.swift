@@ -17,7 +17,7 @@ class ZCarouseViewController: ComponentController, ZCarouseViewDelegate {
         @objc var slideDirection = 0
 
         @objc static let _slideInterval = ["间隔时间", "两次自动滚动的间隔时间，设为 0 不自动滚动"]
-        @objc var slideInterval: CGFloat = 0
+        @objc var slideInterval: CGFloat = 2
 
         @objc static let _itemSpacing = ["图片间距", "相邻两张图片之间的间距"]
         @objc var itemSpacing: CGFloat = 0
@@ -26,7 +26,7 @@ class ZCarouseViewController: ComponentController, ZCarouseViewDelegate {
         @objc var manualSlidable = false
         
         @objc static let _cyclic = ["循环滚动", "是否循环滚动，好像有无限张图片"]
-        @objc var cyclic = false
+        @objc var cyclic = true
         
         @objc static let _slideAnimType = ["翻页动效", "翻页的动画效果"]
         @objc static let _slideAnimTypeStyle: NSObject = EnumStyle(Styles.self, "slideAnimType", ZCarouseView.SlideAnimType.self)
@@ -90,6 +90,8 @@ class ZCarouseViewController: ComponentController, ZCarouseViewDelegate {
         
         carouseView.dataSource2 = model
         carouseView.delegate2 = self
+        carouseView.slideInterval = styles.slideInterval
+        carouseView.cyclic = styles.cyclic
         view.addSubview(carouseView)
         carouseView.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()
@@ -116,11 +118,8 @@ class ZCarouseViewController: ComponentController, ZCarouseViewDelegate {
         }
     }
     
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+    func carouseView(_ carouseView: ZCarouseView, didSlideTo index: Int) {
         text.text = String(index)
     }
     
-    func pagerViewDidScroll(_ pagerView: FSPagerView) {
-        text.text = String(pagerView.currentIndex)
-    }
 }

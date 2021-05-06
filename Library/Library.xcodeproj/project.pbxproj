@@ -104,6 +104,9 @@
 		71C8757B26439D3100A06367 /* FSPageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757526439D3100A06367 /* FSPageViewLayout.swift */; };
 		71C8757C26439D3100A06367 /* FSPagerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757626439D3100A06367 /* FSPagerCollectionView.swift */; };
 		71C8757F26439DF900A06367 /* ZCarouseViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */; };
+		71C875A22643CD1900A06367 /* FSPagerViewObjcCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 71C8759F2643CD1900A06367 /* FSPagerViewObjcCompat.h */; };
+		71C875A32643CD1900A06367 /* FSPagerViewObjcCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C875A02643CD1900A06367 /* FSPagerViewObjcCompat.m */; };
+		71C875A42643CD1900A06367 /* FSPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875A12643CD1900A06367 /* FSPageControl.swift */; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
 		71FF93EC262843500033098B /* DayNightColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* DayNightColors.swift */; };
@@ -214,6 +217,9 @@
 		71C8757526439D3100A06367 /* FSPageViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewLayout.swift; sourceTree = "<group>"; };
 		71C8757626439D3100A06367 /* FSPagerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerCollectionView.swift; sourceTree = "<group>"; };
 		71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewStyle.swift; sourceTree = "<group>"; };
+		71C8759F2643CD1900A06367 /* FSPagerViewObjcCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPagerViewObjcCompat.h; sourceTree = "<group>"; };
+		71C875A02643CD1900A06367 /* FSPagerViewObjcCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPagerViewObjcCompat.m; sourceTree = "<group>"; };
+		71C875A12643CD1900A06367 /* FSPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageControl.swift; sourceTree = "<group>"; };
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
 		71FF93C02626F8BA0033098B /* ZStateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStateListColors.swift; sourceTree = "<group>"; };
 		71FF93EB262843500033098B /* DayNightColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightColors.swift; sourceTree = "<group>"; };
@@ -443,6 +449,9 @@
 		71C8757026439D3100A06367 /* FSPagerView */ = {
 			isa = PBXGroup;
 			children = (
+				71C875A12643CD1900A06367 /* FSPageControl.swift */,
+				71C8759F2643CD1900A06367 /* FSPagerViewObjcCompat.h */,
+				71C875A02643CD1900A06367 /* FSPagerViewObjcCompat.m */,
 				71C8757126439D3100A06367 /* FSPagerView.swift */,
 				71C8757226439D3100A06367 /* FSPageViewTransformer.swift */,
 				71C8757326439D3100A06367 /* FSPagerViewCell.swift */,
@@ -501,6 +510,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71C875A22643CD1900A06367 /* FSPagerViewObjcCompat.h in Headers */,
 				7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +546,7 @@
 				TargetAttributes = {
 					7182AEB425CCE98C00B0F1D3 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -620,6 +631,7 @@
 				7178A1C925F63470004BA696 /* CGRect.swift in Sources */,
 				711202A225FA1BA6004A3AA5 /* String.swift in Sources */,
 				71C8757A26439D3100A06367 /* FSPagerViewLayoutAttributes.swift in Sources */,
+				71C875A42643CD1900A06367 /* FSPageControl.swift in Sources */,
 				7178A1A525F5CC14004BA696 /* MaterialLoadingIndicator.swift in Sources */,
 				7178A19025F5CBE5004BA696 /* UIColor.swift in Sources */,
 				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,
@@ -667,6 +679,7 @@
 				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
 				715FC01E263EBF72005A265C /* ZTextField.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
+				71C875A32643CD1900A06367 /* FSPagerViewObjcCompat.m in Sources */,
 				71C8756D264398A400A06367 /* ZListItem.swift in Sources */,
 				715FBFFF263D59A3005A265C /* ZNumberViewStyle.swift in Sources */,
 				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,
@@ -806,6 +819,7 @@
 		7182AEBE25CCE98C00B0F1D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -822,6 +836,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.library;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -830,6 +845,7 @@
 		7182AEBF25CCE98C00B0F1D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

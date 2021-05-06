@@ -1,5 +1,5 @@
 //
-//  FSPagerViewCollectionView.swift
+//  FSPagerCollectionView.swift
 //  FSPagerView
 //
 //  Created by Wenchao Ding on 24/12/2016.
@@ -10,17 +10,24 @@
 
 import UIKit
 
-class FSPagerViewCollectionView: UICollectionView {
-
-    fileprivate var pagerView: FSPagerView? {
-        return self.superview?.superview as? FSPagerView
+class FSPagerCollectionView: UICollectionView {
+    
+    #if !os(tvOS)
+    override var scrollsToTop: Bool {
+        set {
+            super.scrollsToTop = false
+        }
+        get {
+            return false
+        }
     }
-
+    #endif
+    
     override var contentInset: UIEdgeInsets {
         set {
             super.contentInset = .zero
-            if newValue.top > 0 {
-                let contentOffset = CGPoint(x: self.contentOffset.x, y: self.contentOffset.y+newValue.top)
+            if (newValue.top > 0) {
+                let contentOffset = CGPoint(x:self.contentOffset.x, y:self.contentOffset.y+newValue.top);
                 self.contentOffset = contentOffset
             }
         }
@@ -28,17 +35,17 @@ class FSPagerViewCollectionView: UICollectionView {
             return super.contentInset
         }
     }
-
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.commonInit()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
-
+    
     fileprivate func commonInit() {
         self.contentInset = .zero
         self.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -55,5 +62,5 @@ class FSPagerViewCollectionView: UICollectionView {
             self.isPagingEnabled = false
         #endif
     }
-
+    
 }
