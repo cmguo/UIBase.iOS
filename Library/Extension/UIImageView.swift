@@ -78,5 +78,21 @@ extension UIImageView {
             thisShapeLayer.fillColor = color.cgColor
         }
     }
+    
+    public func updateSvgScale(_ oldSize: CGSize, _ newSize: CGSize) {
+        if let layers = self.layer.sublayers {
+            for l in layers {
+                let svg = l.sublayers(in: l) as [SVGLayer]
+                if !svg.isEmpty {
+                    var size2 = oldSize
+                    var scale = l.transform.m11
+                    size2.width /= scale
+                    size2.height /= scale
+                    scale = min(newSize.width / size2.width, newSize.height / size2.height)
+                    l.transform = CATransform3DMakeScale(scale, scale, 1)
+                }
+            }
+        }
+    }
 
 }

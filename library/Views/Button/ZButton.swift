@@ -285,8 +285,11 @@ public class ZButton : UIButton
             self.layer.cornerRadius = sizeStyles.radius
             self.titleLabel?.font = UIFont.systemFont(ofSize: sizeStyles.textSize, weight: .semibold)
             self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
-            // TODO: sync svg icon scale
+            let oldSize = imageSize
             imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
+            if icon != nil {
+                imageView?.updateSvgScale(oldSize, imageSize)
+            }
             self.syncSize()
         }
     }

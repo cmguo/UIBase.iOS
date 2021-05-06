@@ -99,10 +99,10 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         cell.textLabel?.text = name
         cell.selectionStyle = .none
         let button = ZButton()
-            .text(styles.text)
-            .icon(styles.icon)
             .buttonType(type)
             .buttonSize(styles.buttonSize2)
+            .text(styles.text)
+            .icon(styles.icon)
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
         button.iconPosition = styles.iconPosition2
@@ -139,8 +139,8 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
                 for b in self.buttons { b.isEnabled = !self.styles.disabled }
             } else if name == "loading" {
                 for b in self.buttons { b.isLoading = self.styles.loading }
-//            } else if name == "sizeMode" {
-//                for b in self.buttons { _ = b }
+            } else if name == "buttonSize" {
+                for b in self.buttons { b.buttonSize = self.styles.buttonSize2 }
             } else if name == "iconPosition" {
                 for b in self.buttons { b.iconPosition = self.styles.iconPosition2 }
             } else if name == "icon" {
