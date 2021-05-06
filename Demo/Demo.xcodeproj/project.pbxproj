@@ -78,6 +78,11 @@
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
 		71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */; };
 		71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2468A25E798ED0049ABB0 /* Assets.xcassets */; };
+		71C875822643A02A00A06367 /* ZCarouseViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */; };
+		71C875852643A03300A06367 /* ZCarouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouseViewController.swift */; };
+		71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875972643B8FF00A06367 /* carouse2.jpg */; };
+		71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875982643B8FF00A06367 /* carouse1.jpg */; };
+		71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875992643B8FF00A06367 /* carouse3.jpg */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
 		71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E025E5053300AEB07A /* ZButtonComponent.swift */; };
 		71F543E425E5054900AEB07A /* ZButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E325E5054900AEB07A /* ZButtonController.swift */; };
@@ -174,6 +179,11 @@
 		71A2468025E78CDF0049ABB0 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxTextField.swift; sourceTree = "<group>"; };
 		71A2468A25E798ED0049ABB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewComponent.swift; sourceTree = "<group>"; };
+		71C875842643A03300A06367 /* ZCarouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewController.swift; sourceTree = "<group>"; };
+		71C875972643B8FF00A06367 /* carouse2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse2.jpg; sourceTree = "<group>"; };
+		71C875982643B8FF00A06367 /* carouse1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse1.jpg; sourceTree = "<group>"; };
+		71C875992643B8FF00A06367 /* carouse3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse3.jpg; sourceTree = "<group>"; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
 		71F543E325E5054900AEB07A /* ZButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonController.swift; sourceTree = "<group>"; };
@@ -422,6 +432,8 @@
 				715FC00D263D6D82005A265C /* ZNumberViewController.swift */,
 				715FC03726411033005A265C /* ZSearchBarComponent.swift */,
 				715FC03A26411041005A265C /* ZSearchBarController.swift */,
+				71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */,
+				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -429,6 +441,9 @@
 		71FF93F1262957D10033098B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				71C875982643B8FF00A06367 /* carouse1.jpg */,
+				71C875972643B8FF00A06367 /* carouse2.jpg */,
+				71C875992643B8FF00A06367 /* carouse3.jpg */,
 				7195363B2638164400C82D2F /* dialog1.png */,
 				717C5BED2632C426001A0E12 /* img_share_class.png */,
 				717C5BF02632C426001A0E12 /* img_share_moment.png */,
@@ -510,6 +525,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */,
 				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
 				717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */,
 				711202D826046AB6004A3AA5 /* delete.svg in Resources */,
@@ -517,7 +533,9 @@
 				717C5BF22632C426001A0E12 /* img_share_class.png in Resources */,
 				711202CF260469E7004A3AA5 /* arrowR.svg in Resources */,
 				717C5BF32632C426001A0E12 /* img_share_space.png in Resources */,
+				71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
+				71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */,
 				717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */,
 				7195363C2638164400C82D2F /* dialog1.png in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
@@ -586,6 +604,7 @@
 				71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */,
 				711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */,
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
+				71C875852643A03300A06367 /* ZCarouseViewController.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */,
 				715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */,
@@ -595,6 +614,7 @@
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 				717C5BE82632C093001A0E12 /* ZActivityViewComponent.swift in Sources */,
 				717C5BEB2632C09C001A0E12 /* ZActivityViewController.swift in Sources */,
+				71C875822643A02A00A06367 /* ZCarouseViewComponent.swift in Sources */,
 				715FC03826411033005A265C /* ZSearchBarComponent.swift in Sources */,
 				71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */,
 				717C5B9326313DAA001A0E12 /* ZDropDownComponent.swift in Sources */,

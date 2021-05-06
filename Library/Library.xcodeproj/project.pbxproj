@@ -95,6 +95,15 @@
 		717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */; };
 		717C5C1D26350D1C001A0E12 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1C26350D1C001A0E12 /* UILabel.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71C8756A2643989800A06367 /* ZCarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875692643989800A06367 /* ZCarouseView.swift */; };
+		71C8756D264398A400A06367 /* ZListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8756C264398A400A06367 /* ZListItem.swift */; };
+		71C8757726439D3100A06367 /* FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757126439D3100A06367 /* FSPagerView.swift */; };
+		71C8757826439D3100A06367 /* FSPageViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757226439D3100A06367 /* FSPageViewTransformer.swift */; };
+		71C8757926439D3100A06367 /* FSPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757326439D3100A06367 /* FSPagerViewCell.swift */; };
+		71C8757A26439D3100A06367 /* FSPagerViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757426439D3100A06367 /* FSPagerViewLayoutAttributes.swift */; };
+		71C8757B26439D3100A06367 /* FSPageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757526439D3100A06367 /* FSPageViewLayout.swift */; };
+		71C8757C26439D3100A06367 /* FSPagerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757626439D3100A06367 /* FSPagerCollectionView.swift */; };
+		71C8757F26439DF900A06367 /* ZCarouseViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */; };
 		71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93BD2626F2E80033098B /* ZButtonStyle.swift */; };
 		71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93C02626F8BA0033098B /* ZStateListColors.swift */; };
 		71FF93EC262843500033098B /* DayNightColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF93EB262843500033098B /* DayNightColors.swift */; };
@@ -196,6 +205,15 @@
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71C875692643989800A06367 /* ZCarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseView.swift; sourceTree = "<group>"; };
+		71C8756C264398A400A06367 /* ZListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListItem.swift; sourceTree = "<group>"; };
+		71C8757126439D3100A06367 /* FSPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerView.swift; sourceTree = "<group>"; };
+		71C8757226439D3100A06367 /* FSPageViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewTransformer.swift; sourceTree = "<group>"; };
+		71C8757326439D3100A06367 /* FSPagerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerViewCell.swift; sourceTree = "<group>"; };
+		71C8757426439D3100A06367 /* FSPagerViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		71C8757526439D3100A06367 /* FSPageViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewLayout.swift; sourceTree = "<group>"; };
+		71C8757626439D3100A06367 /* FSPagerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerCollectionView.swift; sourceTree = "<group>"; };
+		71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewStyle.swift; sourceTree = "<group>"; };
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
 		71FF93C02626F8BA0033098B /* ZStateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStateListColors.swift; sourceTree = "<group>"; };
 		71FF93EB262843500033098B /* DayNightColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightColors.swift; sourceTree = "<group>"; };
@@ -288,6 +306,7 @@
 		7178A17325F5C962004BA696 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71C875682643987600A06367 /* DataView */,
 				717C5BDE2632B4E3001A0E12 /* Optional */,
 				717C5B7A263118D2001A0E12 /* Input */,
 				71FF9419262D68660033098B /* Navigation */,
@@ -380,6 +399,7 @@
 				7178A17325F5C962004BA696 /* Views */,
 				7178A17225F5C952004BA696 /* Resources */,
 				7178A12D25ECB28E004BA696 /* Extension */,
+				71C8756F26439D1800A06367 /* Thirdparty */,
 				7182AEB725CCE98C00B0F1D3 /* Library */,
 				7182AEB625CCE98C00B0F1D3 /* Products */,
 				71789FC325E8C52C004BA696 /* Frameworks */,
@@ -401,6 +421,36 @@
 				7182AEB925CCE98C00B0F1D3 /* Info.plist */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		71C875682643987600A06367 /* DataView */ = {
+			isa = PBXGroup;
+			children = (
+				71C875692643989800A06367 /* ZCarouseView.swift */,
+				71C8756C264398A400A06367 /* ZListItem.swift */,
+			);
+			path = DataView;
+			sourceTree = "<group>";
+		};
+		71C8756F26439D1800A06367 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				71C8757026439D3100A06367 /* FSPagerView */,
+			);
+			path = Thirdparty;
+			sourceTree = "<group>";
+		};
+		71C8757026439D3100A06367 /* FSPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				71C8757126439D3100A06367 /* FSPagerView.swift */,
+				71C8757226439D3100A06367 /* FSPageViewTransformer.swift */,
+				71C8757326439D3100A06367 /* FSPagerViewCell.swift */,
+				71C8757426439D3100A06367 /* FSPagerViewLayoutAttributes.swift */,
+				71C8757526439D3100A06367 /* FSPageViewLayout.swift */,
+				71C8757626439D3100A06367 /* FSPagerCollectionView.swift */,
+			);
+			path = FSPagerView;
 			sourceTree = "<group>";
 		};
 		71FF93B92626ED680033098B /* Styles */ = {
@@ -429,6 +479,7 @@
 				715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */,
 				715FC028263F943C005A265C /* ZTextViewStyle.swift */,
 				715FC03426410E36005A265C /* ZSearchBarStyle.swift */,
+				71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -544,6 +595,7 @@
 				717C5B65263013A1001A0E12 /* ZPanelStyle.swift in Sources */,
 				717C5B4C262FCEFE001A0E12 /* ZAppTitleBarStyle.swift in Sources */,
 				71FF93C12626F8BA0033098B /* ZStateListColors.swift in Sources */,
+				71C8757C26439D3100A06367 /* FSPagerCollectionView.swift in Sources */,
 				71FF93EF26284D970033098B /* ZBadgeView.swift in Sources */,
 				7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */,
 				717C5C1D26350D1C001A0E12 /* UILabel.swift in Sources */,
@@ -554,9 +606,12 @@
 				717C5BB3263176E8001A0E12 /* URLPropretyWrapper.swift in Sources */,
 				717C5B6B263015FB001A0E12 /* ZColors.swift in Sources */,
 				7178A1A425F5CC14004BA696 /* IndicatorProtocol.swift in Sources */,
+				71C8757B26439D3100A06367 /* FSPageViewLayout.swift in Sources */,
 				7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */,
 				71FF941B262D68940033098B /* ZAppTitleBar.swift in Sources */,
+				71C8757926439D3100A06367 /* FSPagerViewCell.swift in Sources */,
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
+				71C8757F26439DF900A06367 /* ZCarouseViewStyle.swift in Sources */,
 				715FC02C263FEC68005A265C /* ZTextInput.swift in Sources */,
 				7178A19F25F5CC14004BA696 /* BallPulseIndicator.swift in Sources */,
 				714D7FCC2637F30100DCCEE0 /* ZDialogStyle.swift in Sources */,
@@ -564,6 +619,7 @@
 				717C5B68263015E5001A0E12 /* TextAppearance.swift in Sources */,
 				7178A1C925F63470004BA696 /* CGRect.swift in Sources */,
 				711202A225FA1BA6004A3AA5 /* String.swift in Sources */,
+				71C8757A26439D3100A06367 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				7178A1A525F5CC14004BA696 /* MaterialLoadingIndicator.swift in Sources */,
 				7178A19025F5CBE5004BA696 /* UIColor.swift in Sources */,
 				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,
@@ -577,6 +633,7 @@
 				7178A1A225F5CC14004BA696 /* BallPulseSyncIndicator.swift in Sources */,
 				715FBFE326395915005A265C /* ZTabBar.swift in Sources */,
 				717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */,
+				71C8757826439D3100A06367 /* FSPageViewTransformer.swift in Sources */,
 				717C5B9726316D07001A0E12 /* ZPickerView.swift in Sources */,
 				715FC015263E7AE9005A265C /* ZTextFieldStyle.swift in Sources */,
 				7178A19E25F5CC14004BA696 /* LineScaleIndicator.swift in Sources */,
@@ -589,6 +646,7 @@
 				715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
 				717C5C11263502F2001A0E12 /* ZActionSheet.swift in Sources */,
+				71C8756A2643989800A06367 /* ZCarouseView.swift in Sources */,
 				717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
 				717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */,
@@ -609,9 +667,11 @@
 				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
 				715FC01E263EBF72005A265C /* ZTextField.swift in Sources */,
 				7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */,
+				71C8756D264398A400A06367 /* ZListItem.swift in Sources */,
 				715FBFFF263D59A3005A265C /* ZNumberViewStyle.swift in Sources */,
 				717C5B8326311988001A0E12 /* ZDropDownStyle.swift in Sources */,
 				714D7FC42637EF3200DCCEE0 /* ZDialog.swift in Sources */,
+				71C8757726439D3100A06367 /* FSPagerView.swift in Sources */,
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,
 				717C5B7C263118EF001A0E12 /* TextAttachment.swift in Sources */,
 				717C5BA126317081001A0E12 /* ZPickerViewStyle.swift in Sources */,
