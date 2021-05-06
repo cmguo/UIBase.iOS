@@ -63,7 +63,7 @@ extension UIImageView {
             } else {
                 let size = layer.boundingBox.centerBoundingSize()
                 let scale = min(bounds.width / size.width, bounds.height / size.height)
-                layer.transform = CATransform3DMakeScale(scale, scale, 1)
+                layer.superlayer?.transform = CATransform3DMakeScale(scale, scale, 1)
                 layer.frame = bounds//.centerPart(ofSize: size)
             }
             DispatchQueue.main.async {

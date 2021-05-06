@@ -83,6 +83,7 @@ public class ZButton : UIButton
     public var icon: URL? = nil {
         didSet {
             if icon?.pathExtension == "svg" {
+                self.imageView?.bounds.size = imageSize
                 self.setImage(UIImage.transparent)
                 self.imageView?.setImage(withURL: icon) {
                     self.syncStates()
@@ -284,6 +285,7 @@ public class ZButton : UIButton
             self.layer.cornerRadius = sizeStyles.radius
             self.titleLabel?.font = UIFont.systemFont(ofSize: sizeStyles.textSize, weight: .semibold)
             self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
+            // TODO: sync svg icon scale
             imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
             self.syncSize()
         }
