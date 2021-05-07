@@ -21,7 +21,7 @@ class ContentStyle: ResourceStyle {
         "button_style": [
             "text": "按钮",
             "icon": URL.icon_right,
-            "iconPosition": ZButton.IconPosition.Right
+            "iconPosition": XHBButton.IconPosition.Right
         ] as NSDictionary,
         "title_icon": [
             "title": "标题",

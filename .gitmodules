@@ -10,3 +10,6 @@
 [submodule "SwiftSVG"]
 	path = SwiftSVG
 	url = https://github.com/mchoe/SwiftSVG.git
+[submodule "JXSegmentedView"]
+	path = JXSegmentedView
+	url = https://github.com/cmguo/JXSegmentedView.git

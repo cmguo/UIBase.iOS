@@ -34,6 +34,19 @@
 		712876DD25E743C80054A74B /* StyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876DB25E743C80054A74B /* StyleTableViewCell.swift */; };
 		712876E825E746A40054A74B /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876E625E746A40054A74B /* TextTableViewCell.swift */; };
 		712876ED25E746CB0054A74B /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876EB25E746CB0054A74B /* ListTableViewCell.swift */; };
+		713F6D5426451FC50071B232 /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4726451FC40071B232 /* monkey.png */; };
+		713F6D5526451FC50071B232 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4826451FC40071B232 /* car.png */; };
+		713F6D5626451FC50071B232 /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4926451FC40071B232 /* dragon.png */; };
+		713F6D5726451FC50071B232 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4A26451FC40071B232 /* sheep.png */; };
+		713F6D5826451FC50071B232 /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4B26451FC50071B232 /* light.png */; };
+		713F6D5926451FC50071B232 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4C26451FC50071B232 /* dog.png */; };
+		713F6D5A26451FC50071B232 /* horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4D26451FC50071B232 /* horse.png */; };
+		713F6D5B26451FC50071B232 /* elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4E26451FC50071B232 /* elephant.png */; };
+		713F6D5C26451FC50071B232 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D4F26451FC50071B232 /* lufei.jpg */; };
+		713F6D5D26451FC50071B232 /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5026451FC50071B232 /* chicken.png */; };
+		713F6D5E26451FC50071B232 /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5126451FC50071B232 /* cow.png */; };
+		713F6D5F26451FC50071B232 /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5226451FC50071B232 /* frog.png */; };
+		713F6D6026451FC50071B232 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5326451FC50071B232 /* pig.png */; };
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
@@ -83,6 +96,8 @@
 		71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875972643B8FF00A06367 /* carouse2.jpg */; };
 		71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875982643B8FF00A06367 /* carouse1.jpg */; };
 		71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875992643B8FF00A06367 /* carouse3.jpg */; };
+		71C875CA264505D800A06367 /* ZTabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875C9264505D800A06367 /* ZTabBarComponent.swift */; };
+		71C875CD264505E200A06367 /* ZTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875CC264505E200A06367 /* ZTabBarController.swift */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
 		71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E025E5053300AEB07A /* ZButtonComponent.swift */; };
 		71F543E425E5054900AEB07A /* ZButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E325E5054900AEB07A /* ZButtonController.swift */; };
@@ -133,6 +148,19 @@
 		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTableViewCell.swift; sourceTree = "<group>"; };
 		712876E625E746A40054A74B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		712876EB25E746CB0054A74B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		713F6D4726451FC40071B232 /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
+		713F6D4826451FC40071B232 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		713F6D4926451FC40071B232 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragon.png; sourceTree = "<group>"; };
+		713F6D4A26451FC40071B232 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
+		713F6D4B26451FC50071B232 /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
+		713F6D4C26451FC50071B232 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
+		713F6D4D26451FC50071B232 /* horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horse.png; sourceTree = "<group>"; };
+		713F6D4E26451FC50071B232 /* elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elephant.png; sourceTree = "<group>"; };
+		713F6D4F26451FC50071B232 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
+		713F6D5026451FC50071B232 /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
+		713F6D5126451FC50071B232 /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
+		713F6D5226451FC50071B232 /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
+		713F6D5326451FC50071B232 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
@@ -184,6 +212,8 @@
 		71C875972643B8FF00A06367 /* carouse2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse2.jpg; sourceTree = "<group>"; };
 		71C875982643B8FF00A06367 /* carouse1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse1.jpg; sourceTree = "<group>"; };
 		71C875992643B8FF00A06367 /* carouse3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse3.jpg; sourceTree = "<group>"; };
+		71C875C9264505D800A06367 /* ZTabBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTabBarComponent.swift; sourceTree = "<group>"; };
+		71C875CC264505E200A06367 /* ZTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTabBarController.swift; sourceTree = "<group>"; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
 		71F543E325E5054900AEB07A /* ZButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonController.swift; sourceTree = "<group>"; };
@@ -434,6 +464,8 @@
 				715FC03A26411041005A265C /* ZSearchBarController.swift */,
 				71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */,
 				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
+				71C875C9264505D800A06367 /* ZTabBarComponent.swift */,
+				71C875CC264505E200A06367 /* ZTabBarController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -441,6 +473,19 @@
 		71FF93F1262957D10033098B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				713F6D4826451FC40071B232 /* car.png */,
+				713F6D5026451FC50071B232 /* chicken.png */,
+				713F6D5126451FC50071B232 /* cow.png */,
+				713F6D4C26451FC50071B232 /* dog.png */,
+				713F6D4926451FC40071B232 /* dragon.png */,
+				713F6D4E26451FC50071B232 /* elephant.png */,
+				713F6D5226451FC50071B232 /* frog.png */,
+				713F6D4D26451FC50071B232 /* horse.png */,
+				713F6D4B26451FC50071B232 /* light.png */,
+				713F6D4F26451FC50071B232 /* lufei.jpg */,
+				713F6D4726451FC40071B232 /* monkey.png */,
+				713F6D5326451FC50071B232 /* pig.png */,
+				713F6D4A26451FC40071B232 /* sheep.png */,
 				71C875982643B8FF00A06367 /* carouse1.jpg */,
 				71C875972643B8FF00A06367 /* carouse2.jpg */,
 				71C875992643B8FF00A06367 /* carouse3.jpg */,
@@ -525,22 +570,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713F6D6026451FC50071B232 /* pig.png in Resources */,
+				713F6D5F26451FC50071B232 /* frog.png in Resources */,
 				71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */,
 				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
+				713F6D5526451FC50071B232 /* car.png in Resources */,
 				717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */,
+				713F6D5D26451FC50071B232 /* chicken.png in Resources */,
+				713F6D5826451FC50071B232 /* light.png in Resources */,
 				711202D826046AB6004A3AA5 /* delete.svg in Resources */,
 				7112028325F8CF90004A3AA5 /* union.svg in Resources */,
 				717C5BF22632C426001A0E12 /* img_share_class.png in Resources */,
+				713F6D5426451FC50071B232 /* monkey.png in Resources */,
 				711202CF260469E7004A3AA5 /* arrowR.svg in Resources */,
 				717C5BF32632C426001A0E12 /* img_share_space.png in Resources */,
 				71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
+				713F6D5A26451FC50071B232 /* horse.png in Resources */,
 				71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */,
 				717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */,
+				713F6D5B26451FC50071B232 /* elephant.png in Resources */,
+				713F6D5926451FC50071B232 /* dog.png in Resources */,
 				7195363C2638164400C82D2F /* dialog1.png in Resources */,
+				713F6D5C26451FC50071B232 /* lufei.jpg in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
+				713F6D5626451FC50071B232 /* dragon.png in Resources */,
+				713F6D5E26451FC50071B232 /* cow.png in Resources */,
 				711202D226046A72004A3AA5 /* info.svg in Resources */,
 				711202D526046AA7004A3AA5 /* alert.svg in Resources */,
+				713F6D5726451FC50071B232 /* sheep.png in Resources */,
 				71FF93F3262957F70033098B /* component.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +618,7 @@
 				7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
 				715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */,
+				71C875CD264505E200A06367 /* ZTabBarController.swift in Sources */,
 				715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
 				719536362638043F00C82D2F /* ZDialogComponent.swift in Sources */,
@@ -588,6 +647,7 @@
 				7128764D25E629390054A74B /* ComponentStyle.swift in Sources */,
 				7128766025E655010054A74B /* ButtonsController.swift in Sources */,
 				71F5440125E50B4700AEB07A /* ZTipViewController.swift in Sources */,
+				71C875CA264505D800A06367 /* ZTabBarComponent.swift in Sources */,
 				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
 				717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,
