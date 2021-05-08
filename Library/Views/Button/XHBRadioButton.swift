@@ -24,6 +24,7 @@ public class XHBRadioButton: UIButton {
     public var checked: Bool = false {
         didSet {
             updateStates()
+            sendActions(for: .valueChanged)
         }
     }
     
@@ -63,12 +64,19 @@ public class XHBRadioButton: UIButton {
 
         self.frame = frame
         
+        addTarget(self, action: #selector(self.buttonClicked(_:)), for: .touchUpInside)
+
         updateStates()
         _ = updateSizeConstraint(nil, frame.size)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func toggle() {
+        if (checked) { return }
+        checked = true
     }
     
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
@@ -101,8 +109,6 @@ public class XHBRadioButton: UIButton {
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
-        self.checked = !self.checked
-        updateStates()
-        sendActions(for: .valueChanged)
+        toggle()
     }
 }

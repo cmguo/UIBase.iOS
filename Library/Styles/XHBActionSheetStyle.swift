@@ -16,7 +16,7 @@ public class XHBActionSheetStyle : UIViewStyle {
     public var titlePadding: CGFloat = 12
     public var textAppearance = TextAppearance.Head3
     public var textAppearance2 = TextAppearance.Body_Small
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .middleAppearance)
+    public var buttonApperance = XHBButtonAppearance(type: .textLink, size: .middle)
 
     public override init() {
         super.init()

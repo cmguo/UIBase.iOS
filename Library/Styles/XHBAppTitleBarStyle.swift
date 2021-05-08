@@ -16,7 +16,7 @@ public class XHBAppTitleBarStyle : UIViewStyle {
     public var textPadding: CGFloat = 20
     public var textAppearance = TextAppearance.Head2
     public var textAppearanceLarge = TextAppearance.Head1
-    public var buttonAppearance = XHBButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
+    public var buttonAppearance = XHBButtonAppearance(type: .textLink, size: .thin)
 
     public override init() {
         super.init()

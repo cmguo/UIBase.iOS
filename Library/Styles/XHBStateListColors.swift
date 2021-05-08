@@ -52,6 +52,10 @@ extension StateListColor {
         StateColor(.bluegrey_500, .STATES_NORMAL)
     ])
     
+    static let bluegrey_700_disabled = StateListColor([
+        StateColor(.bluegrey_500, .STATES_DISABLED),
+        StateColor(.bluegrey_700, .STATES_NORMAL)
+    ])
     static let bluegrey_800_disabled = StateListColor([
         StateColor(.bluegrey_500, .STATES_DISABLED),
         StateColor(.bluegrey_800, .STATES_NORMAL)

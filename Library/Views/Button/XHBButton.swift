@@ -255,18 +255,18 @@ public class XHBButton : UIButton
     }
     
     private static let TypeStyles: [ButtonType: XHBButtonTypeStyle] = [
-        .Primitive: .primitiveAppearance,
-        .Secondary: .secondaryAppearance,
-        .Tertiary: .tertiaryAppearance,
-        .Danger: .dangerAppearance,
-        .TextLink: .textLinkAppearance
+        .Primitive: .primitive,
+        .Secondary: .secondary,
+        .Tertiary: .tertiary,
+        .Danger: .danger,
+        .TextLink: .textLink
     ]
     
     private static let SizeStyles: [ButtonSize: XHBButtonSizeStyle] = [
-        .Large: .largeAppearance,
-        .Middle: .middleAppearance,
-        .Small: .smallAppearance,
-        .Thin: .thinAppearance
+        .Large: .large,
+        .Middle: .middle,
+        .Small: .small,
+        .Thin: .thin
     ]
     
     private var imageSize = CGSize.zero

@@ -23,7 +23,18 @@ extension UIView {
 
 extension UIView {
     
-    func subview<T: UIView>(ofType type: T.Type) -> T? {
+    public func superview<T: UIView>(ofType type: T.Type) -> T? {
+        var sv = superview
+        while sv != nil {
+            if let t = sv as? T {
+                return t
+            }
+            sv = sv!.superview
+        }
+        return nil
+    }
+    
+    public func subview<T: UIView>(ofType type: T.Type) -> T? {
         for v in subviews {
             if let vt = v as? T {
                 return vt

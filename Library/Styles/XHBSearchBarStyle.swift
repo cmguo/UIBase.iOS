@@ -14,7 +14,7 @@ public class XHBSearchBarStyle : UIViewStyle {
         
     public override init() {
         super.init()
-        backgroundColor = .bluegrey_100
+        backgroundColor = .bluegrey_05
         cornerRadius = 16
     }
     

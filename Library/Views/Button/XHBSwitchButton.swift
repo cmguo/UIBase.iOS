@@ -25,4 +25,10 @@ public class XHBSwitchButton : UISwitch
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func toggle() {
+        setOn(!isOn, animated: true)
+        sendActions(for: .valueChanged)
+    }
+    
+    
 }

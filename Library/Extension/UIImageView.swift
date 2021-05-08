@@ -17,6 +17,8 @@ extension UIImageView {
             setImage(svgURL: nil) { }
             if let image = wild as? UIImage {
                 self.image = image
+            } else if let color = wild as? UIColor {
+                self.image = UIImage.from(color: color)
             } else if let view = wild as? UIView {
                 self.image = view.snapshot()
             } else {
@@ -29,11 +31,7 @@ extension UIImageView {
         if url?.pathExtension == "svg" {
             setImage(svgURL: url, completion: completion)
         } else {
-            if let sublayers = self.layer.sublayers {
-                for sl in sublayers {
-                    sl.removeFromSuperlayer()
-                }
-            }
+            setImage(svgURL: nil) { }
             image = url == nil ? nil : UIImage(withUrl: url!)
             completion?()
         }

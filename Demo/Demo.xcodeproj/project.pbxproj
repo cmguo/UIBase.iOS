@@ -47,6 +47,8 @@
 		713F6D5E26451FC50071B232 /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5126451FC50071B232 /* cow.png */; };
 		713F6D5F26451FC50071B232 /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5226451FC50071B232 /* frog.png */; };
 		713F6D6026451FC50071B232 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6D5326451FC50071B232 /* pig.png */; };
+		713F6D7B26466B500071B232 /* ZListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D7A26466B500071B232 /* ZListViewComponent.swift */; };
+		713F6D7E26466B850071B232 /* ZListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D7D26466B850071B232 /* ZListViewController.swift */; };
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
@@ -161,6 +163,8 @@
 		713F6D5126451FC50071B232 /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
 		713F6D5226451FC50071B232 /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
 		713F6D5326451FC50071B232 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
+		713F6D7A26466B500071B232 /* ZListViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewComponent.swift; sourceTree = "<group>"; };
+		713F6D7D26466B850071B232 /* ZListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewController.swift; sourceTree = "<group>"; };
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
 				71C875C9264505D800A06367 /* ZTabBarComponent.swift */,
 				71C875CC264505E200A06367 /* ZTabBarController.swift */,
+				713F6D7A26466B500071B232 /* ZListViewComponent.swift */,
+				713F6D7D26466B850071B232 /* ZListViewController.swift */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
 				7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */,
 				7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */,
+				713F6D7E26466B850071B232 /* ZListViewController.swift in Sources */,
 				715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */,
 				71C875CD264505E200A06367 /* ZTabBarController.swift in Sources */,
 				715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */,
@@ -684,6 +691,7 @@
 				71FF940026297C3A0033098B /* ZAvatarViewComponent.swift in Sources */,
 				7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */,
 				717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */,
+				713F6D7B26466B500071B232 /* ZListViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -41,6 +41,7 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
     private let tableView = UITableView()
     private var buttons: [UIButton] = []
     private var switchs: [XHBSwitchButton] = []
+    private let radioGroup = XHBRadioGroup()
 
     init (_ component: Component) {
         self.component = component
@@ -60,13 +61,23 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         return model.states.count
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard component is XHBCheckboxComponent else { return nil }
+        let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 0))
+        cell.textLabel?.text = "全选"
+        cell.backgroundColor = .gray
+        buttons.insert(buttons.removeLast(), at: 0)
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let name = "\(model.states[indexPath.row])"
         let state = model.states[indexPath.row]
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         cell.textLabel?.text = name
         cell.selectionStyle = .none
-        let button: UIView = createButton(state: state)
+        let button = createButton(state: state)
+        button.addTarget(self, action: #selector(changed(_:)), for: .valueChanged)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
             //make.width.equalTo(button.frame.width)
@@ -96,7 +107,7 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         }
     }
     
-    func createButton(state: Any) -> UIView {
+    private func createButton(state: Any) -> UIControl {
         if component is XHBCheckboxComponent {
             let button = XHBCheckBox(text: styles.text)
             button.checkedState = state as! XHBCheckBox.CheckedState
@@ -108,6 +119,7 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
             button.checked = state as! Bool
             button.isEnabled = !styles.disabled
             buttons.append(button)
+            radioGroup.addRadioButton(button)
             return button
         } else if (component is XHBSwitchButtonComponent) {
             let button = XHBSwitchButton()
@@ -118,6 +130,42 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         } else {
             return UIButton()
         }
+    }
+    
+    private func updateTitle(_ sender: UIControl, value: Any) {
+        guard let cell = sender.superview(ofType: UITableViewCell.self) else { return }
+        cell.textLabel?.text = "\(value)"
+    }
+    
+    private var _changing = 0
+    
+    @objc private func changed(_ sender: UIControl) {
+        _changing += 1
+        if let cb = sender as? XHBCheckBox {
+            if cb != buttons[0] {
+                updateTitle(sender, value: cb.checkedState)
+            }
+            if _changing == 1 {
+                if cb == buttons[0] {
+                    for i in 1...3 {
+                        (buttons[i] as! XHBCheckBox).checkedState = cb.checkedState
+                    }
+                } else {
+                    var n = 0
+                    for i in 1...3 {
+                        if (buttons[i] as! XHBCheckBox).checkedState == .FullChecked {
+                            n += 1
+                        }
+                    }
+                    (buttons[0] as! XHBCheckBox).checkedState = [.NotChecked, .HalfChecked, .HalfChecked, .FullChecked][n]
+                }
+            }
+        } else if let rb = sender as? XHBRadioButton {
+            updateTitle(sender, value: rb.checked)
+        } else if let sb = sender as? XHBSwitchButton {
+            updateTitle(sender, value: sb.isOn)
+        }
+        _changing -= 1
     }
 }
 

@@ -90,6 +90,10 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
         toggle(indexPath.row)
     }
     
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+    
     @objc func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
         view.removeFromSuperview()
     }

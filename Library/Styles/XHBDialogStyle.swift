@@ -25,7 +25,7 @@ public class XHBDialogStyle : UIViewStyle {
     public var bottomPadding: CGFloat = 24
     public var textAppearance = TextAppearance.Head2
     public var textAppearance2 = TextAppearance.Body_Middle
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .middleAppearance)
+    public var buttonApperance = XHBButtonAppearance(type: .textLink, size: .middle)
 
     public override init() {
         super.init()

@@ -13,7 +13,7 @@ public class XHBActivityViewStyle : UIViewStyle {
     public var itemPaddingX: CGFloat = 16
     public var itemPaddingY: CGFloat = 12
     public var itemPadding: CGFloat = 2
-    public var buttonApperance = XHBButtonAppearance(type: .textLinkAppearance, size: .thinAppearance)
+    public var buttonApperance = XHBButtonAppearance(type: .textLink, size: .thin)
 
     public override init() {
         super.init()
