@@ -99,6 +99,8 @@ public class XHBNumberView : UIControl, UITextFieldDelegate {
         _editText.backgroundColor = .clear
         _editText.textAlignment = .center
         _editText.keyboardType = .numberPad
+        _editText.addDoneButton(title: "完成", target: self, selector: #selector(inputFinish(_:)))
+
         _buttonDec.icon = .icon_minus
         _buttonInc.icon = .icon_plus
         _buttonInc.buttonAppearance = style.buttonAppearance
@@ -176,6 +178,10 @@ public class XHBNumberView : UIControl, UITextFieldDelegate {
                 number = n
             }
         }
+    }
+    
+    @objc private func inputFinish(_ sender: UIView) {
+        _editText.endEditing(true)
     }
 
     @objc private func buttonTapped(_ sender: UITapGestureRecognizer) {

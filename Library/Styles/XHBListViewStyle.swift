@@ -31,8 +31,12 @@ public class XHBListItemStyle : UIViewStyle {
 
     public var buttonAppearence = XHBButtonAppearance(type: XHBButtonTypeStyle(textColor: .bluegrey_700_disabled, backgroundColor: .clear, iconPosition: .Right), size: .middle)
 
+    public var textFieldStyle = XHBTextFieldStyle()
+    
     public override init() {
         super.init()
+        buttonAppearence.sizeStyle.padding = 0
+        buttonAppearence.sizeStyle.radius = 0
     }
     
 }

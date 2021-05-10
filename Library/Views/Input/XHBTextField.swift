@@ -53,11 +53,14 @@ public class XHBTextField : UITextField {
         super.init(frame: .zero)
         super.textFieldStyle = style
         super.delegate = _delegate
+        super.addDoneButton(title: "完成", target: self, selector: #selector(inputFinish(_:)))
         
         syncButton(_leftButton, leftButton)
         syncButton(_rightButton, rightButton)
         
+        bounds.size.height = _style.height
         _ = updateHeightConstraint(nil, _style.height)
+        //bounds.size.width = 100
     }
     
     required init?(coder: NSCoder) {
@@ -68,6 +71,10 @@ public class XHBTextField : UITextField {
         
     }
     
+    @objc private func inputFinish(_ sender: UIView) {
+        endEditing(true)
+    }
+
     private func createButton(_ id: XHBButton.ButtonId) -> XHBButton {
         let button = XHBButton()
         button.buttonAppearance = _style.buttonAppearance
@@ -124,7 +131,7 @@ class XHBTextFieldDelegate : NSObject, UITextFieldDelegate {
             return false
         }
         if let tf = textField as? XHBTextField, let text = tf.text,
-           tf.maxWords < text.count - range.length + string.count {
+           tf.maxWords > 0, tf.maxWords < text.count - range.length + string.count {
             return false
         }
         return true

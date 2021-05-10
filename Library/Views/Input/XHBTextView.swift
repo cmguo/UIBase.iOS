@@ -64,7 +64,8 @@ public class XHBTextView : UITextView {
         super.init(frame: .zero, textContainer: _textContainer)
         super.textViewStyle = style
         super.delegate = _delegate
-        
+        super.addDoneButton(title: "完成", target: self, selector: #selector(inputFinish(_:)))
+
         let menuController = UIMenuController.shared
         let wrapItem = UIMenuItem(title: "换行", action: #selector(wrap(_:)))
         menuController.menuItems = [wrapItem]
@@ -95,6 +96,10 @@ public class XHBTextView : UITextView {
     
     @objc private func wrap(_ sender: Any?) {
         self.wrap()
+    }
+    
+    @objc private func inputFinish(_ sender: UIView) {
+        endEditing(true)
     }
 
     private var _heightConstraint: NSLayoutConstraint? = nil

@@ -57,6 +57,7 @@ extension UIView {
         UIGraphicsEndImageContext();
         return image;
     }
+
 }
 
 extension UIView {
