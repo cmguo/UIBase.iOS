@@ -255,7 +255,7 @@
 /* Begin PBXFileReference section */
 		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
-		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Views/Indicator/ZTipView.swift; sourceTree = "<group>"; };
+		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Widgets/Indicator/ZTipView.swift; sourceTree = "<group>"; };
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
 		713F6D622646264C0071B232 /* ZListViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewStyle.swift; sourceTree = "<group>"; };
 		713F6D66264639DA0071B232 /* ZListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewCell.swift; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		715FC03126410B50005A265C /* ZSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBar.swift; sourceTree = "<group>"; };
 		715FC03426410E36005A265C /* ZSearchBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBarStyle.swift; sourceTree = "<group>"; };
 		71789FC425E8C52C004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Views/Button/ZButton.swift; sourceTree = "<group>"; };
+		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Widgets/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateListColor.swift; path = ../../Library/Resources/StateListColor.swift; sourceTree = "<group>"; };
 		7178A18B25F5CBE5004BA696 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = ../../Library/Extension/UIButton.swift; sourceTree = "<group>"; };
 		7178A18C25F5CBE5004BA696 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ../../Library/Extension/UIColor.swift; sourceTree = "<group>"; };
@@ -426,13 +426,13 @@
 		7178A19A25F5CC14004BA696 /* LBIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LBIndicator.swift; path = ../../../Library/Resources/Indicators/LBIndicator.swift; sourceTree = "<group>"; };
 		7178A19B25F5CC14004BA696 /* IndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndicatorProtocol.swift; path = ../../../Library/Resources/Indicators/IndicatorProtocol.swift; sourceTree = "<group>"; };
 		7178A19C25F5CC14004BA696 /* MaterialLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialLoadingIndicator.swift; path = ../../../Library/Resources/Indicators/MaterialLoadingIndicator.swift; sourceTree = "<group>"; };
-		7178A1A725F60515004BA696 /* ZCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZCheckBox.swift; path = ../../../Library/Views/Button/ZCheckBox.swift; sourceTree = "<group>"; };
+		7178A1A725F60515004BA696 /* ZCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZCheckBox.swift; path = ../../../Library/Widgets/Button/ZCheckBox.swift; sourceTree = "<group>"; };
 		7178A1AB25F61936004BA696 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImage.swift; path = ../../Library/Extension/UIImage.swift; sourceTree = "<group>"; };
-		7178A1AE25F61D7E004BA696 /* ZRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZRadioButton.swift; path = ../../../Library/Views/Button/ZRadioButton.swift; sourceTree = "<group>"; };
+		7178A1AE25F61D7E004BA696 /* ZRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZRadioButton.swift; path = ../../../Library/Widgets/Button/ZRadioButton.swift; sourceTree = "<group>"; };
 		7178A1B625F62792004BA696 /* RoundLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundLayer.swift; path = ../../Library/Resources/RoundLayer.swift; sourceTree = "<group>"; };
 		7178A1C025F63297004BA696 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178A1C825F63470004BA696 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRect.swift; path = ../../Library/Extension/CGRect.swift; sourceTree = "<group>"; };
-		7178A1CC25F70E88004BA696 /* ZSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZSwitchButton.swift; path = ../../../Library/Views/Button/ZSwitchButton.swift; sourceTree = "<group>"; };
+		7178A1CC25F70E88004BA696 /* ZSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZSwitchButton.swift; path = ../../../Library/Widgets/Button/ZSwitchButton.swift; sourceTree = "<group>"; };
 		7178A1CF25F725ED004BA696 /* ZTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTextArea.swift; sourceTree = "<group>"; };
 		7178A1D625F75031004BA696 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Range.swift; path = ../../Library/Extension/Range.swift; sourceTree = "<group>"; };
 		7178A1D925F85A96004BA696 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITextView.swift; path = ../../Library/Extension/UITextView.swift; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 		717C5B55262FF0C3001A0E12 /* icon_more.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_more.svg; sourceTree = "<group>"; };
 		717C5B59262FF48D001A0E12 /* UIViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewStyle.swift; path = ../../Library/Styles/UIViewStyle.swift; sourceTree = "<group>"; };
 		717C5B5C263011B4001A0E12 /* icon_close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_close.svg; sourceTree = "<group>"; };
-		717C5B612630134C001A0E12 /* ZPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanel.swift; path = ../../../Library/Views/Navigation/ZPanel.swift; sourceTree = "<group>"; };
+		717C5B612630134C001A0E12 /* ZPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanel.swift; path = ../../../Library/Widgets/Navigation/ZPanel.swift; sourceTree = "<group>"; };
 		717C5B64263013A1001A0E12 /* ZPanelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelStyle.swift; path = ../../Library/Styles/ZPanelStyle.swift; sourceTree = "<group>"; };
 		717C5B67263015E5001A0E12 /* TextAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextAppearance.swift; path = ../../Library/Resources/TextAppearance.swift; sourceTree = "<group>"; };
 		717C5B6A263015FB001A0E12 /* ZColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZColors.swift; path = ../../Library/Styles/ZColors.swift; sourceTree = "<group>"; };
@@ -457,7 +457,7 @@
 		717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPropretyWrapper.swift; path = ../../Library/Resources/URLPropretyWrapper.swift; sourceTree = "<group>"; };
 		717C5BB526317872001A0E12 /* ZIconURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZIconURLs.swift; sourceTree = "<group>"; };
 		717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMaskDialog.swift; sourceTree = "<group>"; };
-		717C5BDF2632B50F001A0E12 /* ZActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityView.swift; path = ../../../Library/Views/Optional/ZActivityView.swift; sourceTree = "<group>"; };
+		717C5BDF2632B50F001A0E12 /* ZActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityView.swift; path = ../../../Library/Widgets/Optional/ZActivityView.swift; sourceTree = "<group>"; };
 		717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewStyle.swift; path = ../../Library/Styles/ZActivityViewStyle.swift; sourceTree = "<group>"; };
 		717C5BF82632C5FE001A0E12 /* icon_repost.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_repost.svg; sourceTree = "<group>"; };
 		717C5BFB2632C62C001A0E12 /* icon_recall.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_recall.svg; sourceTree = "<group>"; };
@@ -466,8 +466,8 @@
 		717C5C042632C68E001A0E12 /* icon_stick.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_stick.svg; sourceTree = "<group>"; };
 		717C5C072632C6B4001A0E12 /* icon_weblink.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_weblink.svg; sourceTree = "<group>"; };
 		717C5C0A2632C6BF001A0E12 /* icon_refresh.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_refresh.svg; sourceTree = "<group>"; };
-		717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionButton.swift; path = ../../../Library/Views/Button/ZActionButton.swift; sourceTree = "<group>"; };
-		717C5C10263502F2001A0E12 /* ZActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheet.swift; path = ../../../Library/Views/Optional/ZActionSheet.swift; sourceTree = "<group>"; };
+		717C5C0D2632DBD3001A0E12 /* ZActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionButton.swift; path = ../../../Library/Widgets/Button/ZActionButton.swift; sourceTree = "<group>"; };
+		717C5C10263502F2001A0E12 /* ZActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheet.swift; path = ../../../Library/Widgets/Optional/ZActionSheet.swift; sourceTree = "<group>"; };
 		717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetStyle.swift; path = ../../Library/Styles/ZActionSheetStyle.swift; sourceTree = "<group>"; };
 		717C5C1C26350D1C001A0E12 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = ../../Library/Extension/UILabel.swift; sourceTree = "<group>"; };
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -493,10 +493,10 @@
 		71FF93BD2626F2E80033098B /* ZButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZButtonStyle.swift; path = ../../Library/Styles/ZButtonStyle.swift; sourceTree = "<group>"; };
 		71FF93C02626F8BA0033098B /* ZStateListColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStateListColors.swift; sourceTree = "<group>"; };
 		71FF93EB262843500033098B /* DayNightColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightColors.swift; sourceTree = "<group>"; };
-		71FF93EE26284D970033098B /* ZBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeView.swift; path = ../../../Library/Views/Indicator/ZBadgeView.swift; sourceTree = "<group>"; };
+		71FF93EE26284D970033098B /* ZBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeView.swift; path = ../../../Library/Widgets/Indicator/ZBadgeView.swift; sourceTree = "<group>"; };
 		71FF93F526296C8F0033098B /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gravity.swift; path = ../../Library/Styles/Gravity.swift; sourceTree = "<group>"; };
-		71FF93FC26297A4E0033098B /* ZAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvatarView.swift; path = ../../../Library/Views/Indicator/ZAvatarView.swift; sourceTree = "<group>"; };
-		71FF941A262D68930033098B /* ZAppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAppTitleBar.swift; path = ../../../Library/Views/Navigation/ZAppTitleBar.swift; sourceTree = "<group>"; };
+		71FF93FC26297A4E0033098B /* ZAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAvatarView.swift; path = ../../../Library/Widgets/Indicator/ZAvatarView.swift; sourceTree = "<group>"; };
+		71FF941A262D68930033098B /* ZAppTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZAppTitleBar.swift; path = ../../../Library/Widgets/Navigation/ZAppTitleBar.swift; sourceTree = "<group>"; };
 		71FF941D262D6B560033098B /* ZTipViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipViewStyle.swift; path = ../../Library/Styles/ZTipViewStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -525,6 +525,21 @@
 				717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */,
 			);
 			path = Indicator;
+			sourceTree = "<group>";
+		};
+		713F6E9C264A2F280071B232 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713F6E9D264A2F350071B232 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		71789FC325E8C52C004BA696 /* Frameworks */ = {
@@ -584,18 +599,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		7178A17325F5C962004BA696 /* Views */ = {
+		7178A17325F5C962004BA696 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				71C875682643987600A06367 /* DataView */,
-				717C5BDE2632B4E3001A0E12 /* Optional */,
-				717C5B7A263118D2001A0E12 /* Input */,
-				71FF9419262D68660033098B /* Navigation */,
-				7112029425F9FB78004A3AA5 /* Indicator */,
 				7178A12125ECAB57004BA696 /* Button */,
-				715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */,
+				71C875682643987600A06367 /* DataView */,
+				717C5B7A263118D2001A0E12 /* Input */,
+				7112029425F9FB78004A3AA5 /* Indicator */,
+				71FF9419262D68660033098B /* Navigation */,
+				717C5BDE2632B4E3001A0E12 /* Optional */,
+				713F6E9D264A2F350071B232 /* Other */,
 			);
-			path = Views;
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		7178A17425F5C986004BA696 /* Indicators */ = {
@@ -800,9 +815,10 @@
 		7182AEAB25CCE98C00B0F1D3 = {
 			isa = PBXGroup;
 			children = (
+				713F6E9C264A2F280071B232 /* View */,
 				71FF93B92626ED680033098B /* Styles */,
 				7178A1BC25F63207004BA696 /* Assets */,
-				7178A17325F5C962004BA696 /* Views */,
+				7178A17325F5C962004BA696 /* Widgets */,
 				7178A17225F5C952004BA696 /* Resources */,
 				7178A12D25ECB28E004BA696 /* Extension */,
 				71C8756F26439D1800A06367 /* Thirdparty */,
