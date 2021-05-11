@@ -486,12 +486,12 @@
 			isa = PBXGroup;
 			children = (
 				71FF93F526296C8F0033098B /* Gravity.swift */,
-				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
+				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
 				715FC020263EC0CF005A265C /* UITextFieldStyle.swift */,
 				715FC017263E8092005A265C /* UITextViewStyle.swift */,
-				717C5B59262FF48D001A0E12 /* UIViewStyle.swift */,
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
 				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
+				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
 				717C5BB526317872001A0E12 /* ZURLs.swift */,
 				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
 				71FF941D262D6B560033098B /* ZTipViewStyle.swift */,

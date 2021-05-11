@@ -362,7 +362,7 @@ public class XHBButton : UIButton
     }
     
     fileprivate func syncStates() {
-        if self.icon != nil {
+        if self.icon != nil && sizeStyles.textSize > 0 {
             // TODO: split with title color, XHBTextInput icon
             //self.imageView?.setIconColor(color: currentTitleColor)
             self.imageView?.setIconColor(color: typeStyles.textColor.color(for: state))

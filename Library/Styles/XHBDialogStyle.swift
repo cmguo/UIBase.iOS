@@ -25,13 +25,12 @@ public class XHBDialogStyle : UIViewStyle {
     public var bottomPadding: CGFloat = 24
     public var textAppearance = TextAppearance.Head2
     public var textAppearance2 = TextAppearance.Body_Middle
-    public var buttonApperance = XHBButtonAppearance(type: .textLink, size: .middle)
+    public var moreButtonApperance = XHBButtonAppearance(type: .textLink, size: .middle)
 
     public override init() {
         super.init()
-        buttonApperance.typeStyle.textColor = .bluegrey_900_selected_disabled
-        buttonApperance.sizeStyle.height = 48
-        buttonApperance.sizeStyle.radius = 0
-        buttonApperance.sizeStyle.padding = 0
+        moreButtonApperance.typeStyle.textColor = .bluegrey_900_selected_disabled
+        moreButtonApperance.sizeStyle.height = 48
+        moreButtonApperance.sizeStyle.radius = 0
     }
 }

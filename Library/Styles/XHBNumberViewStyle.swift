@@ -14,7 +14,7 @@ public class XHBNumberViewStyle : UIViewStyle {
     public var textAppearance = TextAppearance.Body_Middle
     public var buttonAppearance = XHBButtonAppearance(
         type: .init(textColor: .bluegrey_900_disabled2, backgroundColor: .init(singleColor: .bluegrey_00)),
-        size: .init(height: 30, radius: 15, padding: 3, textSize: 22, iconSize: 24, iconPadding: 0))
+        size: .init(height: 30, radius: 15, padding: 3, textSize: 22, iconSize: 24, iconPadding: 3))
         
     public override init() {
         super.init()

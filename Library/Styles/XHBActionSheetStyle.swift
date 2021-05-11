@@ -23,6 +23,5 @@ public class XHBActionSheetStyle : UIViewStyle {
         buttonApperance.typeStyle.textColor = .bluegrey_900_selected_disabled
         buttonApperance.sizeStyle.height = 44
         buttonApperance.sizeStyle.radius = 0
-        buttonApperance.sizeStyle.padding = 0
     }
 }

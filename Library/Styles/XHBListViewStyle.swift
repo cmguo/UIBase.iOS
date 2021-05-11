@@ -35,7 +35,6 @@ public class XHBListItemStyle : UIViewStyle {
     
     public override init() {
         super.init()
-        buttonAppearence.sizeStyle.padding = 0
         buttonAppearence.sizeStyle.radius = 0
     }
     
