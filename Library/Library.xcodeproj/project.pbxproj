@@ -14,6 +14,8 @@
 		713F6D632646264C0071B232 /* ZListViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D622646264C0071B232 /* ZListViewStyle.swift */; };
 		713F6D67264639DA0071B232 /* ZListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D66264639DA0071B232 /* ZListViewCell.swift */; };
 		713F6D8126467A750071B232 /* ZRadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D8026467A750071B232 /* ZRadioGroup.swift */; };
+		713F6D94264A25540071B232 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D93264A25540071B232 /* Dictionary.swift */; };
+		713F6D97264A25E40071B232 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D96264A25E40071B232 /* BadgeView.swift */; };
 		714D7FC42637EF3200DCCEE0 /* ZDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D7FC32637EF3200DCCEE0 /* ZDialog.swift */; };
 		714D7FCC2637F30100DCCEE0 /* ZDialogStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */; };
 		715FBFCD2638FF77005A265C /* ZTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCC2638FF77005A265C /* ZTimePickerView.swift */; };
@@ -133,6 +135,8 @@
 		713F6D622646264C0071B232 /* ZListViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewStyle.swift; sourceTree = "<group>"; };
 		713F6D66264639DA0071B232 /* ZListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewCell.swift; sourceTree = "<group>"; };
 		713F6D8026467A750071B232 /* ZRadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZRadioGroup.swift; sourceTree = "<group>"; };
+		713F6D93264A25540071B232 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		713F6D96264A25E40071B232 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		714D7FC32637EF3200DCCEE0 /* ZDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDialog.swift; sourceTree = "<group>"; };
 		714D7FCB2637F30100DCCEE0 /* ZDialogStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDialogStyle.swift; sourceTree = "<group>"; };
 		715FBFCC2638FF77005A265C /* ZTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerView.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 		7112029425F9FB78004A3AA5 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
+				713F6D96264A25E40071B232 /* BadgeView.swift */,
 				71FF93EE26284D970033098B /* ZBadgeView.swift */,
 				7112029C25FA1500004A3AA5 /* ZTipView.swift */,
 				71FF93FC26297A4E0033098B /* ZAvatarView.swift */,
@@ -311,6 +316,7 @@
 				7112028E25F9C55A004A3AA5 /* UIImageView.swift */,
 				7112029825FA04EC004A3AA5 /* DispatchQueue.swift */,
 				711202A125FA1BA6004A3AA5 /* String.swift */,
+				713F6D93264A25540071B232 /* Dictionary.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 				7178A1DA25F85A96004BA696 /* UITextView.swift in Sources */,
 				7178A1A225F5CC14004BA696 /* BallPulseSyncIndicator.swift in Sources */,
 				715FBFE326395915005A265C /* ZTabBar.swift in Sources */,
+				713F6D97264A25E40071B232 /* BadgeView.swift in Sources */,
 				717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */,
 				71C8757826439D3100A06367 /* FSPageViewTransformer.swift in Sources */,
 				717C5B9726316D07001A0E12 /* ZPickerView.swift in Sources */,
@@ -707,6 +714,7 @@
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
 				7178A1D025F725ED004BA696 /* ZTextArea.swift in Sources */,
 				71FF93FD26297A4E0033098B /* ZAvatarView.swift in Sources */,
+				713F6D94264A25540071B232 /* Dictionary.swift in Sources */,
 				715FC029263F943C005A265C /* ZTextViewStyle.swift in Sources */,
 				717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */,
 				715FC01E263EBF72005A265C /* ZTextField.swift in Sources */,

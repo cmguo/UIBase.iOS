@@ -25,7 +25,7 @@ class XHBNumberViewController: ComponentController {
         @objc var wraps = false
 
         @objc static let _autoRepeat = ["自动重复", "当一直按着按钮时，自动重复改变数值"]
-        @objc var autoRepeat = false
+        @objc var autoRepeat = true
 
         @objc static let _continues = ["持续通知", "当一直按着按钮时，持续通知数值变化"]
         @objc var continues = true
@@ -67,6 +67,7 @@ class XHBNumberViewController: ComponentController {
             maker.leading.equalTo(label.snp.trailing).offset(20)
         }
         
+        numberView.autoRepeat = styles.autoRepeat
         numberView.addTarget(self, action: #selector(numberChanged(_:)), for: .valueChanged)
         view.addSubview(numberView)
         numberView.snp.makeConstraints { (maker) in

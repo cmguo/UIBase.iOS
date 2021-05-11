@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1738AAC825F76ED2003EEB53 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738AAC725F76ED2003EEB53 /* BadgeView.swift */; };
 		7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */; };
 		7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */; };
 		7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */; };
@@ -123,7 +122,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1738AAC725F76ED2003EEB53 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZSwitchButtonComponent.swift; path = ../../../Demo/Components/Basic/ZSwitchButtonComponent.swift; sourceTree = "<group>"; };
 		7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZRatioButtonComponent.swift; path = ../../../Demo/Components/Basic/ZRatioButtonComponent.swift; sourceTree = "<group>"; };
 		7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZCompoundButtonController.swift; path = ../../../Demo/Components/Basic/ZCompoundButtonController.swift; sourceTree = "<group>"; };
@@ -144,7 +142,7 @@
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7128764C25E629390054A74B /* ComponentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentStyle.swift; sourceTree = "<group>"; };
 		7128764F25E633F10054A74B /* ComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentController.swift; sourceTree = "<group>"; };
-		7128765F25E655010054A74B /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonsController.swift; path = ../../Demo/Buttons/ButtonsController.swift; sourceTree = "<group>"; };
+		7128765F25E655010054A74B /* ButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsController.swift; sourceTree = "<group>"; };
 		7128766225E6557B0054A74B /* StylesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylesController.swift; sourceTree = "<group>"; };
 		712876D325E73E070054A74B /* CheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxTableViewCell.swift; sourceTree = "<group>"; };
 		712876DB25E743C80054A74B /* StyleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTableViewCell.swift; sourceTree = "<group>"; };
@@ -186,21 +184,21 @@
 		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelComponent.swift; path = ../../../Demo/Components/Simple/ZPanelComponent.swift; sourceTree = "<group>"; };
-		717C5B71263017F3001A0E12 /* ZPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPanelController.swift; path = ../../../Demo/Components/Simple/ZPanelController.swift; sourceTree = "<group>"; };
-		717C5B8E26312398001A0E12 /* ZDropDownController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownController.swift; path = ../../../Demo/Components/Simple/ZDropDownController.swift; sourceTree = "<group>"; };
-		717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZDropDownComponent.swift; path = ../../../Demo/Components/Simple/ZDropDownComponent.swift; sourceTree = "<group>"; };
-		717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewComponent.swift; path = ../../../Demo/Components/Simple/ZPickerViewComponent.swift; sourceTree = "<group>"; };
-		717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewController.swift; path = ../../../Demo/Components/Simple/ZPickerViewController.swift; sourceTree = "<group>"; };
-		717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewComponent.swift; path = ../../../Demo/Components/Simple/ZActivityViewComponent.swift; sourceTree = "<group>"; };
-		717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewController.swift; path = ../../../Demo/Components/Simple/ZActivityViewController.swift; sourceTree = "<group>"; };
+		717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPanelComponent.swift; sourceTree = "<group>"; };
+		717C5B71263017F3001A0E12 /* ZPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPanelController.swift; sourceTree = "<group>"; };
+		717C5B8E26312398001A0E12 /* ZDropDownController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDropDownController.swift; sourceTree = "<group>"; };
+		717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDropDownComponent.swift; sourceTree = "<group>"; };
+		717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPickerViewComponent.swift; sourceTree = "<group>"; };
+		717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPickerViewController.swift; sourceTree = "<group>"; };
+		717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZActivityViewComponent.swift; sourceTree = "<group>"; };
+		717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZActivityViewController.swift; sourceTree = "<group>"; };
 		717C5BED2632C426001A0E12 /* img_share_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_class.png; sourceTree = "<group>"; };
 		717C5BEE2632C426001A0E12 /* img_share_space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_space.png; sourceTree = "<group>"; };
 		717C5BEF2632C426001A0E12 /* img_share_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_weixin.png; sourceTree = "<group>"; };
 		717C5BF02632C426001A0E12 /* img_share_moment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_moment.png; sourceTree = "<group>"; };
 		717C5BF12632C426001A0E12 /* img_share_qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_share_qq.png; sourceTree = "<group>"; };
-		717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetComponent.swift; path = ../../../Demo/Components/Simple/ZActionSheetComponent.swift; sourceTree = "<group>"; };
-		717C5C16263504D7001A0E12 /* ZActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActionSheetController.swift; path = ../../../Demo/Components/Simple/ZActionSheetController.swift; sourceTree = "<group>"; };
+		717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZActionSheetComponent.swift; sourceTree = "<group>"; };
+		717C5C16263504D7001A0E12 /* ZActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZActionSheetController.swift; sourceTree = "<group>"; };
 		7182AECB25CCE9E500B0F1D3 /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AECE25CCE9E500B0F1D3 /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		7182AECF25CCE9E500B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,22 +291,74 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		7161CDA725E0D84000BF6B71 /* Buttons */ = {
+		713F6D84264A20DD0071B232 /* DataView */ = {
 			isa = PBXGroup;
 			children = (
-				7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */,
-				7128765F25E655010054A74B /* ButtonsController.swift */,
+				71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */,
+				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
+				713F6D7A26466B500071B232 /* ZListViewComponent.swift */,
+				713F6D7D26466B850071B232 /* ZListViewController.swift */,
 			);
-			path = Buttons;
+			path = DataView;
 			sourceTree = "<group>";
 		};
-		7161CDAB25E0D8DB00BF6B71 /* Colors */ = {
+		713F6D88264A21240071B232 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */,
-				7161CDB325E0E17F00BF6B71 /* ColorsController.swift */,
+				719536352638043F00C82D2F /* ZDialogComponent.swift */,
+				719536382638047300C82D2F /* ZDialogController.swift */,
+				71F543F925E50B4700AEB07A /* ZTipViewController.swift */,
+				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
+				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
+				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
 			);
-			path = Colors;
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		713F6D89264A21570071B232 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */,
+				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
+				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
+				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
+				715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */,
+				715FC00D263D6D82005A265C /* ZNumberViewController.swift */,
+				715FC03726411033005A265C /* ZSearchBarComponent.swift */,
+				715FC03A26411041005A265C /* ZSearchBarController.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		713F6D8A264A21780071B232 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */,
+				71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */,
+				717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */,
+				717C5B71263017F3001A0E12 /* ZPanelController.swift */,
+				71C875C9264505D800A06367 /* ZTabBarComponent.swift */,
+				71C875CC264505E200A06367 /* ZTabBarController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		713F6D91264A21B00071B232 /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				717C5B8E26312398001A0E12 /* ZDropDownController.swift */,
+				717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */,
+				717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */,
+				717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */,
+				717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */,
+				717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */,
+				717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */,
+				717C5C16263504D7001A0E12 /* ZActionSheetController.swift */,
+				715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */,
+				715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */,
+				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
+			);
+			path = Optional;
 			sourceTree = "<group>";
 		};
 		7182AEC125CCE9E500B0F1D3 = {
@@ -318,8 +368,6 @@
 				7112027E25F8CF90004A3AA5 /* Assets */,
 				71F543DE25E504EA00AEB07A /* Components */,
 				71F543DA25E4DA5800AEB07A /* View */,
-				7161CDAB25E0D8DB00BF6B71 /* Colors */,
-				7161CDA725E0D84000BF6B71 /* Buttons */,
 				71903B7525E0B53400437575 /* Core */,
 				7182AECD25CCE9E500B0F1D3 /* Demo */,
 				7182AECC25CCE9E500B0F1D3 /* Products */,
@@ -375,7 +423,6 @@
 			children = (
 				711202A625FB05A2004A3AA5 /* Style */,
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
-				1738AAC725F76ED2003EEB53 /* BadgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,8 +430,13 @@
 		71F543DE25E504EA00AEB07A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				71FF93E426282A420033098B /* Simple */,
 				71F543DF25E504FB00AEB07A /* Basic */,
+				713F6D84264A20DD0071B232 /* DataView */,
+				713F6D88264A21240071B232 /* Indicator */,
+				713F6D89264A21570071B232 /* Input */,
+				713F6D8A264A21780071B232 /* Navigation */,
+				713F6D91264A21B00071B232 /* Optional */,
+				71FF93E426282A420033098B /* Other */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -430,50 +482,19 @@
 			children = (
 				711202BF25FB4F97004A3AA5 /* Icons.swift */,
 				7161CDBF25E0E28E00BF6B71 /* Colors.swift */,
+				7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */,
+				7128765F25E655010054A74B /* ButtonsController.swift */,
+				7161CDAC25E0D8FD00BF6B71 /* ColorsComponent.swift */,
+				7161CDB325E0E17F00BF6B71 /* ColorsController.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		71FF93E426282A420033098B /* Simple */ = {
+		71FF93E426282A420033098B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */,
-				71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */,
-				71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */,
-				719536352638043F00C82D2F /* ZDialogComponent.swift */,
-				719536382638047300C82D2F /* ZDialogController.swift */,
-				71F543FB25E50B4700AEB07A /* ZTextAreaController.swift */,
-				71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */,
-				71F543FD25E50B4700AEB07A /* ZTextInputController.swift */,
-				71F543F925E50B4700AEB07A /* ZTipViewController.swift */,
-				71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */,
-				711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */,
-				711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */,
-				717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */,
-				717C5B71263017F3001A0E12 /* ZPanelController.swift */,
-				717C5B8E26312398001A0E12 /* ZDropDownController.swift */,
-				717C5B9226313DAA001A0E12 /* ZDropDownComponent.swift */,
-				717C5B9A26316E12001A0E12 /* ZPickerViewComponent.swift */,
-				717C5B9D26316E1D001A0E12 /* ZPickerViewController.swift */,
-				717C5BE72632C093001A0E12 /* ZActivityViewComponent.swift */,
-				717C5BEA2632C09C001A0E12 /* ZActivityViewController.swift */,
-				717C5C13263504CD001A0E12 /* ZActionSheetComponent.swift */,
-				717C5C16263504D7001A0E12 /* ZActionSheetController.swift */,
-				715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */,
-				715FBFE9263A5CA3005A265C /* ZDatePickerViewComponent.swift */,
-				715FBFD22639013E005A265C /* ZTimePickerViewController.swift */,
-				715FC00A263D6D76005A265C /* ZNumberViewComponent.swift */,
-				715FC00D263D6D82005A265C /* ZNumberViewController.swift */,
-				715FC03726411033005A265C /* ZSearchBarComponent.swift */,
-				715FC03A26411041005A265C /* ZSearchBarController.swift */,
-				71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */,
-				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
-				71C875C9264505D800A06367 /* ZTabBarComponent.swift */,
-				71C875CC264505E200A06367 /* ZTabBarController.swift */,
-				713F6D7A26466B500071B232 /* ZListViewComponent.swift */,
-				713F6D7D26466B850071B232 /* ZListViewController.swift */,
 			);
-			path = Simple;
+			path = Other;
 			sourceTree = "<group>";
 		};
 		71FF93F1262957D10033098B /* Images */ = {
@@ -617,7 +638,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				712876D525E73E070054A74B /* CheckBoxTableViewCell.swift in Sources */,
-				1738AAC825F76ED2003EEB53 /* BadgeView.swift in Sources */,
 				7161CDAD25E0D8FD00BF6B71 /* ColorsComponent.swift in Sources */,
 				7128765025E633F10054A74B /* ComponentController.swift in Sources */,
 				711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */,
