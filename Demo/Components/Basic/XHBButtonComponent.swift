@@ -20,7 +20,7 @@ class XHBButtonComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "按钮包含图标和文字，响应操作状态变化，特别具有加载状态；晓黑板按钮有5种颜色样式，4种尺寸样式。"
     
     lazy var controller: ComponentController = {
         return XHBButtonController()

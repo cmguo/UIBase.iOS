@@ -20,7 +20,7 @@ class XHBToolTipComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "当需要提示一些简单的信息的时候，可以使用Tooltip。"
     
     lazy var controller: ComponentController = {
         return XHBTipViewController(self)

@@ -20,7 +20,7 @@ class XHBRatioButtonComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "单选框用来表示选项已被选中且只能选中一个。"
     
     lazy var controller: ComponentController = {
         return XHBCompoundButtonController(self)

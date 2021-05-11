@@ -20,7 +20,7 @@ class XHBCheckboxComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "复选框用来表示选项已被选中且可以选择1个或者多个。"
     
     lazy var controller: ComponentController = {
         return XHBCompoundButtonController(self)

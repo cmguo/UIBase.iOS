@@ -19,7 +19,7 @@ class XHBFilterComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "提供用户在多个选项中进行筛选。"
     
     lazy var controller: ComponentController = {
         return ContributionRequestController()

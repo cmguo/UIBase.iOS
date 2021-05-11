@@ -19,7 +19,7 @@ class XHBNumberViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "用于增加或减少数量的控件。"
     
     lazy var controller: ComponentController = {
         return XHBNumberViewController()

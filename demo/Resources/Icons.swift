@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class Icons {
+public class Icons {
     
     static let icons = ["<null>", "delete", "erase", "union", "info", "alert"]
     
@@ -16,15 +16,15 @@ class Icons {
         iconURL(icon)
     }
 
-    static func iconURL(_ icon: String) -> URL? {
+    public static func iconURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "svg")
     }
 
-    static func pngURL(_ icon: String) -> URL? {
+    public static func pngURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "png")
     }
 
-    static func jpgURL(_ icon: String) -> URL? {
+    public static func jpgURL(_ icon: String) -> URL? {
         return Bundle(for: Icons.self).url(forResource: icon, withExtension: "jpg")
     }
 

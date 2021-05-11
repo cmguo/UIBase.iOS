@@ -19,7 +19,7 @@ class XHBDatePickerViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "一般由选择框触发，弹层的形式建立可滚动视图，并在视图中分段选取时间值。（UIKit 实现）"
     
     lazy var controller: ComponentController = {
         return XHBTimePickerViewController(self)

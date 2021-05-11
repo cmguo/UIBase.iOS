@@ -20,7 +20,7 @@ class XHBToastComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "包含一行与进行的操作直接相关的文案，它可以包含一个操作。"
     
     lazy var controller: ComponentController = {
         return XHBTipViewController(self)

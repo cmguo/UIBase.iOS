@@ -65,9 +65,14 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
         guard component is XHBCheckboxComponent else { return nil }
         let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 0))
         cell.textLabel?.text = "全选"
-        cell.backgroundColor = .gray
+        cell.backgroundColor = .lightGray
         buttons.insert(buttons.removeLast(), at: 0)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard component is XHBCheckboxComponent else { return 0 }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

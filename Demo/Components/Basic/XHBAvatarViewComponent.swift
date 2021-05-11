@@ -19,7 +19,7 @@ class XHBAvatarViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "展示用户的头像。"
     
     lazy var controller: ComponentController = {
         return XHBAvatarViewController()

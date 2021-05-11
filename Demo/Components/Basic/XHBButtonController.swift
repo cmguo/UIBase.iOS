@@ -123,7 +123,7 @@ public class XHBButtonController: ComponentController, UITableViewDataSource, UI
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100 //UITableView.automaticDimension
+        return 80 //UITableView.automaticDimension
     }
 
     public override func viewDidLoad() {

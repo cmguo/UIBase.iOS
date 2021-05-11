@@ -18,10 +18,6 @@
 		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
 		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
 		711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */; };
-		711202CF260469E7004A3AA5 /* arrowR.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202CE260469E6004A3AA5 /* arrowR.svg */; };
-		711202D226046A72004A3AA5 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D126046A72004A3AA5 /* info.svg */; };
-		711202D526046AA7004A3AA5 /* alert.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D426046AA7004A3AA5 /* alert.svg */; };
-		711202D826046AB6004A3AA5 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 711202D726046AB6004A3AA5 /* delete.svg */; };
 		7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7128762A25E5318B0054A74B /* ObjectFactory.m */; };
 		7128763625E617CD0054A74B /* ObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128762925E531720054A74B /* ObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7128764025E61D980054A74B /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
@@ -54,6 +50,10 @@
 		713F6EAA264A321B0071B232 /* ZFilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6EA9264A321B0071B232 /* ZFilterComponent.swift */; };
 		713F6EAD264A32280071B232 /* ZGridComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6EAC264A32280071B232 /* ZGridComponent.swift */; };
 		713F6EB0264A32340071B232 /* ZToolBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6EAF264A32340071B232 /* ZToolBarComponent.swift */; };
+		713F6EB8264A4A930071B232 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6EB7264A4A930071B232 /* InformationController.swift */; };
+		713F6EC2264A5E1C0071B232 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EBF264A5E1C0071B232 /* delete.svg */; };
+		713F6EC3264A5E1C0071B232 /* alert.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC0264A5E1C0071B232 /* alert.svg */; };
+		713F6EC4264A5E1C0071B232 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC1264A5E1C0071B232 /* info.svg */; };
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
@@ -139,10 +139,6 @@
 		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZToastComponent.swift; sourceTree = "<group>"; };
 		711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSnackBarComponent.swift; sourceTree = "<group>"; };
-		711202CE260469E6004A3AA5 /* arrowR.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowR.svg; sourceTree = "<group>"; };
-		711202D126046A72004A3AA5 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
-		711202D426046AA7004A3AA5 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
-		711202D726046AB6004A3AA5 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delete.svg; sourceTree = "<group>"; };
 		7128762925E531720054A74B /* ObjectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
 		7128762A25E5318B0054A74B /* ObjectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectFactory.m; sourceTree = "<group>"; };
 		7128763F25E61D980054A74B /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +171,10 @@
 		713F6EA9264A321B0071B232 /* ZFilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZFilterComponent.swift; sourceTree = "<group>"; };
 		713F6EAC264A32280071B232 /* ZGridComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZGridComponent.swift; sourceTree = "<group>"; };
 		713F6EAF264A32340071B232 /* ZToolBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZToolBarComponent.swift; sourceTree = "<group>"; };
+		713F6EB7264A4A930071B232 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
+		713F6EBF264A5E1C0071B232 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delete.svg; sourceTree = "<group>"; };
+		713F6EC0264A5E1C0071B232 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
+		713F6EC1264A5E1C0071B232 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
@@ -279,10 +279,9 @@
 		7112027F25F8CF90004A3AA5 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				711202D726046AB6004A3AA5 /* delete.svg */,
-				711202D426046AA7004A3AA5 /* alert.svg */,
-				711202D126046A72004A3AA5 /* info.svg */,
-				711202CE260469E6004A3AA5 /* arrowR.svg */,
+				713F6EC0264A5E1C0071B232 /* alert.svg */,
+				713F6EBF264A5E1C0071B232 /* delete.svg */,
+				713F6EC1264A5E1C0071B232 /* info.svg */,
 				7112028025F8CF90004A3AA5 /* erase.svg */,
 				7112028125F8CF90004A3AA5 /* union.svg */,
 			);
@@ -435,6 +434,7 @@
 			children = (
 				711202A625FB05A2004A3AA5 /* Style */,
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
+				713F6EB7264A4A930071B232 /* InformationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -620,14 +620,13 @@
 				71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */,
 				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
 				713F6D5526451FC50071B232 /* car.png in Resources */,
+				713F6EC2264A5E1C0071B232 /* delete.svg in Resources */,
 				717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */,
 				713F6D5D26451FC50071B232 /* chicken.png in Resources */,
 				713F6D5826451FC50071B232 /* light.png in Resources */,
-				711202D826046AB6004A3AA5 /* delete.svg in Resources */,
 				7112028325F8CF90004A3AA5 /* union.svg in Resources */,
 				717C5BF22632C426001A0E12 /* img_share_class.png in Resources */,
 				713F6D5426451FC50071B232 /* monkey.png in Resources */,
-				711202CF260469E7004A3AA5 /* arrowR.svg in Resources */,
 				717C5BF32632C426001A0E12 /* img_share_space.png in Resources */,
 				71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
@@ -637,14 +636,14 @@
 				713F6D5B26451FC50071B232 /* elephant.png in Resources */,
 				713F6D5926451FC50071B232 /* dog.png in Resources */,
 				7195363C2638164400C82D2F /* dialog1.png in Resources */,
+				713F6EC4264A5E1C0071B232 /* info.svg in Resources */,
 				713F6D5C26451FC50071B232 /* lufei.jpg in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
 				713F6D5626451FC50071B232 /* dragon.png in Resources */,
 				713F6D5E26451FC50071B232 /* cow.png in Resources */,
-				711202D226046A72004A3AA5 /* info.svg in Resources */,
-				711202D526046AA7004A3AA5 /* alert.svg in Resources */,
 				713F6D5726451FC50071B232 /* sheep.png in Resources */,
 				71FF93F3262957F70033098B /* component.jpg in Resources */,
+				713F6EC3264A5E1C0071B232 /* alert.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +698,7 @@
 				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
 				717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,
+				713F6EB8264A4A930071B232 /* InformationController.swift in Sources */,
 				71FF9417262D66940033098B /* ContentStyle.swift in Sources */,
 				7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */,
 				713F6EA4264A31CC0071B232 /* ZBottomBarComponent.swift in Sources */,

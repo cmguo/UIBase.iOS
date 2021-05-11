@@ -20,7 +20,7 @@ class XHBSwitchButtonComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "开关表示两种相互对立的状态间的切换，例如开/关、是/否状态。"
     
     lazy var controller: ComponentController = {
         return XHBCompoundButtonController(self)

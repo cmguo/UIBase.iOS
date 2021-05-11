@@ -19,7 +19,7 @@ class XHBSearchBarComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "当应用内包含大量的信息的时候，用户通过搜索快速地定位到特定的内容。"
     
     lazy var controller: ComponentController = {
         return XHBSearchBarController()

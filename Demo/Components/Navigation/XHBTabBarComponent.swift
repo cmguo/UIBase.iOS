@@ -19,7 +19,7 @@ class XHBTabBarComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "一般作为二级导航，将页面内容按照不同视图进行分类，用户点击可切换到不同视图。"
     
     lazy var controller: ComponentController = {
         return XHBTabBarController()

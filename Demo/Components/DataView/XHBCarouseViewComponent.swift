@@ -19,7 +19,7 @@ class XHBCarouseViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "通过自动切换和手动横滑切换展示相关内容。目前主要用于Banner切换。"
     
     lazy var controller: ComponentController = {
         return XHBCarouseViewController()

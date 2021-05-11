@@ -19,7 +19,7 @@ class XHBPickerViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "临时浮层，用户触发选择操作时出现。从众多选项中选项中选择一个选项。"
     
     lazy var controller: ComponentController = {
         return XHBPickerViewController()

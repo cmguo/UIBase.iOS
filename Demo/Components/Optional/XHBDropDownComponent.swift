@@ -19,7 +19,7 @@ class XHBDropDownComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "用于提供快速到达其他功能入口的导航，默认收起，点击出现。"
     
     lazy var controller: ComponentController = {
         return XHBDropDownController()

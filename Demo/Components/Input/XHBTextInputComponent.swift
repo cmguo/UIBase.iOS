@@ -20,7 +20,7 @@ class XHBTextInputComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "用于文字输入"
     
     lazy var controller: ComponentController = {
         return XHBTextInputController()

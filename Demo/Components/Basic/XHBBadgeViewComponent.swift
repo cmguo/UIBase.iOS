@@ -20,7 +20,7 @@ class XHBBadgeViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "徽章（小圆点）是出现在按钮、图标旁的数字或状态标记。"
     
     lazy var controller: ComponentController = {
         return XHBBadgeViewController()

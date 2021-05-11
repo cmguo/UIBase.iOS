@@ -19,7 +19,7 @@ class XHBActivityViewComponent : NSObject, Component
     
     var author: String = "cmguo"
     
-    var desc: String = ""
+    var desc: String = "可以用于承载一次性操作，如分享、复制、收藏、刷新等；面板类型为宫格类；"
     
     lazy var controller: ComponentController = {
         return XHBActivityViewController()
