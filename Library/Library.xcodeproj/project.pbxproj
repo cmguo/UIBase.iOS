@@ -94,7 +94,7 @@
 		713F6E63264A27640071B232 /* icon_vacate.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DE6264A275F0071B232 /* icon_vacate.svg */; };
 		713F6E64264A27640071B232 /* icon_close.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DE7264A275F0071B232 /* icon_close.svg */; };
 		713F6E65264A27640071B232 /* icon_quit.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DE8264A275F0071B232 /* icon_quit.svg */; };
-		713F6E66264A27640071B232 /* icon_Correction.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DE9264A275F0071B232 /* icon_Correction.svg */; };
+		713F6E66264A27640071B232 /* icon_correction.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DE9264A275F0071B232 /* icon_correction.svg */; };
 		713F6E67264A27640071B232 /* icon_voice.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DEA264A275F0071B232 /* icon_voice.svg */; };
 		713F6E68264A27640071B232 /* icon_profile.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DEB264A275F0071B232 /* icon_profile.svg */; };
 		713F6E69264A27640071B232 /* icon_folder.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6DEC264A27600071B232 /* icon_folder.svg */; };
@@ -209,7 +209,7 @@
 		717C5B9726316D07001A0E12 /* ZPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B9626316D07001A0E12 /* ZPickerView.swift */; };
 		717C5BA126317081001A0E12 /* ZPickerViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */; };
 		717C5BB3263176E8001A0E12 /* URLPropretyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */; };
-		717C5BB626317872001A0E12 /* ZURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BB526317872001A0E12 /* ZURLs.swift */; };
+		717C5BB626317872001A0E12 /* ZIconURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BB526317872001A0E12 /* ZIconURLs.swift */; };
 		717C5BDC263192FB001A0E12 /* ZMaskDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */; };
 		717C5BE02632B50F001A0E12 /* ZActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BDF2632B50F001A0E12 /* ZActivityView.swift */; };
 		717C5BE42632B582001A0E12 /* ZActivityViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */; };
@@ -340,7 +340,7 @@
 		713F6DE6264A275F0071B232 /* icon_vacate.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_vacate.svg; sourceTree = "<group>"; };
 		713F6DE7264A275F0071B232 /* icon_close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_close.svg; sourceTree = "<group>"; };
 		713F6DE8264A275F0071B232 /* icon_quit.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_quit.svg; sourceTree = "<group>"; };
-		713F6DE9264A275F0071B232 /* icon_Correction.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_Correction.svg; sourceTree = "<group>"; };
+		713F6DE9264A275F0071B232 /* icon_correction.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_correction.svg; sourceTree = "<group>"; };
 		713F6DEA264A275F0071B232 /* icon_voice.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_voice.svg; sourceTree = "<group>"; };
 		713F6DEB264A275F0071B232 /* icon_profile.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_profile.svg; sourceTree = "<group>"; };
 		713F6DEC264A27600071B232 /* icon_folder.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_folder.svg; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		717C5B9626316D07001A0E12 /* ZPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPickerView.swift; sourceTree = "<group>"; };
 		717C5BA026317081001A0E12 /* ZPickerViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPickerViewStyle.swift; path = ../../Library/Styles/ZPickerViewStyle.swift; sourceTree = "<group>"; };
 		717C5BB2263176E8001A0E12 /* URLPropretyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPropretyWrapper.swift; path = ../../Library/Resources/URLPropretyWrapper.swift; sourceTree = "<group>"; };
-		717C5BB526317872001A0E12 /* ZURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZURLs.swift; sourceTree = "<group>"; };
+		717C5BB526317872001A0E12 /* ZIconURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZIconURLs.swift; sourceTree = "<group>"; };
 		717C5BDB263192FA001A0E12 /* ZMaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMaskDialog.swift; sourceTree = "<group>"; };
 		717C5BDF2632B50F001A0E12 /* ZActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityView.swift; path = ../../../Library/Views/Optional/ZActivityView.swift; sourceTree = "<group>"; };
 		717C5BE32632B582001A0E12 /* ZActivityViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZActivityViewStyle.swift; path = ../../Library/Styles/ZActivityViewStyle.swift; sourceTree = "<group>"; };
@@ -694,7 +694,7 @@
 				713F6DA5264A27580071B232 /* icon_commit.svg */,
 				713F6DAB264A27580071B232 /* icon_copy.svg */,
 				713F6DBD264A275A0071B232 /* icon_correct.svg */,
-				713F6DE9264A275F0071B232 /* icon_Correction.svg */,
+				713F6DE9264A275F0071B232 /* icon_correction.svg */,
 				713F6E08264A27620071B232 /* icon_darkmode.svg */,
 				713F6DCA264A275C0071B232 /* icon_delete.svg */,
 				713F6E0E264A27630071B232 /* icon_detail.svg */,
@@ -873,7 +873,7 @@
 				717C5B6A263015FB001A0E12 /* ZColors.swift */,
 				71FF93C02626F8BA0033098B /* ZStateListColors.swift */,
 				717C5B4E262FCFD5001A0E12 /* ZTextAppearance.swift */,
-				717C5BB526317872001A0E12 /* ZURLs.swift */,
+				717C5BB526317872001A0E12 /* ZIconURLs.swift */,
 				71FF93BD2626F2E80033098B /* ZButtonStyle.swift */,
 				71FF941D262D6B560033098B /* ZTipViewStyle.swift */,
 				717C5B4B262FCEFE001A0E12 /* ZAppTitleBarStyle.swift */,
@@ -1020,7 +1020,7 @@
 				713F6E63264A27640071B232 /* icon_vacate.svg in Resources */,
 				713F6E27264A27640071B232 /* icon_rate_fill.svg in Resources */,
 				713F6E94264A27640071B232 /* icon_qrcode.svg in Resources */,
-				713F6E66264A27640071B232 /* icon_Correction.svg in Resources */,
+				713F6E66264A27640071B232 /* icon_correction.svg in Resources */,
 				713F6E3C264A27640071B232 /* icon_statistics.svg in Resources */,
 				717C5B5D263011B4001A0E12 /* icon_close.svg in Resources */,
 				713F6E2A264A27640071B232 /* icon_minus.svg in Resources */,
@@ -1208,7 +1208,7 @@
 				715FBFF0263ACAF0005A265C /* ZTimePickerViewStyle.swift in Sources */,
 				7178A19225F5CBE5004BA696 /* UIView.swift in Sources */,
 				715FC03526410E36005A265C /* ZSearchBarStyle.swift in Sources */,
-				717C5BB626317872001A0E12 /* ZURLs.swift in Sources */,
+				717C5BB626317872001A0E12 /* ZIconURLs.swift in Sources */,
 				7178A1A825F60515004BA696 /* ZCheckBox.swift in Sources */,
 				713F6D632646264C0071B232 /* ZListViewStyle.swift in Sources */,
 				7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */,
