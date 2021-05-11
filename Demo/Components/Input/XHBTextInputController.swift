@@ -56,6 +56,8 @@ class XHBTextInputController: ComponentController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue_100
+
         view.addSubview(tableView)
         tableView.frame = view.frame
         tableView.dataSource = self

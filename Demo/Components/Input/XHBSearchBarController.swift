@@ -43,7 +43,6 @@ class XHBSearchBarController: ComponentController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         searchBar.delegate = self
         view.addSubview(searchBar)

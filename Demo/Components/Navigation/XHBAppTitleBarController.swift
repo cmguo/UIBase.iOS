@@ -60,8 +60,8 @@ class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
         titleBar.title = styles.title
         titleBar.leftButton = styles.leftButton
         titleBar.rightButton = styles.rightButton

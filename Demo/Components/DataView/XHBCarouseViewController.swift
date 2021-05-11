@@ -74,7 +74,6 @@ class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         label.text = "当前图片"
         view.addSubview(label)

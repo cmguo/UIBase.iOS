@@ -48,8 +48,8 @@ class XHBActivityViewController: ComponentController, XHBActivityViewCallback, X
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
         activityView.backgroundColor = .white
         activityView.items1 = model.item1
         activityView.items2 = model.item2
@@ -58,8 +58,7 @@ class XHBActivityViewController: ComponentController, XHBActivityViewCallback, X
         activityView.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.top.equalToSuperview().offset(20)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.centerY.equalToSuperview()
         }
         views.append(activityView)
 

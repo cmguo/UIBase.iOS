@@ -32,13 +32,14 @@ class ContributionRequestController: ComponentController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         label.text = model.message
         label.textColor = styles.color
+        label.numberOfLines = 0
         view.addSubview(label)
         label.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()
+            maker.width.lessThanOrEqualToSuperview().offset(-40)
         }
 
         styles.listen { (name: String) in

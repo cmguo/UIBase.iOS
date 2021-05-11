@@ -53,8 +53,8 @@ class XHBNumberViewController: ComponentController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
         label.text = "当前数值"
         view.addSubview(label)
         view.addSubview(text)

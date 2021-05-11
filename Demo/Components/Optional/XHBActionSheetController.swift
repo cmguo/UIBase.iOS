@@ -44,8 +44,8 @@ class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHB
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
         sheet.backgroundColor = .white
         sheet.title = styles.title
         sheet.subTitle = styles.subTitle
@@ -56,8 +56,7 @@ class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHB
         sheet.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.top.equalToSuperview().offset(20)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.centerY.equalToSuperview()
         }
         views.append(sheet)
 

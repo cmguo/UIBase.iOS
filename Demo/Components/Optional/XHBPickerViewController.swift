@@ -63,7 +63,6 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         picker.titles = model.titles
         picker.icons = model.icons
@@ -74,7 +73,7 @@ class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPa
         picker.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.top.equalToSuperview().offset(20)
+            maker.top.equalToSuperview()
             maker.bottom.lessThanOrEqualToSuperview().offset(-100)
         }
         views.append(picker)

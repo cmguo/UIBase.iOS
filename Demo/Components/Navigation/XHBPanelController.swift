@@ -45,8 +45,8 @@ class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
         panel.titleBar = styles.titleBar
         panel.bottomButton = styles.bottomButton
         panel.delegate = self

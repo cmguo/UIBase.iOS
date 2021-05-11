@@ -107,16 +107,16 @@ class XHBTimePickerViewController: ComponentController, XHBTimePickerViewCallbac
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        
+        view.backgroundColor = .blue_100
+
+        picker.backgroundColor = .white
         picker.startTime = styles.startTime
         picker.endTime = styles.endTime
         view.addSubview(picker)
         picker.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.top.equalToSuperview().offset(20)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.centerY.equalToSuperview()
         }
         views.append(picker)
         picker.setCallback(self)

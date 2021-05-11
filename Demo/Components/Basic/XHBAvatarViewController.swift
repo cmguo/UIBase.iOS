@@ -54,7 +54,6 @@ class XHBAvatarViewController: ComponentController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         imageView.image = UIImage(withUrl: Icons.jpgURL("component")!)
         imageView.backgroundColor = .red

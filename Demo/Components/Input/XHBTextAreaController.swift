@@ -54,8 +54,8 @@ class XHBTextAreaController: ComponentController, XHBTextAreaDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        
+        view.backgroundColor = .blue_100
+
         textInput.backgroundColor = .white
         textInput.maxWordCount = styles.maxWordCount
         textInput.placeholder = styles.placeholder

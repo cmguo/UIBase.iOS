@@ -65,7 +65,7 @@ class XHBDialogController: ComponentController, XHBDialogCallback {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .blue_100
         
         dialog.title = styles.title
         dialog.subTitle = styles.subTitle
