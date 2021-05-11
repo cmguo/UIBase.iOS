@@ -13,7 +13,7 @@ class XHBTimePickerViewComponent : NSObject, Component
 
     var id: Int = 0
         
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "时间选择器"
     

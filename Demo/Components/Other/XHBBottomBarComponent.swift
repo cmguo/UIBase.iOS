@@ -13,7 +13,7 @@ class XHBBottomBarComponent : NSObject, Component
         
     var id: Int = 0
         
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "底部栏"
     

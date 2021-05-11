@@ -14,7 +14,7 @@ class XHBToolTipComponent : NSObject, Component
     
     var group: ComponentGroup = .Indicator
 
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "气泡提示"
     

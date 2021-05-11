@@ -15,9 +15,9 @@ public class ComponentsController : UIViewController, UITableViewDataSource, UIT
     
     private let headerView = UIView()
     private let tableView = UITableView()
-    private var listener: ((Component) -> Void)? = nil
+    private var listener: ((ComponentInfo) -> Void)? = nil
 
-    public func setComponentListener(listener: @escaping (Component) -> Void) {
+    public func setComponentListener(listener: @escaping (ComponentInfo) -> Void) {
         self.listener = listener;
     }
     
@@ -42,12 +42,17 @@ public class ComponentsController : UIViewController, UITableViewDataSource, UIT
     
     static private let cellId = "SimpleTableId"
 
+    let size = CGSize(width: 20, height: 20)
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = components_.index(components_.startIndex, offsetBy: indexPath.section)
         let component = components_[index].value[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: ComponentsController.cellId)
             ?? UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: ComponentsController.cellId)
-        cell.textLabel?.text = component.title
+        cell.imageView?.bounds.size = size
+        cell.imageView?.image = UIImage.from(color: .clear, ofSize: size)
+        cell.imageView?.setImage(svgURL: component.icon)
+        cell.textLabel?.text = component.component.title
         return cell
     }
     

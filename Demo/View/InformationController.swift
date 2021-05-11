@@ -48,9 +48,9 @@ public class InformationController : UIViewController {
         }
     }
 
-    public func switchComponent(_ component: Component) {
-        descLabel.text = component.desc
-        authorLabel.text = component.author
+    public func switchComponent(_ component: ComponentInfo) {
+        descLabel.text = component.component.desc
+        authorLabel.text = component.component.author
     }
 
 }

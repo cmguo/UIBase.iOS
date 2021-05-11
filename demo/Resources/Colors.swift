@@ -11,6 +11,7 @@ import UIBase
 class Colors {
     
     class func stdDynamicColors() -> Dictionary<String, UIColor> {
+        let _ = UIColor.dynamicColors
         return DayNightColors.colors()
     }
     

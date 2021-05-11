@@ -184,4 +184,40 @@ extension UIColor {
 
     public static var static_black_05 = UIColor(rgba: 0x0C000000) //5% 
 
+    public static let dynamicColors: [UIColor] = [
+        white_card,
+        bluegrey_00,
+        bluegrey_05,
+        bluegrey_50,
+        bluegrey_100,
+        bluegrey_300,
+        bluegrey_500,
+        bluegrey_700,
+        bluegrey_800,
+        bluegrey_900,
+        brand_100,
+        brand_600,
+        red_100,
+        red_500,
+        red_600,
+        redorange_100,
+        redorange_500,
+        redorange_600,
+        orange_100,
+        orange_500,
+        orange_600,
+        green_100,
+        green_500,
+        green_600,
+        cyan_100,
+        cyan_500,
+        cyan_600,
+        blue_100,
+        blue_200,
+        blue_500,
+        blue_600,
+        purple_100,
+        purple_600,
+    ]
+
 }

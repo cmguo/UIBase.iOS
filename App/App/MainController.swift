@@ -33,7 +33,7 @@ class MainController: UIViewController {
             make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-10)
         }
-        componentsController.setComponentListener { (component: Component) in
+        componentsController.setComponentListener { (component: ComponentInfo) in
             self.switchComponent(component)
         }
         let image = UIImage(withUrl: Icons.pngURL("img_share_moment")!)
@@ -58,12 +58,12 @@ class MainController: UIViewController {
         //present(stylesController, animated: true, completion: nil)
     }
     
-    func switchComponent(_ component: Component) {
+    func switchComponent(_ component: ComponentInfo) {
         if let component = component_ {
             component.controller.removeFromParent()
             component.controller.view.removeFromSuperview()
         }
-        let controller = component.controller
+        let controller = component.component.controller
         view.insertSubview(controller.view, belowSubview: buttonStyles)
         controller.view.snp.makeConstraints({ (make) in
             make.leading.equalToSuperview()
@@ -72,8 +72,8 @@ class MainController: UIViewController {
             make.trailing.equalToSuperview()
         })
         addChild(controller)
-        component_ = component
-        title = component.title
+        component_ = component.component
+        title = component_?.title
         // Styles
         stylesController.switchComponent(component)
         informationController.switchComponent(component)

@@ -14,7 +14,7 @@ class ButtonsComponent : NSObject, Component
     
     var group: ComponentGroup = .Resources
 
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "按钮"
     

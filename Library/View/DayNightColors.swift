@@ -17,8 +17,8 @@ public class DayNightColors {
         }
     }
     
-    public static func colors() -> [String:UIColor] {
-        return Dictionary(uniqueKeysWithValues: wrappers.map({ w in (w.name, w.wrappedValue) }))
+    public static func colors() -> [String: UIColor] {
+        return Dictionary(uniqueKeysWithValues: wrappers.map({ w in (w.name, w.color) }))
     }
 
 }

@@ -14,7 +14,7 @@ class XHBToastComponent : NSObject, Component
     
     var group: ComponentGroup = .Indicator
 
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "简单提示"
     

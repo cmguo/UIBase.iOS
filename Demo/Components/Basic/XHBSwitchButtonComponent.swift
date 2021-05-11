@@ -14,7 +14,7 @@ class XHBSwitchButtonComponent : NSObject, Component
     
     var group: ComponentGroup = .Basic
 
-    var icon: Int = 0
+    var icon: URL? = nil
     
     var title: String = "开关"
     

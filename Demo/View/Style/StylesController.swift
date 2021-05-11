@@ -18,8 +18,8 @@ public class StylesController : UIViewController, UITableViewDataSource, UITable
     private let headerView = UIView()
     private let tableView = UITableView()
 
-    public func switchComponent(_ component: Component) {
-        viewStyles = component.controller.getStyles()
+    public func switchComponent(_ component: ComponentInfo) {
+        viewStyles = component.component.controller.getStyles()
         styles = ComponentStyles.get(styles: viewStyles!).allStyles()
         for s in styles { s._init(on: viewStyles!) }
         tableView.reloadData()

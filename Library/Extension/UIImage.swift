@@ -11,11 +11,11 @@ public extension UIImage {
     
     static let transparent = UIImage.from(color: .clear)
     
-    class func from(color: UIColor) -> UIImage? {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+    class func from(color: UIColor, ofSize: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
+        UIGraphicsBeginImageContext(ofSize)
         if let context = UIGraphicsGetCurrentContext() {
             context.setFillColor(color.cgColor)
-            context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            context.fill(CGRect(origin: .zero, size: ofSize))
             let colorImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return colorImage

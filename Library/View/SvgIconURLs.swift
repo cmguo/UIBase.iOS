@@ -7,6 +7,17 @@
 
 import Foundation
 
+
+public class SvgIconURLs {
+    
+    fileprivate static var wrappers = [SvgIconURLWrapper]()
+    
+    public static func icons() -> [String: URL] {
+        return Dictionary(uniqueKeysWithValues: wrappers.map({ w in (w.icon, w.url) }))
+    }
+
+}
+
 @propertyWrapper
 class SvgIconURLWrapper {
     
@@ -21,6 +32,7 @@ class SvgIconURLWrapper {
     
     init(_ icon: String) {
         self.icon = icon
+        SvgIconURLs.wrappers.append(self)
     }
     
 }

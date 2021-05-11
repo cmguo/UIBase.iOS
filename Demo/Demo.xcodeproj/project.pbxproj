@@ -54,6 +54,7 @@
 		713F6EC2264A5E1C0071B232 /* delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EBF264A5E1C0071B232 /* delete.svg */; };
 		713F6EC3264A5E1C0071B232 /* alert.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC0264A5E1C0071B232 /* alert.svg */; };
 		713F6EC4264A5E1C0071B232 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC1264A5E1C0071B232 /* info.svg */; };
+		713F6ECE264A67520071B232 /* ComponentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6ECD264A67520071B232 /* ComponentInfo.swift */; };
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
@@ -175,6 +176,7 @@
 		713F6EBF264A5E1C0071B232 /* delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delete.svg; sourceTree = "<group>"; };
 		713F6EC0264A5E1C0071B232 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
 		713F6EC1264A5E1C0071B232 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
+		713F6ECD264A67520071B232 /* ComponentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentInfo.swift; sourceTree = "<group>"; };
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				71FF93D32627E7C20033098B /* Style */,
 				71903B7625E0B53400437575 /* Component.swift */,
+				713F6ECD264A67520071B232 /* ComponentInfo.swift */,
 				7161CDB025E0D92C00BF6B71 /* Components.swift */,
 				7161CDB925E0E21900BF6B71 /* ViewStyles.swift */,
 				7161CDBC25E0E26500BF6B71 /* ViewModel.swift */,
@@ -680,6 +683,7 @@
 				71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */,
 				717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */,
 				715FBFE0263940F4005A265C /* AppearanceStyle.swift in Sources */,
+				713F6ECE264A67520071B232 /* ComponentInfo.swift in Sources */,
 				719536392638047300C82D2F /* ZDialogController.swift in Sources */,
 				7161CDB125E0D92C00BF6B71 /* Components.swift in Sources */,
 				717C5C14263504CD001A0E12 /* ZActionSheetComponent.swift in Sources */,

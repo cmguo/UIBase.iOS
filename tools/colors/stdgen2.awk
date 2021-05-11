@@ -3,6 +3,8 @@
 BEGIN {
   lines[0] = 0
   delete lines[0]
+  lines2[0] = 0
+  delete lines2[0]
   started = 0
 }
 
@@ -34,6 +36,7 @@ BEGIN {
       if (substr($3, 1, 2) == "0x" && $3 != $2) {
         lines[length(lines)] = "    @DayNightColorWrapper(name: \"" $1 "\", dayColor: " $2 ", nightColor: " $3 ")"
         lines[length(lines)] = "    public static var " $1 $4
+        lines2[length(lines2)] = "        " $1 ","
       } else {
         lines[length(lines)] = "    public static var " $1 " = UIColor(rgba: " $2 ")" $4
       }
@@ -46,6 +49,12 @@ BEGIN {
       for (i in lines) {
         print lines[i]
       }
+      print "    public static let dynamicColors: [UIColor] = ["
+      for (i in lines2) {
+        print lines2[i]
+      }
+      print "    ]"
+      print ""
       started = 1
     } else if ($0 == "}") {
       print $0
