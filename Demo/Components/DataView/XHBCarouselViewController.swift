@@ -1,5 +1,5 @@
 //
-//  XHBCarouseViewController.swift
+//  XHBCarouselViewController.swift
 //  Demo
 //
 //  Created by 郭春茂 on 2021/5/6.
@@ -8,12 +8,12 @@
 import Foundation
 import UIBase
 
-class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
+class XHBCarouselViewController: ComponentController, XHBCarouselViewDelegate {
 
     class Styles : ViewStyles {
         
         @objc static let _slideDirection = ["滚动方向", "默认横向滚动"]
-        @objc static let _slideDirectionStyle: NSObject = EnumStyle(Styles.self, "slideDirection", XHBCarouseView.SlideDirection.self)
+        @objc static let _slideDirectionStyle: NSObject = EnumStyle(Styles.self, "slideDirection", XHBCarouselView.SlideDirection.self)
         @objc var slideDirection = 0
 
         @objc static let _slideInterval = ["间隔时间", "两次自动滚动的间隔时间，设为 0 不自动滚动"]
@@ -29,31 +29,31 @@ class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
         @objc var cyclic = true
         
         @objc static let _slideAnimType = ["翻页动效", "翻页的动画效果"]
-        @objc static let _slideAnimTypeStyle: NSObject = EnumStyle(Styles.self, "slideAnimType", XHBCarouseView.SlideAnimType.self)
+        @objc static let _slideAnimTypeStyle: NSObject = EnumStyle(Styles.self, "slideAnimType", XHBCarouselView.SlideAnimType.self)
         @objc var slideAnimType: Int = 0
         
-        var slideDirection2: XHBCarouseView.SlideDirection {
-            XHBCarouseView.SlideDirection(rawValue: slideDirection)!
+        var slideDirection2: XHBCarouselView.SlideDirection {
+            XHBCarouselView.SlideDirection(rawValue: slideDirection)!
         }
 
-        var slideAnimType2: XHBCarouseView.SlideAnimType {
-            XHBCarouseView.SlideAnimType(rawValue: slideAnimType)!
+        var slideAnimType2: XHBCarouselView.SlideAnimType {
+            XHBCarouselView.SlideAnimType(rawValue: slideAnimType)!
         }
     }
     
-    class Model : ViewModel, XHBCarouseViewDataSource {
+    class Model : ViewModel, XHBCarouselViewDataSource {
         
         let images = [
-            Icons.jpgURL("carouse1"),
-            Icons.jpgURL("carouse2"),
-            Icons.jpgURL("carouse3")
+            Icons.jpgURL("carousel1"),
+            Icons.jpgURL("carousel2"),
+            Icons.jpgURL("carousel3")
         ]
 
-        func numberOfItems(in carouseView: XHBCarouseView) -> Int {
+        func numberOfItems(in carouselView: XHBCarouselView) -> Int {
             return images.count
         }
         
-        func carouseView(_ carouseView: XHBCarouseView, imageForItemAt index: Int) -> UIImage {
+        func carouselView(_ carouselView: XHBCarouselView, imageForItemAt index: Int) -> UIImage {
             return UIImage(withUrl: images[index]!)!
         }
         
@@ -62,8 +62,8 @@ class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
     
     private let styles = Styles()
     private let model = Model()
-    private let carouseView = XHBCarouseView()
-    private var views = [XHBCarouseView]()
+    private let carouselView = XHBCarouselView()
+    private var views = [XHBCarouselView]()
 
     private let label = UILabel()
     private let text = UILabel()
@@ -87,17 +87,17 @@ class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
             maker.leading.equalTo(label.snp.trailing).offset(20)
         }
         
-        carouseView.dataSource2 = model
-        carouseView.delegate2 = self
-        carouseView.slideInterval = styles.slideInterval
-        carouseView.cyclic = styles.cyclic
-        view.addSubview(carouseView)
-        carouseView.snp.makeConstraints { (maker) in
+        carouselView.dataSource2 = model
+        carouselView.delegate2 = self
+        carouselView.slideInterval = styles.slideInterval
+        carouselView.cyclic = styles.cyclic
+        view.addSubview(carouselView)
+        carouselView.snp.makeConstraints { (maker) in
             maker.center.equalToSuperview()
             maker.width.equalTo(310)
             maker.height.equalTo(150)
         }
-        views.append(carouseView)
+        views.append(carouselView)
 
 
         styles.listen { (name: String) in
@@ -117,7 +117,7 @@ class XHBCarouseViewController: ComponentController, XHBCarouseViewDelegate {
         }
     }
     
-    func carouseView(_ carouseView: XHBCarouseView, didSlideTo index: Int) {
+    func carouselView(_ carouselView: XHBCarouselView, didSlideTo index: Int) {
         text.text = String(index)
     }
     

@@ -99,11 +99,11 @@
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
 		71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */; };
 		71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2468A25E798ED0049ABB0 /* Assets.xcassets */; };
-		71C875822643A02A00A06367 /* ZCarouseViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */; };
-		71C875852643A03300A06367 /* ZCarouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouseViewController.swift */; };
-		71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875972643B8FF00A06367 /* carouse2.jpg */; };
-		71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875982643B8FF00A06367 /* carouse1.jpg */; };
-		71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875992643B8FF00A06367 /* carouse3.jpg */; };
+		71C875822643A02A00A06367 /* ZCarouselViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */; };
+		71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouselViewController.swift */; };
+		71C8759A2643B8FF00A06367 /* carousel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875972643B8FF00A06367 /* carousel2.jpg */; };
+		71C8759B2643B8FF00A06367 /* carousel1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875982643B8FF00A06367 /* carousel1.jpg */; };
+		71C8759C2643B8FF00A06367 /* carousel3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71C875992643B8FF00A06367 /* carousel3.jpg */; };
 		71C875CA264505D800A06367 /* ZTabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875C9264505D800A06367 /* ZTabBarComponent.swift */; };
 		71C875CD264505E200A06367 /* ZTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875CC264505E200A06367 /* ZTabBarController.swift */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
@@ -223,11 +223,11 @@
 		71A2468025E78CDF0049ABB0 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxTextField.swift; sourceTree = "<group>"; };
 		71A2468A25E798ED0049ABB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewComponent.swift; sourceTree = "<group>"; };
-		71C875842643A03300A06367 /* ZCarouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewController.swift; sourceTree = "<group>"; };
-		71C875972643B8FF00A06367 /* carouse2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse2.jpg; sourceTree = "<group>"; };
-		71C875982643B8FF00A06367 /* carouse1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse1.jpg; sourceTree = "<group>"; };
-		71C875992643B8FF00A06367 /* carouse3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carouse3.jpg; sourceTree = "<group>"; };
+		71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewComponent.swift; sourceTree = "<group>"; };
+		71C875842643A03300A06367 /* ZCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewController.swift; sourceTree = "<group>"; };
+		71C875972643B8FF00A06367 /* carousel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carousel2.jpg; sourceTree = "<group>"; };
+		71C875982643B8FF00A06367 /* carousel1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carousel1.jpg; sourceTree = "<group>"; };
+		71C875992643B8FF00A06367 /* carousel3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carousel3.jpg; sourceTree = "<group>"; };
 		71C875C9264505D800A06367 /* ZTabBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTabBarComponent.swift; sourceTree = "<group>"; };
 		71C875CC264505E200A06367 /* ZTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTabBarController.swift; sourceTree = "<group>"; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
@@ -307,8 +307,8 @@
 		713F6D84264A20DD0071B232 /* DataView */ = {
 			isa = PBXGroup;
 			children = (
-				71C875812643A02A00A06367 /* ZCarouseViewComponent.swift */,
-				71C875842643A03300A06367 /* ZCarouseViewController.swift */,
+				71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */,
+				71C875842643A03300A06367 /* ZCarouselViewController.swift */,
 				713F6D7A26466B500071B232 /* ZListViewComponent.swift */,
 				713F6D7D26466B850071B232 /* ZListViewController.swift */,
 			);
@@ -534,9 +534,9 @@
 				713F6D4726451FC40071B232 /* monkey.png */,
 				713F6D5326451FC50071B232 /* pig.png */,
 				713F6D4A26451FC40071B232 /* sheep.png */,
-				71C875982643B8FF00A06367 /* carouse1.jpg */,
-				71C875972643B8FF00A06367 /* carouse2.jpg */,
-				71C875992643B8FF00A06367 /* carouse3.jpg */,
+				71C875982643B8FF00A06367 /* carousel1.jpg */,
+				71C875972643B8FF00A06367 /* carousel2.jpg */,
+				71C875992643B8FF00A06367 /* carousel3.jpg */,
 				7195363B2638164400C82D2F /* dialog1.png */,
 				717C5BED2632C426001A0E12 /* img_share_class.png */,
 				717C5BF02632C426001A0E12 /* img_share_moment.png */,
@@ -620,7 +620,7 @@
 			files = (
 				713F6D6026451FC50071B232 /* pig.png in Resources */,
 				713F6D5F26451FC50071B232 /* frog.png in Resources */,
-				71C8759A2643B8FF00A06367 /* carouse2.jpg in Resources */,
+				71C8759A2643B8FF00A06367 /* carousel2.jpg in Resources */,
 				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
 				713F6D5526451FC50071B232 /* car.png in Resources */,
 				713F6EC2264A5E1C0071B232 /* delete.svg in Resources */,
@@ -631,10 +631,10 @@
 				717C5BF22632C426001A0E12 /* img_share_class.png in Resources */,
 				713F6D5426451FC50071B232 /* monkey.png in Resources */,
 				717C5BF32632C426001A0E12 /* img_share_space.png in Resources */,
-				71C8759B2643B8FF00A06367 /* carouse1.jpg in Resources */,
+				71C8759B2643B8FF00A06367 /* carousel1.jpg in Resources */,
 				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
 				713F6D5A26451FC50071B232 /* horse.png in Resources */,
-				71C8759C2643B8FF00A06367 /* carouse3.jpg in Resources */,
+				71C8759C2643B8FF00A06367 /* carousel3.jpg in Resources */,
 				717C5BF62632C426001A0E12 /* img_share_qq.png in Resources */,
 				713F6D5B26451FC50071B232 /* elephant.png in Resources */,
 				713F6D5926451FC50071B232 /* dog.png in Resources */,
@@ -717,7 +717,7 @@
 				71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */,
 				711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */,
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
-				71C875852643A03300A06367 /* ZCarouseViewController.swift in Sources */,
+				71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */,
 				715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */,
@@ -728,7 +728,7 @@
 				71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */,
 				717C5BE82632C093001A0E12 /* ZActivityViewComponent.swift in Sources */,
 				717C5BEB2632C09C001A0E12 /* ZActivityViewController.swift in Sources */,
-				71C875822643A02A00A06367 /* ZCarouseViewComponent.swift in Sources */,
+				71C875822643A02A00A06367 /* ZCarouselViewComponent.swift in Sources */,
 				715FC03826411033005A265C /* ZSearchBarComponent.swift in Sources */,
 				71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */,
 				713F6EA0264A2FEF0071B232 /* ContributionRequestController.swift in Sources */,

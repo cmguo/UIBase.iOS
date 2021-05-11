@@ -35,8 +35,10 @@ public class XHBCheckBox: UIButton {
     
     public var checkedState: CheckedState = CheckedState.NotChecked {
         didSet {
-            updateStates()
-            sendActions(for: .valueChanged)
+            if oldValue != checkedState {
+                updateStates()
+                sendActions(for: .valueChanged)
+            }
         }
     }
     

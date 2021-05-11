@@ -23,8 +23,10 @@ public class XHBRadioButton: UIButton {
     
     public var checked: Bool = false {
         didSet {
-            updateStates()
-            sendActions(for: .valueChanged)
+            if oldValue != checked {
+                updateStates()
+                sendActions(for: .valueChanged)
+            }
         }
     }
     

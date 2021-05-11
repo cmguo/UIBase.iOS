@@ -1,5 +1,5 @@
 //
-//  XHBCarouseView.swift
+//  XHBCarouselView.swift
 //  UIBase
 //
 //  Created by 郭春茂 on 2021/5/6.
@@ -7,24 +7,24 @@
 
 import Foundation
 
-@objc public protocol XHBCarouseViewDataSource {
+@objc public protocol XHBCarouselViewDataSource {
     
-    func numberOfItems(in carouseView: XHBCarouseView) -> Int
-    @objc optional func carouseView(_ carouseView: XHBCarouseView, textForItemAt index: Int) -> String
-    func carouseView(_ carouseView: XHBCarouseView, imageForItemAt index: Int) -> UIImage
+    func numberOfItems(in carouselView: XHBCarouselView) -> Int
+    @objc optional func carouselView(_ carouselView: XHBCarouselView, textForItemAt index: Int) -> String
+    func carouselView(_ carouselView: XHBCarouselView, imageForItemAt index: Int) -> UIImage
 
 }
 
-@objc public protocol XHBCarouseViewDelegate {
+@objc public protocol XHBCarouselViewDelegate {
     
-    @objc optional func carouseView(_ carouseView: XHBCarouseView, willSlideFrom index: Int)
-    @objc optional func carouseView(_ carouseView: XHBCarouseView, didSlideTo index: Int)
+    @objc optional func carouselView(_ carouselView: XHBCarouselView, willSlideFrom index: Int)
+    @objc optional func carouselView(_ carouselView: XHBCarouselView, didSlideTo index: Int)
 
 }
 
-public class XHBCarouseView : FSPagerView {
+public class XHBCarouselView : FSPagerView {
     
-    open weak var dataSource2: XHBCarouseViewDataSource? = nil {
+    open weak var dataSource2: XHBCarouselViewDataSource? = nil {
         didSet {
             _dataSource = dataSource2 == nil ? nil : XHBFSPagerViewDataSource(dataSource2!)
             super.dataSource = _dataSource
@@ -33,7 +33,7 @@ public class XHBCarouseView : FSPagerView {
         }
     }
     
-    open weak var delegate2: XHBCarouseViewDelegate? {
+    open weak var delegate2: XHBCarouselViewDelegate? {
         didSet {
             _delegate.delegate = delegate2
         }
@@ -138,12 +138,12 @@ public class XHBCarouseView : FSPagerView {
 
     fileprivate let _pageControl = FSPageControl()
     
-    private let _style: XHBCarouseViewStyle
+    private let _style: XHBCarouselViewStyle
     
-    public init(style: XHBCarouseViewStyle = .init()) {
+    public init(style: XHBCarouselViewStyle = .init()) {
         _style = style
         super.init(frame: .zero)
-        super.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "XHBCarouseView")
+        super.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "XHBCarouselView")
         super.delegate = _delegate
         
         _pageControl.hidesForSinglePage = true
@@ -163,21 +163,21 @@ public class XHBCarouseView : FSPagerView {
 
 class XHBFSPagerViewDataSource : NSObject, FSPagerViewDataSource {
     
-    private let dataSource: XHBCarouseViewDataSource
+    private let dataSource: XHBCarouselViewDataSource
     
-    init(_ dataSource: XHBCarouseViewDataSource) {
+    init(_ dataSource: XHBCarouselViewDataSource) {
         self.dataSource = dataSource
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return dataSource.numberOfItems(in: pagerView as! XHBCarouseView)
+        return dataSource.numberOfItems(in: pagerView as! XHBCarouselView)
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "XHBCarouseView", at: index)
-        let image = dataSource.carouseView(pagerView as! XHBCarouseView, imageForItemAt: index)
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "XHBCarouselView", at: index)
+        let image = dataSource.carouselView(pagerView as! XHBCarouselView, imageForItemAt: index)
         cell.imageView?.image = image
-        if let text = dataSource.carouseView?(pagerView as! XHBCarouseView, textForItemAt: index) {
+        if let text = dataSource.carouselView?(pagerView as! XHBCarouselView, textForItemAt: index) {
             cell.textLabel?.text = text
         }
         return cell
@@ -187,26 +187,26 @@ class XHBFSPagerViewDataSource : NSObject, FSPagerViewDataSource {
 
 class XHBFSPagerViewDelegate : NSObject, FSPagerViewDelegate {
     
-    var delegate: XHBCarouseViewDelegate? = nil
+    var delegate: XHBCarouselViewDelegate? = nil
     
     func pagerViewWillBeginDragging(_ pagerView: FSPagerView) {
-        delegate?.carouseView?(pagerView as! XHBCarouseView, willSlideFrom: pagerView.currentIndex)
+        delegate?.carouselView?(pagerView as! XHBCarouselView, willSlideFrom: pagerView.currentIndex)
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
-        if let carouseView = pagerView as? XHBCarouseView {
-            carouseView._pageControl.currentPage = pagerView.currentIndex
-            delegate?.carouseView?(carouseView, didSlideTo: pagerView.currentIndex)
+        if let carouselView = pagerView as? XHBCarouselView {
+            carouselView._pageControl.currentPage = pagerView.currentIndex
+            delegate?.carouselView?(carouselView, didSlideTo: pagerView.currentIndex)
         }
     }
     
 }
 
 
-extension XHBCarouseView {
+extension XHBCarouselView {
     
     static let square: (_ size: CGFloat) -> UIBezierPath = { size in
         return UIBezierPath(rect: CGRect(x: 0, y: 0, width: size, height: size))

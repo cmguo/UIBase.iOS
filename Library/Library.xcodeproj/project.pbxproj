@@ -225,7 +225,7 @@
 		717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1926350941001A0E12 /* ZActionSheetStyle.swift */; };
 		717C5C1D26350D1C001A0E12 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5C1C26350D1C001A0E12 /* UILabel.swift */; };
 		7182AEBA25CCE98C00B0F1D3 /* UIBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7182AEB825CCE98C00B0F1D3 /* UIBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71C8756A2643989800A06367 /* ZCarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875692643989800A06367 /* ZCarouseView.swift */; };
+		71C8756A2643989800A06367 /* ZCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875692643989800A06367 /* ZCarouselView.swift */; };
 		71C8756D264398A400A06367 /* ZListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8756C264398A400A06367 /* ZListView.swift */; };
 		71C8757726439D3100A06367 /* FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757126439D3100A06367 /* FSPagerView.swift */; };
 		71C8757826439D3100A06367 /* FSPageViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757226439D3100A06367 /* FSPageViewTransformer.swift */; };
@@ -233,7 +233,7 @@
 		71C8757A26439D3100A06367 /* FSPagerViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757426439D3100A06367 /* FSPagerViewLayoutAttributes.swift */; };
 		71C8757B26439D3100A06367 /* FSPageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757526439D3100A06367 /* FSPageViewLayout.swift */; };
 		71C8757C26439D3100A06367 /* FSPagerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757626439D3100A06367 /* FSPagerCollectionView.swift */; };
-		71C8757F26439DF900A06367 /* ZCarouseViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */; };
+		71C8757F26439DF900A06367 /* ZCarouselViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8757E26439DF900A06367 /* ZCarouselViewStyle.swift */; };
 		71C875A22643CD1900A06367 /* FSPagerViewObjcCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 71C8759F2643CD1900A06367 /* FSPagerViewObjcCompat.h */; };
 		71C875A32643CD1900A06367 /* FSPagerViewObjcCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C875A02643CD1900A06367 /* FSPagerViewObjcCompat.m */; };
 		71C875A42643CD1900A06367 /* FSPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875A12643CD1900A06367 /* FSPageControl.swift */; };
@@ -473,7 +473,7 @@
 		7182AEB525CCE98C00B0F1D3 /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7182AEB825CCE98C00B0F1D3 /* UIBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
 		7182AEB925CCE98C00B0F1D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71C875692643989800A06367 /* ZCarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseView.swift; sourceTree = "<group>"; };
+		71C875692643989800A06367 /* ZCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselView.swift; sourceTree = "<group>"; };
 		71C8756C264398A400A06367 /* ZListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListView.swift; sourceTree = "<group>"; };
 		71C8757126439D3100A06367 /* FSPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerView.swift; sourceTree = "<group>"; };
 		71C8757226439D3100A06367 /* FSPageViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewTransformer.swift; sourceTree = "<group>"; };
@@ -481,7 +481,7 @@
 		71C8757426439D3100A06367 /* FSPagerViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		71C8757526439D3100A06367 /* FSPageViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewLayout.swift; sourceTree = "<group>"; };
 		71C8757626439D3100A06367 /* FSPagerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerCollectionView.swift; sourceTree = "<group>"; };
-		71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouseViewStyle.swift; sourceTree = "<group>"; };
+		71C8757E26439DF900A06367 /* ZCarouselViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewStyle.swift; sourceTree = "<group>"; };
 		71C8759F2643CD1900A06367 /* FSPagerViewObjcCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPagerViewObjcCompat.h; sourceTree = "<group>"; };
 		71C875A02643CD1900A06367 /* FSPagerViewObjcCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPagerViewObjcCompat.m; sourceTree = "<group>"; };
 		71C875A12643CD1900A06367 /* FSPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageControl.swift; sourceTree = "<group>"; };
@@ -845,7 +845,7 @@
 		71C875682643987600A06367 /* DataView */ = {
 			isa = PBXGroup;
 			children = (
-				71C875692643989800A06367 /* ZCarouseView.swift */,
+				71C875692643989800A06367 /* ZCarouselView.swift */,
 				71C8756C264398A400A06367 /* ZListView.swift */,
 				713F6D66264639DA0071B232 /* ZListViewCell.swift */,
 			);
@@ -897,7 +897,7 @@
 				715FC02E263FEE1E005A265C /* ZTextInputStyle.swift */,
 				715FC028263F943C005A265C /* ZTextViewStyle.swift */,
 				715FC03426410E36005A265C /* ZSearchBarStyle.swift */,
-				71C8757E26439DF900A06367 /* ZCarouseViewStyle.swift */,
+				71C8757E26439DF900A06367 /* ZCarouselViewStyle.swift */,
 				71C875AC2643FD5800A06367 /* ZTabBarStyle.swift */,
 				713F6D622646264C0071B232 /* ZListViewStyle.swift */,
 			);
@@ -1163,7 +1163,7 @@
 				71FF941B262D68940033098B /* ZAppTitleBar.swift in Sources */,
 				71C8757926439D3100A06367 /* FSPagerViewCell.swift in Sources */,
 				7178A1A025F5CC14004BA696 /* BallSpinFadeIndicator.swift in Sources */,
-				71C8757F26439DF900A06367 /* ZCarouseViewStyle.swift in Sources */,
+				71C8757F26439DF900A06367 /* ZCarouselViewStyle.swift in Sources */,
 				715FC02C263FEC68005A265C /* ZTextInput.swift in Sources */,
 				713F6D67264639DA0071B232 /* ZListViewCell.swift in Sources */,
 				71C875B6264405A300A06367 /* ZTabBarRoundIndicator.swift in Sources */,
@@ -1204,7 +1204,7 @@
 				715FBFFB263D578E005A265C /* ZNumberView.swift in Sources */,
 				717C5B622630134D001A0E12 /* ZPanel.swift in Sources */,
 				717C5C11263502F2001A0E12 /* ZActionSheet.swift in Sources */,
-				71C8756A2643989800A06367 /* ZCarouseView.swift in Sources */,
+				71C8756A2643989800A06367 /* ZCarouselView.swift in Sources */,
 				717C5C1A26350941001A0E12 /* ZActionSheetStyle.swift in Sources */,
 				7178A19D25F5CC14004BA696 /* NVActivityIndicatorShape.swift in Sources */,
 				717C5C0E2632DBD4001A0E12 /* ZActionButton.swift in Sources */,
