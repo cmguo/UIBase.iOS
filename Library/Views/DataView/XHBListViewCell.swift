@@ -74,6 +74,7 @@ class XHBListViewCell : UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         var frame = bounds
         frame.deflate(width: _style.paddingX, height: 0)
         var iconPadding = _style.iconPadding

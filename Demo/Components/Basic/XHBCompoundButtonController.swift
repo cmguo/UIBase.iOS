@@ -26,7 +26,7 @@ class XHBCompoundButtonController: ComponentController, UITableViewDataSource, U
             if component is XHBCheckboxComponent {
                 states = XHBCheckBox.CheckedState.allCases
             } else if (component is XHBRatioButtonComponent) {
-                states = [false, true]
+                states = [false, true, false, false]
             } else if (component is XHBSwitchButtonComponent) {
                 states = [false, true]
             } else {
