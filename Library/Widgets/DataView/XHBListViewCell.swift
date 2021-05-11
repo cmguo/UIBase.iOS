@@ -40,6 +40,7 @@ class XHBListViewCell : UITableViewCell {
     // only once before bindData
     public func setStyle(_ style: XHBListItemStyle) {
         _style = style
+        selectionStyle = .none
         textLabel?.textAppearance = _style.textAppearance
     }
     

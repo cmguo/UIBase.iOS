@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBDialogCallback {
+@objc public protocol XHBDialogDelegate {
     @objc optional func dialogButtonClicked(dialog: XHBDialog, btnId: XHBButton.ButtonId?)
     @objc optional func dialogMoreButtonClicked(dialog: XHBDialog, index: Int)
     @objc optional func dialogDismissed(dialog: XHBDialog)
@@ -96,7 +96,7 @@ public class XHBDialog : UIView {
         }
     }
     
-    public var callback: XHBDialogCallback? = nil
+    public var callback: XHBDialogDelegate? = nil
     
     private let _imageView = UIImageView()
     private let _closeIcon = UIImageView()

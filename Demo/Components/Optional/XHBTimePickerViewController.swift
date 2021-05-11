@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBTimePickerViewController: ComponentController, XHBTimePickerViewCallback, XHBDatePickerViewCallback, XHBPanelCallbackDelegate {
+class XHBTimePickerViewController: ComponentController, XHBTimePickerViewDelegate, XHBDatePickerViewDelegate, XHBPanelDelegate {
 
     class Styles : ViewStyles {
         

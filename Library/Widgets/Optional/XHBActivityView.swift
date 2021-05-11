@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBActivityViewCallback {
+@objc public protocol XHBActivityViewDelegate {
     @objc optional func activityViewButtonClicked(view: XHBActivityView, line: Int, index: Int)
 }
 
@@ -27,7 +27,7 @@ public class XHBActivityView : UIView {
         }
     }
     
-    public var callback: XHBActivityViewCallback? = nil
+    public var callback: XHBActivityViewDelegate? = nil
 
     private let _line1: XHBActivityLine
     private let _line2: XHBActivityLine

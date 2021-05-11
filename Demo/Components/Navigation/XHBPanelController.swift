@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBPanelController: ComponentController, XHBPanelCallbackDelegate {
+class XHBPanelController: ComponentController, XHBPanelDelegate {
 
     class Styles : ViewStyles {
         

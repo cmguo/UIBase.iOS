@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHBPanelCallbackDelegate {
+class XHBActionSheetController: ComponentController, XHBActionSheetCallback, XHBPanelDelegate {
 
     class Styles : ViewStyles {
         

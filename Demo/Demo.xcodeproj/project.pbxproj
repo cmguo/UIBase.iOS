@@ -55,6 +55,9 @@
 		713F6EC3264A5E1C0071B232 /* alert.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC0264A5E1C0071B232 /* alert.svg */; };
 		713F6EC4264A5E1C0071B232 /* info.svg in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EC1264A5E1C0071B232 /* info.svg */; };
 		713F6ECE264A67520071B232 /* ComponentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6ECD264A67520071B232 /* ComponentInfo.swift */; };
+		713F6ED4264A92F60071B232 /* img_humburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6ED3264A92F50071B232 /* img_humburger.png */; };
+		713F6EDB264A969F0071B232 /* img_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 713F6EDA264A969F0071B232 /* img_menu.png */; };
+		713F6EE7264AAC6A0071B232 /* DemoMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6EE6264AAC6A0071B232 /* DemoMainController.swift */; };
 		715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */; };
 		715FBFD32639013E005A265C /* ZTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD22639013E005A265C /* ZTimePickerViewController.swift */; };
 		715FBFDA263914B0005A265C /* TimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FBFD9263914B0005A265C /* TimeStyle.swift */; };
@@ -177,6 +180,9 @@
 		713F6EC0264A5E1C0071B232 /* alert.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alert.svg; sourceTree = "<group>"; };
 		713F6EC1264A5E1C0071B232 /* info.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.svg; sourceTree = "<group>"; };
 		713F6ECD264A67520071B232 /* ComponentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentInfo.swift; sourceTree = "<group>"; };
+		713F6ED3264A92F50071B232 /* img_humburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_humburger.png; sourceTree = "<group>"; };
+		713F6EDA264A969F0071B232 /* img_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_menu.png; sourceTree = "<group>"; };
+		713F6EE6264AAC6A0071B232 /* DemoMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMainController.swift; sourceTree = "<group>"; };
 		715FBFCF26390133005A265C /* ZTimePickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewComponent.swift; sourceTree = "<group>"; };
 		715FBFD22639013E005A265C /* ZTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTimePickerViewController.swift; sourceTree = "<group>"; };
 		715FBFD9263914B0005A265C /* TimeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStyle.swift; sourceTree = "<group>"; };
@@ -438,6 +444,7 @@
 				711202A625FB05A2004A3AA5 /* Style */,
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
 				713F6EB7264A4A930071B232 /* InformationController.swift */,
+				713F6EE6264AAC6A0071B232 /* DemoMainController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -521,6 +528,8 @@
 		71FF93F1262957D10033098B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				713F6EDA264A969F0071B232 /* img_menu.png */,
+				713F6ED3264A92F50071B232 /* img_humburger.png */,
 				713F6D4826451FC40071B232 /* car.png */,
 				713F6D5026451FC50071B232 /* chicken.png */,
 				713F6D5126451FC50071B232 /* cow.png */,
@@ -624,6 +633,7 @@
 				717C5BF42632C426001A0E12 /* img_share_weixin.png in Resources */,
 				713F6D5526451FC50071B232 /* car.png in Resources */,
 				713F6EC2264A5E1C0071B232 /* delete.svg in Resources */,
+				713F6ED4264A92F60071B232 /* img_humburger.png in Resources */,
 				717C5BF52632C426001A0E12 /* img_share_moment.png in Resources */,
 				713F6D5D26451FC50071B232 /* chicken.png in Resources */,
 				713F6D5826451FC50071B232 /* light.png in Resources */,
@@ -642,6 +652,7 @@
 				713F6EC4264A5E1C0071B232 /* info.svg in Resources */,
 				713F6D5C26451FC50071B232 /* lufei.jpg in Resources */,
 				7112028225F8CF90004A3AA5 /* erase.svg in Resources */,
+				713F6EDB264A969F0071B232 /* img_menu.png in Resources */,
 				713F6D5626451FC50071B232 /* dragon.png in Resources */,
 				713F6D5E26451FC50071B232 /* cow.png in Resources */,
 				713F6D5726451FC50071B232 /* sheep.png in Resources */,
@@ -666,6 +677,7 @@
 				713F6D7E26466B850071B232 /* ZListViewController.swift in Sources */,
 				715FBFDD26394066005A265C /* ResourceStyle.swift in Sources */,
 				71C875CD264505E200A06367 /* ZTabBarController.swift in Sources */,
+				713F6EE7264AAC6A0071B232 /* DemoMainController.swift in Sources */,
 				715FBFD026390133005A265C /* ZTimePickerViewComponent.swift in Sources */,
 				7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */,
 				713F6EAA264A321B0071B232 /* ZFilterComponent.swift in Sources */,

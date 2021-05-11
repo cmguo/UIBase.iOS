@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBTimePickerViewCallback {
+@objc public protocol XHBTimePickerViewDelegate {
     @objc optional func timePickerSelectTimeChanged(picker: XHBTimePickerView, time: Date)
 }
 
@@ -70,7 +70,7 @@ public class XHBTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    public var callback: XHBTimePickerViewCallback? = nil
+    public var callback: XHBTimePickerViewDelegate? = nil
     
     fileprivate let state = CalendarState()
     

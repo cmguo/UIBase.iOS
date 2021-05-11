@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBPickerViewCallback {
+@objc public protocol XHBPickerViewDelegate {
     @objc optional func onSelectionChanged(picker: XHBPickerView, selection: Int)
     @objc optional func onSelectionsChanged(picker: XHBPickerView, selections: [Int])
 }
@@ -55,7 +55,7 @@ public class XHBPickerView : UIView, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
-    public var callback: XHBPickerViewCallback? = nil
+    public var callback: XHBPickerViewDelegate? = nil
 
     private let _tableView = UITableView()
     private let _selectImage = UIImageView()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBDatePickerViewCallback {
+@objc public protocol XHBDatePickerViewDelegate {
     @objc optional func datePickerSelectDateChanged(picker: XHBDatePickerView, date: Date)
 }
 
@@ -57,7 +57,7 @@ public class XHBDatePickerView : UIDatePicker {
         set { setValue(newValue, forKey: "highlightsToday") }
     }
     
-    public var callback: XHBDatePickerViewCallback? = nil
+    public var callback: XHBDatePickerViewDelegate? = nil
     
     public init() {
         super.init(frame: .zero)

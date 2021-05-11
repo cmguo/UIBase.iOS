@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBAppTitleBarController: ComponentController, XHBTitleBarCallbackDelegate {
+class XHBAppTitleBarController: ComponentController, XHBTitleBarDelegate {
 
     class Styles : ViewStyles {
         

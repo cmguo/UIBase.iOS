@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public protocol XHBDropDownCallback {
-    @objc optional func dropDownFinished(dropDown: XHBDropDown, selection: Int)
+@objc public protocol XHBDropDownDelegate {
+    @objc optional func dropDownFinished(dropDown: XHBDropDown, selection: Int, withValue: Any?)
 }
 
-public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
+public class XHBDropDown : UIView {
 
     public var titles: [Any] = []
     
@@ -68,9 +68,12 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
     
     private var _isDrop = false
-    private var _callback: XHBDropDownCallback? = nil
+    private var _callback: XHBDropDownDelegate? = nil
     
-    public func popAt(_ target: UIView, withCallback: XHBDropDownCallback? = nil) {
+    private var _radioGroup = XHBRadioGroup()
+    private var _buttons: [Int: [UIView]] = [:]
+
+    public func popAt(_ target: UIView, withCallback: XHBDropDownDelegate? = nil) {
         if(_isDrop) {
             return
         }
@@ -120,39 +123,11 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DropDown") as! XHBDropDownCell
-        let row = indexPath.row
-        cell.setStyle(_style)
-        cell.setContent(titles[row], icon: row < (icons?.count ?? 0) ? icons?[row] : nil)
-        if (row == titles.count - 1) {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        }
-        return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return _style.itemHeight
-    }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dismiss()
-        _callback?.dropDownFinished?(dropDown: self, selection: indexPath.row)
-    }
-    
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        return touch.view == self
-    }
-    
     /* private func */
     
     @objc private func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
         dismiss()
-        _callback?.dropDownFinished?(dropDown: self, selection: -1)
+        _callback?.dropDownFinished?(dropDown: self, selection: -1, withValue: nil)
     }
     
     private func tableSize() -> CGSize {
@@ -201,15 +176,141 @@ public class XHBDropDown : UIView, UITableViewDataSource, UITableViewDelegate, U
     }
 }
 
+extension XHBDropDown : UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DropDown") as! XHBDropDownCell
+        let row = indexPath.row
+        cell.setStyle(_style)
+        cell.setContent(titles[row], icon: row < (icons?.count ?? 0) ? icons?[row] : nil, dropDown: self)
+        if (row == titles.count - 1) {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        }
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return _style.itemHeight
+    }
+    
+}
+
+extension XHBDropDown : UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss()
+        let cell = tableView.cellForRow(at: indexPath) as! XHBDropDownCell
+        var value: Any? = nil
+        if cell._buttonType > 0 {
+            value = tapButton(cell._buttonType, cell._button!)
+        }
+        _callback?.dropDownFinished?(dropDown: self, selection: indexPath.row, withValue: value)
+    }
+    
+}
+
+extension XHBDropDown : UIGestureRecognizerDelegate {
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view == self
+    }
+    
+}
+
+extension XHBDropDown {
+    
+    func getButton(_ type: Int, _ oldType: Int, _ oldButton: UIView?) -> UIView? {
+        if (oldType == 2) {
+            _radioGroup.removeRadioButton(oldButton as! XHBRadioButton)
+        }
+        if let old = oldButton {
+            old.removeFromSuperview()
+            var btns = _buttons[oldType] ?? []
+            btns.append(old)
+            _buttons[oldType] = btns
+        }
+        if type == 0 {
+            return nil
+        }
+        if let btns = _buttons[type], !btns.isEmpty {
+            var btns2 = btns
+            let btn = btns2.remove(at: 0)
+            _buttons[type] = btns2
+            if type == 2 {
+                _radioGroup.addRadioButton(btn as! XHBRadioButton)
+            }
+            return btn
+        }
+        if type == 1 {
+            let cb = XHBCheckBox()
+            cb.addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged)
+            return cb
+        } else if type == 2 {
+            let rd = XHBRadioButton()
+            rd.addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged)
+            _radioGroup.addRadioButton(rd)
+            return rd
+        } else {
+            return nil
+        }
+    }
+
+    private func tapButton(_ type: Int, _ button: UIView) -> Any? {
+        switch type {
+        case 1:
+            if let cb = button as? XHBCheckBox {
+                cb.toggle()
+                return cb.checkedState
+            }
+        case 2:
+            if let rd = button as? XHBRadioButton {
+                rd.toggle()
+                return rd.checked
+            }
+        default:
+            break
+        }
+        return nil
+    }
+    
+    @objc private func valueChanged(_ sender: UIView) {
+        if (!_isDrop) { return }
+        guard let cell = sender.superview(ofType: XHBDropDownCell.self) else { return }
+        guard let index =  _tableView.indexPath(for: cell) else { return }
+        dismiss()
+        var value: Any? = nil
+        switch cell._buttonType {
+        case 1:
+            if let cb = cell._button as? XHBCheckBox {
+                value = cb.checkedState
+            }
+        case 2:
+            if let rd = cell._button as? XHBRadioButton {
+                value = rd.checked
+            }
+        default:
+            break
+        }
+        _callback?.dropDownFinished?(dropDown: self, selection: index.row, withValue: value)
+    }
+    
+}
+
 class XHBDropDownCell : UITableViewCell {
     
     private var _style: XHBDropDownStyle? = nil
     
     private let _imageView = UIImageView()
-    
+    var _button: UIView? = nil
+    var _buttonType: Int = 0
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //selectionStyle = .none
+        selectionStyle = .none
         _imageView.contentMode = .scaleAspectFit
         contentView.addSubview(_imageView)
         textLabel?.numberOfLines = 1
@@ -229,8 +330,24 @@ class XHBDropDownCell : UITableViewCell {
         textLabel?.textColor = _style?.textAppearance.textColor
     }
     
-    func setContent(_ title: Any, icon: Any?) {
-        textLabel?.text = "\(title)"
+    func setContent(_ title: Any, icon: Any?, dropDown: XHBDropDown) {
+        var title = "\(title)"
+        var buttonType = 0
+        if (title.hasSuffix("(x)")) {
+            buttonType = 1
+            title = title[0..<title.count - 3]
+        } else if (title.hasSuffix("(*)")) {
+            buttonType = 2
+            title = title[0..<title.count - 3]
+        }
+        if buttonType != _buttonType {
+            _button = dropDown.getButton(buttonType, _buttonType, _button)
+            _buttonType = buttonType
+            if let b = _button {
+                addSubview(b)
+            }
+        }
+        textLabel?.text = title
         if let url = icon as? URL {
             _imageView.setImage(withURL: url)
             _imageView.isHidden = false
@@ -246,6 +363,9 @@ class XHBDropDownCell : UITableViewCell {
         if !_imageView.isHidden {
             _imageView.frame = bounds.cutLeft(_style!.iconSize + _style!.iconPadding).leftCenterPart(ofSize: _imageView.bounds.size)
         }
+        if let b = _button {
+            b.frame = bounds.cutRight(_style!.iconPadding + b.bounds.width).rightCenterPart(ofSize: b.bounds.size)
+        }
         textLabel?.frame = bounds
     }
     
@@ -254,6 +374,9 @@ class XHBDropDownCell : UITableViewCell {
         w += textLabel!.text!.boundingSize(font: textLabel!.font).width
         if !_imageView.isHidden {
             w += _style!.iconSize + _style!.iconPadding
+        }
+        if let b = _button {
+            w += _style!.iconPadding + b.bounds.width
         }
         return w
     }

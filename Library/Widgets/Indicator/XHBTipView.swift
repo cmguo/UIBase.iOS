@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public protocol XHBTipViewCallback {
+@objc public protocol XHBTipViewDelegate {
         
     @objc optional func tipViewDelayTime(_ tipView: XHBTipView) -> Double
     @objc optional func tipViewButtonClicked(_ tipView: XHBTipView, _ btnId: XHBButton.ButtonId?)
@@ -17,14 +17,14 @@ import Foundation
 public class XHBTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, callback:  XHBTipViewCallback? = nil) {
+    public class func tip(_ target: UIView, _ message: String, callback:  XHBTipViewDelegate? = nil) {
         let tipView = XHBTipView()
         tipView.message = message
         tipView.callback = callback
         tipView.popAt(target)
     }
     
-    public class func toast(_ target: UIView, _ message: String, callback:  XHBTipViewCallback? = nil) {
+    public class func toast(_ target: UIView, _ message: String, callback:  XHBTipViewDelegate? = nil) {
         let tipView = XHBTipView()
         tipView.message = message
         tipView.callback = callback
@@ -136,7 +136,7 @@ public class XHBTipView : UIView
     
     public var dismissDelay: Double = 0
     
-    public var callback: XHBTipViewCallback? = nil
+    public var callback: XHBTipViewDelegate? = nil
     
     /* private variables */
     

@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBDropDownController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBDropDownCallback {
+class XHBDropDownController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBDropDownDelegate {
 
     class Styles : ViewStyles {
         
@@ -76,7 +76,7 @@ class XHBDropDownController: ComponentController, UICollectionViewDataSource, UI
         dropDown.popAt(sender, withCallback: self)
     }
     
-    func dropDownFinished(dropDown: XHBDropDown, selection: Int) {
+    func dropDownFinished(dropDown: XHBDropDown, selection: Int, withValue: Any?) {
         XHBTipView.toast(view, "选择了项目 \(selection)")
     }
 }

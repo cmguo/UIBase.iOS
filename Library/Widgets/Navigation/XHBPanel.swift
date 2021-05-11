@@ -7,13 +7,13 @@
 
 import Foundation
 
-@objc public protocol XHBPanelCallbackDelegate {
+@objc public protocol XHBPanelDelegate {
     @objc optional func panelButtonClicked(panel: XHBPanel, btnId: XHBButton.ButtonId?)
     @objc optional func panelDismissed(panel: XHBPanel)
 }
 
 
-public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
+public class XHBPanel : UIView, XHBTitleBarDelegate {
     
     public var titleBar: Any? {
         didSet {
@@ -53,7 +53,7 @@ public class XHBPanel : UIView, XHBTitleBarCallbackDelegate {
         }
     }
     
-    public var delegate: XHBPanelCallbackDelegate? = nil
+    public var delegate: XHBPanelDelegate? = nil
 
     
     /* private propertis */

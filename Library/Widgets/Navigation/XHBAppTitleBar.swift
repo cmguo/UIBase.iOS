@@ -8,7 +8,7 @@
 import Foundation
 
 
-@objc public protocol XHBTitleBarCallbackDelegate {
+@objc public protocol XHBTitleBarDelegate {
     @objc optional func titleBarButtonClicked(titleBar: XHBAppTitleBar, btnId: XHBButton.ButtonId?)
 }
 
@@ -82,7 +82,7 @@ public class XHBAppTitleBar : UIView
     
     public var textAppearance: TextAppearance? = nil
     
-    public var delegate: XHBTitleBarCallbackDelegate? = nil
+    public var delegate: XHBTitleBarDelegate? = nil
     
     /* private variables */
     

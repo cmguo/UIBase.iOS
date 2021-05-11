@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBDialogController: ComponentController, XHBDialogCallback {
+class XHBDialogController: ComponentController, XHBDialogDelegate {
 
     class Styles : ViewStyles {
         

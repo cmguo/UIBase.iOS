@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import UIBase
 
-class XHBTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBTipViewCallback {
+class XHBTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, XHBTipViewDelegate {
 
     @objc enum Location : Int {
         case TopLeft

@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBActivityViewController: ComponentController, XHBActivityViewCallback, XHBPanelCallbackDelegate {
+class XHBActivityViewController: ComponentController, XHBActivityViewDelegate, XHBPanelDelegate {
 
     class Styles : ViewStyles {
     }

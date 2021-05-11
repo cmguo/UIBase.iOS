@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class XHBPickerViewController: ComponentController, XHBPickerViewCallback, XHBPanelCallbackDelegate {
+class XHBPickerViewController: ComponentController, XHBPickerViewDelegate, XHBPanelDelegate {
 
     class Styles : ViewStyles {
         
