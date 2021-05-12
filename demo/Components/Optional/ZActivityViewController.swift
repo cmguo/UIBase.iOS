@@ -50,7 +50,7 @@ class ZActivityViewController: ComponentController, ZActivityViewDelegate, ZPane
         super.viewDidLoad()
         view.backgroundColor = .blue_100
 
-        activityView.backgroundColor = .white
+        activityView.backgroundColor = .bluegrey_00
         activityView.items1 = model.item1
         activityView.items2 = model.item2
         activityView.callback = self

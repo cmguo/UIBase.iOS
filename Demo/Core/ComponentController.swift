@@ -21,7 +21,7 @@ public class ComponentController : UIViewController, IComponentController {
     }
     
     public override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .bluegrey_00
     }
     
 }

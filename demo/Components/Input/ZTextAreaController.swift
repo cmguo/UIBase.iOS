@@ -56,7 +56,6 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         super.viewDidLoad()
         view.backgroundColor = .blue_100
 
-        textInput.backgroundColor = .white
         textInput.maxWordCount = styles.maxWordCount
         textInput.placeholder = styles.placeholder
         textInput.singleLine = true
@@ -70,7 +69,6 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
             //maker.height.equalTo(textInput.frame.height)
         }
 
-        textArea.backgroundColor = .white
         textArea.minHeight = styles.minimunHeight
         textArea.maxHeight = styles.maximunHeight
         textArea.maxWords = styles.maxWordCount

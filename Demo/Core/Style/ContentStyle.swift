@@ -11,9 +11,23 @@ import UIBase
 
 class ContentStyle: ResourceStyle {
     
+    static let icon_text: UIView = {
+        let v = UILabel()
+        v.text = "标签"
+        v.textAppearance = TextAppearance(copy: .Secondary).textColor(.blue_600)
+        v.clipsToBounds = true
+        v.layer.cornerRadius = 9
+        v.backgroundColor = .blue_100
+        v.textAlignment = .center
+        v.bounds.size = CGSize(width: 32, height: 18)
+        return v
+    }()
+    
     static let Contents: [String: Any] = [
         "icon_left": URL.icon_left,
         "icon_more": URL.icon_more,
+        "icon_text": icon_text,
+        "icon_weixin": Icons.pngURL("img_share_weixin")!,
         "text_cancel": "取消",
         "text_confirm": "确定",
         "image_dialog": Icons.pngURL("dialog1")!,
@@ -29,13 +43,7 @@ class ContentStyle: ResourceStyle {
             "rightButton": URL.icon_more
         ] as [String: Any?] as NSDictionary,
         "title_text": [
-            "icon": {
-                let v = UILabel()
-                v.text = "标签"
-                v.textColor = .blue_600
-                v.layer.cornerRadius = 9
-                return v
-            }(),
+            "icon": icon_text,
             "title": "标题",
             "leftButton": "取消",
             "rightButton": "确定"

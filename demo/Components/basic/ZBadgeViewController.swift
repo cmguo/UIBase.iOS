@@ -55,7 +55,6 @@ class ZBadgeViewController: ComponentController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         
         label.backgroundColor = .yellow
         label.text = "文字"

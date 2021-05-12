@@ -46,7 +46,7 @@ class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelD
         super.viewDidLoad()
         view.backgroundColor = .blue_100
 
-        sheet.backgroundColor = .white
+        sheet.backgroundColor = .bluegrey_00
         sheet.title = styles.title
         sheet.subTitle = styles.subTitle
         sheet.buttons = model.buttons

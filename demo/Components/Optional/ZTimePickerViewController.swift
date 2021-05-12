@@ -109,7 +109,7 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewDelegate, Z
         super.viewDidLoad()
         view.backgroundColor = .blue_100
 
-        picker.backgroundColor = .white
+        picker.backgroundColor = .bluegrey_00
         picker.startTime = styles.startTime
         picker.endTime = styles.endTime
         view.addSubview(picker)
