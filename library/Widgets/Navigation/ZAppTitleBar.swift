@@ -199,6 +199,9 @@ public class ZAppTitleBar : UIView
             size.width += _leftButton.bounds.width
         }
         if icon != nil {
+            if _iconView.image != nil {
+                _iconView.sizeToFit()
+            }
             size.width += _style.iconPadding + _iconView.bounds.width
         }
         if rightButton != nil {
@@ -236,8 +239,8 @@ public class ZAppTitleBar : UIView
             if let btn = map["leftButton"] {
                 leftButton = btn
             }
-            if let url = map["icon"] as? URL {
-                icon = url
+            if let ico = map["icon"] {
+                icon = ico
             }
             if let btn = map["rightButton"] {
                 rightButton = btn

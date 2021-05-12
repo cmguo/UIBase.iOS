@@ -20,6 +20,9 @@ extension UIImageView {
             } else if let color = wild as? UIColor {
                 self.image = UIImage.from(color: color)
             } else if let view = wild as? UIView {
+                if view.bounds.isEmpty {
+                    view.sizeToFit()
+                }
                 self.image = view.snapshot()
             } else {
                 self.image = nil
@@ -29,6 +32,7 @@ extension UIImageView {
     
     public func setImage(withURL url: URL?, completion: ( () -> Void)? = nil) {
         if url?.pathExtension == "svg" {
+            self.image = nil
             setImage(svgURL: url, completion: completion)
         } else {
             setImage(svgURL: nil) { }

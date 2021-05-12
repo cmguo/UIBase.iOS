@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UILabel {
+public extension UILabel {
     
     var textAppearance: TextAppearance {
         get { return TextAppearance() }
