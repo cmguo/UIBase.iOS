@@ -76,6 +76,7 @@
 		7161CDBA25E0E21900BF6B71 /* ViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDB925E0E21900BF6B71 /* ViewStyles.swift */; };
 		7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBC25E0E26500BF6B71 /* ViewModel.swift */; };
 		7161CDC025E0E28E00BF6B71 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161CDBF25E0E28E00BF6B71 /* Colors.swift */; };
+		716A90B5264B7C6000C82B0D /* GridLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A90B4264B7C6000C82B0D /* GridLayer.swift */; };
 		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
 		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
 		71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */; };
@@ -201,6 +202,7 @@
 		7161CDB925E0E21900BF6B71 /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		7161CDBC25E0E26500BF6B71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7161CDBF25E0E28E00BF6B71 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		716A90B4264B7C6000C82B0D /* GridLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayer.swift; sourceTree = "<group>"; };
 		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,6 +447,7 @@
 				71F543DB25E4DAE200AEB07A /* ComponentsController.swift */,
 				713F6EB7264A4A930071B232 /* InformationController.swift */,
 				713F6EE6264AAC6A0071B232 /* DemoMainController.swift */,
+				716A90B4264B7C6000C82B0D /* GridLayer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */,
 				711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */,
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
+				716A90B5264B7C6000C82B0D /* GridLayer.swift in Sources */,
 				71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */,
 				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
 				71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */,

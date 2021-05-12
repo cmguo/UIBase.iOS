@@ -7,7 +7,7 @@
 
 import UIBase
 
-open class DemoMainController: UIViewController, XHBDropDownDelegate {
+open class DemoMainController: UIViewController, ZDropDownDelegate {
 
     private var component_ : Component? = nil
     
@@ -15,12 +15,17 @@ open class DemoMainController: UIViewController, XHBDropDownDelegate {
     private var stylesController = StylesController()
     private var informationController = InformationController()
 
-    private let dropDrow = XHBDropDown()
+    private let dropDrow = ZDropDown()
+    private let gridLayer = GridLayer()
+    private let backView = UIView()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = "基础控件演示"
         view.backgroundColor = .white
+        
+        gridLayer.isHidden = true
+        backView.layer.addSublayer(gridLayer)
         
         view.addSubview(informationController.view)
         informationController.view.snp.makeConstraints({ (make) in
@@ -69,7 +74,6 @@ open class DemoMainController: UIViewController, XHBDropDownDelegate {
     func switchComponent(_ component: ComponentInfo) {
         if let component = component_ {
             component.controller.removeFromParent()
-            component.controller.view.removeFromSuperview()
         }
         let controller = component.component.controller
         view.insertSubview(controller.view, belowSubview: buttonStyles)
@@ -79,6 +83,7 @@ open class DemoMainController: UIViewController, XHBDropDownDelegate {
             make.bottom.equalToSuperview()
             make.trailing.equalToSuperview()
         })
+        controller.view.insertSubview(backView, at: 0)
         addChild(controller)
         component_ = component.component
         title = component_?.title
@@ -95,8 +100,10 @@ open class DemoMainController: UIViewController, XHBDropDownDelegate {
         return button
     }()
     
-    public func dropDownFinished(dropDown: XHBDropDown, selection: Int, withValue: Any?) {
-        
+    public func dropDownFinished(dropDown: ZDropDown, selection: Int, withValue: Any?) {
+        if selection == 1 {
+            gridLayer.isHidden = withValue as! ZCheckBox.CheckedState == ZCheckBox.CheckedState.NotChecked
+        }
     }
     
 }
