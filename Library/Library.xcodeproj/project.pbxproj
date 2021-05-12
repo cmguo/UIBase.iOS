@@ -275,7 +275,6 @@
 			children = (
 				71C875A72643F78500A06367 /* JXSegmentedView.framework */,
 				7178A1C025F63297004BA696 /* SwiftSVG.framework */,
-				71789FC425E8C52C004BA696 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
