@@ -56,7 +56,7 @@ extension UIImageView {
             return
         }
         //self.image = UIImage.transparent
-        let icon = CALayer(svgURL: svgURL) { (layer: SVGLayer) in
+        let icon = CALayer(SVGURL: svgURL) { (layer: SVGLayer) in
             let bounds = inBounds ?? self.bounds
             if bounds.isEmpty {
                 let bounds = layer.boundingBox.centerBounding()

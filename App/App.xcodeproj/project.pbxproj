@@ -14,7 +14,21 @@
 		712876B425E664B60054A74B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712876B225E664B60054A74B /* LaunchScreen.storyboard */; };
 		712876BE25E6658F0054A74B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876BD25E6658F0054A74B /* MainController.swift */; };
 		716A9176264D172300C82B0D /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; };
+		716A9199264D316A00C82B0D /* UIBase.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A9198264D316A00C82B0D /* UIBase.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		716A9197264D314F00C82B0D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				716A9199264D316A00C82B0D /* UIBase.bundle in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		712876A425E664B40054A74B /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +41,7 @@
 		712876BD25E6658F0054A74B /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		712876CC25E667FC0054A74B /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716A9108264CEDBA00C82B0D /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		716A9198264D316A00C82B0D /* UIBase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UIBase.bundle; path = ../Library/UIBase.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +59,7 @@
 		7128769B25E664B40054A74B = {
 			isa = PBXGroup;
 			children = (
+				716A9198264D316A00C82B0D /* UIBase.bundle */,
 				712876A625E664B40054A74B /* App */,
 				712876A525E664B40054A74B /* Products */,
 				C51859496AEFCE3766E33EC9 /* Frameworks */,
@@ -91,6 +107,7 @@
 				712876A025E664B40054A74B /* Sources */,
 				712876A125E664B40054A74B /* Frameworks */,
 				712876A225E664B40054A74B /* Resources */,
+				716A9197264D314F00C82B0D /* CopyFiles */,
 			);
 			buildRules = (
 			);

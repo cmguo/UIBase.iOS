@@ -58,7 +58,6 @@
 		716A90B5264B7C6000C82B0D /* GridLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A90B4264B7C6000C82B0D /* GridLayer.swift */; };
 		716A90F6264CC50D00C82B0D /* Demo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 716A90F5264CC50D00C82B0D /* Demo.bundle */; };
 		716A918D264D237000C82B0D /* UIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; };
-		716A918E264D237000C82B0D /* UIBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7128763F25E61D980054A74B /* UIBase.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
 		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
 		71789F4F25E8BFE5004BA696 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4E25E8BFE5004BA696 /* SwiftyJSON.framework */; };
@@ -103,20 +102,6 @@
 		71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */; };
 		71FF9417262D66940033098B /* ContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9416262D66940033098B /* ContentStyle.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		716A918F264D237000C82B0D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				716A918E264D237000C82B0D /* UIBase.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZSwitchButtonComponent.swift; path = ../../../Demo/Components/Basic/ZSwitchButtonComponent.swift; sourceTree = "<group>"; };
@@ -486,7 +471,6 @@
 				7182AEC725CCE9E500B0F1D3 /* Sources */,
 				7182AEC825CCE9E500B0F1D3 /* Frameworks */,
 				7182AEC925CCE9E500B0F1D3 /* Resources */,
-				716A918F264D237000C82B0D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

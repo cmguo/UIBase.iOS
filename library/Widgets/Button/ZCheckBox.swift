@@ -24,9 +24,6 @@ public class ZCheckBox: UIButton {
     private static let iconSize: CGFloat = 18.0
     private static let textPadding: CGFloat = 7.0
     
-    private static let svg_checked = Bundle(for: ZCheckBox.self).url(forResource: "checked", withExtension: "svg")!
-    private static let svg_half_checked = Bundle(for: ZCheckBox.self).url(forResource: "half_checked", withExtension: "svg")!
-
     public enum CheckedState : Int, RawRepresentable, CaseIterable {
         case NotChecked
         case HalfChecked
@@ -62,7 +59,7 @@ public class ZCheckBox: UIButton {
         self.imageView?.layer.cornerRadius = Self.radius
         self.imageView?.layer.borderWidth = Self.borderSize
         
-        let foregroundLayerChecked = CALayer(svgURL: Self.svg_checked) { (layer: SVGLayer) in
+        let foregroundLayerChecked = CALayer(SVGURL: .checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: Self.iconSize / 2, y: Self.iconSize / 2))
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
@@ -72,7 +69,7 @@ public class ZCheckBox: UIButton {
         }
         self.imageView?.layer.addSublayer(foregroundLayerChecked)
         
-        let foregroundLayerHalfChecked = CALayer(svgURL: Self.svg_half_checked) { (layer: SVGLayer) in
+        let foregroundLayerHalfChecked = CALayer(SVGURL: .half_checked) { (layer: SVGLayer) in
             layer.frame = layer.boundingBox.centeredAt(CGPoint(x: Self.iconSize / 2, y: Self.iconSize / 2))
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
@@ -149,4 +146,14 @@ public class ZCheckBox: UIButton {
         toggle()
     }
     
+}
+
+extension URL {
+    
+    @SvgIconURLWrapper("checked")
+    public static var checked
+    
+    @SvgIconURLWrapper("half_checked")
+    public static var half_checked
+
 }
