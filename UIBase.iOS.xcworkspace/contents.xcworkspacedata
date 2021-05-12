@@ -17,9 +17,6 @@
       location = "group:SnapKit/SnapKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SwiftyJSON/SwiftyJSON.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:SwiftSVG/SwiftSVG.xcodeproj">
    </FileRef>
    <FileRef
