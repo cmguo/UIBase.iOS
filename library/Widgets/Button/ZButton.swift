@@ -85,14 +85,13 @@ public class ZButton : UIButton
             if icon?.pathExtension == "svg" {
                 self.imageView?.bounds.size = imageSize
                 self.setImage(UIImage.transparent)
-                self.imageView?.setImage(withURL: icon) {
+                self.imageView?.setImage(svgURL: icon) {
                     self.syncStates()
                     self.postHandleIcon()
                 }
-            } else if let url = icon {
-                self.setImage(UIImage(withUrl: url))
             } else {
-                self.setImage(nil)
+                self.imageView?.setImage(svgURL: nil)
+                self.setImage(UIImage(withUrl: icon))
             }
             self.syncSize()
         }
@@ -128,8 +127,11 @@ public class ZButton : UIButton
      */
     public var isLoading: Bool = false {
         didSet {
+            if oldValue == isLoading {
+                return
+            }
             if isLoading {
-                showLoaderWithImage()
+                showLoader()
             } else {
                 hideLoader()
             }
@@ -138,13 +140,19 @@ public class ZButton : UIButton
 
     public override var isEnabled: Bool {
         didSet {
+            if oldValue == isEnabled {
+                return
+            }
             self.syncStates()
         }
     }
     
     public override var isSelected: Bool {
         didSet {
-            self.syncStates()
+            if oldValue == isSelected {
+                return
+            }
+             self.syncStates()
         }
     }
     
@@ -242,6 +250,11 @@ public class ZButton : UIButton
     open override func layoutSubviews() {
         super.layoutSubviews()
         indicator.center = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
+    }
+    
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        syncStates()
+        backgroundColors = typeStyles.backgroundColor
     }
     
     /* private */
@@ -374,6 +387,11 @@ public class ZButton : UIButton
      
      - Parameter userInteraction: Enable user interaction while showing the loader.
      */
+    open func showLoader(userInteraction: Bool = false) {
+        showLoader([self.imageView, self.titleLabel], userInteraction: userInteraction)
+    }
+    
+    
     open func showLoaderWithImage(userInteraction: Bool = false) {
         showLoader([self.titleLabel], userInteraction: userInteraction)
     }

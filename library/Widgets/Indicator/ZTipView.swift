@@ -289,6 +289,10 @@ public class ZTipView : UIView
         }
     }
 
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        let frameColor = self.frameColor
+        self.frameColor = frameColor
+    }
 
     /* private */
     

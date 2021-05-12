@@ -49,7 +49,7 @@ public class ZDropDown : UIView {
         addGestureRecognizer(tap)
 
         _shadowFrame.clipsToBounds = false
-        _shadowFrame.backgroundColor = .white
+        _shadowFrame.backgroundColor = .bluegrey_00
         _shadowFrame.layer.shadowColor = UIColor.gray.cgColor
         _shadowFrame.layer.shadowRadius = _style.shadowRadius
         _shadowFrame.layer.shadowOffset = CGSize(width: 0, height: 0)

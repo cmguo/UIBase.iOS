@@ -40,6 +40,7 @@ class ZListViewCell : UITableViewCell {
     // only once before bindData
     public func setStyle(_ style: ZListItemStyle) {
         _style = style
+        backgroundColor = style.backgroundColor
         selectionStyle = .none
         textLabel?.textAppearance = _style.textAppearance
     }

@@ -89,17 +89,13 @@ public class ZRadioButton: UIButton {
         return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - Self.iconSize - Self.textPadding, height: Self.height))
     }
     
-    public override func sizeToFit() {
-        var size = CGSize(width: Self.iconSize, height: Self.height)
-        if currentTitle != nil && !currentTitle!.isEmpty {
-            self.titleLabel?.sizeToFit()
-            let tsize = self.titleLabel!.sizeThatFits(CGSize())
-            size.width += Self.textPadding + tsize.width
-        }
-        bounds.size = size
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateStates()
     }
     
-    func updateStates() {
+    /* private */
+    
+    private func updateStates() {
         var states = self.state
         if checked {
             states = states.union(.STATE_CHECKED)
@@ -110,7 +106,7 @@ public class ZRadioButton: UIButton {
         foregroundLayer.backgroundColor = Self.foregroundFillColor.color(for: states).cgColor
     }
     
-    @objc func buttonClicked(_ sender: UIButton) {
+    @objc private func buttonClicked(_ sender: UIButton) {
         toggle()
     }
 }

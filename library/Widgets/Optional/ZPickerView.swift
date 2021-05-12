@@ -197,6 +197,7 @@ class ZPickerCell : UITableViewCell {
         if _style != nil {
             return
         }
+        backgroundColor = style.backgroundColor
         _checkBox.addTarget(picker, action: #selector(ZPickerView.checkBoxValueChanged(_:)), for: .valueChanged)
         _style = style
         _imageView.bounds.size = CGSize(width: _style!.iconSize, height: _style!.iconSize)

@@ -22,7 +22,6 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = "基础控件演示"
-        view.backgroundColor = .white
         
         gridLayer.isHidden = true
         backView.layer.addSublayer(gridLayer)
@@ -103,6 +102,13 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
     public func dropDownFinished(dropDown: ZDropDown, selection: Int, withValue: Any?) {
         if selection == 1 {
             gridLayer.isHidden = withValue as! ZCheckBox.CheckedState == ZCheckBox.CheckedState.NotChecked
+        } else if selection == 2 {
+            let night = withValue as! ZCheckBox.CheckedState == ZCheckBox.CheckedState.FullChecked
+            if #available(iOS 13.0, *) {
+                view.window?.overrideUserInterfaceStyle = night ? .dark : .light
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     

@@ -15,7 +15,7 @@ public class ZPanelStyle : UIViewStyle {
 
     public override init() {
         super.init()
-        backgroundColor = .white
+        backgroundColor = .bluegrey_00
     }
 
 }

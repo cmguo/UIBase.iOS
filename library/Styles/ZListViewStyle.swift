@@ -35,6 +35,7 @@ public class ZListItemStyle : UIViewStyle {
     
     public override init() {
         super.init()
+        backgroundColor = .bluegrey_00
         buttonAppearence.sizeStyle.radius = 0
     }
     

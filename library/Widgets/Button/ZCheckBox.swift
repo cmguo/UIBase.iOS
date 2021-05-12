@@ -48,8 +48,8 @@ public class ZCheckBox: UIButton {
         }
     }
     
-    private var foregroundLayerChecked = CALayer()
-    private var foregroundLayerHalfChecked = CALayer()
+    private var foregroundLayerChecked = SVGLayer()
+    private var foregroundLayerHalfChecked = SVGLayer()
 
 
     public init(text: String? = nil) {
@@ -116,16 +116,12 @@ public class ZCheckBox: UIButton {
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
         return contentRect.rightCenterPart(ofSize: CGSize(width: contentRect.width - Self.iconSize - Self.textPadding, height: Self.height))
     }
-    
-    public override func sizeToFit() {
-        var size = CGSize(width: Self.iconSize, height: Self.height)
-        if currentTitle != nil && !currentTitle!.isEmpty {
-            self.titleLabel?.sizeToFit()
-            let tsize = self.titleLabel!.sizeThatFits(CGSize())
-            size.width += Self.textPadding + tsize.width
-        }
-        bounds.size = size
+        
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateStates()
     }
+    
+    /* private */
     
     private func states() -> UIControl.State {
         var states = self.state
@@ -145,12 +141,8 @@ public class ZCheckBox: UIButton {
         self.setTitleColor(Self.borderColor.color(for: states), for: .normal)
         self.imageView?.layer.borderColor = Self.borderColor.color(for: states).cgColor
         self.imageView?.layer.backgroundColor = Self.fillColor.color(for: states).cgColor
-        if let l = foregroundLayerChecked as? SVGLayer {
-            l.fillColor = Self.foregroundCheckedFillColor.color(for: states).cgColor
-        }
-        if let l = foregroundLayerHalfChecked as? SVGLayer {
-            l.fillColor = Self.foregroundHalfCheckedFillColor.color(for: states).cgColor
-        }
+        foregroundLayerChecked.fillColor = Self.foregroundCheckedFillColor.color(for: states).cgColor
+        foregroundLayerHalfChecked.fillColor = Self.foregroundHalfCheckedFillColor.color(for: states).cgColor
     }
     
     @objc func buttonClicked(_ sender: UIButton) {

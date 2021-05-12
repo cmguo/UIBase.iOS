@@ -19,6 +19,7 @@ public class ZPickerViewStyle : UIViewStyle {
 
     public override init() {
         super.init()
+        backgroundColor = .bluegrey_00
     }
 
 }

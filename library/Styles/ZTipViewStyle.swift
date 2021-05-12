@@ -24,7 +24,7 @@ public class ZTipViewStyle {
 public class ZTipViewAppearance: NSObject {
     
     public var frameRadius: CGFloat = 8
-    public var frameColor = UIColor(rgb: 0x1D2126)
+    public var frameColor = UIColor.bluegrey_900
     public var frameAlpha: Float = 1
     public var textColor = UIColor.bluegrey_00
     public var textAppearance = TextAppearance(copy: .Body_Middle).textColor(.bluegrey_00)

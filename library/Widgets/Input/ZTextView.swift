@@ -78,6 +78,10 @@ public class ZTextView : UITextView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        viewStyle = _style
+    }
+    
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
         if let ph = placeholder as NSString?, text.isEmpty {

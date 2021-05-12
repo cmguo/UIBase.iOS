@@ -20,7 +20,7 @@ public class ZAppTitleBarStyle : UIViewStyle {
 
     public override init() {
         super.init()
-        backgroundColor = .white
+        backgroundColor = .bluegrey_00
         buttonAppearance.typeStyle.textColor = StateListColor(singleColor: .bluegrey_800)
         buttonAppearance.sizeStyle.iconSize = 20
         buttonAppearance.sizeStyle.iconPadding = 5

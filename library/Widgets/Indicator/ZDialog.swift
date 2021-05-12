@@ -113,7 +113,7 @@ public class ZDialog : UIView {
     public init(style: ZDialogStyle = .init()) {
         _style = style
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = .bluegrey_00
         layer.cornerRadius = _style.borderRadius
         clipsToBounds = true
         

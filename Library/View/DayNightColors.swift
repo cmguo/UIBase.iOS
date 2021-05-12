@@ -12,8 +12,11 @@ public class DayNightColors {
     fileprivate static var wrappers = [DayNightColorWrapper]()
     
     public static func setDayNight(night: Bool) {
-        for w in wrappers {
-            w.color = UIColor(rgba: night ? w.dayColor : w.nightColor)
+        if #available(iOS 13.0, *) {
+        } else {
+            for w in wrappers {
+                w.color = UIColor(rgba: night ? w.dayColor : w.nightColor)
+            }
         }
     }
     
@@ -39,7 +42,14 @@ class DayNightColorWrapper {
         self.name = name
         self.dayColor = dayColor
         self.nightColor = nightColor
-        self.color = UIColor(rgba: dayColor)
+        if #available(iOS 13.0, *) {
+            self.color = UIColor(
+                dynamicProvider: { traits in
+                    traits.userInterfaceStyle == .light
+                        ? UIColor(rgba: dayColor) : UIColor(rgba: nightColor)})
+        } else {
+            self.color = UIColor(rgba: dayColor)
+        }
         DayNightColors.wrappers.append(self)
     }
 }

@@ -16,7 +16,7 @@ public class ZMaskDialog : UIView, UIGestureRecognizerDelegate {
         self.content = content
         self.gravity = gravity
         super.init(frame: .zero)
-        backgroundColor = .gray
+        backgroundColor = UIColor(rgba: 0x60000000)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         tap.delegate = self
