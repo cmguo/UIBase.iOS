@@ -13,23 +13,8 @@
 		712876B125E664B60054A74B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712876B025E664B60054A74B /* Assets.xcassets */; };
 		712876B425E664B60054A74B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712876B225E664B60054A74B /* LaunchScreen.storyboard */; };
 		712876BE25E6658F0054A74B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876BD25E6658F0054A74B /* MainController.swift */; };
-		712876CD25E667FC0054A74B /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; };
-		712876CE25E667FC0054A74B /* Demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		712876CD25E667FC0054A74B /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		712876CF25E667FC0054A74B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				712876CE25E667FC0054A74B /* Demo.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		712876A425E664B40054A74B /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +89,6 @@
 				712876A025E664B40054A74B /* Sources */,
 				712876A125E664B40054A74B /* Frameworks */,
 				712876A225E664B40054A74B /* Resources */,
-				712876CF25E667FC0054A74B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

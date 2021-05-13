@@ -22,9 +22,13 @@ public class SvgIconURLs {
 class SvgIconURLWrapper {
     
     static let bundle = Bundle.init(for: SvgIconURLWrapper.self)
+    static let rootURL = bundle.url(forResource: "UIBase", withExtension: "bundle")!
     
     let icon: String
-    lazy var url: URL = { return Self.bundle.url(forResource: icon, withExtension: "svg")! }()
+    lazy var url: URL = {
+        //return Self.bundle.url(forResource: icon, withExtension: "svg")!
+        return Self.rootURL.appendingPathComponent("Icons/\(icon).svg")
+    }()
     
     var wrappedValue: URL {
         get { return url }

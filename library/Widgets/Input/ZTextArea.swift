@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SnapKit
 import MobileCoreServices
 
 public class MediaTextView: UITextView {
@@ -121,17 +120,17 @@ public class ZTextArea: UIView {
         didSet {
             if placeholderPrefix != nil {
                 placeholderLabel.numberOfLines = 1
-                let placeholderPrefixWidth = (placeholderPrefix! as NSString).size(withAttributes: [NSAttributedString.Key.font: font]).width
-                placeholderLabel.snp.updateConstraints { make in
-                    make.left.equalTo(6 + placeholderPrefixWidth)
-                    make.top.equalTo(0)
-                    make.width.lessThanOrEqualTo(self).offset(-12 - placeholderPrefixWidth)
-                }
+//                let placeholderPrefixWidth = (placeholderPrefix! as NSString).size(withAttributes: [NSAttributedString.Key.font: font]).width
+//                placeholderLabel.snp.updateConstraints { make in
+//                    make.left.equalTo(6 + placeholderPrefixWidth)
+//                    make.top.equalTo(0)
+//                    make.width.lessThanOrEqualTo(self).offset(-12 - placeholderPrefixWidth)
+//                }
             } else {
-                placeholderLabel.snp.updateConstraints { make in
-                    make.top.left.equalTo(6)
-                    make.width.lessThanOrEqualTo(self).offset(-12)
-                }
+//                placeholderLabel.snp.updateConstraints { make in
+//                    make.top.left.equalTo(6)
+//                    make.width.lessThanOrEqualTo(self).offset(-12)
+//                }
             }
         }
     }
@@ -274,8 +273,6 @@ public class ZTextArea: UIView {
 
         initialize()
     }
-
-    private var textViewConstraintMaker: (ConstraintMaker) -> Void = { (maker) in }
     
     private func initialize() {
         self.layer.cornerRadius = ZTextArea.borderRadius
