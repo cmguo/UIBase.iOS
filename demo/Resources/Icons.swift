@@ -21,7 +21,7 @@ public class Icons {
         return SvgIconURLs.icons()
     }()
     
-    private static let bundle = Bundle(for: Icons.self)
+    static let bundle = Bundle(for: Icons.self)
     private static let rootUrl = bundle.url(forResource: "Demo", withExtension: "bundle")!
 
     public static func iconURL(_ icon: String) -> URL? {
