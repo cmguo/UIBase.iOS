@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension StateListColor {
+public extension StateListColor {
     
     static let clear = StateListColor(singleColor: .clear)
     

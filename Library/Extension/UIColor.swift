@@ -26,6 +26,14 @@ extension UIColor {
             alpha: CGFloat((hex & 0xFF000000) >> 24) / 255.0)
     }
     
+    public func hexString() -> String {
+        let rgba = self.cgColor.components!.map() { c in Int(c * 255.0) }
+        if rgba.count < 4 {
+            return "0x00000000"
+        }
+        return String(format: "0x%02X%02X%02X%02X", rgba[3], rgba[0], rgba[1], rgba[2])
+    }
+    
     /**
      Convert RGB value to CMYK value.
      

@@ -15,8 +15,33 @@ class Colors {
         return DayNightColors.colors()
     }
     
-    class func nonStdColors() -> Dictionary<String, UIColor> {
-        return [:]
+    class func stdStaticColors() -> Dictionary<String, UIColor> {
+        return UIColor.staticColors
+    }
+    
+    class func stateListColors() -> Dictionary<String, StateListColor> {
+        return [
+            "blue_100_pressed_disabled": .blue_100_pressed_disabled,
+            "blue_600_disabled": .blue_600_disabled,
+            "bluegrey_00_checked_disabled": .bluegrey_00_checked_disabled,
+            "bluegrey_00_disabled": .bluegrey_00_disabled,
+            "bluegrey_100_pressed_disabled": .bluegrey_100_pressed_disabled,
+            "bluegrey_300_checked": .bluegrey_300_checked,
+            "bluegrey_500_checked_disabled": .bluegrey_500_checked_disabled,
+            "bluegrey_700_disabled": .bluegrey_700_disabled,
+            "bluegrey_800_disabled": .bluegrey_800_disabled,
+            "bluegrey_800_selected": .bluegrey_800_selected,
+            "bluegrey_900_disabled": .bluegrey_900_disabled,
+            "bluegrey_900_disabled2": .bluegrey_900_disabled2,
+            "bluegrey_900_selected_disabled": .bluegrey_900_selected_disabled,
+            "brand_500_pressed_disabled": .brand_500_pressed_disabled,
+            "red_100_pressed_disabled": .red_100_pressed_disabled,
+            "red_600_disabled": .red_600_disabled,
+            "transparent_checked_disabled": .transparent_checked_disabled,
+            "transparent_checked_disabled2": .transparent_checked_disabled2,
+            "transparent_halfchecked_disabled": .transparent_halfchecked_disabled,
+            "transparent_pressed_disabled": .transparent_pressed_disabled,
+        ]
     }
     
 }

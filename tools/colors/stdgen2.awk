@@ -5,6 +5,8 @@ BEGIN {
   delete lines[0]
   lines2[0] = 0
   delete lines2[0]
+  lines3[0] = 0
+  delete lines3[0]
   started = 0
 }
 
@@ -39,6 +41,7 @@ BEGIN {
         lines2[length(lines2)] = "        " $1 ","
       } else {
         lines[length(lines)] = "    public static var " $1 " = UIColor(rgba: " $2 ")" $4
+        lines3[length(lines3)] = "        \"" $1 "\": " $1 ","
       }
       lines[length(lines)] = ""
     }
@@ -52,6 +55,12 @@ BEGIN {
       print "    public static let dynamicColors: [UIColor] = ["
       for (i in lines2) {
         print lines2[i]
+      }
+      print "    ]"
+      print ""
+      print "    public static let staticColors: [String: UIColor] = ["
+      for (i in lines3) {
+        print lines3[i]
       }
       print "    ]"
       print ""

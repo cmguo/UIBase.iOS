@@ -131,7 +131,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
-        tableView.frame = view.frame
+        tableView.frame = view.bounds
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self

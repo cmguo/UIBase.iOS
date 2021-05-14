@@ -1,14 +1,13 @@
 //
-//  ColorsComponent.swift
+//  DynamicColorsComponent.swift
 //  demo
 //
 //  Created by 郭春茂 on 2021/2/20.
 //
 
 import Foundation
-import UIKit
 
-class ColorsComponent : NSObject, Component
+class DayNightColorsComponent : NSObject, Component
 {
     var id: Int = 0
     
@@ -16,13 +15,13 @@ class ColorsComponent : NSObject, Component
 
     var icon: URL? = nil
     
-    var title: String = "标准色"
+    var title: String = "标准色（动态）"
     
     var author: String = "cmguo"
     
     var desc: String = ""
     
     lazy var controller: ComponentController = {
-        return ColorsController()
+        return ColorsController(self)
     }()
 }

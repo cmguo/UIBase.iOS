@@ -19,10 +19,10 @@ extension UIControl.State {
 
 public extension UIControl.State {
     
-    static let STATE_DISABLED = UIControl.State.disabled
-    static let STATE_PRESSED = UIControl.State.highlighted
-    static let STATE_SELECTED = UIControl.State.selected
-    static let STATE_FOCUSED = UIControl.State.focused
+    static let STATE_DISABLED = disabled
+    static let STATE_PRESSED = highlighted
+    static let STATE_SELECTED = selected
+    static let STATE_FOCUSED = focused
     static let STATE_CHECKED = UIControl.State(rawValue: 0x10000)
     static let STATE_HALF_CHECKED = UIControl.State(rawValue: 0x20000)
     static let STATE_ERROR = UIControl.State(rawValue: 0x40000)
@@ -42,8 +42,8 @@ public extension UIControl.State {
 
 public class StateColor {
         
-    let color: UIColor
-    let states: UIControl.State
+    public let color: UIColor
+    public let states: UIControl.State
     
     public init (_ color: UIColor, _ states: UIControl.State) {
         self.color = color
@@ -58,7 +58,7 @@ public class StateColor {
 
 public class StateListColor {
     
-    let statesColors: [StateColor]
+    public let statesColors: [StateColor]
     
     public init(singleColor: UIColor) {
         self.statesColors = [StateColor(singleColor, .STATES_NORMAL)]
