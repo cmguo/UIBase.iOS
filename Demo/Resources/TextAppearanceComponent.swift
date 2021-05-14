@@ -11,7 +11,7 @@ class TextAppearanceComponent : NSObject, Component
 {
     var id: Int = 0
     
-    var group: ComponentGroup = .Resources
+    var group: ComponentGroup = .Styles
 
     var icon: URL? = nil
     

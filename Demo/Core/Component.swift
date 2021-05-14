@@ -17,11 +17,12 @@ public enum ComponentGroup: Int {
     case Optional
     case Other
     case Resources
+    case Styles
     case Test
     
     private static let Titles = [
         "基础交互控件", "数据展示控件", "工具提示控件", "数值输入控件",
-        "导航跳转控件", "菜单选择控件", "其他控件", "资源样式", "测试分组"
+        "导航跳转控件", "菜单选择控件", "其他控件", "内建资源", "内建样式", "测试分组"
     ]
     
     public func description() -> String {

@@ -12,11 +12,11 @@ class ButtonsComponent : NSObject, Component
 {
     var id: Int = 0
     
-    var group: ComponentGroup = .Resources
+    var group: ComponentGroup = .Styles
 
     var icon: URL? = nil
     
-    var title: String = "按钮"
+    var title: String = "按钮样式"
     
     var author: String = "cmguo"
     
