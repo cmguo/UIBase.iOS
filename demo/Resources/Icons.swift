@@ -25,21 +25,26 @@ public class Icons {
     
     static let dynamicIcons: [String : URL] = [:]
     
-    static let bundle = Bundle(for: Icons.self)
-    private static let rootUrl = bundle.url(forResource: "Demo", withExtension: "bundle")!
+    static let rootURL: URL = {
+        if let bundle = Bundle(url: Bundle(for: SvgIconURLs.self).bundleURL.appendingPathComponent("Frameworks/Demo.framework")) {
+            return bundle.url(forResource: "UIBase", withExtension: "bundle")!
+        } else {
+            return Bundle.main.url(forResource: "Frameworks/Demo", withExtension: "bundle")!
+        }
+    }()
 
     public static func iconURL(_ icon: String) -> URL? {
-        return rootUrl.appendingPathComponent("Icons/\(icon).svg")
+        return rootURL.appendingPathComponent("Icons/\(icon).svg")
         //return bundle.url(forResource: icon, withExtension: "svg")
     }
 
     public static func pngURL(_ icon: String) -> URL? {
-        return rootUrl.appendingPathComponent("Images/\(icon).png")
+        return rootURL.appendingPathComponent("Images/\(icon).png")
         //return bundle.url(forResource: icon, withExtension: "png")
     }
 
     public static func jpgURL(_ icon: String) -> URL? {
-        return rootUrl.appendingPathComponent("Images/\(icon).jpg")
+        return rootURL.appendingPathComponent("Images/\(icon).jpg")
         //return bundle.url(forResource: icon, withExtension: "jpg")
     }
 
