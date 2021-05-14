@@ -57,7 +57,12 @@ class ColorsController: ComponentController {
 
     private let styles = Styles()
     private let model: Model
-    private let tableView = ZListView()
+    private let tableView = ZListView(style: {
+        let style = ZListViewStyle()
+        style.headerStyle.backgroundColor = .clear
+        style.itemStyle.backgroundColor = .clear
+        return style
+    }())
     
     init(_ component: Component) {
         model = Model(component)
@@ -76,12 +81,17 @@ class ColorsController: ComponentController {
         super.viewDidLoad()
         
         tableView.frame = view.bounds
+        tableView.backgroundColor = .clear
         tableView.data = model.colors
         view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
         tableView.frame = view.bounds
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        tableView.reloadData()
     }
 }
 

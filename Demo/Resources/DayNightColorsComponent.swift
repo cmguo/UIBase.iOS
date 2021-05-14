@@ -15,7 +15,7 @@ class DayNightColorsComponent : NSObject, Component
 
     var icon: URL? = nil
     
-    var title: String = "标准色（动态）"
+    var title: String = "颜色（动态）"
     
     var author: String = "cmguo"
     

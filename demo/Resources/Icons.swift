@@ -21,6 +21,10 @@ public class Icons {
         return SvgIconURLs.icons()
     }()
     
+    static let pngIcons: [String : URL] = [:]
+    
+    static let dynamicIcons: [String : URL] = [:]
+    
     static let bundle = Bundle(for: Icons.self)
     private static let rootUrl = bundle.url(forResource: "Demo", withExtension: "bundle")!
 

@@ -15,7 +15,7 @@ class StaticColorsComponent : NSObject, Component
 
     var icon: URL? = nil
     
-    var title: String = "标准色（静态）"
+    var title: String = "颜色（静态）"
     
     var author: String = "cmguo"
     
