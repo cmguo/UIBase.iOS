@@ -9,10 +9,14 @@ import Foundation
 
 public class ZListViewStyle : UIViewStyle {
     
+    public var headerStyle = ZListItemStyle()
     public var itemStyle = ZListItemStyle()
 
     public override init() {
         super.init()
+        headerStyle.height = 36
+        headerStyle.paddingX = 0
+        headerStyle.textAppearance = TextAppearance(copy: .Secondary).textSize(14)
     }
 }
 

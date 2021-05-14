@@ -65,6 +65,8 @@ class ZListViewCell : UITableViewCell {
             _iconView.bounds.size = CGSize(width: iconSize, height: iconSize)
             _iconView.setImage(wild: icon)
             _viewState |= 2
+        } else if (oldState & 2) != 0 {
+            _iconView.setImage(wild: nil)
         }
         _rightView = listView.switchRightView(data.contentType, _rightView, _rightViewType)
         _rightViewType = data.contentType

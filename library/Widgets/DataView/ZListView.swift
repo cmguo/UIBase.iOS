@@ -25,18 +25,28 @@ public protocol ZListItemProtocol {
     var badge: Any? { get }
 }
 
+public protocol ZListSectionProtocol : ZListItemProtocol {
+    var items: [ZListItemProtocol] { get }
+}
+
 @objc public protocol ZListViewDelegate {
-    @objc optional func listView(_ listView: ZListView, itemAt: Int, changedTo: Any?)
+    @objc optional func listView(_ listView: ZListView, itemAt: IndexPath, changedTo: Any?)
 }
 
 public class ZListView : UITableView {
     
-    public var data: [ZListItemProtocol] = []
+    public var data: [ZListItemProtocol] = [] {
+        didSet {
+            _hasSection = data.contains() { d in d is ZListSectionProtocol }
+            self.reloadData()
+        }
+    }
     
     public var listDelegate: ZListViewDelegate? = nil
     
     private let _style: ZListViewStyle
     
+    private var _hasSection = false
     private var _viewCache: [ZListItemContentType: [UIView]] = [:]
     private var _radioGroup = ZRadioGroup()
     
@@ -65,24 +75,64 @@ public class ZBaseListItem : ZListItemProtocol {
 
 extension ZListView : UITableViewDataSource {
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        _hasSection ? data.count : 1
     }
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if !_hasSection { return data.count }
+        if let sec = data[section] as? ZListSectionProtocol {
+            return sec.items.count
+        } else {
+            return 1
+        }
+    }
+        
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = itemAt(indexPath)
         let cell = dequeueReusableCell(withIdentifier: "ZListView") as! ZListViewCell
         cell.setStyle(_style.itemStyle)
-        cell.bindData(data[indexPath.row], listView: self)
+        cell.bindData(item, listView: self)
         return cell
     }
     
+    private func itemAt(_ indexPath: IndexPath) -> ZListItemProtocol {
+        if _hasSection {
+            if let sec = data[indexPath.section] as? ZListSectionProtocol {
+                return sec.items[indexPath.row]
+            } else {
+                return data[indexPath.section]
+            }
+        } else {
+            return data[indexPath.row]
+        }
+    }
 }
 
 extension ZListView : UITableViewDelegate {
     
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if _hasSection, data[section] is ZListSectionProtocol {
+            return _style.headerStyle.height
+        }
+        return 0
+    }
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard _hasSection, data[section] is ZListSectionProtocol else {
+            return nil
+        }
+        let item = data[section]
+        let cell = dequeueReusableCell(withIdentifier: "ZListView") as! ZListViewCell
+        cell.setStyle(_style.headerStyle)
+        cell.bindData(item, listView: self)
+        return cell
+    }
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = cellForRow(at: indexPath) as! ZListViewCell
-        if let type = data[indexPath.row].contentType {
+        let item = itemAt(indexPath)
+        if let type = item.contentType {
             tapRightView(type, cell._rightView!)
         }
     }
@@ -185,7 +235,7 @@ extension ZListView : UITextFieldDelegate {
     private func listItemChanged(_ view: UIView, _ value: Any?) {
         guard let cell = view.superview(ofType: ZListViewCell.self) else { return }
         guard let index =  indexPath(for: cell) else { return }
-        listDelegate?.listView?(self, itemAt: index.row, changedTo: value)
+        listDelegate?.listView?(self, itemAt: index, changedTo: value)
     }
     
     @objc private func checkBoxValueChanged(_ sender: ZCheckBox) {
