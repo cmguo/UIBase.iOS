@@ -17,14 +17,16 @@ class AppearancesController: ComponentController {
     
     class Model : ViewModel {
         
-        let styles: [String: Any]
+        let styles: [(String, Any)]
           
         init(_ component: Component) {
             switch (component) {
             case is TextAppearanceComponent:
                 styles = Appearances.textAppearances()
+                    .sorted() { l, r in l.key < r.key}
+                    .map() { k, v in (k, v) }
             default:
-                styles = [:]
+                styles = []
             }
         }
     }
@@ -49,11 +51,29 @@ class AppearancesController: ComponentController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.frame = view.bounds
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Appearances")
+        tableView.dataSource = self
         view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
         tableView.frame = view.bounds
+    }
+}
+
+extension AppearancesController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        model.styles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Appearances", for: indexPath)
+        let style = model.styles[indexPath.row]
+        let appearance = style.1 as! TextAppearance
+        cell.textLabel?.text = String(format: "文字样式： %1$@\nsize: %2$@, color: %3$@", style.0, String(Int(appearance.textSize)), Colors.colorName(appearance.textColors))
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.textAppearance = appearance
+        return cell
     }
 }

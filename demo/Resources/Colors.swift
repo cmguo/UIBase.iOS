@@ -44,4 +44,15 @@ class Colors {
         ]
     }
     
+    static func colorName(_ color: UIColor) -> String {
+        return stdDynamicColors().first(where: { k, v in v === color })?.key
+            ?? stdStaticColors().first(where: { k, v in v === color })?.key
+            ??  color.hexString()
+    }
+
+    
+    static func colorName(_ color: StateListColor) -> String {
+        return stateListColors().first(where: { k, v in v === color })?.key
+            ?? colorName(color.normalColor())
+    }
 }
