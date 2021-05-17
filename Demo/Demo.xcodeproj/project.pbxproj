@@ -67,6 +67,7 @@
 		716A91CA264E6B1800C82B0D /* SvgIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A91C9264E6B1800C82B0D /* SvgIconComponent.swift */; };
 		716A91CE264E6B8700C82B0D /* PngIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A91CD264E6B8700C82B0D /* PngIconComponent.swift */; };
 		716A91D2264E6C6E00C82B0D /* DayNightIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A91D1264E6C6E00C82B0D /* DayNightIconComponent.swift */; };
+		716A92322652811A00C82B0D /* UIBase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 716A92312652811A00C82B0D /* UIBase.bundle */; };
 		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
 		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
 		717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */; };
@@ -85,7 +86,6 @@
 		719536392638047300C82D2F /* ZDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719536382638047300C82D2F /* ZDialogController.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
 		71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */; };
-		71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2468A25E798ED0049ABB0 /* Assets.xcassets */; };
 		71C875822643A02A00A06367 /* ZCarouselViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */; };
 		71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouselViewController.swift */; };
 		71C875CA264505D800A06367 /* ZTabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875C9264505D800A06367 /* ZTabBarComponent.swift */; };
@@ -172,6 +172,7 @@
 		716A91C9264E6B1800C82B0D /* SvgIconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgIconComponent.swift; sourceTree = "<group>"; };
 		716A91CD264E6B8700C82B0D /* PngIconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PngIconComponent.swift; sourceTree = "<group>"; };
 		716A91D1264E6C6E00C82B0D /* DayNightIconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightIconComponent.swift; sourceTree = "<group>"; };
+		716A92312652811A00C82B0D /* UIBase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UIBase.bundle; path = ../Library/UIBase.bundle; sourceTree = "<group>"; };
 		71789F2E25E8A303004BA696 /* DescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		71789F4925E8BF69004BA696 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPanelComponent.swift; sourceTree = "<group>"; };
@@ -320,6 +321,7 @@
 		7182AEC125CCE9E500B0F1D3 = {
 			isa = PBXGroup;
 			children = (
+				716A92312652811A00C82B0D /* UIBase.bundle */,
 				716A90F5264CC50D00C82B0D /* Demo.bundle */,
 				71FF93D42627E7F00033098B /* Resources */,
 				71F543DE25E504EA00AEB07A /* Components */,
@@ -541,7 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A2468B25E798ED0049ABB0 /* Assets.xcassets in Resources */,
+				716A92322652811A00C82B0D /* UIBase.bundle in Resources */,
 				716A90F6264CC50D00C82B0D /* Demo.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,7 +794,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -819,7 +820,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

@@ -107,7 +107,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
-  spec.resources = UIBase.bundle
+  spec.resources = "Frameworks/UIBase.framework/UIBase.bundle"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

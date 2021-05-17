@@ -22,8 +22,8 @@ public class SvgIconURLs {
 class SvgIconURLWrapper {
     
     static let rootURL: URL = {
-        if let bundle = Bundle(url: Bundle(for: SvgIconURLs.self).bundleURL.appendingPathComponent("Frameworks/UIBase.framework")) {
-            return bundle.url(forResource: "UIBase", withExtension: "bundle")!
+        if let url = Bundle(for: SvgIconURLs.self).url(forResource: "UIBase", withExtension: "bundle") {
+            return url
         } else {
             return Bundle.main.url(forResource: "Frameworks/UIBase", withExtension: "bundle")!
         }

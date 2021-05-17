@@ -26,8 +26,8 @@ public class Icons {
     static let dynamicIcons: [String : URL] = [:]
     
     static let rootURL: URL = {
-        if let bundle = Bundle(url: Bundle(for: SvgIconURLs.self).bundleURL.appendingPathComponent("Frameworks/Demo.framework")) {
-            return bundle.url(forResource: "UIBase", withExtension: "bundle")!
+        if let url = Bundle(for: Icons.self).url(forResource: "Demo", withExtension: "bundle") {
+            return url
         } else {
             return Bundle.main.url(forResource: "Frameworks/Demo", withExtension: "bundle")!
         }
