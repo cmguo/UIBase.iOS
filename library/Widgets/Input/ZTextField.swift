@@ -44,7 +44,7 @@ public class ZTextField : UITextField {
     
     private var _style: ZTextFieldStyle
     
-    private let _delegate = ZTextFieldDelegate()
+    private let _delegate = ZTextFieldDelegateWrapper()
     private lazy var _leftButton: ZButton = self.createButton(.Left)
     private lazy var _rightButton: ZButton = self.createButton(.Right)
     
@@ -96,7 +96,7 @@ public class ZTextField : UITextField {
     }
 }
 
-class ZTextFieldDelegate : NSObject, UITextFieldDelegate {
+class UITextFieldDelegateWrapper : NSObject, UITextFieldDelegate {
     
     var delegate: UITextFieldDelegate? = nil
     
@@ -150,6 +150,22 @@ class ZTextFieldDelegate : NSObject, UITextFieldDelegate {
     @available(iOS 2.0, *)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { // called when 'return' key pressed. return NO to ignore.
         return delegate?.textFieldShouldReturn?(textField) ?? true
+    }
+    
+}
+
+class ZTextFieldDelegateWrapper : UITextFieldDelegateWrapper {
+    
+    @available(iOS 2.0, *)
+    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
+        if !super.textField(textField, shouldChangeCharactersIn: range, replacementString: string) {
+            return false
+        }
+        if let tf = textField as? ZTextField, let text = tf.text,
+           tf.maxWords > 0, tf.maxWords < text.count - range.length + string.count {
+            return false
+        }
+        return true
     }
     
 }

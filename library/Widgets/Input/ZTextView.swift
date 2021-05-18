@@ -49,7 +49,7 @@ public class ZTextView : UITextView {
     private let _textStorage = NSTextStorage()
     private let _layoutManager = NSLayoutManager()
     private let _textContainer = NSTextContainer()
-    private let _delegate = ZTextViewDelegate()
+    private let _delegate = ZTextViewDelegateWrapper()
     private let _placeholderAttrs: [NSAttributedString.Key:Any]
 
     
@@ -177,7 +177,7 @@ class UITextViewDelegateWrapper : NSObject, UITextViewDelegate {
     }
 }
 
-class ZTextViewDelegate : UITextViewDelegateWrapper {
+class ZTextViewDelegateWrapper : UITextViewDelegateWrapper {
     
     @available(iOS 2.0, *)
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText string: String) -> Bool { // return NO to not change text

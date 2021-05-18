@@ -7,6 +7,12 @@
 
 import Foundation
 
+@objc public protocol ZTextInputDelegate {
+    @objc optional func textInput(_ textArea: ZTextInput, buttonTapping id: ZButton.ButtonId, holding: Bool)
+    @objc optional func textInput(_ textArea: ZTextInput, buttonTapped id: ZButton.ButtonId)
+}
+
+
 public class ZTextInput : ZTextView {
     
     public var leftButton: Any? {
@@ -33,8 +39,26 @@ public class ZTextInput : ZTextView {
         }
     }
     
+    public var textInputDelegate: ZTextInputDelegate? = nil {
+        didSet {
+            if let delegate = textInputDelegate as? UITextViewDelegate {
+                super.delegate = delegate
+            } else if (super.delegate === oldValue) {
+                super.delegate = nil
+            }
+        }
+    }
+    
     private lazy var _leftButton: ZButton = self.createButton(.Left)
     private lazy var _rightButton: ZButton = self.createButton(.Right)
+    private lazy var _placeholderLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textAppearance = _style.textAppearance
+        label.textColor = _style.placeholderTextColor
+        self.addSubview(label)
+        return label
+    }()
     private lazy var _wordCountLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -44,7 +68,7 @@ public class ZTextInput : ZTextView {
     }()
     
     private let _style: ZTextInputStyle
-    private let _delegate = ZTextInputDelegate()
+    private let _delegate = ZTextInputDelegateWrapper()
     
     public init(style: ZTextInputStyle = .init()) {
         _style = style
@@ -78,19 +102,31 @@ public class ZTextInput : ZTextView {
         if rightButton != nil {
             _rightButton.frame = frame.cutRight(sizeStyle.iconSize + sizeStyle.iconPadding).rightTopPart(ofSize: _rightButton.bounds.size)
         }
+        //_placeholderLabel.frame = frame
     }
     
     /* private */
     
-    @objc private func buttonClicked(_ sender: UIView) {
-        
+    @objc private func buttonTouchDown(_ sender: UIView) {
+        textInputDelegate?.textInput?(self, buttonTapping: (sender as! ZButton).id!, holding: true)
+    }
+    
+    @objc private func buttonTouchUpInside(_ sender: UIView) {
+        textInputDelegate?.textInput?(self, buttonTapping: (sender as! ZButton).id!, holding: false)
+        textInputDelegate?.textInput?(self, buttonTapped: (sender as! ZButton).id!)
+    }
+    
+    @objc private func buttonTouchUpOutside(_ sender: UIView) {
+        textInputDelegate?.textInput?(self, buttonTapping: (sender as! ZButton).id!, holding: false)
     }
     
     private func createButton(_ id: ZButton.ButtonId) -> ZButton {
         let button = ZButton()
         button.buttonAppearance = _style.buttonAppearance
         button.id = id
-        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonTouchDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(buttonTouchUpOutside(_:)), for: .touchUpOutside)
+        button.addTarget(self, action: #selector(buttonTouchUpInside(_:)), for: .touchUpInside)
         addSubview(button)
         return button
     }
@@ -130,7 +166,7 @@ public class ZTextInput : ZTextView {
     }
 }
 
-class ZTextInputDelegate : UITextViewDelegateWrapper {
+class ZTextInputDelegateWrapper : UITextViewDelegateWrapper {
     
     override func textViewDidChange(_ textView: UITextView) {
         if let ti = textView as? ZTextInput {

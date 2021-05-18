@@ -11,7 +11,7 @@ import UIBase
 import SnapKit
 import SwiftSVG
 
-class ZTextAreaController: ComponentController, ZTextAreaDelegate {
+class ZTextAreaController: ComponentController, ZTextInputDelegate, ZTextAreaDelegate {
 
     class Styles : ViewStyles {
         
@@ -58,17 +58,18 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
 
         textInput.maxWordCount = styles.maxWordCount
         textInput.placeholder = styles.placeholder
-        textInput.singleLine = true
+        textInput.singleLine = false
         //textInput.showBorder = styles.showBorder
-        //textInput.delegate = self
+        textInput.textInputDelegate = self
         view.addSubview(textInput)
         textInput.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)
             maker.trailing.equalToSuperview().offset(-20)
             maker.top.equalToSuperview().offset(150)
-            //maker.height.equalTo(textInput.frame.height)
+            maker.height.greaterThanOrEqualTo(styles.minimunHeight)
         }
 
+        textArea.backgroundColor = .white
         textArea.minHeight = styles.minimunHeight
         textArea.maxHeight = styles.maximunHeight
         textArea.maxWords = styles.maxWordCount
@@ -89,6 +90,9 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
                 self.textArea.maxWords = self.styles.maxWordCount
             } else if name == "minimunHeight" {
                 self.textArea.minHeight = self.styles.minimunHeight
+                self.textInput.snp.updateConstraints { maker in
+                    maker.height.greaterThanOrEqualTo(self.styles.minimunHeight)
+                }
             } else if name == "maximunHeight" {
                 self.textArea.maxHeight = self.styles.maximunHeight
             } else if name == "placeholder" {
@@ -105,6 +109,10 @@ class ZTextAreaController: ComponentController, ZTextAreaDelegate {
         }
     }
    
+    func textInput(_ textArea: ZTextInput, buttonTapped id: ZButton.ButtonId) {
+       ZTipView.tip(textArea, "点击了按钮 \(id)")
+    }
+
     func textAreaIconTapped(_ textArea: ZTextArea, index: Int) {
         ZTipView.tip(textArea, "点击了图标\(index)")
     }
