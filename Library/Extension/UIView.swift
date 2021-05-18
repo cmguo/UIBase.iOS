@@ -140,5 +140,39 @@ extension UIView {
         return (range, value)
     }
 
+    public func scrollUp(contentBottom cb: CGFloat, toWindowY wy: CGFloat, withDuration d: Double) -> CGFloat {
+        var diff = self.convert(CGPoint(x: 0, y: cb), to: nil).y - wy
+        if let s = self as? UIScrollView {
+            diff -= s.contentOffset.y
+        }
+        if diff <= 0 { return diff }
+        UIView.animate(withDuration: d) {
+            var v: UIView? = self
+            while !(v is UIWindow) {
+                if let s = v as? UIScrollView {
+                    let h = s.contentSize.height - s.contentOffset.y - s.bounds.height
+                    if h > 0 {
+                        s.contentOffset.y += min(h, diff)
+                        diff -= h
+                        if diff <= 0 {
+                            break
+                        }
+                    }
+                }
+                v = v?.superview
+            }
+            if diff > 0, let w = self.window {
+                w.transform = w.transform.translatedBy(x: 0, y: -diff)
+            }
+        }
+        return diff
+    }
+    
+    public func scrollUpRestore(_ state: CGFloat) {
+        guard state > 0, let w = window else {
+            return
+        }
+        w.transform = w.transform.translatedBy(x: 0, y: state)
+    }
 
 }

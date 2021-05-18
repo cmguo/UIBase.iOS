@@ -16,12 +16,6 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
         @objc static let _maxWordCount = ["最大字数", "设为0不限制；如果有限制，将展现字数指示"]
         @objc var maxWordCount = 100
         
-        @objc static let _minimunHeight = ["最小高度", "没有文字时的高度"]
-        @objc var minimunHeight: CGFloat = 100
-        
-        @objc static let _maximunHeight = ["最大高度", "高度随文字变化，需要指定最大高度；包含字数指示（如果有的话）"]
-        @objc var maximunHeight: CGFloat = 300
-        
         @objc static let _placeholder = ["占位文字", "没有任何输入文字时，显示的占位文字（灰色）"]
         @objc var placeholder = "请输入"
         
@@ -68,8 +62,6 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
         }
 
         textArea.backgroundColor = .white
-        textArea.minHeight = styles.minimunHeight
-        textArea.maxHeight = styles.maximunHeight
         textArea.maxWords = styles.maxWordCount
         textArea.placeholder = styles.placeholder
         textArea.showBorder = styles.showBorder
@@ -86,10 +78,6 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
             if name == "maxWordCount" {
                 self.textInput.maxWordCount = self.styles.maxWordCount
                 self.textArea.maxWords = self.styles.maxWordCount
-            } else if name == "minimunHeight" {
-                self.textArea.minHeight = self.styles.minimunHeight
-            } else if name == "maximunHeight" {
-                self.textArea.maxHeight = self.styles.maximunHeight
             } else if name == "placeholder" {
                 self.textInput.placeholder = self.styles.placeholder
                 self.textArea.placeholder = self.styles.placeholder
@@ -102,6 +90,15 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
                 self.textInput.rightButton = self.styles.rightIcon
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+   
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
    
     func textInput(_ textArea: ZTextInput, buttonTapped id: ZButton.ButtonId) {
@@ -116,6 +113,21 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
         textArea.snp.updateConstraints { (maker) in
             maker.height.equalTo(textArea.bounds.height)
         }
+    }
+    
+    private var _scrollState: CGFloat = 0
+    
+    @objc func keyboardWillShow(_ n: Notification) {
+        let value = n.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        let height = value.cgRectValue.size.height + 20
+        let duration = n.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber
+        textArea.scrollUpRestore(_scrollState)
+        _scrollState = textArea.scrollUp(contentBottom: textArea.bounds.height, toWindowY: view.window!.bounds.bottom - height, withDuration: duration.doubleValue)
+    }
+    
+    @objc func keyboardWillHide(_ n: Notification) {
+        textArea.scrollUpRestore(_scrollState)
+        _scrollState = 0
     }
 }
 
