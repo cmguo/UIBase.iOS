@@ -68,12 +68,12 @@ public class ZDropDown : UIView {
     }
     
     private var _isDrop = false
-    private var _callback: ZDropDownDelegate? = nil
+    private var _delegate: ZDropDownDelegate? = nil
     
     private var _radioGroup = ZRadioGroup()
     private var _buttons: [Int: [UIView]] = [:]
 
-    public func popAt(_ target: UIView, withCallback: ZDropDownDelegate? = nil) {
+    public func popAt(_ target: UIView, withDelegate: ZDropDownDelegate? = nil) {
         if(_isDrop) {
             return
         }
@@ -81,7 +81,7 @@ public class ZDropDown : UIView {
             return
         }
         _isDrop = true
-        _callback = withCallback
+        _delegate = withDelegate
         _tableView.dataSource = self
         self.frame = window.bounds
         window.addSubview(self)
@@ -127,7 +127,7 @@ public class ZDropDown : UIView {
     
     @objc private func viewTapped(_ sender: UITapGestureRecognizer? = nil) {
         dismiss()
-        _callback?.dropDownFinished?(dropDown: self, selection: -1, withValue: nil)
+        _delegate?.dropDownFinished?(dropDown: self, selection: -1, withValue: nil)
     }
     
     private func tableSize() -> CGSize {
@@ -208,7 +208,7 @@ extension ZDropDown : UITableViewDelegate {
         if cell._buttonType > 0 {
             value = tapButton(cell._buttonType, cell._button!)
         }
-        _callback?.dropDownFinished?(dropDown: self, selection: indexPath.row, withValue: value)
+        _delegate?.dropDownFinished?(dropDown: self, selection: indexPath.row, withValue: value)
     }
     
 }
@@ -295,7 +295,7 @@ extension ZDropDown {
         default:
             break
         }
-        _callback?.dropDownFinished?(dropDown: self, selection: index.row, withValue: value)
+        _delegate?.dropDownFinished?(dropDown: self, selection: index.row, withValue: value)
     }
     
 }

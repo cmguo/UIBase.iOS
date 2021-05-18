@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelDelegate {
+class ZActionSheetController: ComponentController, ZActionSheetDelegate, ZPanelDelegate {
 
     class Styles : ViewStyles {
         
@@ -28,7 +28,7 @@ class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelD
         
         let states: [UIControl.State] = [.STATES_SELECTED]
         
-        let buttons = ["删除内容", "列表标题"]
+        let buttons = ["删除内容"]
     }
     
     private let styles = Styles()
@@ -51,7 +51,7 @@ class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelD
         sheet.subTitle = styles.subTitle
         sheet.buttons = model.buttons
         sheet.states = model.states
-        sheet.callback = self
+        sheet.delegate = self
         view.addSubview(sheet)
         sheet.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
@@ -74,9 +74,9 @@ class ZActionSheetController: ComponentController, ZActionSheetCallback, ZPanelD
             if name == "icon" {
                 for b in self.views { b.icon = self.styles.icon }
             } else if name == "title" {
-                for b in self.views { b.title = self.styles.title }
+                for b in self.views { b.title = self.styles.title.isEmpty ? nil : self.styles.title }
             } else if name == "subTitle" {
-                for b in self.views { b.subTitle = self.styles.subTitle }
+                for b in self.views { b.subTitle = self.styles.subTitle.isEmpty ? nil : self.styles.subTitle }
             }
         }
         

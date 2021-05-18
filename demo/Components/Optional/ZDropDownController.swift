@@ -73,7 +73,7 @@ class ZDropDownController: ComponentController, UICollectionViewDataSource, UICo
         let dropDown = ZDropDown()
         dropDown.titles = model.titles
         dropDown.icons = model.icons
-        dropDown.popAt(sender, withCallback: self)
+        dropDown.popAt(sender, withDelegate: self)
     }
     
     func dropDownFinished(dropDown: ZDropDown, selection: Int, withValue: Any?) {

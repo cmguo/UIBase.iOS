@@ -190,9 +190,9 @@ public class ZPanel : UIView, ZTitleBarDelegate {
             heightRange = ch.0
             size.height += ch.1
         }
-        if size.height < 200 {
-            size.height = 200
-        }
+//        if size.height < 200 {
+//            size.height = 200
+//        }
         _sizeConstrains = updateSizeConstraint(_sizeConstrains, size, widthRange: 1, heightRange: heightRange)
         setNeedsLayout()
     }

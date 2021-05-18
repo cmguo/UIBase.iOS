@@ -7,8 +7,8 @@
 
 import Foundation
 
-@objc public protocol ZActionSheetCallback {
-    @objc optional func onAction(sheet: ZActionSheet, index: Int)
+@objc public protocol ZActionSheetDelegate {
+    @objc optional func actionSheet(_ actionSheet: ZActionSheet, onAction index: Int)
 }
 
 public class ZActionSheet : UIView {
@@ -49,7 +49,7 @@ public class ZActionSheet : UIView {
         }
     }
     
-    public var callback: ZActionSheetCallback? = nil
+    public var delegate: ZActionSheetDelegate? = nil
     
     private let _imageView = UIImageView()
     private let _label = UILabel()
@@ -81,7 +81,9 @@ public class ZActionSheet : UIView {
     
     public override func layoutSubviews() {
         var frame = bounds
-        frame.top += _style.paddingY
+        if icon != nil || title != nil || subTitle != nil {
+            frame.top += _style.paddingY
+        }
         if icon != nil {
             _imageView.frame = frame.cutTop(_style.iconPadding + _style.iconSize)
                 .bottomCenterPart(ofSize: CGSize(width: _style.iconSize, height: _style.iconSize))
@@ -94,8 +96,12 @@ public class ZActionSheet : UIView {
             _label2.frame = frame.cutTop(_label2.bounds.height)
                 .bottomCenterPart(ofSize: _label2.bounds.size)
         }
-        _ = frame.cutTop(_style.titlePadding)
-        _spplitter.frame = frame.cutTop(1)
+        if frame.height < bounds.height {
+            _ = frame.cutTop(_style.titlePadding)
+            _spplitter.frame = frame.cutTop(1)
+        } else {
+            _spplitter.frame = .zero
+        }
         for b in _buttons {
             b.frame = frame.cutTop(_style.buttonApperance.sizeStyle.height)
         }
@@ -104,7 +110,7 @@ public class ZActionSheet : UIView {
     private var _constraint: (NSLayoutConstraint, NSLayoutConstraint)? = nil
 
     private func syncSize() {
-        var size = CGSize(width: UIScreen.main.bounds.size.width, height: _style.paddingY)
+        var size = CGSize(width: UIScreen.main.bounds.size.width, height: 0)
         if icon != nil {
             size.height += _style.iconPadding + _style.iconSize
         }
@@ -116,7 +122,9 @@ public class ZActionSheet : UIView {
             _label2.sizeToFit()
             size.height += _label2.bounds.height
         }
-        size.height += 1 + _style.titlePadding // spplitter
+        if size.height > 0 {
+            size.height += _style.paddingY + 1 + _style.titlePadding // spplitter
+        }
         size.height += _style.buttonApperance.sizeStyle.height * CGFloat(buttons.count)
         _constraint = updateSizeConstraint(_constraint, size, widthRange: -1)
     }
@@ -146,7 +154,7 @@ public class ZActionSheet : UIView {
     
     @objc fileprivate func buttonClicked(_ sender: UIView) {
         let index = subviews.firstIndex(of: sender)! - 4
-        callback?.onAction?(sheet: self, index: index)
+        delegate?.actionSheet?(self, onAction: index)
     }
 
 }

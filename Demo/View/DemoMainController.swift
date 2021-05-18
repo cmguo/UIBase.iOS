@@ -51,7 +51,7 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
     
     @objc func showSettings() {
         guard let target = navigationController?.navigationBar.subviews[1].subviews[1] else { return }
-        dropDrow.popAt(target, withCallback: self)
+        dropDrow.popAt(target, withDelegate: self)
     }
     
     @objc func showComponents() {
