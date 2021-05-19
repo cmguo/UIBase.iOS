@@ -39,6 +39,7 @@
 		715FC03526410E36005A265C /* ZSearchBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715FC03426410E36005A265C /* ZSearchBarStyle.swift */; };
 		716A90B8264B9C5300C82B0D /* DayNightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A90B7264B9C5300C82B0D /* DayNightManager.swift */; };
 		716A90FC264CCEA000C82B0D /* UIBase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 716A90FB264CCEA000C82B0D /* UIBase.bundle */; };
+		716A92582654A1EB00C82B0D /* KeyboardWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A92572654A1EB00C82B0D /* KeyboardWatcher.swift */; };
 		7178A18525F5CAED004BA696 /* ZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18425F5CAED004BA696 /* ZButton.swift */; };
 		7178A18825F5CB0B004BA696 /* StateListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18725F5CB0B004BA696 /* StateListColor.swift */; };
 		7178A18F25F5CBE5004BA696 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178A18B25F5CBE5004BA696 /* UIButton.swift */; };
@@ -146,6 +147,7 @@
 		715FC03426410E36005A265C /* ZSearchBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSearchBarStyle.swift; sourceTree = "<group>"; };
 		716A90B7264B9C5300C82B0D /* DayNightManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightManager.swift; sourceTree = "<group>"; };
 		716A90FB264CCEA000C82B0D /* UIBase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UIBase.bundle; sourceTree = "<group>"; };
+		716A92572654A1EB00C82B0D /* KeyboardWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardWatcher.swift; sourceTree = "<group>"; };
 		7178A18425F5CAED004BA696 /* ZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZButton.swift; path = ../../../Library/Widgets/Button/ZButton.swift; sourceTree = "<group>"; };
 		7178A18725F5CB0B004BA696 /* StateListColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateListColor.swift; sourceTree = "<group>"; };
 		7178A18B25F5CBE5004BA696 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = ../../Library/Extension/UIButton.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				717C5BB2263176E8001A0E12 /* SvgIconURLs.swift */,
 				715FC010263D9118005A265C /* UIRepeatTapGestureRecognizer.swift */,
 				716A90B7264B9C5300C82B0D /* DayNightManager.swift */,
+				716A92572654A1EB00C82B0D /* KeyboardWatcher.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				717C5BB3263176E8001A0E12 /* SvgIconURLs.swift in Sources */,
 				717C5B6B263015FB001A0E12 /* ZColors.swift in Sources */,
 				7178A1A425F5CC14004BA696 /* IndicatorProtocol.swift in Sources */,
+				716A92582654A1EB00C82B0D /* KeyboardWatcher.swift in Sources */,
 				71C8757B26439D3100A06367 /* FSPageViewLayout.swift in Sources */,
 				7178A1CD25F70E88004BA696 /* ZSwitchButton.swift in Sources */,
 				71C875AD2643FD5800A06367 /* ZTabBarStyle.swift in Sources */,

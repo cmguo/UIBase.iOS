@@ -92,15 +92,6 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-   
-    override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self)
-    }
-   
     func textInput(_ textArea: ZTextInput, buttonTapped id: ZButton.ButtonId) {
        ZTipView.tip(textArea, "点击了按钮 \(id)")
     }
@@ -115,19 +106,5 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
         }
     }
     
-    private var _scrollState: CGFloat = 0
-    
-    @objc func keyboardWillShow(_ n: Notification) {
-        let value = n.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
-        let height = value.cgRectValue.size.height + 20
-        let duration = n.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber
-        textArea.scrollUpRestore(_scrollState)
-        _scrollState = textArea.scrollUp(contentBottom: textArea.bounds.height, toWindowY: view.window!.bounds.bottom - height, withDuration: duration.doubleValue)
-    }
-    
-    @objc func keyboardWillHide(_ n: Notification) {
-        textArea.scrollUpRestore(_scrollState)
-        _scrollState = 0
-    }
 }
 

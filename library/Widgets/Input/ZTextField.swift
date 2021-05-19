@@ -168,4 +168,14 @@ class ZTextFieldDelegateWrapper : UITextFieldDelegateWrapper {
         return true
     }
     
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        super.textFieldDidBeginEditing(textField)
+        KeyboardWatcher.shared.active(view: textField)
+    }
+    
+    override func textFieldDidEndEditing(_ textField: UITextField) {
+        KeyboardWatcher.shared.deactive(view: textField)
+        super.textFieldDidEndEditing(textField)
+    }
+    
 }
