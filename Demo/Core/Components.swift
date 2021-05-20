@@ -76,7 +76,6 @@ public class Components : NSObject
             ZButtonComponent(),
             ZAvatarViewComponent(),
             ZCheckboxComponent(),
-            ZTabBarComponent(),
             ZPanelComponent(),
             ZAppTitleBarComponent(),
             ZActivityViewComponent(),
