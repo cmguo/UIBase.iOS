@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EB8D4107CC3F0E651BAB2E1 /* Utils+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8D7E8383BFE62F91914C4 /* Utils+.swift */; };
 		7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112028E25F9C55A004A3AA5 /* UIImageView.swift */; };
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
 		7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZTipView.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EB8D7E8383BFE62F91914C4 /* Utils+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Utils+.swift"; sourceTree = "<group>"; };
 		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
 		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Widgets/Indicator/ZTipView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				7112029825FA04EC004A3AA5 /* DispatchQueue.swift */,
 				711202A125FA1BA6004A3AA5 /* String.swift */,
 				713F6D93264A25540071B232 /* Dictionary.swift */,
+				2EB8D7E8383BFE62F91914C4 /* Utils+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				7178A1AC25F61936004BA696 /* UIImage.swift in Sources */,
 				717C5B7C263118EF001A0E12 /* TextAttachment.swift in Sources */,
 				717C5BA126317081001A0E12 /* ZPickerViewStyle.swift in Sources */,
+				2EB8D4107CC3F0E651BAB2E1 /* Utils+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EB8D55AE355F4B8E5CE4888 /* FishTestComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8DE54E8BB4B02877B15F2 /* FishTestComponent.swift */; };
+		2EB8DF3383E270EE7157424B /* FishTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8D1E1FAAFAC59803FA9D3 /* FishTestController.swift */; };
 		7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */; };
 		7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */; };
 		7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */; };
@@ -110,6 +112,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EB8D1E1FAAFAC59803FA9D3 /* FishTestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishTestController.swift; sourceTree = "<group>"; };
+		2EB8DE54E8BB4B02877B15F2 /* FishTestComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishTestComponent.swift; sourceTree = "<group>"; };
 		7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZSwitchButtonComponent.swift; path = ../../../Demo/Components/Basic/ZSwitchButtonComponent.swift; sourceTree = "<group>"; };
 		7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZRatioButtonComponent.swift; path = ../../../Demo/Components/Basic/ZRatioButtonComponent.swift; sourceTree = "<group>"; };
 		7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZCompoundButtonController.swift; path = ../../../Demo/Components/Basic/ZCompoundButtonController.swift; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 				716A91CD264E6B8700C82B0D /* PngIconComponent.swift */,
 				716A91D1264E6C6E00C82B0D /* DayNightIconComponent.swift */,
 				716A91C6264E6AB900C82B0D /* IconsController.swift */,
+				2EB8DE54E8BB4B02877B15F2 /* FishTestComponent.swift */,
+				2EB8D1E1FAAFAC59803FA9D3 /* FishTestController.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -641,6 +647,8 @@
 				7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */,
 				717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */,
 				713F6D7B26466B500071B232 /* ZListViewComponent.swift in Sources */,
+				2EB8D55AE355F4B8E5CE4888 /* FishTestComponent.swift in Sources */,
+				2EB8DF3383E270EE7157424B /* FishTestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,12 +9,13 @@ import Foundation
 import SwiftSVG
 
 extension UIImageView {
-    
-    public func setImage(wild: Any?, completion: ( () -> Void)? = nil) {
+
+    public func setImage(wild: Any?, completion: (() -> Void)? = nil) {
         if let url = wild as? URL {
             setImage(withURL: url, completion: completion)
         } else {
-            setImage(svgURL: nil) { }
+            setImage(svgURL: nil) {
+            }
             if let image = wild as? UIImage {
                 self.image = image
             } else if let color = wild as? UIColor {
@@ -29,23 +30,24 @@ extension UIImageView {
             }
         }
     }
-    
-    public func setImage(withURL url: URL?, completion: ( () -> Void)? = nil) {
+
+    public func setImage(withURL url: URL?, completion: (() -> Void)? = nil) {
         if url?.pathExtension == "svg" {
             self.image = nil
             setImage(svgURL: url, completion: completion)
         } else {
-            setImage(svgURL: nil) { }
+            setImage(svgURL: nil) {
+            }
             image = url == nil ? nil : UIImage(withUrl: url!)
             completion?()
         }
     }
 
-    public func setImage(svgURL : URL?, completion: ( () -> Void)? = nil) {
+    public func setImage(svgURL: URL?, completion: (() -> Void)? = nil) {
         setImage(svgURL: svgURL, inBounds: nil, completion: completion)
     }
-    
-    public func setImage(svgURL : URL?, inBounds: CGRect?, completion: ( () -> Void)?) {
+
+    public func setImage(svgURL: URL?, inBounds: CGRect?, completion: (() -> Void)?) {
         if let sublayers = self.layer.sublayers {
             for sl in sublayers {
                 sl.removeFromSuperlayer()
@@ -70,17 +72,19 @@ extension UIImageView {
             }
             DispatchQueue.main.async {
                 completion?()
+                self.applyIconColor()
             }
         }
         self.layer.addSublayer(icon)
     }
-    
+
     public func setIconColor(color: UIColor) {
         self.layer.applyOnSublayers(ofType: CAShapeLayer.self) { (thisShapeLayer: CAShapeLayer) in
             thisShapeLayer.fillColor = color.cgColor
         }
+        iconColor = color
     }
-    
+
     public func updateSvgScale(_ oldSize: CGSize, _ newSize: CGSize) {
         if let layers = self.layer.sublayers {
             for l in layers {
@@ -97,4 +101,20 @@ extension UIImageView {
         }
     }
 
+    private static let iconColor = ObjectAssociation<UIColor>()
+
+    private var iconColor: UIColor? {
+        get {
+            return UIImageView.iconColor[self] ?? nil
+        }
+        set {
+            UIImageView.iconColor[self] = newValue
+        }
+    }
+
+    private func applyIconColor() {
+        if let color = iconColor {
+            setIconColor(color: color)
+        }
+    }
 }
