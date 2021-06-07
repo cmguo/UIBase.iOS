@@ -55,7 +55,7 @@ class EmptyViewController: ComponentController , UITableViewDataSource{
     var index = 0
 
     @objc func onClick() {
-        let v = index % 3
+        let v = index % 4
         index += 1
         switch v {
         case 0:
@@ -68,6 +68,8 @@ class EmptyViewController: ComponentController , UITableViewDataSource{
             })
         case 2:
             tableView.uibase_emptyViewDefault = ZEmptyViewData.build(loading: true)
+        case 3:
+            tableView.uibase_emptyViewDefault = nil
         default:
             break
         }

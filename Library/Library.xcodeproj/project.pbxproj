@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2EB8D4107CC3F0E651BAB2E1 /* Utils+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8D7E8383BFE62F91914C4 /* Utils+.swift */; };
+		2EB8D4FAEC1480C2BD5F1439 /* ZEmptyViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8DF50EF72C33965A3102C /* ZEmptyViewData.swift */; };
+		2EB8D6196A420E4063539F9A /* ZEmptyViewDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8D1CDDB218A27008B7055 /* ZEmptyViewDefault.swift */; };
 		7112028F25F9C55A004A3AA5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112028E25F9C55A004A3AA5 /* UIImageView.swift */; };
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
 		7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZTipView.swift */; };
@@ -112,7 +114,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EB8D1CDDB218A27008B7055 /* ZEmptyViewDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZEmptyViewDefault.swift; sourceTree = "<group>"; };
 		2EB8D7E8383BFE62F91914C4 /* Utils+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Utils+.swift"; sourceTree = "<group>"; };
+		2EB8DF50EF72C33965A3102C /* ZEmptyViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZEmptyViewData.swift; sourceTree = "<group>"; };
 		7112028E25F9C55A004A3AA5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ../../Library/Extension/UIImageView.swift; sourceTree = "<group>"; };
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
 		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Widgets/Indicator/ZTipView.swift; sourceTree = "<group>"; };
@@ -231,6 +235,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EB8DF22EE07CF05157F7AE7 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				2EB8D1CDDB218A27008B7055 /* ZEmptyViewDefault.swift */,
+				2EB8DF50EF72C33965A3102C /* ZEmptyViewData.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		7112029425F9FB78004A3AA5 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,13 +271,6 @@
 				716A92572654A1EB00C82B0D /* KeyboardWatcher.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		713F6E9D264A2F350071B232 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		71789FC325E8C52C004BA696 /* Frameworks */ = {
@@ -320,7 +326,7 @@
 				7112029425F9FB78004A3AA5 /* Indicator */,
 				71FF9419262D68660033098B /* Navigation */,
 				717C5BDE2632B4E3001A0E12 /* Optional */,
-				713F6E9D264A2F350071B232 /* Other */,
+				2EB8DF22EE07CF05157F7AE7 /* Others */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -664,6 +670,8 @@
 				717C5B7C263118EF001A0E12 /* TextAttachment.swift in Sources */,
 				717C5BA126317081001A0E12 /* ZPickerViewStyle.swift in Sources */,
 				2EB8D4107CC3F0E651BAB2E1 /* Utils+.swift in Sources */,
+				2EB8D6196A420E4063539F9A /* ZEmptyViewDefault.swift in Sources */,
+				2EB8D4FAEC1480C2BD5F1439 /* ZEmptyViewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

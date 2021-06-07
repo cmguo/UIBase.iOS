@@ -19,9 +19,10 @@ public class ZEmptyViewDefault: UIView {
         }
     }
 
-    private lazy var image: UIImageView = {
+     lazy var image: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 72, height: 72)
+        view.setIconColor(color: .bluegrey_700)
         return view
     }()
 
@@ -89,7 +90,7 @@ public class ZEmptyViewDefault: UIView {
             text.text = "加载中 ..."
         } else {
             image.isHidden = false
-            button.isHidden = false
+            button.isHidden = data.buttonText == nil
             if data.icon is URL {
                 image.setImage(svgURL: data.icon as! URL)
             } else if data.icon is UIImage {
