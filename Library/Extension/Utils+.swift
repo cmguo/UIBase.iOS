@@ -23,3 +23,6 @@ public final class ObjectAssociation<T> {
         set { objc_setAssociatedObject(index, Unmanaged.passUnretained(self).toOpaque(), newValue, policy) }
     }
 }
+
+public typealias Runnable = () -> Void
+public typealias OnClickListener = (_ view: UIView) -> Void
