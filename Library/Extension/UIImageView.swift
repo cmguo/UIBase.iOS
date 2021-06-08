@@ -58,19 +58,20 @@ extension UIImageView {
             return
         }
         //self.image = UIImage.transparent
-        let icon = CALayer(SVGURL: svgURL) { (layer: SVGLayer) in
-            let bounds = inBounds ?? self.bounds
-            if bounds.isEmpty {
-                let bounds = layer.boundingBox.centerBounding()
-                self.bounds = bounds
-                layer.frame = bounds
-            } else {
-                let size = layer.boundingBox.centerBoundingSize()
-                let scale = min(bounds.width / size.width, bounds.height / size.height)
-                layer.superlayer?.transform = CATransform3DMakeScale(scale, scale, 1)
-                layer.frame = bounds//.centerPart(ofSize: size)
-            }
-            DispatchQueue.main.async {
+        let icon = CALayer(SVGURL: svgURL) { [weak self] (layer: SVGLayer) in
+            DispatchQueue.main.async { // delay for all state ready
+                guard let self = self else { return }
+                let bounds = inBounds ?? self.bounds
+                if bounds.isEmpty {
+                    let bounds = layer.boundingBox.centerBounding()
+                    self.bounds = bounds
+                    layer.frame = bounds
+                } else {
+                    let size = layer.boundingBox.centerBoundingSize()
+                    let scale = min(bounds.width / size.width, bounds.height / size.height)
+                    layer.superlayer?.transform = CATransform3DMakeScale(scale, scale, 1)
+                    layer.frame = bounds//.centerPart(ofSize: size)
+                }
                 completion?()
                 self.applyIconColor()
             }
