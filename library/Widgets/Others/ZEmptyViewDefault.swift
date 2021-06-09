@@ -73,7 +73,7 @@ public class ZEmptyViewDefault: UIView {
             text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 12),
 
             button.centerXAnchor.constraint(equalTo: image.centerXAnchor),
-            button.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 6),
+            button.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 24),
 
             centerContainer.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             centerContainer.trailingAnchor.constraint(equalTo: container.trailingAnchor),

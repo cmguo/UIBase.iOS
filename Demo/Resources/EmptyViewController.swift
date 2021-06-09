@@ -59,11 +59,11 @@ class EmptyViewController: ComponentController , UITableViewDataSource{
         index += 1
         switch v {
         case 0:
-            tableView.uibase_emptyViewDefault = ZEmptyViewData.build(text: "数据为空", listener: {
+            tableView.uibase_emptyViewDefault = ZEmptyViewData.build(text: "数据为空", buttonListener: {
                 self.onClick()
             })
         case 1:
-            tableView.uibase_emptyViewDefault = ZEmptyViewData.build(text: "数据错误", listener: {
+            tableView.uibase_emptyViewDefault = ZEmptyViewData.build(text: "数据错误", buttonListener: {
                 self.onClick()
             })
         case 2:
