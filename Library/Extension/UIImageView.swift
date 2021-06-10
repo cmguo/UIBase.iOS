@@ -72,16 +72,17 @@ extension UIImageView {
                     layer.superlayer?.transform = CATransform3DMakeScale(scale, scale, 1)
                     layer.frame = bounds//.centerPart(ofSize: size)
                 }
+                //self.applyIconColor()
                 completion?()
-                self.applyIconColor()
             }
         }
         self.layer.addSublayer(icon)
     }
 
     public func setIconColor(color: UIColor) {
+        let cgColor = color.cgColor(for: self)
         self.layer.applyOnSublayers(ofType: CAShapeLayer.self) { (thisShapeLayer: CAShapeLayer) in
-            thisShapeLayer.fillColor = color.cgColor
+            thisShapeLayer.fillColor = cgColor
         }
         iconColor = color
     }

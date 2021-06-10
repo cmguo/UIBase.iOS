@@ -36,7 +36,7 @@ class ZPanelController: ComponentController, ZPanelDelegate {
     private let panel = ZPanel()
     private var views = [ZPanel]()
     
-    private let button = ZButton()
+    private let button = ZButton().buttonType(.Primitive)
 
 
     override func getStyles() -> ViewStyles {
@@ -59,6 +59,7 @@ class ZPanelController: ComponentController, ZPanelDelegate {
         views.append(panel)
 
         button.text = "弹出面板"
+        button.icon = .icon_success
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         view.addSubview(button)
         button.snp.makeConstraints { (maker) in

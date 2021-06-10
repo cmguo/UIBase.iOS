@@ -34,6 +34,14 @@ extension UIColor {
         return String(format: "0x%02X%02X%02X%02X", rgba[3], rgba[0], rgba[1], rgba[2])
     }
     
+    public func cgColor(for view: UIView) -> CGColor {
+        if #available(iOS 13.0, *) {
+            return resolvedColor(with: view.traitCollection).cgColor
+        } else {
+            return cgColor
+        }
+    }
+    
     /**
      Convert RGB value to CMYK value.
      

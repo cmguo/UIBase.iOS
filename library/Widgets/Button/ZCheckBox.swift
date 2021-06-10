@@ -64,7 +64,7 @@ public class ZCheckBox: UIButton {
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerChecked = layer
-                layer.fillColor = Self.foregroundCheckedFillColor.color(for: self.states()).cgColor
+                layer.fillColor = Self.foregroundCheckedFillColor.color(for: self.states()).cgColor(for: self)
             }
         }
         self.imageView?.layer.addSublayer(foregroundLayerChecked)
@@ -74,7 +74,7 @@ public class ZCheckBox: UIButton {
             layer.fillColor = UIColor.clear.cgColor
             DispatchQueue.main.async {
                 self.foregroundLayerHalfChecked = layer
-                layer.fillColor = Self.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor
+                layer.fillColor = Self.foregroundHalfCheckedFillColor.color(for: self.states()).cgColor(for: self)
             }
         }
         self.imageView?.layer.addSublayer(foregroundLayerHalfChecked)

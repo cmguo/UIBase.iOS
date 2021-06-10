@@ -301,6 +301,7 @@ public class ZButton : UIButton
             let oldSize = imageSize
             imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
             if icon != nil {
+                syncStates()
                 imageView?.updateSvgScale(oldSize, imageSize)
             }
             self.syncSize()

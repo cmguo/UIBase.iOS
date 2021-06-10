@@ -12,6 +12,6 @@ public class DayNightManager : NSObject {
     public static let inst = DayNightManager()
     
     public func setDayNightMode(isNight: Bool) {
-        
+        DayNightColors.setDayNight(night: isNight)
     }
 }
