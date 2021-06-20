@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "UIBase"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "A short description of UIBase."
 
   # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                    DESC
 
-  spec.homepage     = "https://gitlab.xiaoheiban.cn/xhb_base/xhbuibase.ios"
+  spec.homepage     = "https://gitlab.xiaoheiban.cn/base/uibase.ios"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "git@gitlab.xiaoheiban.cn:xhb_base/xhbuibase.ios.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "git@gitlab.xiaoheiban.cn:base/uibase.ios.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

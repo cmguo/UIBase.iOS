@@ -1,10 +1,14 @@
 #!/bin/bash
 
-V=`grep " spec.version" Library/UIBase.podspec | cut -d '"' -f 2`
+set -x
 
-git add Frameworks
-git commit -m "public $V"
-git push
+V=`grep " spec.version" UIBase.podspec | cut -d '"' -f 2`
 
-git tag -f $V
-git push -f origin refs/tags/$V
+trap 'git rm -r --quiet --cached Frameworks' EXIT
+
+git add -f Frameworks
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree $TREE -m "publish $V")
+git push -f origin $COMMIT:refs/tags/$V
+git push -f origin $COMMIT:refs/heads/publish/$V
+
