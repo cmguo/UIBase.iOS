@@ -4,9 +4,3 @@
 [submodule "SwiftReflection"]
 	path = SwiftReflection
 	url = https://github.com/cmguo/SwiftReflection.git
-[submodule "SwiftSVG"]
-	path = SwiftSVG
-	url = https://github.com/mchoe/SwiftSVG.git
-[submodule "JXSegmentedView"]
-	path = JXSegmentedView
-	url = https://github.com/cmguo/JXSegmentedView.git

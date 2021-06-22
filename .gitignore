@@ -10,4 +10,4 @@ Podfile.lock
 *.xcuserdatad
 fastlane/build
 fastlane/build/
-
+Frameworks

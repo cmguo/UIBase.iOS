@@ -15,14 +15,10 @@
 		712876BE25E6658F0054A74B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876BD25E6658F0054A74B /* MainController.swift */; };
 		716A91EA2652678000C82B0D /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; };
 		716A91EB2652678000C82B0D /* Demo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		716A9209265273E000C82B0D /* JXSegmentedView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A9208265273E000C82B0D /* JXSegmentedView.framework */; };
-		716A920A265273E000C82B0D /* JXSegmentedView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A9208265273E000C82B0D /* JXSegmentedView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		716A920C265273E500C82B0D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; };
-		716A920D265273E500C82B0D /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		716A920F265273E800C82B0D /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; };
-		716A9210265273E800C82B0D /* SwiftReflection.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		716A9212265273EC00C82B0D /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A9211265273EC00C82B0D /* SwiftSVG.framework */; };
-		716A9213265273EC00C82B0D /* SwiftSVG.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A9211265273EC00C82B0D /* SwiftSVG.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		71D82E7A2681C0A7003508B6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; };
+		71D82E7B2681C0A7003508B6 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		71D82E7C2681C0BF003508B6 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; };
+		71D82E7D2681C0BF003508B6 /* SwiftReflection.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,10 +29,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				716A91EB2652678000C82B0D /* Demo.framework in CopyFiles */,
-				716A9210265273E800C82B0D /* SwiftReflection.framework in CopyFiles */,
-				716A9213265273EC00C82B0D /* SwiftSVG.framework in CopyFiles */,
-				716A920A265273E000C82B0D /* JXSegmentedView.framework in CopyFiles */,
-				716A920D265273E500C82B0D /* SnapKit.framework in CopyFiles */,
+				71D82E7B2681C0A7003508B6 /* SnapKit.framework in CopyFiles */,
+				71D82E7D2681C0BF003508B6 /* SwiftReflection.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,10 +47,8 @@
 		712876BD25E6658F0054A74B /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		712876CC25E667FC0054A74B /* Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716A9108264CEDBA00C82B0D /* UIBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		716A9208265273E000C82B0D /* JXSegmentedView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JXSegmentedView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716A920B265273E500C82B0D /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		716A920E265273E800C82B0D /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		716A9211265273EC00C82B0D /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +57,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				716A91EA2652678000C82B0D /* Demo.framework in Frameworks */,
-				716A920F265273E800C82B0D /* SwiftReflection.framework in Frameworks */,
-				716A9212265273EC00C82B0D /* SwiftSVG.framework in Frameworks */,
-				716A9209265273E000C82B0D /* JXSegmentedView.framework in Frameworks */,
-				716A920C265273E500C82B0D /* SnapKit.framework in Frameworks */,
+				71D82E7A2681C0A7003508B6 /* SnapKit.framework in Frameworks */,
+				71D82E7C2681C0BF003508B6 /* SwiftReflection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,10 +99,8 @@
 		C51859496AEFCE3766E33EC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				716A9211265273EC00C82B0D /* SwiftSVG.framework */,
 				716A920E265273E800C82B0D /* SwiftReflection.framework */,
 				716A920B265273E500C82B0D /* SnapKit.framework */,
-				716A9208265273E000C82B0D /* JXSegmentedView.framework */,
 				716A9108264CEDBA00C82B0D /* UIBase.framework */,
 				712876CC25E667FC0054A74B /* Demo.framework */,
 			);

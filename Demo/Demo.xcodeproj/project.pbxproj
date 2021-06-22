@@ -16,7 +16,6 @@
 		7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */; };
 		7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */; };
 		7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */; };
-		7112028625F8CF9D004A3AA5 /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */; };
 		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
 		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
 		711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */; };
@@ -123,7 +122,6 @@
 		7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZCompoundButtonController.swift; path = ../../../Demo/Components/Basic/ZCompoundButtonController.swift; sourceTree = "<group>"; };
 		7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewController.swift; path = ../../../Demo/Components/Basic/ZBadgeViewController.swift; sourceTree = "<group>"; };
 		7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewComponent.swift; path = ../../../Demo/Components/Basic/ZBadgeViewComponent.swift; sourceTree = "<group>"; };
-		7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZToastComponent.swift; sourceTree = "<group>"; };
 		711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSnackBarComponent.swift; sourceTree = "<group>"; };
@@ -202,6 +200,8 @@
 		71A2468A25E798ED0049ABB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewComponent.swift; sourceTree = "<group>"; };
 		71C875842643A03300A06367 /* ZCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewController.swift; sourceTree = "<group>"; };
+		71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-UIBase.debug.xcconfig"; path = "Target Support Files/Pods-UIBase/Pods-UIBase.debug.xcconfig"; sourceTree = "<group>"; };
+		71D82E782681C009003508B6 /* Pods-UIBase.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-UIBase.release.xcconfig"; path = "Target Support Files/Pods-UIBase/Pods-UIBase.release.xcconfig"; sourceTree = "<group>"; };
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
 		71F543E325E5054900AEB07A /* ZButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonController.swift; sourceTree = "<group>"; };
@@ -231,7 +231,6 @@
 				71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */,
 				716A918D264D237000C82B0D /* UIBase.framework in Frameworks */,
 				71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */,
-				7112028625F8CF9D004A3AA5 /* SwiftSVG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +331,7 @@
 				7182AECD25CCE9E500B0F1D3 /* Demo */,
 				7182AECC25CCE9E500B0F1D3 /* Products */,
 				71903B8625E0B87B00437575 /* Frameworks */,
+				71D82E792681C009003508B6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -370,12 +370,21 @@
 		71903B8625E0B87B00437575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7112028525F8CF9D004A3AA5 /* SwiftSVG.framework */,
 				71789F4925E8BF69004BA696 /* SwiftReflection.framework */,
 				71A2468025E78CDF0049ABB0 /* SnapKit.framework */,
 				7128763F25E61D980054A74B /* UIBase.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71D82E792681C009003508B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */,
+				71D82E782681C009003508B6 /* Pods-UIBase.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Library/Pods;
 			sourceTree = "<group>";
 		};
 		71F543DA25E4DA5800AEB07A /* View */ = {
@@ -787,6 +796,7 @@
 		};
 		7182AED425CCE9E500B0F1D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -802,6 +812,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"FSPagerView\"",
+					"-framework",
+					"\"JXSegmentedView\"",
+					"-framework",
+					"\"SwiftSVG\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -813,6 +831,7 @@
 		};
 		7182AED525CCE9E500B0F1D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D82E782681C009003508B6 /* Pods-UIBase.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -827,6 +846,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"FSPagerView\"",
+					"-framework",
+					"\"JXSegmentedView\"",
+					"-framework",
+					"\"SwiftSVG\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

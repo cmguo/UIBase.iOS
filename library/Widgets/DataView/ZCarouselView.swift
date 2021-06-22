@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import FSPagerView
 
-@objc public protocol ZCarouselViewDataSource {
+@objc public protocol ZCarouselViewDataSource : NSObjectProtocol {
     
     func numberOfItems(in carouselView: ZCarouselView) -> Int
     @objc optional func carouselView(_ carouselView: ZCarouselView, textForItemAt index: Int) -> String
@@ -15,21 +16,21 @@ import Foundation
 
 }
 
-@objc public protocol ZCarouselViewDelegate {
+@objc public protocol ZCarouselViewDelegate : NSObjectProtocol {
     
     @objc optional func carouselView(_ carouselView: ZCarouselView, willSlideFrom index: Int)
     @objc optional func carouselView(_ carouselView: ZCarouselView, didSlideTo index: Int)
 
 }
 
-public class ZCarouselView : FSPagerView {
+public class ZCarouselView : UIView {
     
     open weak var dataSource2: ZCarouselViewDataSource? = nil {
         didSet {
             _dataSource = dataSource2 == nil ? nil : ZFSPagerViewDataSource(dataSource2!)
-            super.dataSource = _dataSource
-            super.isInfinite = isInfinite // reload
-            _pageControl.numberOfPages = _dataSource?.numberOfItems(in: self) ?? 0
+            _pagerView.dataSource = _dataSource
+            _pagerView.isInfinite = _pagerView.isInfinite // reload
+            _pageControl.numberOfPages = _dataSource?.numberOfItems(in: _pagerView) ?? 0
         }
     }
     
@@ -45,32 +46,33 @@ public class ZCarouselView : FSPagerView {
     }
     
     open var slideDirection: SlideDirection {
-        get { SlideDirection(rawValue: scrollDirection.rawValue)! }
-        set { scrollDirection = ScrollDirection(rawValue: newValue.rawValue)! }
+        get { SlideDirection(rawValue: _pagerView.scrollDirection.rawValue)! }
+        set { _pagerView.scrollDirection = FSPagerView.ScrollDirection(rawValue: newValue.rawValue)! }
     }
     
     open var slideInterval: CGFloat {
-        get { automaticSlidingInterval }
-        set { automaticSlidingInterval = newValue }
+        get { _pagerView.automaticSlidingInterval }
+        set { _pagerView.automaticSlidingInterval = newValue }
     }
     
-    open override var itemSize: CGSize {
-        didSet {}
+    open var itemSize: CGSize {
+        get { _pagerView.itemSize }
+        set { _pagerView.itemSize = itemSize }
     }
     
     open var itemSpacing: CGFloat {
-        get { interitemSpacing }
-        set { interitemSpacing = newValue }
+        get { _pagerView.interitemSpacing }
+        set { _pagerView.interitemSpacing = newValue }
     }
     
     open var manualSlidable: Bool {
-        get { isScrollEnabled }
-        set { isScrollEnabled = newValue }
+        get { _pagerView.isScrollEnabled }
+        set { _pagerView.isScrollEnabled = newValue }
     }
     
     open var cyclic: Bool {
-        get { isInfinite }
-        set { isInfinite = newValue }
+        get { _pagerView.isInfinite }
+        set { _pagerView.isInfinite = newValue }
     }
     
     public enum SlideAnimType: Int, RawRepresentable, CaseIterable {
@@ -87,7 +89,7 @@ public class ZCarouselView : FSPagerView {
     
     open var slideAnimType: SlideAnimType? = nil {
         didSet {
-            transformer = slideAnimType == nil ? nil : FSPagerViewTransformer(type: FSPagerViewTransformerType(rawValue: slideAnimType!.rawValue)!)
+            _pagerView.transformer = slideAnimType == nil ? nil : FSPagerViewTransformer(type: FSPagerViewTransformerType(rawValue: slideAnimType!.rawValue)!)
         }
     }
     
@@ -133,6 +135,7 @@ public class ZCarouselView : FSPagerView {
     
     /* private properties */
     
+    private let _pagerView = FSPagerView()
     private var _dataSource: FSPagerViewDataSource? = nil
     private var _delegate = ZFSPagerViewDelegate()
 
@@ -143,9 +146,10 @@ public class ZCarouselView : FSPagerView {
     public init(style: ZCarouselViewStyle = .init()) {
         _style = style
         super.init(frame: .zero)
-        super.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "ZCarouselView")
-        super.delegate = _delegate
-        
+        _pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "ZCarouselView")
+        _pagerView.delegate = _delegate
+        addSubview(_pagerView)
+
         _pageControl.hidesForSinglePage = true
         addSubview(_pageControl)
     }
@@ -156,6 +160,7 @@ public class ZCarouselView : FSPagerView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
+        _pagerView.frame = bounds
         _pageControl.frame = bounds.bottomCenterPart(ofSize: CGSize(width: bounds.width, height: 16))
     }
 }
@@ -170,14 +175,14 @@ class ZFSPagerViewDataSource : NSObject, FSPagerViewDataSource {
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return dataSource.numberOfItems(in: pagerView as! ZCarouselView)
+        return dataSource.numberOfItems(in: pagerView.superview as! ZCarouselView)
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "ZCarouselView", at: index)
-        let image = dataSource.carouselView(pagerView as! ZCarouselView, imageForItemAt: index)
+        let image = dataSource.carouselView(pagerView.superview as! ZCarouselView, imageForItemAt: index)
         cell.imageView?.image = image
-        if let text = dataSource.carouselView?(pagerView as! ZCarouselView, textForItemAt: index) {
+        if let text = dataSource.carouselView?(pagerView.superview as! ZCarouselView, textForItemAt: index) {
             cell.textLabel?.text = text
         }
         return cell
@@ -190,14 +195,14 @@ class ZFSPagerViewDelegate : NSObject, FSPagerViewDelegate {
     var delegate: ZCarouselViewDelegate? = nil
     
     func pagerViewWillBeginDragging(_ pagerView: FSPagerView) {
-        delegate?.carouselView?(pagerView as! ZCarouselView, willSlideFrom: pagerView.currentIndex)
+        delegate?.carouselView?(pagerView.superview as! ZCarouselView, willSlideFrom: pagerView.currentIndex)
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
-        if let carouselView = pagerView as? ZCarouselView {
+        if let carouselView = pagerView.superview as? ZCarouselView {
             carouselView._pageControl.currentPage = pagerView.currentIndex
             delegate?.carouselView?(carouselView, didSlideTo: pagerView.currentIndex)
         }

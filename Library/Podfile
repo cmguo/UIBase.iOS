@@ -1,0 +1,15 @@
+# Uncomment the next line to define a global platform for your project
+
+platform :ios, '10.0'
+
+target 'UIBase' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for UIBase
+
+  pod 'SwiftSVG', :path => '../../ThirdPartyiOS/SwiftSVG'
+  pod 'FSPagerView', :path => '../../ThirdPartyiOS/FSPagerView'
+  pod 'JXSegmentedView', :path => '../../ThirdPartyiOS/JXSegmentedView'
+
+end
