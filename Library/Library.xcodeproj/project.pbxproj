@@ -867,7 +867,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34E19CA11A875072B65C5BC7 /* Pods-UIBase.debug.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -896,7 +895,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F1B588CBC901C1B6ADE7ED77 /* Pods-UIBase.release.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
