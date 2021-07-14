@@ -1,0 +1,24 @@
+stages:
+  - build
+
+build-job:
+  stage: build
+  except:
+    - tags
+    - /^publish/.*/
+  before_script:
+    - echo "Preparing step of building ..."
+    - pwd
+    - ./prepare.sh -u
+    - echo "Prepare success"
+  script:
+    - echo "Start building mars ..."
+    - pwd
+    - ./build.sh ${flags}
+    - echo "Build success"
+    - echo "Start to publish to pod Repository"
+    - pwd
+    - /bin/ls -a
+    - ./publish.sh -s
+    - echo "Publish success"
+  retry: 2
