@@ -13,16 +13,16 @@ public class ZActivityViewStyle : UIViewStyle {
     public var itemPaddingX: CGFloat = 16
     public var itemPaddingY: CGFloat = 12
     public var itemPadding: CGFloat = 2
-    public var buttonApperance = ZButtonAppearance(type: .textLink, size: .thin)
+    public var buttonApperance = ZButtonAppearance(.textLinkThin,
+                                                     textColor: StateListColor(singleColor: .bluegrey_700),
+                                                     iconPosition: .Top,
+                                                     height: 66,
+                                                     textSize: 12,
+                                                     iconSize: 40,
+                                                     iconPadding: 8).normalized()
 
     public override init() {
         super.init()
-        buttonApperance.typeStyle.textColor = StateListColor(singleColor: .bluegrey_700)
-        buttonApperance.typeStyle.iconPosition = .Top
-        buttonApperance.sizeStyle.height = 66
-        buttonApperance.sizeStyle.textSize = 12
-        buttonApperance.sizeStyle.iconSize = 40
-        buttonApperance.sizeStyle.iconPadding = 8
     }
 
 }

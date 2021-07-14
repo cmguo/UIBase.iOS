@@ -16,12 +16,12 @@ public class ZActionSheetStyle : UIViewStyle {
     public var titlePadding: CGFloat = 12
     public var textAppearance = TextAppearance.Head3
     public var textAppearance2 = TextAppearance.Body_Small
-    public var buttonApperance = ZButtonAppearance(type: .textLink, size: .middle)
+    public var buttonApperance = ZButtonAppearance(.textLinkMiddle,
+                                                     textColor: .bluegrey_900_selected_disabled,
+                                                     height: 44,
+                                                     radius: 0).normalized()
 
     public override init() {
         super.init()
-        buttonApperance.typeStyle.textColor = .bluegrey_900_selected_disabled
-        buttonApperance.sizeStyle.height = 44
-        buttonApperance.sizeStyle.radius = 0
     }
 }

@@ -189,9 +189,9 @@ public class ZDialog : UIView {
             _checkBox.sizeToFit()
             _checkBox.frame = frame.cutBottom(_style.checkBoxPadding + _checkBox.bounds.height).bottomCenterPart(ofSize: _checkBox.bounds.size)
         }
-        var buttonsFrame = frame.cutBottom(_style.moreButtonApperance.sizeStyle.height * CGFloat(moreButtons.count))
+        var buttonsFrame = frame.cutBottom(_style.moreButtonApperance.height! * CGFloat(moreButtons.count))
         for b in _moreButtons {
-            b.frame = buttonsFrame.cutTop(_style.moreButtonApperance.sizeStyle.height)
+            b.frame = buttonsFrame.cutTop(_style.moreButtonApperance.height!)
         }
         buttonsFrame = frame.cutBottom(_cancelButton.bounds.height)
         if cancelButton != nil {
@@ -287,7 +287,7 @@ public class ZDialog : UIView {
         }
         size.height += (_contentView == nil ? _style.buttonPadding : _style.buttonPadding2) +
             _cancelButton.bounds.height
-        size.height += _style.moreButtonApperance.sizeStyle.height * CGFloat(moreButtons.count)
+        size.height += _style.moreButtonApperance.height! * CGFloat(moreButtons.count)
         if checkBoxText != nil {
             size.height += _style.checkBoxPadding + _checkBox.bounds.height
         }

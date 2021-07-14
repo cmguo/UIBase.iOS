@@ -9,7 +9,6 @@ import Foundation
 
 public class ZCarouselViewStyle : UIViewStyle {
     
-        
     public override init() {
         super.init()
     }

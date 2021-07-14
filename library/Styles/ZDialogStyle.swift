@@ -25,12 +25,12 @@ public class ZDialogStyle : UIViewStyle {
     public var bottomPadding: CGFloat = 24
     public var textAppearance = TextAppearance.Head2
     public var textAppearance2 = TextAppearance.Body_Middle
-    public var moreButtonApperance = ZButtonAppearance(type: .textLink, size: .middle)
+    public var moreButtonApperance = ZButtonAppearance(.textLinkMiddle,
+                                                         textColor: .bluegrey_900_selected_disabled,
+                                                         height: 48,
+                                                         radius: 0).normalized()
 
     public override init() {
         super.init()
-        moreButtonApperance.typeStyle.textColor = .bluegrey_900_selected_disabled
-        moreButtonApperance.sizeStyle.height = 48
-        moreButtonApperance.sizeStyle.radius = 0
     }
 }

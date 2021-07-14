@@ -86,21 +86,21 @@ public class ZTextInput : ZTextView {
     public override func layoutSubviews() {
         var frame = bounds
         frame.inset(_style.padding)
-        let sizeStyle = _style.buttonAppearance.sizeStyle
+        let buttonAppearance = _style.buttonAppearance
         if maxWordCount > 0 {
             let size = _wordCountLabel.bounds.size
             if singleLine {
-                frame.height2 = sizeStyle.height
-                _wordCountLabel.frame = frame.cutRight(size.width + sizeStyle.iconPadding).rightCenterPart(ofSize: size)
+                frame.height2 = buttonAppearance.height!
+                _wordCountLabel.frame = frame.cutRight(size.width + buttonAppearance.iconPadding!).rightCenterPart(ofSize: size)
             } else {
-                _wordCountLabel.frame = frame.cutBottom(size.height + sizeStyle.iconPadding).rightBottomPart(ofSize: size)
+                _wordCountLabel.frame = frame.cutBottom(size.height + buttonAppearance.iconPadding!).rightBottomPart(ofSize: size)
             }
         }
         if leftButton != nil {
-            _leftButton.frame = frame.cutLeft(sizeStyle.iconSize + sizeStyle.iconPadding).leftTopPart(ofSize: _leftButton.bounds.size)
+            _leftButton.frame = frame.cutLeft(buttonAppearance.iconSize! + buttonAppearance.iconPadding!).leftTopPart(ofSize: _leftButton.bounds.size)
         }
         if rightButton != nil {
-            _rightButton.frame = frame.cutRight(sizeStyle.iconSize + sizeStyle.iconPadding).rightTopPart(ofSize: _rightButton.bounds.size)
+            _rightButton.frame = frame.cutRight(buttonAppearance.iconSize! + buttonAppearance.iconPadding!).rightTopPart(ofSize: _rightButton.bounds.size)
         }
         //_placeholderLabel.frame = frame
     }
@@ -144,20 +144,20 @@ public class ZTextInput : ZTextView {
     
     private func syncPadding() {
         var padding = _style.padding
-        let sizeStyle = _style.buttonAppearance.sizeStyle
+        let buttonAppearance = _style.buttonAppearance
         if leftButton != nil {
-            padding.left += sizeStyle.iconSize + sizeStyle.iconPadding
+            padding.left += buttonAppearance.iconSize! + buttonAppearance.iconPadding!
         }
         if rightButton != nil {
-            padding.right += sizeStyle.iconSize + sizeStyle.iconPadding
+            padding.right += buttonAppearance.iconSize! + buttonAppearance.iconPadding!
         }
         if maxWordCount > 0 {
             _wordCountLabel.sizeToFit()
             let size = _wordCountLabel.bounds.size
             if singleLine {
-                padding.right += size.width + sizeStyle.iconPadding
+                padding.right += size.width + buttonAppearance.iconPadding!
             } else {
-                padding.bottom += size.height + sizeStyle.iconPadding
+                padding.bottom += size.height + buttonAppearance.iconPadding!
             }
         }
         textContainerInset = padding

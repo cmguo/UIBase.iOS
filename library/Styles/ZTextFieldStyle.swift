@@ -12,8 +12,8 @@ public class ZTextFieldStyle : UITextFieldStyle {
     public var height: CGFloat = 32
 
     public var buttonAppearance = ZButtonAppearance(
-        type: .init(textColor: .red_600_disabled, backgroundColor: .clear),
-        size: .init(height: 32, radius: 0, padding: 5, textSize: 10, iconSize: 12, iconPadding: 0))
+        textColor: .red_600_disabled, backgroundColor: .clear,
+        height: 32, radius: 0, padding: 5, textSize: 10, iconSize: 12, iconPadding: 0)
 
     public override init() {
         super.init()

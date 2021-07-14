@@ -40,15 +40,15 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         @objc var loading = false
         
         @objc static let _buttonSize = ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
-        @objc static let _buttonSizeStyle: NSObject = EnumStyle(Styles.self, "buttonSize", ZButton.ButtonSize.self)
+        @objc static let _buttonSizeStyle: NSObject = EnumStyle(Styles.self, "buttonSize", ZButtonAppearance.ButtonSize.self)
         @objc var buttonSize = ButtonSize.Large
         
         @objc static let _widthMode = ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
-        @objc static let _widthModeStyle: NSObject = EnumStyle(Styles.self, "widthMode", ZButton.ButtonWidth.self)
+        @objc static let _widthModeStyle: NSObject = EnumStyle(Styles.self, "widthMode", ZButtonAppearance.ButtonWidth.self)
         @objc var widthMode = ButtonWidth.WrapContent
         
         @objc static let _iconPosition = ["图标位置", "更改图标位置，可以在文字上下或者左右"]
-        @objc static let _iconPositionStyle: NSObject = EnumStyle(Styles.self, "iconPosition", ZButton.IconPosition.self)
+        @objc static let _iconPositionStyle: NSObject = EnumStyle(Styles.self, "iconPosition", ZButtonAppearance.IconPosition.self)
         @objc var iconPosition = IconPosition.Left
         
         @objc static let _icon = ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
@@ -62,21 +62,21 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["<button>"])
         @objc var content: Any? = nil
         
-        var buttonSize2: ZButton.ButtonSize {
-            get { ZButton.ButtonSize.init(rawValue: buttonSize.rawValue)! }
+        var buttonSize2: ZButtonAppearance.ButtonSize {
+            get { ZButtonAppearance.ButtonSize.init(rawValue: buttonSize.rawValue)! }
         }
 
-        var widthMode2: ZButton.ButtonWidth {
-            get { ZButton.ButtonWidth.init(rawValue: widthMode.rawValue)! }
+        var widthMode2: ZButtonAppearance.ButtonWidth {
+            get { ZButtonAppearance.ButtonWidth.init(rawValue: widthMode.rawValue)! }
         }
 
-        var iconPosition2: ZButton.IconPosition {
-            get { ZButton.IconPosition.init(rawValue: iconPosition.rawValue)! }
+        var iconPosition2: ZButtonAppearance.IconPosition {
+            get { ZButtonAppearance.IconPosition.init(rawValue: iconPosition.rawValue)! }
         }
     }
     
     class Model : ViewModel {
-        let types = ZButton.ButtonType.allCases
+        let types = ZButtonAppearance.ButtonType.allCases
     }
     
     private let styles = Styles()

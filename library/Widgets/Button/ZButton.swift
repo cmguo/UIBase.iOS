@@ -10,65 +10,59 @@ import Foundation
 @IBDesignable
 public class ZButton : UIButton
 {
-    public enum ButtonType : CaseIterable {
-        case Primitive
-        case Secondary
-        case Tertiary
-        case Danger
-        case TextLink
-    }
-    
-    public enum ButtonSize : Int, RawRepresentable, CaseIterable {
-        case Large
-        case Middle
-        case Small
-        case Thin
-    }
-    
-    public enum ButtonWidth : Int, RawRepresentable, CaseIterable {
-        case WrapContent
-        case MatchParent
-    }
-    
-    public enum IconPosition : Int, RawRepresentable, CaseIterable {
-        case Left
-        case Top
-        case Right
-        case Bottom
-    }
     
     // MARK: - Public variables
     
-    public var buttonType2: ButtonType {
-        didSet {
-            if oldValue == buttonType2 {
+    // store value from style or set manually, not affect by value in ButtonAppearance
+    public var buttonType2: ZButtonAppearance.ButtonType {
+        get { return _appearance.buttonType! }
+        set {
+            if newValue == _appearance.buttonType {
                 return
             }
-            self.syncAppearance(true, false)
-        }
-    }
-    public var buttonSize: ButtonSize {
-        didSet {
-            if oldValue == buttonSize {
-                return
+            _appearance.buttonType = newValue
+            if buttonAppearance == nil {
+                self.syncAppearance(newValue.value.fill(_appearance))
             }
-            self.syncAppearance(false, true)
         }
     }
     
-    public var iconPosition = IconPosition.Left {
-        didSet {
-            if oldValue == iconPosition {
+    // store value from style or set manually, not affect by value in ButtonAppearance
+    public var buttonSize: ZButtonAppearance.ButtonSize {
+        get { return _appearance.buttonSize! }
+        set {
+            if newValue == _appearance.buttonSize {
                 return
             }
+            _appearance.buttonSize = newValue
+            if buttonAppearance == nil {
+                self.syncAppearance(newValue.value.fill(_appearance))
+            }
+        }
+    }
+    
+    public var iconPosition : ZButtonAppearance.IconPosition {
+        get { return _appearance.iconPosition! }
+        set {
+            if newValue == _appearance.iconPosition {
+                return
+            }
+            _appearance.iconPosition = newValue
             self.syncSize()
             self.setNeedsLayout()
         }
     }
     
-    public var buttonAppearance: ZButtonAppearance? = nil {
-        didSet {
-            self.syncAppearance()
+    public var buttonAppearance: ZButtonAppearance? {
+        get { return _buttonAppearance }
+        set {
+            if _buttonAppearance === newValue {
+                return
+            }
+            _buttonAppearance = newValue
+            if let buttonAppearance = _buttonAppearance {
+                self.syncAppearance(buttonAppearance.fill(_appearance))
+            }
         }
     }
     
@@ -162,8 +156,8 @@ public class ZButton : UIButton
     open var indicator: UIView & IndicatorProtocol = MaterialLoadingIndicator()
 
     // Private properties
-    var typeStyles: ZButtonTypeStyle
-    var sizeStyles: ZButtonSizeStyle
+    var _buttonAppearance : ZButtonAppearance? = nil
+    var _appearance = ZButtonAppearance(iconPosition: .Left)
     
     open func postHandleIcon() {
     }
@@ -183,18 +177,17 @@ public class ZButton : UIButton
      - Parameter text:      the title of the button.
      */
     public init(style: ZButtonStyle = .init()) {
-        buttonAppearance = style.appearance
-        buttonType2 = style.buttonType ?? .Primitive
-        buttonSize = style.buttonSize ?? .Large
-        typeStyles = style.appearance?.typeStyle ?? ZButton.TypeStyles[style.buttonType ?? .Primitive]!
-        sizeStyles = style.appearance?.sizeStyle ?? ZButton.SizeStyles[style.buttonSize ?? .Large]!
-        iconPosition = typeStyles.iconPosition
-        
+        _appearance.buttonType = style.buttonType ?? .Primitive
+        _appearance.buttonSize = style.buttonSize ?? .Large
+        _buttonAppearance = style.appearance
+        _ = _appearance.normalized()
+        _ = style.fill(_appearance)
+
         super.init(frame: CGRect.zero)
         //translatesAutoresizingMaskIntoConstraints = false
         
         self.contentMode = .redraw
-        self.syncAppearance()
+        self.syncAppearance(511)
 
         // Set the title of the button
         if let text = style.text {
@@ -212,6 +205,12 @@ public class ZButton : UIButton
             }
         }
         self.syncSize()
+    }
+    
+    convenience init(styler: (ZButtonStyle) -> Void) {
+        let style = ZButtonStyle()
+        styler(style)
+        self.init(style: style)
     }
     
     required init?(coder: NSCoder) {
@@ -254,56 +253,55 @@ public class ZButton : UIButton
     
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         syncStates()
-        backgroundColors = typeStyles.backgroundColor
+        backgroundColors = _appearance.backgroundColor!
     }
     
     /* private */
     
     fileprivate func applyStyle(_ style: ZButtonStyle) {
-        buttonType2 = style.buttonType ?? .Primitive
-        buttonSize = style.buttonSize ?? .Large
-        buttonAppearance = style.appearance
+        var change = 0
+        if let appearance = style.appearance {
+            _buttonAppearance = appearance
+            change |= appearance.fill(_appearance)
+        }
+        change |= style.fill(_appearance)
         self.text = style.text
         self.icon = style.icon
+        syncAppearance(change)
     }
     
-    private static let TypeStyles: [ButtonType: ZButtonTypeStyle] = [
-        .Primitive: .primitive,
-        .Secondary: .secondary,
-        .Tertiary: .tertiary,
-        .Danger: .danger,
-        .TextLink: .textLink
-    ]
-    
-    private static let SizeStyles: [ButtonSize: ZButtonSizeStyle] = [
-        .Large: .large,
-        .Middle: .middle,
-        .Small: .small,
-        .Thin: .thin
-    ]
     
     private var imageSize = CGSize.zero
     private var titleSize = CGSize.zero
     
-    fileprivate func syncAppearance(_ type: Bool = true, _ size: Bool = true) {
-        typeStyles = buttonAppearance?.typeStyle ?? ZButton.TypeStyles[buttonType2]!
-        sizeStyles = buttonAppearance?.sizeStyle ?? ZButton.SizeStyles[buttonSize]!
-        if type {
-            iconPosition = typeStyles.iconPosition
-            self.titleColors = typeStyles.textColor
-            self.backgroundColors = typeStyles.backgroundColor
-            indicator.color = typeStyles.textColor.normalColor()
-        }
-        if size {
-            self.layer.cornerRadius = sizeStyles.radius
-            self.titleLabel?.font = UIFont.systemFont(ofSize: sizeStyles.textSize, weight: .semibold)
-            self.contentEdgeInsets = UIEdgeInsets(top: 0, left: sizeStyles.padding, bottom: 0, right: sizeStyles.padding)
-            let oldSize = imageSize
-            imageSize = CGSize(width: sizeStyles.iconSize, height: sizeStyles.iconSize)
+    fileprivate func syncAppearance(_ change: Int) {
+        if ZButtonAppearance.textColorChanged(change) {
+            self.titleColors = _appearance.textColor!
+            indicator.color = _appearance.textColor!.normalColor()
             if icon != nil {
                 syncStates()
+            }
+        }
+        if ZButtonAppearance.backgroundColorChanged(change) {
+            self.backgroundColors = _appearance.backgroundColor!
+        }
+        if ZButtonAppearance.radiusChanged(change) {
+            self.layer.cornerRadius = _appearance.radius!
+        }
+        if ZButtonAppearance.textSizeChanged(change) {
+            self.titleLabel?.font = UIFont.systemFont(ofSize: _appearance.textSize!, weight: .semibold)
+        }
+        if ZButtonAppearance.paddingChanged(change) {
+            self.contentEdgeInsets = UIEdgeInsets(top: 0, left: _appearance.padding!, bottom: 0, right: _appearance.padding!)
+        }
+        if ZButtonAppearance.iconSizeChanged(change) {
+            let oldSize = imageSize
+            imageSize = CGSize(width: _appearance.iconSize!, height: _appearance.iconSize!)
+            if icon != nil {
                 imageView?.updateSvgScale(oldSize, imageSize)
             }
+        }
+        if ZButtonAppearance.sizeChanged(change) {
             self.syncSize()
         }
     }
@@ -335,7 +333,7 @@ public class ZButton : UIButton
             if let url = map["icon"] as? URL {
                 icon = url
             }
-            if let pos = map["iconPosition"] as? IconPosition {
+            if let pos = map["iconPosition"] as? ZButtonAppearance.IconPosition {
                 iconPosition = pos
             }
         }
@@ -355,7 +353,7 @@ public class ZButton : UIButton
             if (iconPosition == .Left || iconPosition == .Right) {
                 minSize.width += imageSize.width
                 if text != nil {
-                    minSize.width += sizeStyles.iconPadding
+                    minSize.width += _appearance.iconPadding!
                 }
                 if imageSize.height > minSize.height {
                     minSize.height = imageSize.height
@@ -363,23 +361,23 @@ public class ZButton : UIButton
             } else {
                 minSize.height += imageSize.height
                 if text != nil {
-                    minSize.height += sizeStyles.iconPadding
+                    minSize.height += _appearance.iconPadding!
                 }
                 if imageSize.width > minSize.width {
                     minSize.width = imageSize.width
                 }
             }
         }
-        let size = CGSize(width: minSize.width + sizeStyles.padding * 2, height: sizeStyles.height)
+        let size = CGSize(width: minSize.width + _appearance.padding! * 2, height: _appearance.height!)
         self.bounds.size = size
         sizeConstraint = updateSizeConstraint(sizeConstraint, size, widthRange: 1, heightRange: 1)
     }
     
     fileprivate func syncStates() {
-        if self.icon != nil && sizeStyles.textSize > 0 {
+        if self.icon != nil && _appearance.textSize! > 0 {
             // TODO: split with title color, ZTextInput icon
             //self.imageView?.setIconColor(color: currentTitleColor)
-            self.imageView?.setIconColor(color: typeStyles.textColor.color(for: state))
+            self.imageView?.setIconColor(color: _appearance.textColor!.color(for: state))
         }
     }
     
@@ -480,12 +478,12 @@ public extension ZButton {
 //        return self
 //    }
     
-    func buttonType(_ value: ZButton.ButtonType) -> Self {
+    func buttonType(_ value: ZButtonAppearance.ButtonType) -> Self {
         self.buttonType2 = value
         return self
     }
     
-    func buttonSize(_ value: ZButton.ButtonSize) -> Self {
+    func buttonSize(_ value: ZButtonAppearance.ButtonSize) -> Self {
         self.buttonSize = value
         return self
     }

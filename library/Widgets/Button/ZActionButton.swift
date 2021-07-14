@@ -29,7 +29,7 @@ public class ZActionButton : ZButton {
             let bounds = imageView!.bounds
             layer.addSublayer(_wrapLayer)
             _wrapLayer.frame = bounds
-            _wrapLayer.cornerRadius = sizeStyles.iconSize / 2
+            _wrapLayer.cornerRadius = _appearance.iconSize! / 2
             for l in layers {
                 layer.addSublayer(l)
                 if let layers2 = l.sublayers {

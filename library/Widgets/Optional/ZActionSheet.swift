@@ -103,7 +103,7 @@ public class ZActionSheet : UIView {
             _spplitter.frame = .zero
         }
         for b in _buttons {
-            b.frame = frame.cutTop(_style.buttonApperance.sizeStyle.height)
+            b.frame = frame.cutTop(_style.buttonApperance.height!)
         }
     }
     
@@ -125,7 +125,7 @@ public class ZActionSheet : UIView {
         if size.height > 0 {
             size.height += _style.paddingY + 1 + _style.titlePadding // spplitter
         }
-        size.height += _style.buttonApperance.sizeStyle.height * CGFloat(buttons.count)
+        size.height += _style.buttonApperance.height! * CGFloat(buttons.count)
         _constraint = updateSizeConstraint(_constraint, size, widthRange: -1)
     }
     

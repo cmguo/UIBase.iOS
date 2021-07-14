@@ -33,14 +33,13 @@ public class ZListItemStyle : UIViewStyle {
     public var iconSize2: CGFloat = 40
     public var iconPadding2: CGFloat = 8
 
-    public var buttonAppearence = ZButtonAppearance(type: ZButtonTypeStyle(textColor: .bluegrey_700_disabled, backgroundColor: .clear, iconPosition: .Right), size: .middle)
+    public var buttonAppearence = ZButtonAppearance(.middle, textColor: .bluegrey_700_disabled, backgroundColor: .clear, iconPosition: .Right, radius: 0)
 
     public var textFieldStyle = ZTextFieldStyle()
     
     public override init() {
         super.init()
         backgroundColor = .bluegrey_00
-        buttonAppearence.sizeStyle.radius = 0
     }
     
 }
