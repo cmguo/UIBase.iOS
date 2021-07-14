@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 public enum ComponentGroup: Int {
-    case Test
     case Basic
     case DataView
     case Indicator
@@ -19,12 +18,12 @@ public enum ComponentGroup: Int {
     case Other
     case Resources
     case Styles
-
+    case Test
     
     private static let Titles = [
-        "测试分组",
         "基础交互控件", "数据展示控件", "工具提示控件", "数值输入控件",
-        "导航跳转控件", "菜单选择控件", "其他控件", "内建资源", "内建样式"
+        "导航跳转控件", "菜单选择控件", "其他控件", "内建资源", "内建样式",
+        "测试分组",
     ]
     
     public func description() -> String {

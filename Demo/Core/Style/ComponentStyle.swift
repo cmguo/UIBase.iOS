@@ -36,7 +36,7 @@ public class ComponentStyle : NSObject
         self.values = values
         if let descs = cls.value(forKey: "_\(self.name)") as? NSArray {
             self.title = descs[0] as! String
-            self.desc = "\(self.name): \(self.valueType)\n\(descs[1] as! String)"
+            self.desc = "\(self.name): \(self.valueType)  \(descs[1] as! String)"
         } else {
             self.title = self.name.capitalizingFirstLetter()
             self.desc = "\(self.name): \(self.valueType)"
@@ -56,7 +56,7 @@ public class ComponentStyle : NSObject
         })
         if let descs = cls.value(forKey: "_\(self.name)") as? NSArray {
             self.title = descs[0] as! String
-            self.desc = "\(self.name): \(self.valueType)\n\(descs[1] as! String)"
+            self.desc = "\(self.name): \(self.valueType)  \(descs[1] as! String)"
         } else {
             self.title = self.name.capitalizingFirstLetter()
             self.desc = "\(self.name): \(self.valueType)"

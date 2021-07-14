@@ -12,6 +12,7 @@ class DescTableViewCell: StyleTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .lightGray
+        textLabel?.preferredMaxLayoutWidth = 300
     }
     
     required init?(coder: NSCoder) {
@@ -19,7 +20,6 @@ class DescTableViewCell: StyleTableViewCell {
     }
     
     override func setStyle(_ styles: ViewStyles, _ style: ComponentStyle) {
-        textLabel?.numberOfLines = 0
         textLabel?.text = style.desc
     }
     

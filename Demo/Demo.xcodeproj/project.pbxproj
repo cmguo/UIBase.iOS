@@ -19,6 +19,7 @@
 		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
 		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
 		711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */; };
+		712635C0269EB70500C8F6B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2468A25E798ED0049ABB0 /* Assets.xcassets */; };
 		7128762B25E5318B0054A74B /* ObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7128762A25E5318B0054A74B /* ObjectFactory.m */; };
 		7128763625E617CD0054A74B /* ObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7128762925E531720054A74B /* ObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7128764D25E629390054A74B /* ComponentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128764C25E629390054A74B /* ComponentStyle.swift */; };
@@ -559,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716A92322652811A00C82B0D /* UIBase.bundle in Resources */,
+				712635C0269EB70500C8F6B6 /* Assets.xcassets in Resources */,
 				716A90F6264CC50D00C82B0D /* Demo.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
