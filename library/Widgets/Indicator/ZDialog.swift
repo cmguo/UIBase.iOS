@@ -171,13 +171,12 @@ public class ZDialog : UIView {
         if image != nil {
             let isize = _imageView.sizeThatFits(CGSize(width: _style.width, height: .greatestFiniteMagnitude))
             _imageView.frame = frame.cutTop(isize.height)
-        } else {
-            _ = frame.cutTop(_style.imagePadding)
         }
+        _ = frame.cutTop(_style.topPadding)
         _ = frame.cutLeft(_style.paddingX)
         _ = frame.cutRight(_style.paddingX)
         if title != nil {
-            _label.frame = frame.cutTop(_style.titlePadding  + _label.bounds.height).bottomCenterPart(ofSize: _label.bounds.size)
+            _label.frame = frame.cutTop(_label.bounds.height).bottomCenterPart(ofSize: _label.bounds.size)
         }
         if subTitle != nil {
             let tsize = _label2.sizeThatFits(CGSize(width: _style.width - _style.paddingX * 2, height: .greatestFiniteMagnitude))
@@ -268,12 +267,11 @@ public class ZDialog : UIView {
         if image != nil {
             let isize = _imageView.sizeThatFits(CGSize(width: size.width, height: .greatestFiniteMagnitude))
             size.height += isize.height
-        } else {
-            size.height += _style.imagePadding
         }
+        size.height += _style.topPadding
         if title != nil {
             _label.sizeToFit()
-            size.height += _style.titlePadding  + _label.bounds.height
+            size.height += _label.bounds.height
         }
         if subTitle != nil {
             let tsize = _label2.sizeThatFits(CGSize(width: _style.width - _style.paddingX * 2, height: .greatestFiniteMagnitude))
