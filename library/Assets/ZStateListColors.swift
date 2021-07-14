@@ -99,6 +99,11 @@ public extension StateListColor {
         StateColor(.red_600, .STATES_NORMAL)
     ])
     
+    static let static_bluegrey_900_disabled = StateListColor([
+        StateColor(.bluegrey_500, .STATES_DISABLED),
+        StateColor(.static_bluegrey_900, .STATES_NORMAL)
+    ])
+    
     static let transparent_checked_disabled = StateListColor([
         StateColor(.bluegrey_500, .STATES_DISABLED_CHECKED),
         StateColor(.bluegrey_00, .STATES_CHECKED),

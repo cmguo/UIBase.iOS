@@ -250,7 +250,7 @@ extension ZButtonAppearance {
     ]
 
     public static let primitive = ZButtonAppearance(
-        textColor: .bluegrey_900_disabled,
+        textColor: .static_bluegrey_900_disabled,
         backgroundColor: .brand_500_pressed_disabled
     ).seal()
 

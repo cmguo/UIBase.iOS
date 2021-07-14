@@ -458,11 +458,13 @@ public class ZButton : UIButton
 
 public extension ZButton {
     
+    @discardableResult
     func text(_ value: String?) -> Self {
         self.text = value
         return self
     }
     
+    @discardableResult
     func icon(_ value: URL?) -> Self {
         self.icon = value
         return self
@@ -478,16 +480,19 @@ public extension ZButton {
 //        return self
 //    }
     
+    @discardableResult
     func buttonType(_ value: ZButtonAppearance.ButtonType) -> Self {
         self.buttonType2 = value
         return self
     }
     
+    @discardableResult
     func buttonSize(_ value: ZButtonAppearance.ButtonSize) -> Self {
         self.buttonSize = value
         return self
     }
     
+    @discardableResult
     func buttonAppearance(_ value: ZButtonAppearance) -> Self {
         self.buttonAppearance = value
         return self
