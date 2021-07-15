@@ -16,7 +16,7 @@ public class ZListViewStyle : UIViewStyle {
         super.init()
         headerStyle.height = 36
         headerStyle.paddingX = 0
-        headerStyle.textAppearance = TextAppearance(copy: .Secondary).textSize(14)
+        headerStyle.textAppearance = TextAppearance(copy: .Body_Secondary).textSize(14)
     }
 }
 
@@ -27,7 +27,7 @@ public class ZListItemStyle : UIViewStyle {
     public var paddingX: CGFloat = 16
     public var subTextPadding: CGFloat = 16
     public var textAppearance = TextAppearance.Body_Middle
-    public var subTextAppearance = TextAppearance.Secondary
+    public var subTextAppearance = TextAppearance.Body_Secondary
     public var iconSize: CGFloat = 18
     public var iconPadding: CGFloat = 4
     public var iconSize2: CGFloat = 40

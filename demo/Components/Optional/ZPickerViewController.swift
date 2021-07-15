@@ -74,7 +74,7 @@ class ZPickerViewController: ComponentController, ZPickerViewDelegate, ZPanelDel
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
             maker.top.equalToSuperview()
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.bottom.lessThanOrEqualToSuperview().offset(-120)
         }
         views.append(picker)
 
@@ -155,7 +155,7 @@ class ZPickerViewController: ComponentController, ZPickerViewDelegate, ZPanelDel
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
             maker.top.equalToSuperview().offset(20)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.bottom.lessThanOrEqualToSuperview().offset(-120)
         }
     }
 }

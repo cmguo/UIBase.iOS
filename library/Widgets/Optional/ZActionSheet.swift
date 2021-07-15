@@ -69,7 +69,6 @@ public class ZActionSheet : UIView {
         addSubview(_label)
         _label2.textAppearance = _style.textAppearance2
         _label2.numberOfLines = 0
-        _label2.textAlignment = .center
         addSubview(_label2)
         _spplitter.backgroundColor = .bluegrey_100
         addSubview(_spplitter)
@@ -93,8 +92,9 @@ public class ZActionSheet : UIView {
                 .bottomCenterPart(ofSize: _label.bounds.size)
         }
         if subTitle != nil {
-            _label2.frame = frame.cutTop(_label2.bounds.height)
-                .bottomCenterPart(ofSize: _label2.bounds.size)
+            let tsize = _label2.sizeThatFits(CGSize(width: 300.0, height: .greatestFiniteMagnitude))
+            _label2.frame = frame.cutTop(tsize.height)
+                .bottomCenterPart(ofSize: tsize)
         }
         if frame.height < bounds.height {
             _ = frame.cutTop(_style.titlePadding)
@@ -119,8 +119,8 @@ public class ZActionSheet : UIView {
             size.height += _style.titlePadding  + _label.bounds.height
         }
         if subTitle != nil {
-            _label2.sizeToFit()
-            size.height += _label2.bounds.height
+            let tsize = _label2.sizeThatFits(CGSize(width: 300.0, height: .greatestFiniteMagnitude))
+            size.height += tsize.height
         }
         if size.height > 0 {
             size.height += _style.paddingY + 1 + _style.titlePadding // spplitter

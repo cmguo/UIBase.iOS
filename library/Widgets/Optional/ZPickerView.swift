@@ -109,6 +109,7 @@ public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     public override func layoutSubviews() {
+        superview?.layoutSubviews()
         _tableView.frame = bounds
         layoutSelectImage()
     }
@@ -153,7 +154,7 @@ public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
     
     private func tableSize() -> CGSize {
         _tableView.frame.size = UIScreen.main.bounds.size
-        _tableView.layoutSubviews()
+        _tableView.layoutSubviews() // TODO: 
         var width: CGFloat = 0
         for i in 0..<titles.count {
             let w = (_tableView.cellForRow(at: IndexPath(item: i, section: 0)) as! ZPickerCell).width()

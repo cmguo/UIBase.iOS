@@ -22,8 +22,8 @@ class Appearances {
             "Body_Large": .Body_Large,
             "Body_Middle": .Body_Middle,
             "Body_Small": .Body_Small,
-            "Secondary": .Secondary,
-            "Tip": .Tip,
+            "Body_Secondary": .Body_Secondary,
+            "Body_Tip": .Body_Tip,
         ]
     }
     

@@ -7,15 +7,11 @@
 
 import Foundation
 
-public extension UILabel {
-    
-    var textAppearance: TextAppearance {
-        get { return TextAppearance() }
-        set {
-            font = newValue.font
-            textColor = newValue.textColor
-        }
+extension UILabel : TextOwner {
+    public var attributedText2: NSAttributedString? {
+        get { return attributedText }
+        set { attributedText = newValue }
     }
-    
-
+    public var text2: String? { return text }
+    public var font2: UIFont? { return font }
 }

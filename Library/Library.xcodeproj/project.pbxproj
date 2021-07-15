@@ -14,6 +14,7 @@
 		7112029925FA04EC004A3AA5 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029825FA04EC004A3AA5 /* DispatchQueue.swift */; };
 		7112029D25FA1500004A3AA5 /* ZTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112029C25FA1500004A3AA5 /* ZTipView.swift */; };
 		711202A225FA1BA6004A3AA5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202A125FA1BA6004A3AA5 /* String.swift */; };
+		712635E8269FE32700C8F6B6 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712635E7269FE32600C8F6B6 /* NSAttributedString.swift */; };
 		713F6D632646264C0071B232 /* ZListViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D622646264C0071B232 /* ZListViewStyle.swift */; };
 		713F6D67264639DA0071B232 /* ZListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D66264639DA0071B232 /* ZListViewCell.swift */; };
 		713F6D8126467A750071B232 /* ZRadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713F6D8026467A750071B232 /* ZRadioGroup.swift */; };
@@ -144,6 +145,7 @@
 		7112029825FA04EC004A3AA5 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DispatchQueue.swift; path = ../../Library/Extension/DispatchQueue.swift; sourceTree = "<group>"; };
 		7112029C25FA1500004A3AA5 /* ZTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZTipView.swift; path = ../../../Library/Widgets/Indicator/ZTipView.swift; sourceTree = "<group>"; };
 		711202A125FA1BA6004A3AA5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../Library/Extension/String.swift; sourceTree = "<group>"; };
+		712635E7269FE32600C8F6B6 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		713F6D622646264C0071B232 /* ZListViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewStyle.swift; sourceTree = "<group>"; };
 		713F6D66264639DA0071B232 /* ZListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZListViewCell.swift; sourceTree = "<group>"; };
 		713F6D8026467A750071B232 /* ZRadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZRadioGroup.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				7178A1AB25F61936004BA696 /* UIImage.swift */,
 				7178A1C825F63470004BA696 /* CGRect.swift */,
 				7178A1D625F75031004BA696 /* Range.swift */,
+				712635E7269FE32600C8F6B6 /* NSAttributedString.swift */,
 				7178A1D925F85A96004BA696 /* UITextView.swift */,
 				715FC01A263EB2FD005A265C /* UITextField.swift */,
 				717C5C1C26350D1C001A0E12 /* UILabel.swift */,
@@ -675,6 +678,7 @@
 				717C5B68263015E5001A0E12 /* TextAppearance.swift in Sources */,
 				7178A1C925F63470004BA696 /* CGRect.swift in Sources */,
 				711202A225FA1BA6004A3AA5 /* String.swift in Sources */,
+				712635E8269FE32700C8F6B6 /* NSAttributedString.swift in Sources */,
 				7178A1A525F5CC14004BA696 /* MaterialLoadingIndicator.swift in Sources */,
 				7178A19025F5CBE5004BA696 /* UIColor.swift in Sources */,
 				71FF93BE2626F2E80033098B /* ZButtonStyle.swift in Sources */,

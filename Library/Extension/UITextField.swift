@@ -17,14 +17,6 @@ extension UITextField {
         }
     }
     
-    var textAppearance: TextAppearance {
-        get { return TextAppearance() }
-        set {
-            font = newValue.font
-            textColor = newValue.textColor
-        }
-    }
-    
     func addDoneButton(title: String, target: Any, selector: Selector) {
         let toolBar = UIToolbar(frame: CGRect(x: 0.0,
                                               y: 0.0,
@@ -36,4 +28,14 @@ extension UITextField {
         self.inputAccessoryView = toolBar//5
     }
 
+}
+
+
+extension UITextField : TextOwner {
+    public var attributedText2: NSAttributedString? {
+        get { return attributedText }
+        set { attributedText = newValue }
+    }
+    public var text2: String? { return text }
+    public var font2: UIFont? { return font }
 }

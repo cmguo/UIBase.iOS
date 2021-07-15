@@ -181,8 +181,7 @@ class ZTimePickerViewController: ComponentController, ZTimePickerViewDelegate, Z
         picker.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
             maker.trailing.equalToSuperview()
-            maker.top.equalToSuperview().offset(20)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-100)
+            maker.centerY.equalToSuperview()
         }
     }
 }

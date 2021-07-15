@@ -130,7 +130,6 @@ public class ZDialog : UIView {
         _label.numberOfLines = 1
         _label.textAppearance = style.textAppearance
         _label2.numberOfLines = 0
-        _label2.textAlignment = .center
         _label2.textAppearance = style.textAppearance2
         addSubview(_label)
         addSubview(_label2)

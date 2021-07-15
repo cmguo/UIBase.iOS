@@ -16,15 +16,7 @@ public extension UITextView {
             textAppearance = newValue.textAppearance
         }
     }
-    
-    var textAppearance: TextAppearance {
-        get { return textViewStyle.textAppearance }
-        set {
-            font = newValue.font
-            textColor = newValue.textColor
-        }
-    }
-    
+
     func limitWordCount(_ maxWords: Int, _ position: Int) {
         if markedTextRange == nil {
             //DispatchQueue.main.async {
@@ -54,7 +46,16 @@ public extension UITextView {
     }
 
 }
-    
+
+extension UITextView : TextOwner {
+    public var attributedText2: NSAttributedString? {
+        get { return attributedText }
+        set { if let v = newValue { attributedText = v } }
+    }
+    public var text2: String? { return text }
+    public var font2: UIFont? { return font }
+}
+
 public extension UITextView {
     
     @objc func append(image: UIImage, imageSize size: CGSize, altName alt: String?) {

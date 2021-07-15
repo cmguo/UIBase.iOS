@@ -128,8 +128,7 @@ class ZDialogController: ComponentController, ZDialogDelegate {
             ZTipView.toast(view, "面板消失")
             view.addSubview(dialog)
             dialog.snp.makeConstraints { (maker) in
-                maker.leading.equalToSuperview().offset(20)
-                maker.trailing.equalToSuperview().offset(-20)
+                maker.centerX.equalToSuperview()
                 maker.top.equalToSuperview().offset(20)
             }
         }

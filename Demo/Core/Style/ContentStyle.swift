@@ -14,7 +14,7 @@ class ContentStyle: ResourceStyle {
     static let icon_text: UIView = {
         let v = UILabel()
         v.text = "标签"
-        v.textAppearance = TextAppearance(copy: .Secondary).textColor(.blue_600)
+        v.textAppearance = TextAppearance(copy: .Body_Secondary).textColor(.blue_600)
         v.clipsToBounds = true
         v.layer.cornerRadius = 9
         v.backgroundColor = .blue_100

@@ -76,6 +76,9 @@ public class ZButton : UIButton
     
     public var icon: URL? = nil {
         didSet {
+            if icon == oldValue {
+                return
+            }
             if icon?.pathExtension == "svg" {
                 self.imageView?.bounds.size = imageSize
                 self.setImage(UIImage.transparent)
