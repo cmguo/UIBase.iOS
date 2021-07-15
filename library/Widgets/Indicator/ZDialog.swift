@@ -179,7 +179,7 @@ public class ZDialog : UIView {
         }
         if subTitle != nil {
             let tsize = _label2.sizeThatFits(CGSize(width: _style.width - _style.paddingX * 2, height: .greatestFiniteMagnitude))
-            _label2.frame = frame.cutTop((image == nil ? _style.subTitlePadding : _style.subTitlePadding2)  + tsize.height).bottomCenterPart(ofSize: tsize)
+            _label2.frame = frame.cutTop(_style.subTitlePadding + tsize.height).bottomCenterPart(ofSize: tsize)
         }
         // cut from botton
         _ = frame.cutBottom(_style.bottomPadding)
@@ -274,7 +274,7 @@ public class ZDialog : UIView {
         }
         if subTitle != nil {
             let tsize = _label2.sizeThatFits(CGSize(width: _style.width - _style.paddingX * 2, height: .greatestFiniteMagnitude))
-            size.height += (image == nil ? _style.subTitlePadding : _style.subTitlePadding2) + tsize.height
+            size.height += _style.subTitlePadding + tsize.height
         }
         var heightRange = 0
         if let c = _contentView {

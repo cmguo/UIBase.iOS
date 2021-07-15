@@ -23,7 +23,12 @@ public extension TextOwner {
         get { return TextStyle() }
         set {
             textFont = newValue.font
-            lineHeight = newValue.lineHeight
+            if newValue.lineHeight > 0 {
+                lineHeight = newValue.lineHeight
+            }
+            if newValue.lineSpacing > 0 {
+                lineSpacing = newValue.lineSpacing
+            }
             textAlignment2 = newValue.textAlignment
         }
     }
@@ -62,6 +67,13 @@ public extension TextOwner {
             }
             attributedText2 = (attributedText2 ?? NSMutableAttributedString(string: text2 ?? " ", attributes: nil)).set(lineHeight: lineHeight)
             observeIfNeeded()
+        }
+    }
+    
+    var lineSpacing: CGFloat? {
+        get { attributedText2?.paragraphStyle?.lineSpacing }
+        set {
+            setParagraphStyleProperty(newValue, for: \.lineSpacing)
         }
     }
     

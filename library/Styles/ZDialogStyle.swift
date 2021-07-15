@@ -14,8 +14,7 @@ public class ZDialogStyle : UIViewStyle {
     public var paddingX: CGFloat = 24
     public var closePadding: CGFloat = 12
     public var topPadding: CGFloat = 16
-    public var subTitlePadding: CGFloat = 0
-    public var subTitlePadding2: CGFloat = 8 // with image
+    public var subTitlePadding: CGFloat = 8
     public var contentPadding: CGFloat = 16
     public var buttonWidth: CGFloat = 116
     public var buttonPadding: CGFloat = 14
