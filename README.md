@@ -1,14 +1,36 @@
 # ZUiBase.iOS 已经确认的使用 UI 库组件示例
 
-## TextAppearance
-* 支持定义类型
+## 标准色、有状态颜色
 ```swift
-label.textAppearance = .Body_Middle
+// 快速使用标准色
+view.backgroundColor = .bluegrey_100
+// 自定义有状态颜色
+public extension StateListColor {
+    static let blue_100_pressed_disabled = StateListColor([
+        StateColor(.bluegrey_100, .STATES_DISABLED),
+        StateColor(.blue_200, .STATES_PRESSED),
+        StateColor(.blue_100, .STATES_NORMAL)
+    ])
+}
+// 使用有状态颜色
+let buttonAppearance = ZButtonAppearance(.textLinkThin,
+                textColor: .blue_100_pressed_disabled)
 ```
 
-## ZButton
-* 产品已经确认
+## 文字样式
+```swift
+label.textStyle = .Body_Middle // 没有颜色
+label.textAppearance = .Body_Middle // 使用样式中的颜色
+// 也可以分别设置
+label.lineHeight = 30
+label.textBackgroundColor = .red
+label.textAlignment = .center // 注意：原生的 textAlignment 已经被扩展覆盖
+// 同时支持 UILabel、UITextField，UITextView
+textField.lineHeight = 30
+textView.lineHeight = 30
+```
 
+## 按钮
 ```swift
 // 示例1
 let button = ZButton()
@@ -24,7 +46,6 @@ let buttonAppearance = ZButtonAppearance(.textLinkThin,
 ```
 
 ## 下拉菜单
-
 ```swift
 let dropDown = ZDropDown()
 dropDown.titles = model.titles
