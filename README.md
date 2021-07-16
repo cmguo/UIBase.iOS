@@ -17,6 +17,16 @@ let buttonAppearance = ZButtonAppearance(.textLinkThin,
                 textColor: .blue_100_pressed_disabled)
 ```
 
+## 图标资源
+```swift
+// 快速使用图标
+button.icon = .icon_back
+// 使用 UIImageView 加载图标
+imageView.bounds.size = CGSize(20, 20) // SVG 图标根据容器大小自动调整
+imageView.setImage(withURL: .icon_left)
+imageView.setIconColor(.blue_100) // 仅 SVG 图标有效
+```
+
 ## 文字样式
 ```swift
 label.textStyle = .Body_Middle // 没有颜色
