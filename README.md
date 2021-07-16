@@ -33,6 +33,7 @@ label.textStyle = .Body_Middle // 没有颜色
 label.textAppearance = .Body_Middle // 使用样式中的颜色
 // 也可以分别设置
 label.lineHeight = 30
+label.textForegroundColor = .blue // 注意：设置 textColor 可能无效
 label.textBackgroundColor = .red
 label.textAlignment = .center // 注意：原生的 textAlignment 已经被扩展覆盖
 // 同时支持 UILabel、UITextField，UITextView
