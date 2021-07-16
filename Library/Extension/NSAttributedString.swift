@@ -29,7 +29,7 @@ public extension TextOwner {
             if newValue.lineSpacing > 0 {
                 lineSpacing = newValue.lineSpacing
             }
-            textAlignment2 = newValue.textAlignment
+            textAlignment = newValue.textAlignment
         }
     }
 
@@ -77,7 +77,7 @@ public extension TextOwner {
         }
     }
     
-    var textAlignment2: NSTextAlignment? {
+    var textAlignment: NSTextAlignment? {
         get { attributedText2?.paragraphStyle?.alignment }
         set {
             setParagraphStyleProperty(newValue, for: \.alignment)

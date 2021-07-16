@@ -13,6 +13,12 @@ class AppearancesController: ComponentController {
 
     class Styles : ViewStyles {
         
+        @objc static let _textBackgroundColor = ["文字背景色", ""]
+        @objc var textBackgroundColor = false
+        
+        @objc static let _textAlignmentCenter = ["文字居中", ""]
+        @objc var textAlignmentCenter = false
+
     }
     
     class Model : ViewModel {
@@ -54,6 +60,13 @@ class AppearancesController: ComponentController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Appearances")
         tableView.dataSource = self
         view.addSubview(tableView)
+        
+        styles.listen { (name: String) in
+            if name == "title" {
+            } else {
+                self.tableView.reloadData();
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,6 +87,12 @@ extension AppearancesController : UITableViewDataSource {
         cell.textLabel?.text = String(format: "文字样式： %1$@\nsize: %2$@, color: %3$@", style.0, String(Int(appearance.textSize)), Colors.colorName(appearance.textColors))
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textAppearance = appearance
+        if styles.textBackgroundColor {
+            cell.textLabel?.textBackgroundColor = .blue_100
+        }
+        if styles.textAlignmentCenter {
+            cell.textLabel?.textAlignment = .center
+        }
         return cell
     }
 }
