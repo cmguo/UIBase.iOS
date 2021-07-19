@@ -84,7 +84,7 @@ extension AppearancesController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Appearances", for: indexPath)
         let style = model.styles[indexPath.row]
         let appearance = style.1 as! TextAppearance
-        cell.textLabel?.text = String(format: "文字样式： %1$@\nsize: %2$@, color: %3$@", style.0, String(Int(appearance.textSize)), Colors.colorName(appearance.textColors))
+        cell.textLabel?.text = String(format: "文字样式： %1$@\nsize: %2$@, lineHeight: %3$@, color: %4$@", style.0, String(Int(appearance.textSize)), String(Int(appearance.lineHeight)), Colors.colorName(appearance.textColors))
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textAppearance = appearance
         if styles.textBackgroundColor {

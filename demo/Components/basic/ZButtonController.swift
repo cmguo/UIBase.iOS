@@ -12,6 +12,14 @@ import SwiftSVG
 
 public class ZButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
+    @objc enum ButtonType : Int {
+        case Primitive
+        case Secondary
+        case Tertiary
+        case Danger
+        case TextLink
+    }
+    
     @objc enum ButtonSize : Int {
         case Large
         case Middle
@@ -39,10 +47,17 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         @objc static let _loading = ["加载", "切换到加载状态"]
         @objc var loading = false
         
+        @objc static let _sizeMode = ["尺寸模式", "切换到尺寸演示模式"]
+        @objc var sizeMode = false
+        
+        @objc static let _buttonType = ["颜色模式", "有下列颜色模式：主要（Primitive）、二级（Secondary）、三级（Tertiary）、危险（Danger）、文字（TextLink），默认：Primitive"]
+        @objc static let _buttonTypeStyle: NSObject = EnumStyle(Styles.self, "buttonType", ZButtonAppearance.ButtonType.self)
+        @objc var buttonType = ButtonType.Primitive
+        
         @objc static let _buttonSize = ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
         @objc static let _buttonSizeStyle: NSObject = EnumStyle(Styles.self, "buttonSize", ZButtonAppearance.ButtonSize.self)
         @objc var buttonSize = ButtonSize.Large
-        
+
         @objc static let _widthMode = ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
         @objc static let _widthModeStyle: NSObject = EnumStyle(Styles.self, "widthMode", ZButtonAppearance.ButtonWidth.self)
         @objc var widthMode = ButtonWidth.WrapContent
@@ -62,6 +77,10 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         @objc static let _contentStyle = ContentStyle(Styles.self, "content", ["<button>"])
         @objc var content: Any? = nil
         
+        var buttonType2: ZButtonAppearance.ButtonType {
+            get { ZButtonAppearance.ButtonType.init(rawValue: buttonType.rawValue)! }
+        }
+        
         var buttonSize2: ZButtonAppearance.ButtonSize {
             get { ZButtonAppearance.ButtonSize.init(rawValue: buttonSize.rawValue)! }
         }
@@ -77,6 +96,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
     
     class Model : ViewModel {
         let types = ZButtonAppearance.ButtonType.allCases
+        let sizes = ZButtonAppearance.ButtonSize.allCases
     }
     
     private let styles = Styles()
@@ -89,21 +109,31 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.types.count
+        return styles.sizeMode ? model.sizes.count :  model.types.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let name = "\(model.types[indexPath.row])"
-        let type = model.types[indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "")
         cell.backgroundColor = .clear
-        cell.textLabel?.text = name
-        cell.selectionStyle = .none
         let button = ZButton()
-            .buttonType(type)
             .buttonSize(styles.buttonSize2)
             .text(styles.text)
             .icon(styles.icon)
+        if !styles.sizeMode {
+            let name = "\(model.types[indexPath.row])"
+            let type = model.types[indexPath.row]
+            cell.textLabel?.text = name
+            cell.detailTextLabel?.numberOfLines = 0
+            cell.detailTextLabel?.text = String(format: "textColor: %1$@\nbackgroundColor: %2$@",  Colors.colorName(type.value.textColor!), Colors.colorName(type.value.backgroundColor!))
+            button.buttonType(type)
+        } else {
+            let name = "\(model.sizes[indexPath.row])"
+            let size = model.sizes[indexPath.row]
+            cell.textLabel?.text = name
+            cell.detailTextLabel?.text = String(format: "height: %1$@, radius: %2$@, textSize: %3$@, iconSize: %3$@",  String(Int(size.value.height!)), String(Int(size.value.radius!)), String(Int(size.value.textSize!)), String(Int(size.value.iconSize!)))
+            button.buttonSize(size)
+        }
+        cell.selectionStyle = .none
         button.isEnabled = !styles.disabled
         button.isLoading = self.styles.loading
         button.iconPosition = styles.iconPosition2
@@ -141,6 +171,8 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
                 for b in self.buttons { b.isEnabled = !self.styles.disabled }
             } else if name == "loading" {
                 for b in self.buttons { b.isLoading = self.styles.loading }
+            } else if name == "buttonType" {
+                for b in self.buttons { b.buttonType2 = self.styles.buttonType2 }
             } else if name == "buttonSize" {
                 for b in self.buttons { b.buttonSize = self.styles.buttonSize2 }
             } else if name == "iconPosition" {

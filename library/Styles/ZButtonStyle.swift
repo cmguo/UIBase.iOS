@@ -25,14 +25,14 @@ public class ZButtonStyle : ZButtonAppearance {
 
 public class ZButtonAppearance {
     
-    public enum ButtonType : CaseIterable {
+    public enum ButtonType : Int, RawRepresentable, CaseIterable {
         case Primitive
         case Secondary
         case Tertiary
         case Danger
         case TextLink
         
-        var value : ZButtonAppearance {
+        public var value : ZButtonAppearance {
             return ZButtonAppearance.TypeStyles[self]!
         }
     }
@@ -43,7 +43,7 @@ public class ZButtonAppearance {
         case Small
         case Thin
         
-        var value : ZButtonAppearance {
+        public var value : ZButtonAppearance {
             return ZButtonAppearance.SizeStyles[self]!
         }
     }
