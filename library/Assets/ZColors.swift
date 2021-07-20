@@ -56,6 +56,9 @@ extension UIColor {
     @DayNightColorWrapper(name: "red_100", dayColor: 0xFFFFEDED, nightColor: 0xFF3D2929)
     public static var red_100
 
+    @DayNightColorWrapper(name: "red_200", dayColor: 0xFFFFD9D9, nightColor: 0xFF633333)
+    public static var red_200
+
     @DayNightColorWrapper(name: "red_500", dayColor: 0xFFFF6666, nightColor: 0xFFDA7171)
     public static var red_500
 
@@ -198,6 +201,7 @@ extension UIColor {
         brand_100,
         brand_600,
         red_100,
+        red_200,
         red_500,
         red_600,
         redorange_100,

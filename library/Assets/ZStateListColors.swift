@@ -90,7 +90,7 @@ public extension StateListColor {
 
     static let red_100_pressed_disabled = StateListColor([
         StateColor(.bluegrey_100, .STATES_DISABLED),
-        StateColor(.red_500, .STATES_PRESSED),
+        StateColor(.red_200, .STATES_PRESSED),
         StateColor(.red_100, .STATES_NORMAL)
     ])
     

@@ -15,6 +15,7 @@ brand_100	#FFFCD4	#524C23
 brand_500	#FFD630	#FFD630	
 brand_600	#F2C121	#D9B629	
 red_100	#FFEDED	#3D2929	
+red_200	#FFD9D9	#633333	
 red_500	#FF6666	#DA7171	
 red_600	#EB3B3B	#E48484	
 redorange_100	#FFEDE5	#3E322E	
@@ -72,4 +73,4 @@ static_black_40	#000000 40%	#000000 40%
 static_black_30	#000000 30%	#000000 30%	
 static_black_20	#000000 20%	#000000 20%	
 static_black_10	#000000 10%	#000000 10%	
-static_black_05	#000000 5%	#000000 5%
+static_black_05	#000000 5%	#000000 5%	

@@ -130,7 +130,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
             let name = "\(model.sizes[indexPath.row])"
             let size = model.sizes[indexPath.row]
             cell.textLabel?.text = name
-            cell.detailTextLabel?.text = String(format: "height: %1$@, radius: %2$@, textSize: %3$@, iconSize: %3$@",  String(Int(size.value.height!)), String(Int(size.value.radius!)), String(Int(size.value.textSize!)), String(Int(size.value.iconSize!)))
+            cell.detailTextLabel?.text = String(format: "height: %1$@, radius: %2$@\nstextSize: %3$@, iconSize: %3$@",  String(Int(size.value.height!)), String(Int(size.value.radius!)), String(Int(size.value.textSize!)), String(Int(size.value.iconSize!)))
             button.buttonSize(size)
         }
         cell.selectionStyle = .none
