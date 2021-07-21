@@ -9,9 +9,12 @@ import Foundation
 
 public class DayNightColors {
     
-    fileprivate static var wrappers = [DayNightColorWrapper]()
+    private static var wrappers = [DayNightColorWrapper]()
+    
+    private static var isNight: Bool? = nil
     
     public static func setDayNight(night: Bool) {
+        isNight = night
         for w in wrappers {
             w.color = UIColor(rgba: night ? w.nightColor : w.dayColor)
         }
@@ -19,6 +22,13 @@ public class DayNightColors {
     
     public static func colors() -> [String: UIColor] {
         return Dictionary(uniqueKeysWithValues: wrappers.map({ w in (w.name, w.color) }))
+    }
+    
+    fileprivate static func appendWrapper(_ w : DayNightColorWrapper) {
+        if let night = isNight {
+            w.color = UIColor(rgba: night ? w.nightColor : w.dayColor)
+        }
+        wrappers.append(w)
     }
 
 }
@@ -49,6 +59,6 @@ class DayNightColorWrapper {
         } else {
             self.color = UIColor(rgba: dayColor)
         }
-        DayNightColors.wrappers.append(self)
+        DayNightColors.appendWrapper(self)
     }
 }
