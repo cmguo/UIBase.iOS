@@ -54,6 +54,9 @@ extension URL {
     @SvgIconURLWrapper("icon_bag")
     public static var icon_bag
 
+    @SvgIconURLWrapper("icon_bind")
+    public static var icon_bind
+
     @SvgIconURLWrapper("icon_book")
     public static var icon_book
 
@@ -116,6 +119,12 @@ extension URL {
 
     @SvgIconURLWrapper("icon_detail")
     public static var icon_detail
+
+    @SvgIconURLWrapper("icon_ding")
+    public static var icon_ding
+
+    @SvgIconURLWrapper("icon_ding_filled")
+    public static var icon_ding_filled
 
     @SvgIconURLWrapper("icon_disband")
     public static var icon_disband
@@ -369,6 +378,9 @@ extension URL {
     @SvgIconURLWrapper("icon_timing")
     public static var icon_timing
 
+    @SvgIconURLWrapper("icon_unbind")
+    public static var icon_unbind
+
     @SvgIconURLWrapper("icon_upload")
     public static var icon_upload
 
@@ -406,6 +418,7 @@ extension URL {
         icon_attachment,
         icon_autoplay,
         icon_bag,
+        icon_bind,
         icon_book,
         icon_bulb,
         icon_bulb_fill,
@@ -427,6 +440,8 @@ extension URL {
         icon_darkmode,
         icon_delete,
         icon_detail,
+        icon_ding,
+        icon_ding_filled,
         icon_disband,
         icon_download,
         icon_earphone,
@@ -511,6 +526,7 @@ extension URL {
         icon_stop,
         icon_success,
         icon_timing,
+        icon_unbind,
         icon_upload,
         icon_vacate,
         icon_video,
