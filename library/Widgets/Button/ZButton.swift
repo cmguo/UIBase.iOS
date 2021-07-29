@@ -83,9 +83,9 @@ public class ZButton : UIButton
                 self.imageView?.bounds.size = imageSize
                 self.setImage(UIImage.transparent)
                 self.imageView?.setImage(svgURL: icon) {
-                    self.syncStates()
                     self.postHandleIcon()
                 }
+                self.syncStates()
             } else {
                 self.imageView?.setImage(svgURL: nil)
                 self.setImage(UIImage(withUrl: icon))
@@ -203,9 +203,9 @@ public class ZButton : UIButton
             self.icon = icon
             self.setImage(UIImage.transparent)
             self.imageView?.setImage(withURL: icon) {
-                self.syncStates()
                 self.imageView?.frame = self.imageRect(forContentRect: self.bounds)
             }
+            self.syncStates()
         }
         self.syncSize()
     }

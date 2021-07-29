@@ -72,7 +72,7 @@ extension UIImageView {
                     layer.superlayer?.transform = CATransform3DMakeScale(scale, scale, 1)
                     layer.frame = bounds//.centerPart(ofSize: size)
                 }
-                //self.applyIconColor()
+                self.applyIconColor()
                 completion?()
             }
         }
