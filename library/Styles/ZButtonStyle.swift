@@ -275,10 +275,10 @@ extension ZButtonAppearance {
     ).seal()
 
     public static let large = ZButtonAppearance(
-        height: 44, radius: 24, padding: 24, textSize: 18, iconSize: 20, iconPadding: 5).seal()
+        height: 44, radius: 24, padding: 32, textSize: 18, iconSize: 20, iconPadding: 5).seal()
 
     public static let middle = ZButtonAppearance(
-        height: 36, radius: 18, padding: 16, textSize: 16, iconSize: 18, iconPadding: 4).seal()
+        height: 36, radius: 18, padding: 24, textSize: 16, iconSize: 18, iconPadding: 4).seal()
 
     public static let small = ZButtonAppearance(
         height: 24, radius: 12, padding: 12, textSize: 14, iconSize: 16, iconPadding: 3).seal()
