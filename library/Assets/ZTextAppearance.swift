@@ -16,7 +16,7 @@ public extension TextStyle {
     static let Title_16 = TextAppearance(copy: .Title).textSize(16).lineHeight(24)
     static let Title_14 = TextAppearance(copy: .Title).textSize(14).lineHeight(20)
 
-    static let Body = TextAppearance()
+    static let Body = TextAppearance().textColors(.bluegrey_800_disabled)
     static let Body_18 = TextAppearance(copy: .Body).textSize(18).lineHeight(28)
     static let Body_16 = TextAppearance(copy: .Body).textSize(16).lineHeight(24)
     static let Body_14 = TextAppearance(copy: .Body).textSize(14).lineHeight(20)

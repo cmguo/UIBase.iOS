@@ -28,7 +28,7 @@ class ZActionSheetController: ComponentController, ZActionSheetDelegate, ZPanelD
         
         let states: [UIControl.State] = [.STATES_SELECTED]
         
-        let buttons = ["删除内容"]
+        let buttons = ["删除内容", "项目1", "项目2"]
     }
     
     private let styles = Styles()

@@ -86,9 +86,10 @@ public class ZActionSheet : UIView {
         if icon != nil {
             _imageView.frame = frame.cutTop(_style.iconPadding + _style.iconSize)
                 .bottomCenterPart(ofSize: CGSize(width: _style.iconSize, height: _style.iconSize))
+            frame.top += _style.iconPadding
         }
         if title != nil {
-            _label.frame = frame.cutTop(_style.titlePadding + _label.bounds.height)
+            _label.frame = frame.cutTop(_label.bounds.height)
                 .bottomCenterPart(ofSize: _label.bounds.size)
         }
         if subTitle != nil {
@@ -96,8 +97,8 @@ public class ZActionSheet : UIView {
             _label2.frame = frame.cutTop(tsize.height)
                 .bottomCenterPart(ofSize: tsize)
         }
-        if frame.height < bounds.height {
-            _ = frame.cutTop(_style.titlePadding)
+        if frame.top > bounds.top && frame.height < bounds.height {
+            frame.top += _style.paddingY
             _spplitter.frame = frame.cutTop(1)
         } else {
             _spplitter.frame = .zero
@@ -112,21 +113,21 @@ public class ZActionSheet : UIView {
     private func syncSize() {
         var size = CGSize(width: UIScreen.main.bounds.size.width, height: 0)
         if icon != nil {
-            size.height += _style.iconPadding + _style.iconSize
+            size.height += _style.iconPadding * 2 + _style.iconSize
         }
         if title != nil {
             _label.sizeToFit()
-            size.height += _style.titlePadding  + _label.bounds.height
+            size.height += _label.bounds.height
         }
         if subTitle != nil {
             let tsize = _label2.sizeThatFits(CGSize(width: 300.0, height: .greatestFiniteMagnitude))
             size.height += tsize.height
         }
-        if size.height > 0 {
-            size.height += _style.paddingY + 1 + _style.titlePadding // spplitter
+        if size.height > 0 && buttons.count > 0 {
+            size.height += _style.paddingY * 2 + 1 // spplitter
         }
         size.height += _style.buttonApperance.height! * CGFloat(buttons.count)
-        _constraint = updateSizeConstraint(_constraint, size, widthRange: -1)
+        _constraint = updateSizeConstraint(_constraint, size, widthRange: -1, heightRange: -1)
     }
     
     private func syncButtons() {
