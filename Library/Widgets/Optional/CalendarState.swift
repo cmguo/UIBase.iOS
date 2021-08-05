@@ -27,7 +27,7 @@ class CalendarState {
         
         func comp() -> Calendar.Component {
             switch self {
-            case .DAY_OF_YEAR:
+            case .DAY, .DAY_OF_YEAR:
                 return .day
             default:
                 return Self.allCases[self.rawValue]
@@ -185,15 +185,15 @@ class CalendarState {
         var formatters: [CalendarState.Formatter?] = Array(repeating: nil, count: 8)
 
         // time is simple
+        if timeMode & (MODE_AMPM | MODE_HOUR) == MODE_AMPM | MODE_HOUR {
+            fields[2] = .HOUR
+        }
         for ti in 0..<4 {
             if (timeMode & (1 << ti) == 0) {
                 fields[ti] = nil
             } else {
                 formatters[ti] = Self.formatter(fields[ti]!, labels[ti])
             }
-        }
-        if timeMode & (MODE_AMPM | MODE_HOUR) == MODE_AMPM | MODE_HOUR {
-            fields[2] = .HOUR
         }
         if fields[3] != nil {
             let t = labels[3].split(separator: "/")
@@ -352,6 +352,10 @@ class CalendarState {
             return (get(start, field), get(end, field))
         case .MONTH, .WEEK, .DAY:
             return (0, get(end, field))
+        case .AM_PM:
+            return (0, 1)
+        case .HOUR:
+            return (0, 11)
         default:
             break
         }
@@ -383,6 +387,10 @@ class CalendarState {
             var i = i
             if field == .WEEK { i *= 7 }
             return add(date, .DAY_OF_YEAR, i)
+        case .AM_PM:
+            return add(date, .HOUR_OF_DAY, i * 12)
+        case .HOUR:
+            return add(date, .HOUR_OF_DAY, i)
         case .DAY_OF_YEAR: // TODO:
             return calendar.date(byAdding: field.comp(), value: i, to: date, wrappingComponents: false)!
         default:
@@ -404,6 +412,10 @@ class CalendarState {
             var days = date.timeIntervalSince(calendar.startOfDay(for: start))
             days = days / Self.MS_IN_DAY
             return Int(field == .WEEK ? (days / 7) : days)
+        case .AM_PM:
+            return get(date, .HOUR_OF_DAY) < 12 ? 0 : 1
+        case .HOUR:
+            return get(date, .HOUR_OF_DAY) % 12
         default:
             if let of = field.ofComp() {
                 return calendar.ordinality(of: field.comp(), in: of, for: date)!
@@ -447,7 +459,8 @@ class CalendarState {
             var r = ""
             if dayFm & 2 != 0 {
                 let dm = state.get(date, .DAY_OF_MONTH)
-                r += t[0].replacingOccurrences(of: "x", with: dm.description)
+                //r += t[0].replacingOccurrences(of: "x", with: dm.description)
+                r += String(format: String(t[0]), dm)
             }
             if dayFm == 3 {
                 r += " "
@@ -463,7 +476,7 @@ class CalendarState {
     private static func formatter(_ field: CalendarState.Field, _ label: String) -> CalendarState.Formatter {
         return { state, date in
             let dm = state.get(date, field)
-            return label.replacingOccurrences(of: "x", with: dm.description)
+            return String(format: label, dm)
         }
     }
 

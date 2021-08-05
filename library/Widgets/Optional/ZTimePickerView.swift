@@ -17,6 +17,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
         case YearMonthDay = 0b110100000
         case YearMonthWithDayWithWeek = 0b1110010000
         case MonthWithDayWithWeekHourMinute = 0b1010010110
+        case HourMinute = 0b0000000110
     }
     
     public var timeMode: TimeMode = .YearMonthDay {
@@ -31,9 +32,9 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
         }
     }
     
-    private var labels: [String] = [
-        "x秒", "x分", "x时", "上午/下午",
-        "x日 周x", "第x周", "x月", "x年"]
+    public var labels: [String] = [
+        "%02d秒", "%02d分", "%02d时", "上午/下午",
+        "%02d日 周x", "第%d周", "%02d月", "%04d年"]
     
     public var startTime: Date? = nil {
         didSet {
@@ -128,7 +129,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
     
     public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         // TODO: update on reloadComponent
-        return state.getMaxTitle(component).boundingSize(font: textAppearance!.font).width
+        return state.getMaxTitle(component).boundingSize(font: textAppearance!.font).width + 10
     }
     
 //    public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
