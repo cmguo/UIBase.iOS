@@ -55,8 +55,7 @@ public class ZActionSheet : UIView {
     private let _label = UILabel()
     private let _label2 = UILabel()
     private let _spplitter = UIView()
-
-    private var _buttons: [ZButton] = []
+    private let _tableView = UITableView()
     
     private let _style: ZActionSheetStyle
     
@@ -72,6 +71,12 @@ public class ZActionSheet : UIView {
         addSubview(_label2)
         _spplitter.backgroundColor = .bluegrey_100
         addSubview(_spplitter)
+        _tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ActionSheet");
+        _tableView.separatorInset = .zero
+        _tableView.separatorColor = .bluegrey_100
+        _tableView.dataSource = self
+        _tableView.delegate = self
+        addSubview(_tableView)
     }
     
     required init?(coder: NSCoder) {
@@ -81,12 +86,12 @@ public class ZActionSheet : UIView {
     public override func layoutSubviews() {
         var frame = bounds
         if icon != nil || title != nil || subTitle != nil {
-            frame.top += _style.paddingY
+            _ = frame.cutTop(_style.paddingY)
         }
         if icon != nil {
             _imageView.frame = frame.cutTop(_style.iconPadding + _style.iconSize)
                 .bottomCenterPart(ofSize: CGSize(width: _style.iconSize, height: _style.iconSize))
-            frame.top += _style.iconPadding
+            _ = frame.cutTop(_style.iconPadding)
         }
         if title != nil {
             _label.frame = frame.cutTop(_label.bounds.height)
@@ -98,14 +103,13 @@ public class ZActionSheet : UIView {
                 .bottomCenterPart(ofSize: tsize)
         }
         if frame.top > bounds.top && frame.height < bounds.height {
-            frame.top += _style.paddingY
+            _ = frame.cutTop(_style.paddingY)
             _spplitter.frame = frame.cutTop(1)
         } else {
             _spplitter.frame = .zero
         }
-        for b in _buttons {
-            b.frame = frame.cutTop(_style.buttonApperance.height!)
-        }
+        _tableView.frame = frame
+        _tableView.isScrollEnabled = frame.height < _style.buttonApperance.height! * CGFloat(buttons.count)
     }
     
     private var _constraint: (NSLayoutConstraint, NSLayoutConstraint)? = nil
@@ -131,31 +135,59 @@ public class ZActionSheet : UIView {
     }
     
     private func syncButtons() {
-        while _buttons.count < buttons.count {
-            let button = ZButton()
-                .buttonAppearance(_style.buttonApperance)
-            button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-            addSubview(button)
-            _buttons.append(button)
-        }
-        while buttons.count < _buttons.count {
-            let button = _buttons.removeLast()
-            button.removeFromSuperview()
-        }
-        for i in 0..<buttons.count {
-            let button = _buttons[i]
-            let state = i < (states?.count ?? 0) ? states?[i] : nil
-            let enabled = !(state?.contains(.disabled) ?? false)
-            let selected = state?.contains(.selected) ?? false
-            button.content = buttons[i]
-            button.isEnabled = enabled
-            button.isSelected = selected
-        }
+        _tableView.reloadData()
     }
     
     @objc fileprivate func buttonClicked(_ sender: UIView) {
-        let index = subviews.firstIndex(of: sender)! - 4
-        delegate?.actionSheet?(self, onAction: index)
+        guard let cell = sender.superview(ofType: UITableViewCell.self) else { return }
+        guard let index = _tableView.indexPath(for: cell) else { return }
+        delegate?.actionSheet?(self, onAction: index.row)
     }
 
+}
+
+extension ZActionSheet : UITableViewDataSource {
+    
+    private func createButton(_ cell: UITableViewCell) -> ZButton {
+        let button = ZButton()
+            .buttonAppearance(_style.buttonApperance)
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        cell.selectionStyle = .none
+        cell.contentView.addSubview(button)
+        return button
+    }
+    
+    private func bindButton(_ button: ZButton, _ content: Any, _ state : UIControl.State?) {
+        let enabled = !(state?.contains(.disabled) ?? false)
+        let selected = state?.contains(.selected) ?? false
+        button.content = content
+        button.isEnabled = enabled
+        button.isSelected = selected
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return buttons.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActionSheet")
+            ?? UITableViewCell(style: .default, reuseIdentifier: "ActionSheet")
+        let button = cell.subview(ofType: ZButton.self) ?? createButton(cell)
+        let i = indexPath.row
+        bindButton(button, buttons[i], i < (states?.count ?? 0) ? states?[i] : nil)
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return _style.buttonApperance.height!
+    }
+}
+
+extension ZActionSheet : UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let button = cell.subview(ofType: ZButton.self) else {
+            return
+        }
+        button.frame = cell.bounds
+    }
 }
