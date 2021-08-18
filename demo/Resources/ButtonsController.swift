@@ -29,6 +29,7 @@ class ButtonsController: ComponentController {
     override func viewDidLoad() {
         super.viewDidLoad()
         button.setTitle("按钮")
+        button.setTitleColor(.bluegrey_800, for: .normal)
         button.titleLabel?.textAppearance = .Body_18
         view.addSubview(button)
         button.snp.makeConstraints { maker in

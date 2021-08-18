@@ -14,8 +14,7 @@ extension UIImageView {
         if let url = wild as? URL {
             setImage(withURL: url, completion: completion)
         } else {
-            setImage(svgURL: nil) {
-            }
+            setImage(svgURL: nil)
             if let image = wild as? UIImage {
                 self.image = image
             } else if let color = wild as? UIColor {
@@ -117,6 +116,13 @@ extension UIImageView {
     private func applyIconColor() {
         if let color = iconColor {
             setIconColor(color: color)
+        } else {
+            self.layer.applyOnSublayers(ofType: CAShapeLayer.self) { (thisShapeLayer: CAShapeLayer) in
+                if let cgColor = thisShapeLayer.fillColor, let color = DayNightColors.color(cgColor: cgColor) {
+                    thisShapeLayer.fillColor = color.cgColor(for: self)
+                }
+            }
         }
     }
+    
 }

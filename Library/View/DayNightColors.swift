@@ -24,6 +24,15 @@ public class DayNightColors {
         return Dictionary(uniqueKeysWithValues: wrappers.map({ w in (w.name, w.color) }))
     }
     
+    public static func color(for name: String) -> UIColor? {
+        return wrappers.first { w in w.name == name }?.color
+    }
+    
+    public static func color(cgColor color: CGColor) -> UIColor? {
+        let rgba = UIColor(cgColor: color).rgba()
+        return wrappers.first { w in w.dayColor == rgba }?.color
+    }
+    
     fileprivate static func appendWrapper(_ w : DayNightColorWrapper) {
         if let night = isNight {
             w.color = UIColor(rgba: night ? w.nightColor : w.dayColor)

@@ -34,6 +34,14 @@ extension UIColor {
         return String(format: "0x%02X%02X%02X%02X", rgba[3], rgba[0], rgba[1], rgba[2])
     }
     
+    public func rgba() -> UInt {
+        let rgba = self.cgColor.components!.map() { c in UInt(c * 255.0) }
+        if rgba.count < 4 {
+            return 0
+        }
+        return (rgba[3] << 24) | (rgba[0] << 16) | (rgba[1] << 8) | rgba[2]
+    }
+    
     public func cgColor(for view: UIView) -> CGColor {
         if #available(iOS 13.0, *) {
             return resolvedColor(with: view.traitCollection).cgColor
