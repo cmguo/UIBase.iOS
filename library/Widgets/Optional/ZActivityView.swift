@@ -103,7 +103,7 @@ public class ZActivityLine: UIScrollView {
     }
     
     private func syncItems() {
-        var frame = CGRect(origin: .zero, size: CGSize(width: _style.itemWidth, height: _style.buttonApperance.height!))
+        var frame = CGRect(origin: .zero, size: CGSize(width: _style.itemWidth, height: _style.buttonApperance.minHeight!))
         frame.left = _style.itemPaddingX
         frame.top = _style.itemPaddingY
         var buttons = subviews as! [ZButton]

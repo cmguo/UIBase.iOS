@@ -109,7 +109,7 @@ public class ZActionSheet : UIView {
             _spplitter.frame = .zero
         }
         _tableView.frame = frame
-        _tableView.isScrollEnabled = frame.height < _style.buttonApperance.height! * CGFloat(buttons.count)
+        _tableView.isScrollEnabled = frame.height < _style.buttonApperance.minHeight! * CGFloat(buttons.count)
     }
     
     private var _constraint: (NSLayoutConstraint, NSLayoutConstraint)? = nil
@@ -130,7 +130,7 @@ public class ZActionSheet : UIView {
         if size.height > 0 && buttons.count > 0 {
             size.height += _style.paddingY * 2 + 1 // spplitter
         }
-        size.height += _style.buttonApperance.height! * CGFloat(buttons.count)
+        size.height += _style.buttonApperance.minHeight! * CGFloat(buttons.count)
         _constraint = updateSizeConstraint(_constraint, size, widthRange: -1, heightRange: -1)
     }
     
@@ -179,7 +179,7 @@ extension ZActionSheet : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return _style.buttonApperance.height!
+        return _style.buttonApperance.minHeight!
     }
 }
 

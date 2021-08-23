@@ -13,7 +13,7 @@ public class ZTextFieldStyle : UITextFieldStyle {
 
     public var buttonAppearance = ZButtonAppearance(
         textColor: .red_600_disabled, backgroundColor: .clear,
-        height: 32, radius: 0, padding: 5, textSize: 10, iconSize: 12, iconPadding: 0)
+        minHeight: 32, cornerRadius: 0, paddingX: 5, paddingY: 0, textSize: 10, iconSize: 12, iconPadding: 0)
 
     public override init() {
         super.init()

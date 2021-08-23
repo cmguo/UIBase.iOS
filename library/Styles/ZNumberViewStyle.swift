@@ -14,7 +14,7 @@ public class ZNumberViewStyle : UIViewStyle {
     public var textAppearance = TextAppearance.Body_Middle
     public var buttonAppearance = ZButtonAppearance(
         textColor: .bluegrey_900_disabled2, backgroundColor: .init(singleColor: .bluegrey_00),
-        height: 30, radius: 15, padding: 3, textSize: 22, iconSize: 24, iconPadding: 3)
+        minHeight: 30, cornerRadius: 15, paddingX: 3, textSize: 22, iconSize: 24, iconPadding: 3)
         
     public override init() {
         super.init()

@@ -90,7 +90,7 @@ public class ZTextInput : ZTextView {
         if maxWordCount > 0 {
             let size = _wordCountLabel.bounds.size
             if singleLine {
-                frame.height2 = buttonAppearance.height!
+                frame.height2 = buttonAppearance.minHeight!
                 _wordCountLabel.frame = frame.cutRight(size.width + buttonAppearance.iconPadding!).rightCenterPart(ofSize: size)
             } else {
                 _wordCountLabel.frame = frame.cutBottom(size.height + buttonAppearance.iconPadding!).rightBottomPart(ofSize: size)

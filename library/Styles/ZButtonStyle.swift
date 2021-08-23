@@ -68,13 +68,16 @@ public class ZButtonAppearance {
     // other
     public var iconPosition: IconPosition? = nil
     // size
-    public var height: CGFloat? = nil
-    public var radius: CGFloat? = nil
-    public var padding: CGFloat? = nil // (left, rigth)
+    public var minHeight: CGFloat? = nil
+    public var cornerRadius: CGFloat? = nil
+    public var paddingX: CGFloat? = nil // (left, rigth)
+    public var paddingY: CGFloat? = nil // (top, bottom)
     public var textSize: CGFloat? = nil
+    public var lineHeight: CGFloat? = nil
     public var iconSize: CGFloat? = nil
+    public var iconColor: StateListColor? = nil
     public var iconPadding: CGFloat? = nil
-    
+
     private var sealed = false;
     
     public init(buttonType: ButtonType? = nil,
@@ -82,22 +85,28 @@ public class ZButtonAppearance {
                 textColor: StateListColor? = nil,
                 backgroundColor: StateListColor? = nil,
                 iconPosition: IconPosition? = nil,
-                height: CGFloat? = nil,
-                radius: CGFloat? = nil,
-                padding: CGFloat? = nil,
+                minHeight: CGFloat? = nil,
+                cornerRadius: CGFloat? = nil,
+                paddingX: CGFloat? = nil,
+                paddingY: CGFloat? = nil,
                 textSize: CGFloat? = nil,
+                lineHeight: CGFloat? = nil,
                 iconSize: CGFloat? = nil,
+                iconColor: StateListColor? = nil,
                 iconPadding: CGFloat? = nil) {
         self.buttonType = buttonType
         self.buttonSize = buttonSize
         self.textColor = textColor
         self.backgroundColor = backgroundColor
         self.iconPosition = iconPosition
-        self.height = height
-        self.radius = radius
-        self.padding = padding
+        self.minHeight = minHeight
+        self.cornerRadius = cornerRadius
+        self.paddingX = paddingX
+        self.paddingY = paddingY
         self.textSize = textSize
+        self.lineHeight = lineHeight
         self.iconSize = iconSize
+        self.iconColor = iconColor
         self.iconPadding = iconPadding
     }
     
@@ -106,9 +115,11 @@ public class ZButtonAppearance {
                 backgroundColor: StateListColor? = nil,
                 iconPosition: IconPosition? = nil,
                 height: CGFloat? = nil,
-                radius: CGFloat? = nil,
-                padding: CGFloat? = nil,
+                cornerRadius: CGFloat? = nil,
+                paddingX: CGFloat? = nil,
+                paddingY: CGFloat? = nil,
                 textSize: CGFloat? = nil,
+                lineHeight: CGFloat? = nil,
                 iconSize: CGFloat? = nil,
                 iconPadding: CGFloat? = nil) {
         self.buttonType = copy.buttonType
@@ -116,11 +127,14 @@ public class ZButtonAppearance {
         self.textColor = textColor ?? copy.textColor
         self.backgroundColor = backgroundColor ?? copy.backgroundColor
         self.iconPosition = iconPosition ?? copy.iconPosition
-        self.height = height ?? copy.height
-        self.radius = radius ?? copy.radius
-        self.padding = padding ?? copy.padding
+        self.minHeight = height ?? copy.minHeight
+        self.cornerRadius = cornerRadius ?? copy.cornerRadius
+        self.paddingX = paddingX ?? copy.paddingX
+        self.paddingY = paddingX ?? copy.paddingY
         self.textSize = textSize ?? copy.textSize
+        self.lineHeight = lineHeight ?? copy.lineHeight
         self.iconSize = iconSize ?? copy.iconSize
+        self.iconColor = iconColor ?? copy.iconColor
         self.iconPadding = iconPadding ?? copy.iconPadding
     }
     
@@ -132,13 +146,16 @@ public class ZButtonAppearance {
         } else {
             if let type = buttonType?.value {
                 textColor = textColor ?? type.textColor
+                iconColor = iconColor ?? type.iconColor
                 backgroundColor = backgroundColor ?? type.backgroundColor
             }
             if let size = buttonSize?.value {
-                height = height ?? size.height
-                radius = radius ?? size.radius
+                minHeight = minHeight ?? size.minHeight
+                cornerRadius = cornerRadius ?? size.cornerRadius
                 textSize = textSize ?? size.textSize
-                padding = padding ?? size.padding
+                lineHeight = lineHeight ?? size.lineHeight
+                paddingX = paddingX ?? size.paddingX
+                paddingY = paddingY ?? size.paddingY
                 iconSize = iconSize ?? size.iconSize
                 iconPadding = iconPadding ?? size.iconPadding
             }
@@ -151,84 +168,83 @@ public class ZButtonAppearance {
         return self
     }
 
-    func fill(_ appearance: ZButtonAppearance) -> Int {
-        var change = 0
-        if let buttonType = buttonType {
-            change |= buttonType.value.fill(appearance)
-        }
+    internal struct Indexes : OptionSet {
+        let rawValue: UInt
+        static let none = Indexes([])
+        static let all = Indexes(rawValue: 0xffffffff)
+        static let textColor = Indexes(rawValue: 1)
+        static let iconColor = Indexes(rawValue: 2)
+        static let backgroundColor = Indexes(rawValue: 4)
+        static let iconPosition = Indexes(rawValue: 8)
+        static let minHeight = Indexes(rawValue: 16)
+        static let cornerRadius = Indexes(rawValue: 32)
+        static let paddingX = Indexes(rawValue: 64)
+        static let paddingY = Indexes(rawValue: 128)
+        static let textSize = Indexes(rawValue: 256)
+        static let lineHeight = Indexes(rawValue: 512)
+        static let iconSize = Indexes(rawValue: 1024)
+        static let iconPadding = Indexes(rawValue: 2048)
+    }
+    
+    func fill(_ appearance: ZButtonAppearance) -> Indexes {
+        var change = Indexes.none
         if let buttonSize = buttonSize {
-            change |= buttonSize.value.fill(appearance)
+            change = change.union(buttonSize.value.fill(appearance))
+        }
+        if let buttonType = buttonType {
+            change = change.union(buttonType.value.fill(appearance))
         }
         if let textColor = textColor, textColor !== appearance.textColor {
             appearance.textColor = textColor
-            change |= 1
+            change = change.union(.textColor)
+        }
+        if let iconColor = iconColor, iconColor !== appearance.iconColor {
+            appearance.iconColor = iconColor
+            change = change.union(.iconColor)
         }
         if let backgroundColor = backgroundColor, backgroundColor !== appearance.backgroundColor {
             appearance.backgroundColor = backgroundColor
-            change |= 2
+            change = change.union(.backgroundColor)
         }
         if let iconPosition = iconPosition, iconPosition != appearance.iconPosition {
             appearance.iconPosition = iconPosition
-            change |= 4
+            change = change.union(.iconPosition)
         }
-        if let height = height, height != appearance.height {
-            appearance.height = height
-            change |= 8
+        if let minHeight = minHeight, minHeight != appearance.minHeight {
+            appearance.minHeight = minHeight
+            change = change.union(.minHeight)
         }
-        if let radius = radius, radius != appearance.radius {
-            appearance.radius = radius
-            change |= 16
+        if let cornerRadius = cornerRadius, cornerRadius != appearance.cornerRadius {
+            appearance.cornerRadius = cornerRadius
+            change = change.union(.cornerRadius)
         }
-        if let padding = padding, padding != appearance.padding {
-            appearance.padding = padding
-            change |= 32
+        if let paddingX = paddingX, paddingX != appearance.paddingX {
+            appearance.paddingX = paddingX
+            change = change.union(.paddingX)
+        }
+        if let paddingY = paddingY, paddingY != appearance.paddingY {
+            appearance.paddingY = paddingY
+            change = change.union(.paddingY)
         }
         if let textSize = textSize, textSize != appearance.textSize {
             appearance.textSize = textSize
-            change |= 64
+            change = change.union(.textSize)
+        }
+        if let lineHeight = lineHeight, lineHeight != appearance.lineHeight {
+            appearance.lineHeight = lineHeight
+            change = change.union(.lineHeight)
         }
         if let iconSize = iconSize, iconSize != appearance.iconSize {
             appearance.iconSize = iconSize
-            change |= 128
+            change = change.union(.iconSize )
         }
         if let iconPadding = iconPadding, iconPadding != appearance.iconPadding {
             appearance.iconPadding = iconPadding
-            change |= 256
+            change = change.union(.iconPadding)
         }
         return change
     }
-    
-    class func textColorChanged(_ c: Int) -> Bool {
-        return (c & 1) != 0
-    }
-    
-    class func backgroundColorChanged(_ c: Int) -> Bool {
-        return (c & 2) != 0
-    }
-    
-    class func radiusChanged(_ c: Int) -> Bool {
-        return (c & 16) != 0
-    }
-    
-    class func paddingChanged(_ c: Int) -> Bool {
-        return (c & 32) != 0
-    }
-    
-    class func textSizeChanged(_ c: Int) -> Bool {
-        return (c & 64) != 0
-    }
-    
-    class func iconSizeChanged(_ c: Int) -> Bool {
-        return (c & 128) != 0
-    }
-    
-    class func iconPaddingChanged(_ c: Int) -> Bool {
-        return (c & 256) != 0
-    }
-    
-    class func sizeChanged(_ c: Int) -> Bool {
-        return (c & 480) != 0
-    }
+
 }
 
 
@@ -271,20 +287,22 @@ extension ZButtonAppearance {
 
     public static let textLink = ZButtonAppearance(
         textColor: .blue_600_disabled,
-        backgroundColor: .transparent_pressed_disabled
+        backgroundColor: .transparent_pressed_disabled,
+        minHeight: 0,
+        paddingX: 0
     ).seal()
 
     public static let large = ZButtonAppearance(
-        height: 44, radius: 24, padding: 32, textSize: 18, iconSize: 20, iconPadding: 5).seal()
+        minHeight: 44, cornerRadius: 24, paddingX: 32, paddingY: 6, textSize: 18, lineHeight: 28,  iconSize: 20, iconPadding: 5).seal()
 
     public static let middle = ZButtonAppearance(
-        height: 36, radius: 18, padding: 24, textSize: 16, iconSize: 18, iconPadding: 4).seal()
+        minHeight: 36, cornerRadius: 18, paddingX: 24, paddingY: 4, textSize: 16, lineHeight: 24, iconSize: 18, iconPadding: 4).seal()
 
     public static let small = ZButtonAppearance(
-        height: 24, radius: 12, padding: 12, textSize: 14, iconSize: 16, iconPadding: 3).seal()
+        minHeight: 24, cornerRadius: 12, paddingX: 12, paddingY: 2, textSize: 14, lineHeight: 20, iconSize: 16, iconPadding: 3).seal()
 
     public static let thin = ZButtonAppearance(
-        height: 24, radius: 0, padding: 0, textSize: 14, iconSize: 16, iconPadding: 3).seal()
+        minHeight: 20, cornerRadius: 10, paddingX: 12, paddingY: 2, textSize: 12, lineHeight: 18, iconSize: 14, iconPadding: 2).seal()
     
     public static let primitiveLarge = ZButtonAppearance(buttonType: .Primitive, buttonSize: .Large).seal()
     

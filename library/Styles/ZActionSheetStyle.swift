@@ -18,7 +18,7 @@ public class ZActionSheetStyle : UIViewStyle {
     public var buttonApperance = ZButtonAppearance(.textLinkMiddle,
                                                      textColor: .bluegrey_900_selected_disabled,
                                                      height: 44,
-                                                     radius: 0).normalized()
+                                                     cornerRadius: 0).normalized()
 
     public override init() {
         super.init()

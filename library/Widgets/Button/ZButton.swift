@@ -41,18 +41,6 @@ public class ZButton : UIButton
         }
     }
     
-    public var iconPosition : ZButtonAppearance.IconPosition {
-        get { return _appearance.iconPosition! }
-        set {
-            if newValue == _appearance.iconPosition {
-                return
-            }
-            _appearance.iconPosition = newValue
-            self.syncSize()
-            self.setNeedsLayout()
-        }
-    }
-    
     public var buttonAppearance: ZButtonAppearance? {
         get { return _buttonAppearance }
         set {
@@ -66,6 +54,117 @@ public class ZButton : UIButton
         }
     }
     
+    public var textColor : StateListColor? {
+        get { return _appearance.textColor }
+        set {
+            if newValue === _appearance.textColor {
+                return
+            }
+            _appearance.textColor = newValue
+            self.syncAppearance(.textColor)
+        }
+    }
+    
+    public var iconColor : StateListColor? {
+        get { return _appearance.iconColor ?? _appearance.textColor }
+        set {
+            if newValue === _appearance.iconColor {
+                return
+            }
+            _appearance.iconColor = newValue
+            self.syncAppearance(.iconColor)
+        }
+    }
+
+    public var iconPosition : ZButtonAppearance.IconPosition {
+        get { return _appearance.iconPosition! }
+        set {
+            if newValue == _appearance.iconPosition {
+                return
+            }
+            _appearance.iconPosition = newValue
+            self.syncSize()
+            self.setNeedsLayout()
+        }
+    }
+    
+    public var iconSize : CGFloat {
+        get { return _appearance.iconSize ?? 0.0}
+        set {
+            if newValue == _appearance.iconSize {
+                return
+            }
+            _appearance.iconSize = newValue
+            self.syncAppearance(.iconSize)
+        }
+    }
+    
+    public var textSize : CGFloat {
+        get { return _appearance.textSize ?? 0.0}
+        set {
+            if newValue == _appearance.textSize {
+                return
+            }
+            _appearance.textSize = newValue
+            self.syncAppearance(.textSize)
+        }
+    }
+
+    public var iconPadding : CGFloat {
+        get { return _appearance.iconPadding ?? 0.0}
+        set {
+            if newValue == _appearance.iconPadding {
+                return
+            }
+            _appearance.iconPadding = newValue
+            self.syncAppearance(.iconPadding)
+        }
+    }
+
+    public var minHeight : CGFloat {
+        get { return _appearance.minHeight ?? 0.0}
+        set {
+            if newValue == _appearance.minHeight {
+                return
+            }
+            _appearance.minHeight = newValue
+            self.syncAppearance(.minHeight)
+        }
+    }
+
+    public var cornerRadius : CGFloat {
+        get { return _appearance.cornerRadius ?? 0.0}
+        set {
+            if newValue == _appearance.cornerRadius {
+                return
+            }
+            _appearance.cornerRadius = newValue
+            self.syncAppearance(.cornerRadius)
+        }
+    }
+
+    public var paddingX : CGFloat {
+        get { return _appearance.paddingX ?? 0.0}
+        set {
+            if newValue == _appearance.paddingX {
+                return
+            }
+            _appearance.paddingX = newValue
+            self.syncAppearance(.paddingX)
+        }
+    }
+
+    public var paddingY : CGFloat {
+        get { return _appearance.paddingX ?? 0.0}
+        set {
+            if newValue == _appearance.paddingX {
+                return
+            }
+            _appearance.paddingX = newValue
+            self.syncAppearance(.paddingX)
+        }
+    }
+
     public var text: String? = nil {
         didSet {
             //self.titleLabel?.text = text
@@ -189,8 +288,8 @@ public class ZButton : UIButton
         super.init(frame: CGRect.zero)
         //translatesAutoresizingMaskIntoConstraints = false
         
-        self.contentMode = .redraw
-        self.syncAppearance(511)
+        //self.contentMode = .redraw
+        self.syncAppearance(.all)
 
         // Set the title of the button
         if let text = style.text {
@@ -262,12 +361,12 @@ public class ZButton : UIButton
     /* private */
     
     fileprivate func applyStyle(_ style: ZButtonStyle) {
-        var change = 0
+        var change = ZButtonAppearance.Indexes.none
         if let appearance = style.appearance {
             _buttonAppearance = appearance
-            change |= appearance.fill(_appearance)
+            change = change.union(appearance.fill(_appearance))
         }
-        change |= style.fill(_appearance)
+        change = change.union(style.fill(_appearance))
         self.text = style.text
         self.icon = style.icon
         syncAppearance(change)
@@ -277,34 +376,39 @@ public class ZButton : UIButton
     private var imageSize = CGSize.zero
     private var titleSize = CGSize.zero
     
-    fileprivate func syncAppearance(_ change: Int) {
-        if ZButtonAppearance.textColorChanged(change) {
+    fileprivate func syncAppearance(_ changes: ZButtonAppearance.Indexes) {
+        if changes.contains(.textColor) {
             self.titleColors = _appearance.textColor!
             indicator.color = _appearance.textColor!.normalColor()
+        }
+        if changes.contains(.textColor) || changes.contains(.iconColor) {
             if icon != nil {
                 syncStates()
             }
         }
-        if ZButtonAppearance.backgroundColorChanged(change) {
+        if changes.contains(.backgroundColor) {
             self.backgroundColors = _appearance.backgroundColor!
         }
-        if ZButtonAppearance.radiusChanged(change) {
-            self.layer.cornerRadius = _appearance.radius!
+        if changes.contains(.cornerRadius) {
+            self.layer.cornerRadius = _appearance.cornerRadius!
         }
-        if ZButtonAppearance.textSizeChanged(change) {
+        if changes.contains(.textSize) {
             self.titleLabel?.font = UIFont.systemFont(ofSize: _appearance.textSize!, weight: .semibold)
         }
-        if ZButtonAppearance.paddingChanged(change) {
-            self.contentEdgeInsets = UIEdgeInsets(top: 0, left: _appearance.padding!, bottom: 0, right: _appearance.padding!)
+//        if changes.contains(.lineHeight) {
+//            self.titleLabel?.lineHeight = _appearance.lineHeight!
+//        }
+        if changes.contains(.paddingX) {
+            self.contentEdgeInsets = UIEdgeInsets(top: 0, left: _appearance.paddingX!, bottom: 0, right: _appearance.paddingX!)
         }
-        if ZButtonAppearance.iconSizeChanged(change) {
+        if changes.contains(.iconSize) {
             let oldSize = imageSize
             imageSize = CGSize(width: _appearance.iconSize!, height: _appearance.iconSize!)
             if icon != nil {
                 imageView?.updateSvgScale(oldSize, imageSize)
             }
         }
-        if ZButtonAppearance.sizeChanged(change) {
+        if changes.contains(.textSize) || changes.contains(.iconSize) || changes.contains(.minHeight) {
             self.syncSize()
         }
     }
@@ -371,16 +475,19 @@ public class ZButton : UIButton
                 }
             }
         }
-        let size = CGSize(width: minSize.width + _appearance.padding! * 2, height: _appearance.height!)
+        let size = CGSize(width: minSize.width + _appearance.paddingX! * 2,
+                          height: max(_appearance.minHeight!, minSize.height + _appearance.paddingY! * 2))
+        if (self.layer.cornerRadius * 2 > size.height) {
+            self.layer.cornerRadius = size.height / 2
+        }
         self.bounds.size = size
         sizeConstraint = updateSizeConstraint(sizeConstraint, size, widthRange: 1, heightRange: 1)
     }
     
     fileprivate func syncStates() {
+        let color = _appearance.iconColor ?? _appearance.textColor!
         if self.icon != nil && _appearance.textSize! > 0 {
-            // TODO: split with title color, ZTextInput icon
-            //self.imageView?.setIconColor(color: currentTitleColor)
-            self.imageView?.setIconColor(color: _appearance.textColor!.color(for: state))
+            self.imageView?.setIconColor(color: color.color(for: state))
         }
     }
     
@@ -498,6 +605,60 @@ public extension ZButton {
     @discardableResult
     func buttonAppearance(_ value: ZButtonAppearance) -> Self {
         self.buttonAppearance = value
+        return self
+    }
+
+    @discardableResult
+    func textColor(_ value: StateListColor?) -> Self {
+        self.textColor = value
+        return self
+    }
+
+    @discardableResult
+    func iconColor(_ value: StateListColor?) -> Self {
+        self.iconColor = value
+        return self
+    }
+    
+    @discardableResult
+    func textSize(_ value: CGFloat) -> Self {
+        self.textSize = value
+        return self
+    }
+    
+    @discardableResult
+    func iconSize(_ value: CGFloat) -> Self {
+        self.iconSize = value
+        return self
+    }
+    
+    @discardableResult
+    func iconPadding(_ value: CGFloat) -> Self {
+        self.iconPadding = value
+        return self
+    }
+    
+    @discardableResult
+    func paddingX(_ value: CGFloat) -> Self {
+        self.paddingX = value
+        return self
+    }
+    
+    @discardableResult
+    func paddingY(_ value: CGFloat) -> Self {
+        self.paddingY = value
+        return self
+    }
+
+    @discardableResult
+    func minHeight(_ value: CGFloat) -> Self {
+        self.minHeight = value
+        return self
+    }
+
+    @discardableResult
+    func cornerRadius(_ value: CGFloat) -> Self {
+        self.cornerRadius = value
         return self
     }
 

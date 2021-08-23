@@ -33,7 +33,7 @@ public class ZListItemStyle : UIViewStyle {
     public var iconSize2: CGFloat = 40
     public var iconPadding2: CGFloat = 8
 
-    public var buttonAppearence = ZButtonAppearance(.middle, textColor: .bluegrey_700_disabled, backgroundColor: .clear, iconPosition: .Right, radius: 0)
+    public var buttonAppearence = ZButtonAppearance(.middle, textColor: .bluegrey_700_disabled, backgroundColor: .clear, iconPosition: .Right, cornerRadius: 0)
 
     public var textFieldStyle = ZTextFieldStyle()
     

@@ -116,6 +116,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "")
         cell.backgroundColor = .clear
         let button = ZButton()
+            .buttonType(styles.buttonType2)
             .buttonSize(styles.buttonSize2)
             .text(styles.text)
             .icon(styles.icon)
@@ -131,7 +132,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
             let size = model.sizes[indexPath.row]
             cell.textLabel?.text = name
             cell.detailTextLabel?.numberOfLines = 0
-            cell.detailTextLabel?.text = String(format: "height: %1$@, radius: %2$@, padding: %2$@\ntextSize: %3$@, iconSize: %3$@, iconPadding: %3$@", String(Int(size.value.height!)), String(Int(size.value.radius!)), String(Int(size.value.padding!)), String(Int(size.value.textSize!)), String(Int(size.value.iconSize!)), String(Int(size.value.iconPadding!)))
+            cell.detailTextLabel?.text = String(format: "minHeight: %1$@, cornerRadius: %2$@, paddingX: %2$@\ntextSize: %3$@, iconSize: %3$@, iconPadding: %3$@", String(Int(size.value.minHeight!)), String(Int(size.value.cornerRadius!)), String(Int(size.value.paddingX!)), String(Int(size.value.textSize!)), String(Int(size.value.iconSize!)), String(Int(size.value.iconPadding!)))
             button.buttonSize(size)
         }
         cell.selectionStyle = .none

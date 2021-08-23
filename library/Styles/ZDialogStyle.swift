@@ -26,7 +26,7 @@ public class ZDialogStyle : UIViewStyle {
     public var moreButtonApperance = ZButtonAppearance(.textLinkMiddle,
                                                          textColor: .bluegrey_900_selected_disabled,
                                                          height: 48,
-                                                         radius: 0).normalized()
+                                                         cornerRadius: 0).normalized()
 
     public override init() {
         super.init()
