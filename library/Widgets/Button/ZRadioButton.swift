@@ -98,7 +98,7 @@ public class ZRadioButton: UIButton {
     private func updateStates() {
         var states = self.state
         if checked {
-            states = states.union(.STATE_CHECKED)
+            states = states.union(.checked)
         }
         self.setTitleColor(Self.backgroundBorderColor.color(for: states), for: .normal)
         backgroundLayer.borderColor = Self.backgroundBorderColor.color(for: states).cgColor

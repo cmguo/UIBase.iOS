@@ -126,9 +126,9 @@ public class ZCheckBox: UIButton {
         case .NotChecked:
             break
         case .HalfChecked:
-            states = states.union(.STATE_HALF_CHECKED)
+            states = states.union(.half_checked)
         case .FullChecked:
-            states = states.union(.STATE_CHECKED)
+            states = states.union(.checked)
         }
         return states
     }

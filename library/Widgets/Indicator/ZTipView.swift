@@ -28,7 +28,7 @@ public class ZTipView : UIView
         let tipView = ZTipView()
         tipView.message = message
         tipView.callback = callback
-        tipView.location = .AutoToast
+        tipView.location = .autoToast
         tipView.popAt(target)
     }
 
@@ -46,19 +46,19 @@ public class ZTipView : UIView
             return lhs.rawValue < rhs.rawValue
         }
         
-        case TopLeft
-        case TopCenter
-        case TopRight
-        case BottomLeft
-        case BottomCenter
-        case BottomRight
-        case AutoToast // No arrow
-        case ManualLayout // No arrow
+        case topLeft
+        case topCenter
+        case topRight
+        case bottomLeft
+        case bottomCenter
+        case bottomRight
+        case autoToast // No arrow
+        case manualLayout // No arrow
     }
 
-    public var location = Location.TopRight {
+    public var location = Location.topRight {
         didSet {
-            if (self.location >= .AutoToast) {
+            if (self.location >= .autoToast) {
                 if tipAppearance == nil {
                     syncAppearance()
                 }
@@ -149,8 +149,8 @@ public class ZTipView : UIView
     
     private lazy var _leftButton: ZButton = {
         let button = ZButton()
-        button.buttonType2 = .TextLink
-        button.buttonSize = .Thin
+        button.buttonType2 = .textLink
+        button.buttonSize = .thin
         button.id = .Left
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
@@ -159,8 +159,8 @@ public class ZTipView : UIView
     
     private lazy var _rightButton: ZButton = {
         let button = ZButton()
-        button.buttonType2 = .TextLink
-        button.buttonSize = .Thin
+        button.buttonType2 = .textLink
+        button.buttonSize = .thin
         button.id = .Right
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)
@@ -209,12 +209,12 @@ public class ZTipView : UIView
         if mWidth < 0 {
             mWidth += target.window!.bounds.width
         }
-        if location == .ManualLayout {
+        if location == .manualLayout {
             mWidth = target.bounds.width
         }
         let size = calcSize(mWidth)
         var frame = CGRect(origin: calcLocation(target, size), size: size)
-        if location == .ManualLayout {
+        if location == .manualLayout {
             frame.width2 = target.bounds.width
             target.addSubview(self)
         } else {
@@ -227,14 +227,14 @@ public class ZTipView : UIView
                 self.dismiss(animated: true)
             }
         }
-        if location < Location.AutoToast {
+        if location < Location.autoToast {
             Self.overlayFrame.attach(self)
         }
     }
 
     public override func layoutSubviews() {
         var frame = self.bounds
-        if let l = location2, l != .AutoToast {
+        if let l = location2, l != .autoToast {
             let x = l.rawValue % 3
             let y = l.rawValue >= 3
             var arrowRect = y ? frame.cutTop(_style.arrowSize) : frame.cutBottom(_style.arrowSize)
@@ -297,7 +297,7 @@ public class ZTipView : UIView
     /* private */
     
     private func syncAppearance() {
-        let a: ZTipViewAppearance = tipAppearance ?? (location < Location.AutoToast ? .ToolTip : (location == Location.AutoToast ? .Toast : .Snack))
+        let a: ZTipViewAppearance = tipAppearance ?? (location < Location.autoToast ? .toolTip : (location == Location.autoToast ? .toast : .snack))
         frameColor = a.frameColor
         frameRadius = a.frameRadius
         frameAlpha = a.frameAlpha
@@ -316,7 +316,7 @@ public class ZTipView : UIView
         if rightButton != nil {
             size.width += _style.paddingX + _rightButton.bounds.width
         }
-        if location < .AutoToast {
+        if location < .autoToast {
             size.height += _style.arrowSize
         }
         let textSize = messageLabel.sizeThatFits(CGSize(width: mWidth - size.width, height: 0))
@@ -331,12 +331,12 @@ public class ZTipView : UIView
     private static var toastCount = 0
     
     fileprivate func calcLocation(_ target: UIView, _ size: CGSize) -> CGPoint {
-        if location == .ManualLayout {
+        if location == .manualLayout {
             return CGPoint.zero
         }
         let wbounds = target.window!.bounds
         // for toast location
-        if location == .AutoToast {
+        if location == .autoToast {
             if Self.toastCount <= 0 {
                 Self.toastY = wbounds.bottom - wbounds.width / 8
             } else {
@@ -413,10 +413,10 @@ public class ZTipView : UIView
 
     @objc func finaliseDismiss() {
         removeFromSuperview()
-        if location2 == .AutoToast {
+        if location2 == .autoToast {
             Self.toastCount -= 1
         }
-        if location < Location.AutoToast {
+        if location < Location.autoToast {
             Self.overlayFrame.detach(self)
         }
     }

@@ -105,7 +105,7 @@ public class ZAppTitleBar : UIView
     private lazy var _rightButton: ZButton = {
         let button = ZButton()
         button.buttonAppearance = _style.buttonAppearance
-        button.iconPosition = .Right
+        button.iconPosition = .right
         button.id = .Right
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         addSubview(button)

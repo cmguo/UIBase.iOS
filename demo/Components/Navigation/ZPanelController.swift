@@ -36,7 +36,7 @@ class ZPanelController: ComponentController, ZPanelDelegate {
     private let panel = ZPanel()
     private var views = [ZPanel]()
     
-    private let button = ZButton().buttonType(.Primitive)
+    private let button = ZButton().buttonType(.primitive)
 
 
     override func getStyles() -> ViewStyles {

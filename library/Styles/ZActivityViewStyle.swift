@@ -15,7 +15,7 @@ public class ZActivityViewStyle : UIViewStyle {
     public var itemPadding: CGFloat = 2
     public var buttonApperance = ZButtonAppearance(.textLinkThin,
                                                      textColor: StateListColor(singleColor: .bluegrey_700),
-                                                     iconPosition: .Top,
+                                                     iconPosition: .top,
                                                      height: 66,
                                                      textSize: 12,
                                                      iconSize: 40,

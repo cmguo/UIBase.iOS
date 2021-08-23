@@ -26,11 +26,11 @@ public class ZButtonStyle : ZButtonAppearance {
 public class ZButtonAppearance {
     
     public enum ButtonType : Int, RawRepresentable, CaseIterable {
-        case Primitive
-        case Secondary
-        case Tertiary
-        case Danger
-        case TextLink
+        case primitive
+        case secondary
+        case tertiary
+        case danger
+        case textLink
         
         public var value : ZButtonAppearance {
             return ZButtonAppearance.TypeStyles[self]!
@@ -38,10 +38,10 @@ public class ZButtonAppearance {
     }
     
     public enum ButtonSize : Int, RawRepresentable, CaseIterable {
-        case Large
-        case Middle
-        case Small
-        case Thin
+        case large
+        case middle
+        case small
+        case thin
         
         public var value : ZButtonAppearance {
             return ZButtonAppearance.SizeStyles[self]!
@@ -49,15 +49,15 @@ public class ZButtonAppearance {
     }
     
     public enum ButtonWidth : Int, RawRepresentable, CaseIterable {
-        case WrapContent
-        case MatchParent
+        case wrapContent
+        case matchParent
     }
     
     public enum IconPosition : Int, RawRepresentable, CaseIterable {
-        case Left
-        case Top
-        case Right
-        case Bottom
+        case left
+        case top
+        case right
+        case bottom
     }
 
     public var buttonType: ButtonType? = nil
@@ -251,18 +251,18 @@ public class ZButtonAppearance {
 extension ZButtonAppearance {
     
     private static let TypeStyles: [ButtonType: ZButtonAppearance] = [
-        .Primitive: .primitive,
-        .Secondary: .secondary,
-        .Tertiary: .tertiary,
-        .Danger: .danger,
-        .TextLink: .textLink
+        .primitive: .primitive,
+        .secondary: .secondary,
+        .tertiary: .tertiary,
+        .danger: .danger,
+        .textLink: .textLink
     ]
     
     private static let SizeStyles: [ButtonSize: ZButtonAppearance] = [
-        .Large: .large,
-        .Middle: .middle,
-        .Small: .small,
-        .Thin: .thin
+        .large: .large,
+        .middle: .middle,
+        .small: .small,
+        .thin: .thin
     ]
 
     public static let primitive = ZButtonAppearance(
@@ -293,47 +293,47 @@ extension ZButtonAppearance {
     ).seal()
 
     public static let large = ZButtonAppearance(
-        minHeight: 44, cornerRadius: 24, paddingX: 32, paddingY: 6, textSize: 18, lineHeight: 28,  iconSize: 20, iconPadding: 5).seal()
+        minHeight: 44, cornerRadius: 24, paddingX: 32, paddingY: 0, textSize: 18, lineHeight: 28,  iconSize: 20, iconPadding: 5).seal()
 
     public static let middle = ZButtonAppearance(
-        minHeight: 36, cornerRadius: 18, paddingX: 24, paddingY: 4, textSize: 16, lineHeight: 24, iconSize: 18, iconPadding: 4).seal()
+        minHeight: 36, cornerRadius: 18, paddingX: 24, paddingY: 0, textSize: 16, lineHeight: 24, iconSize: 18, iconPadding: 4).seal()
 
     public static let small = ZButtonAppearance(
-        minHeight: 24, cornerRadius: 12, paddingX: 12, paddingY: 2, textSize: 14, lineHeight: 20, iconSize: 16, iconPadding: 3).seal()
+        minHeight: 24, cornerRadius: 12, paddingX: 12, paddingY: 0, textSize: 14, lineHeight: 20, iconSize: 16, iconPadding: 3).seal()
 
     public static let thin = ZButtonAppearance(
-        minHeight: 20, cornerRadius: 10, paddingX: 12, paddingY: 2, textSize: 12, lineHeight: 18, iconSize: 14, iconPadding: 2).seal()
+        minHeight: 20, cornerRadius: 10, paddingX: 12, paddingY: 0, textSize: 12, lineHeight: 18, iconSize: 14, iconPadding: 2).seal()
     
-    public static let primitiveLarge = ZButtonAppearance(buttonType: .Primitive, buttonSize: .Large).seal()
+    public static let primitiveLarge = ZButtonAppearance(buttonType: .primitive, buttonSize: .large).seal()
     
-    public static let primitiveMiddle = ZButtonAppearance(buttonType: .Primitive, buttonSize: .Middle).seal()
+    public static let primitiveMiddle = ZButtonAppearance(buttonType: .primitive, buttonSize: .middle).seal()
     
-    public static let primitiveSmall = ZButtonAppearance(buttonType: .Primitive, buttonSize: .Small).seal()
+    public static let primitiveSmall = ZButtonAppearance(buttonType: .primitive, buttonSize: .small).seal()
     
-    public static let primitiveThin = ZButtonAppearance(buttonType: .Primitive, buttonSize: .Thin).seal()
+    public static let primitiveThin = ZButtonAppearance(buttonType: .primitive, buttonSize: .thin).seal()
     
-    public static let secondaryLarge = ZButtonAppearance(buttonType: .Secondary, buttonSize: .Large).seal()
+    public static let secondaryLarge = ZButtonAppearance(buttonType: .secondary, buttonSize: .large).seal()
     
-    public static let secondaryMiddle = ZButtonAppearance(buttonType: .Secondary, buttonSize: .Middle).seal()
+    public static let secondaryMiddle = ZButtonAppearance(buttonType: .secondary, buttonSize: .middle).seal()
     
-    public static let secondarySmall = ZButtonAppearance(buttonType: .Secondary, buttonSize: .Small).seal()
+    public static let secondarySmall = ZButtonAppearance(buttonType: .secondary, buttonSize: .small).seal()
     
-    public static let secondaryThin = ZButtonAppearance(buttonType: .Secondary, buttonSize: .Thin).seal()
+    public static let secondaryThin = ZButtonAppearance(buttonType: .secondary, buttonSize: .thin).seal()
     
-    public static let tertiaryLarge = ZButtonAppearance(buttonType: .Tertiary, buttonSize: .Large).seal()
+    public static let tertiaryLarge = ZButtonAppearance(buttonType: .tertiary, buttonSize: .large).seal()
     
-    public static let tertiaryMiddle = ZButtonAppearance(buttonType: .Tertiary, buttonSize: .Middle).seal()
+    public static let tertiaryMiddle = ZButtonAppearance(buttonType: .tertiary, buttonSize: .middle).seal()
     
-    public static let tertiarySmall = ZButtonAppearance(buttonType: .Tertiary, buttonSize: .Small).seal()
+    public static let tertiarySmall = ZButtonAppearance(buttonType: .tertiary, buttonSize: .small).seal()
     
-    public static let tertiaryThin = ZButtonAppearance(buttonType: .Tertiary, buttonSize: .Thin).seal()
+    public static let tertiaryThin = ZButtonAppearance(buttonType: .tertiary, buttonSize: .thin).seal()
     
-    public static let textLinkLarge = ZButtonAppearance(buttonType: .TextLink, buttonSize: .Large).seal()
+    public static let textLinkLarge = ZButtonAppearance(buttonType: .textLink, buttonSize: .large).seal()
     
-    public static let textLinkMiddle = ZButtonAppearance(buttonType: .TextLink, buttonSize: .Middle).seal()
+    public static let textLinkMiddle = ZButtonAppearance(buttonType: .textLink, buttonSize: .middle).seal()
     
-    public static let textLinkSmall = ZButtonAppearance(buttonType: .TextLink, buttonSize: .Small).seal()
+    public static let textLinkSmall = ZButtonAppearance(buttonType: .textLink, buttonSize: .small).seal()
     
-    public static let textLinkThin = ZButtonAppearance(buttonType: .TextLink, buttonSize: .Thin).seal()
+    public static let textLinkThin = ZButtonAppearance(buttonType: .textLink, buttonSize: .thin).seal()
 
 }

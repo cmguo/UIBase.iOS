@@ -14,8 +14,8 @@ public class ZAppTitleBarStyle : UIViewStyle {
     public var iconPadding: CGFloat = 12
     public var buttonPadding: CGFloat = 12
     public var textPadding: CGFloat = 20
-    public var textAppearance = TextAppearance.Head2
-    public var textAppearanceLarge = TextAppearance.Head1
+    public var textAppearance = TextAppearance.head2
+    public var textAppearanceLarge = TextAppearance.head1
     public var buttonAppearance = ZButtonAppearance(.textLinkThin,
                                                       textColor: StateListColor(singleColor: .bluegrey_800),
                                                       iconSize: 20,

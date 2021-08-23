@@ -107,8 +107,8 @@ extension ColorsController.NamedColor : ZListItemProtocol {
 private let stateNames: [UIControl.State: String] = [
     .disabled: "disabled", .highlighted: "highlighted",
     .selected: "selected", .focused: "focused",
-    .STATE_CHECKED: "CHECKED", .STATE_HALF_CHECKED: "HALF_CHECKED",
-    .STATE_ERROR: "ERROR"
+    .checked: "checked", .half_checked: "half_checked",
+    .error: "error"
 ]
 
 extension StateColor : ZListItemProtocol {
@@ -116,6 +116,9 @@ extension StateColor : ZListItemProtocol {
     public var title: String { color.hexString() }
     public var subTitle: String? {
         var s = states.rawValue
+        if s == 0 {
+            return "normal"
+        }
         var t: UInt = 1
         var strs: [String] = []
         while s != 0 {

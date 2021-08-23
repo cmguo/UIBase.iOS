@@ -103,8 +103,8 @@ public class ZDialog : UIView {
     private let _label = UILabel()
     private let _label2 = UILabel()
     private var _contentView: UIView? = nil
-    private let _cancelButton = ZButton().buttonType(.Tertiary).buttonSize(.Middle)
-    private let _confirmButton = ZButton().buttonSize(.Middle)
+    private let _cancelButton = ZButton().buttonType(.tertiary).buttonSize(.middle)
+    private let _confirmButton = ZButton().buttonSize(.middle)
     private var _moreButtons: [ZButton] = []
     private var _checkBox = ZCheckBox()
 

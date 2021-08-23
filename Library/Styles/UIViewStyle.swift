@@ -32,5 +32,5 @@ public class UIViewStyle {
         borderColors = copy.borderColors
     }
 
-    public static let Default = UIViewStyle()
+    public static let `default` = UIViewStyle()
 }

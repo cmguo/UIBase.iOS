@@ -35,7 +35,7 @@ public class ZEmptyViewDefault: UIView {
     }()
 
     lazy var button: ZButton = {
-        let view = ZButton().buttonSize(.Middle)
+        let view = ZButton().buttonSize(.middle)
         view.addTarget(self, action: #selector(onButtonClick), for: .touchUpInside)
         return view
     }()

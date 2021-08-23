@@ -10,7 +10,7 @@ import Foundation
 public class ZSearchBarStyle : UIViewStyle {
     
     public var size = CGSize(width: 108, height: 32)
-    public var textAppearance = TextAppearance.Body_Middle
+    public var textAppearance = TextAppearance.body_middle
         
     public override init() {
         super.init()

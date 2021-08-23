@@ -27,7 +27,7 @@ public class ZTipViewAppearance: NSObject {
     public var frameColor = UIColor.bluegrey_900
     public var frameAlpha: Float = 1
     public var textColor = UIColor.bluegrey_00
-    public var textAppearance = TextAppearance(copy: .Body_Middle).textColor(.bluegrey_00)
+    public var textAppearance = TextAppearance(copy: .body_middle).textColor(.bluegrey_00)
     
     public override init() {}
     
@@ -64,17 +64,17 @@ public class ZTipViewAppearance: NSObject {
         return self
     }
     
-    public static let Toast = ZTipViewAppearance().textAppearance(.Body_Small)
-    public static let ToastQpaque = ZTipViewAppearance(copy: Toast).frameAlpha(0.5)
+    public static let toast = ZTipViewAppearance().textAppearance(.body_small)
+    public static let toastQpaque = ZTipViewAppearance(copy: toast).frameAlpha(0.5)
     
-    public static let ToolTip = ZTipViewAppearance()
-    public static let ToolTipQpaque = ZTipViewAppearance(copy: ToolTip).frameAlpha(0.5)
-    public static let ToolTipSpecial = ZTipViewAppearance(copy: ToolTip).frameColor(.blue_600)
-    public static let ToolTipSuccess = ZTipViewAppearance(copy: ToolTip).frameColor(.green_600)
-    public static let ToolTipWarning = ZTipViewAppearance(copy: ToolTip).frameColor(.orange_600)
-    public static let ToolTipError = ZTipViewAppearance(copy: ToolTip).frameColor(.red_600)
+    public static let toolTip = ZTipViewAppearance()
+    public static let toolTipQpaque = ZTipViewAppearance(copy: toolTip).frameAlpha(0.5)
+    public static let toolTipSpecial = ZTipViewAppearance(copy: toolTip).frameColor(.blue_600)
+    public static let toolTipSuccess = ZTipViewAppearance(copy: toolTip).frameColor(.green_600)
+    public static let toolTipWarning = ZTipViewAppearance(copy: toolTip).frameColor(.orange_600)
+    public static let toolTipError = ZTipViewAppearance(copy: toolTip).frameColor(.red_600)
 
-    public static let Snack = ZTipViewAppearance().frameColor(.bluegrey_05).textColor(.bluegrey_800).frameRadius(0)
-    public static let SnackInfo = ZTipViewAppearance(copy: .Snack).frameColor(.blue_100).textColor(.blue_600)
-    public static let SnackError = ZTipViewAppearance(copy: .Snack).frameColor(.red_100).textColor(.red_600)
+    public static let snack = ZTipViewAppearance().frameColor(.bluegrey_05).textColor(.bluegrey_800).frameRadius(0)
+    public static let snackInfo = ZTipViewAppearance(copy: .snack).frameColor(.blue_100).textColor(.blue_600)
+    public static let snackError = ZTipViewAppearance(copy: .snack).frameColor(.red_100).textColor(.red_600)
 }

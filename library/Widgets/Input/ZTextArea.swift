@@ -82,13 +82,13 @@ public class ZTextArea: UIView {
     private static let defaultFont = UIFont.systemFont(ofSize: 16, weight: .regular)
     private static let defaultWordCounFont = UIFont.systemFont(ofSize: 12, weight: .regular) // for word count label
     private static let backgroundColor = StateListColor([
-        StateColor(.bluegrey_100, .STATES_DISABLED),
-        StateColor(.bluegrey_00, .STATES_NORMAL)
+        StateColor(.bluegrey_100, .disabled),
+        StateColor(.bluegrey_00, .normal)
     ])
     private static let borderColor = StateListColor([
-        StateColor(.red_500, .STATES_ERROR),
-        StateColor(.blue_600, .STATES_FOCUSED),
-        StateColor(.bluegrey_300, .STATES_NORMAL)
+        StateColor(.red_500, .error),
+        StateColor(.blue_600, .focused),
+        StateColor(.bluegrey_300, .normal)
     ])
     private static let padding: CGFloat = 12
     private static let paddingH: CGFloat = 12 // for single mode
@@ -437,9 +437,9 @@ public class ZTextArea: UIView {
     }
     
     fileprivate func states() -> UIControl.State {
-        var states = UIControl.State.STATES_NORMAL
+        var states = UIControl.State.normal
         if isFocused {
-            states = states.union(.STATE_FOCUSED)
+            states = states.union(.focused)
         }
         return states
     }

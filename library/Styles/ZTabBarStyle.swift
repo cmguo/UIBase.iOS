@@ -23,26 +23,26 @@ public class ZTabBarStyle : UIViewStyle {
 public class ZTabBarTitleStyle: UIViewStyle {
     
     public var gravity = UIControl.ContentHorizontalAlignment.fill
-    public var textAppearence = TextAppearance(copy: .Body_Middle).textColors(.bluegrey_800_selected)
+    public var textAppearence = TextAppearance(copy: .body_middle).textColors(.bluegrey_800_selected)
     public var textSizeSelected: CGFloat = 18
 
     public override init() {
         super.init()
     }
     
-    public static let Frame: ZTabBarTitleStyle = {
+    public static let frame: ZTabBarTitleStyle = {
         let t = ZTabBarTitleStyle()
         t.backgroundColor = .bluegrey_05
         return t
     }()
     
-    public static let Flat: ZTabBarTitleStyle = {
+    public static let flat: ZTabBarTitleStyle = {
         let t = ZTabBarTitleStyle()
         t.gravity = .center
         return t
     }()
     
-    public static let Round: ZTabBarTitleStyle = {
+    public static let round: ZTabBarTitleStyle = {
         let t = ZTabBarTitleStyle()
         t.backgroundColor = .bluegrey_05
         t.cornerRadius = 8

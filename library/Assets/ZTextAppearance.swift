@@ -9,37 +9,37 @@ import Foundation
 
 public extension TextStyle {
     
-    static let Title = TextAppearance().textWeight(.bold)
-    static let Title_24 = TextAppearance(copy: .Title).textSize(24).lineHeight(36)
-    static let Title_20 = TextAppearance(copy: .Title).textSize(20).lineHeight(32)
-    static let Title_18 = TextAppearance(copy: .Title).textSize(18).lineHeight(28)
-    static let Title_16 = TextAppearance(copy: .Title).textSize(16).lineHeight(24)
-    static let Title_14 = TextAppearance(copy: .Title).textSize(14).lineHeight(20)
+    static let title = TextAppearance().textWeight(.bold)
+    static let title_24 = TextAppearance(copy: .title).textSize(24).lineHeight(36)
+    static let title_20 = TextAppearance(copy: .title).textSize(20).lineHeight(32)
+    static let title_18 = TextAppearance(copy: .title).textSize(18).lineHeight(28)
+    static let title_16 = TextAppearance(copy: .title).textSize(16).lineHeight(24)
+    static let title_14 = TextAppearance(copy: .title).textSize(14).lineHeight(20)
 
-    static let Body = TextAppearance().textColors(.bluegrey_800_disabled)
-    static let Body_18 = TextAppearance(copy: .Body).textSize(18).lineHeight(28)
-    static let Body_16 = TextAppearance(copy: .Body).textSize(16).lineHeight(24)
-    static let Body_14 = TextAppearance(copy: .Body).textSize(14).lineHeight(20)
-    static let Body_12 = TextAppearance(copy: .Body).textSize(12).lineHeight(20)
-    static let Body_10 = TextAppearance(copy: .Body).textSize(10).lineHeight(20)
+    static let body = TextAppearance().textColors(.bluegrey_800_disabled)
+    static let body_18 = TextAppearance(copy: .body).textSize(18).lineHeight(28)
+    static let body_16 = TextAppearance(copy: .body).textSize(16).lineHeight(24)
+    static let body_14 = TextAppearance(copy: .body).textSize(14).lineHeight(20)
+    static let body_12 = TextAppearance(copy: .body).textSize(12).lineHeight(20)
+    static let body_10 = TextAppearance(copy: .body).textSize(10).lineHeight(20)
 
 }
 
 public extension TextAppearance {
     
-    static let Head = Title
-    static let Head0 = Title_24
-    static let Head1 = Title_20
-    static let Head2 = Title_18
-    static let Head3 = Title_16
-    static let Head4 = TextAppearance(style: .Title_14, textColors: .bluegrey_800_disabled)
+    static let head = title
+    static let head0 = title_24
+    static let head1 = title_20
+    static let head2 = title_18
+    static let head3 = title_16
+    static let head4 = TextAppearance(style: .title_14, textColors: .bluegrey_800_disabled)
 
-    static let Body_Large = Body_18
-    static let Body_Middle = Body_16
-    static let Body_Small = Body_14
+    static let body_large = body_18
+    static let body_middle = body_16
+    static let body_small = body_14
 
-    static let Body_Secondary = TextAppearance(style: .Body_12, textColor: .bluegrey_700)
-    static let Body_Tip = TextAppearance(style: .Body_10, textColor: .bluegrey_700)
+    static let body_secondary = TextAppearance(style: .body_12, textColor: .bluegrey_700)
+    static let body_tip = TextAppearance(style: .body_10, textColor: .bluegrey_700)
 
 }
 

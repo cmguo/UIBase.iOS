@@ -14,7 +14,7 @@ class ContentStyle: ResourceStyle {
     static let icon_text: UIView = {
         let v = UILabel()
         v.text = "标签"
-        v.textAppearance = TextAppearance(copy: .Body_Secondary).textColor(.blue_600)
+        v.textAppearance = TextAppearance(copy: .body_secondary).textColor(.blue_600)
         v.clipsToBounds = true
         v.layer.cornerRadius = 9
         v.backgroundColor = .blue_100
@@ -35,7 +35,7 @@ class ContentStyle: ResourceStyle {
         "button_style": [
             "text": "按钮",
             "icon": URL.icon_right,
-            "iconPosition": ZButtonAppearance.IconPosition.Right
+            "iconPosition": ZButtonAppearance.IconPosition.right
         ] as NSDictionary,
         "title_icon": [
             "title": "标题",

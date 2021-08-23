@@ -259,7 +259,7 @@ public class ZButton : UIButton
 
     // Private properties
     var _buttonAppearance : ZButtonAppearance? = nil
-    var _appearance = ZButtonAppearance(iconPosition: .Left)
+    var _appearance = ZButtonAppearance(iconPosition: .left)
     
     open func postHandleIcon() {
     }
@@ -279,8 +279,8 @@ public class ZButton : UIButton
      - Parameter text:      the title of the button.
      */
     public init(style: ZButtonStyle = .init()) {
-        _appearance.buttonType = style.buttonType ?? .Primitive
-        _appearance.buttonSize = style.buttonSize ?? .Large
+        _appearance.buttonType = style.buttonType ?? .primitive
+        _appearance.buttonSize = style.buttonSize ?? .large
         _buttonAppearance = style.appearance
         _ = _appearance.normalized()
         _ = style.fill(_appearance)
@@ -322,13 +322,13 @@ public class ZButton : UIButton
     override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
         let contentRect = bounds.centerPart(ofSize: minSize);
         switch iconPosition {
-        case .Left:
+        case .left:
             return contentRect.leftCenterPart(ofSize: imageSize)
-        case .Top:
+        case .top:
             return contentRect.topCenterPart(ofSize: imageSize)
-        case .Right:
+        case .right:
             return contentRect.rightCenterPart(ofSize: imageSize)
-        case .Bottom:
+        case .bottom:
             return contentRect.bottomCenterPart(ofSize: imageSize)
         }
     }
@@ -336,13 +336,13 @@ public class ZButton : UIButton
     override public func titleRect(forContentRect contentRect: CGRect) -> CGRect {
         let contentRect = bounds.centerPart(ofSize: minSize);
         switch iconPosition {
-        case .Left:
+        case .left:
             return contentRect.rightCenterPart(ofSize: titleSize)
-        case .Top:
+        case .top:
             return contentRect.bottomCenterPart(ofSize: titleSize)
-        case .Right:
+        case .right:
             return contentRect.leftCenterPart(ofSize: titleSize)
-        case .Bottom:
+        case .bottom:
             return contentRect.topCenterPart(ofSize: titleSize)
         }
     }
@@ -457,7 +457,7 @@ public class ZButton : UIButton
             minSize.height = titleSize.height
         }
         if self.icon != nil {
-            if (iconPosition == .Left || iconPosition == .Right) {
+            if (iconPosition == .left || iconPosition == .right) {
                 minSize.width += imageSize.width
                 if text != nil {
                     minSize.width += _appearance.iconPadding!

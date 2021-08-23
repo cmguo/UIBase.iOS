@@ -26,7 +26,7 @@ class ZActionSheetController: ComponentController, ZActionSheetDelegate, ZPanelD
     
     class Model : ViewModel {
         
-        let states: [UIControl.State] = [.STATES_SELECTED]
+        let states: [UIControl.State] = [.selected]
         
         let buttons = ["删除内容", "项目1", "项目2"]
     }

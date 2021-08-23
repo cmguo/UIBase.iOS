@@ -35,8 +35,8 @@ extension UIButton {
         set {
             self.clipsToBounds = true  // add this to maintain corner radius
             let states: [State] = [.normal, .highlighted, .disabled, .selected,
-                                   .STATES_PRESSED_SELETED,
-                                   .STATES_DISABLED_SELETED]
+                                   .pressed_selected,
+                                   .disabled_selected]
             for state in states {
                 if let image = UIImage.from(color: newValue.color(for: state)) {
                     self.setBackgroundImage(image, for: state)
@@ -49,8 +49,8 @@ extension UIButton {
         get { StateListColor(singleColor: .clear) }
         set {
             let states: [State] = [.normal, .highlighted, .disabled, .selected,
-                                   .STATES_PRESSED_SELETED,
-                                   .STATES_DISABLED_SELETED]
+                                   .pressed_selected,
+                                   .disabled_selected]
             for state in states {
                 self.setTitleColor(newValue.color(for: state), for: state)
             }

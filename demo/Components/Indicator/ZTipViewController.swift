@@ -12,13 +12,14 @@ import UIBase
 class ZTipViewController: ComponentController, UICollectionViewDataSource, UICollectionViewDelegate, ZTipViewDelegate {
 
     @objc enum Location : Int {
-        case TopLeft
-        case TopCenter
-        case TopRight
-        case BottomLeft
-        case BottomCenter
-        case BottomRight
-        case AutoToast
+        case topLeft
+        case topCenter
+        case topRight
+        case bottomLeft
+        case bottomCenter
+        case bottomRight
+        case autoToast
+        case manualLayout
     }
     
     class Styles : ViewStyles {
@@ -48,7 +49,7 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
 
         @objc static let _location = ["建议位置", "建议弹出位置，如果左右或者上下超过窗口区域，则会分别自动调整为其他适当位置"]
         @objc static let _locationStyle: NSObject = EnumStyle(ToolTipStyles.self, "location", ZTipView.Location.self)
-        @objc var location = Location.TopRight
+        @objc var location = Location.topRight
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
         @objc static let _rightButtonStyle: NSObject = ContentStyle(ToolTipStyles.self, "rightButton", ["<button>"])
@@ -94,13 +95,13 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
     class ToastStyles : SnackToastStyles {
         
         init() {
-            super.init(.AutoToast)
+            super.init(.autoToast)
             message = "网络不给力，请稍后重试"
         }
         
         override func apply(_ tip: ZTipView) {
             super.apply(tip)
-            tip.location = .AutoToast
+            tip.location = .autoToast
         }
 
     }
@@ -112,13 +113,13 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
         @objc var leftButton: Any? = nil
 
         init() {
-            super.init(.ManualLayout)
+            super.init(.manualLayout)
             message = "我们会基于您所填写的年级和学科来提供对应功能"
         }
         
         override func apply(_ tip: ZTipView) {
             super.apply(tip)
-            tip.location = .ManualLayout
+            tip.location = .manualLayout
             tip.dismissDelay = 0
             tip.leftButton = leftButton
         }

@@ -16,9 +16,9 @@ public class ZSwitchButton : UISwitch
     public init() {
         super.init(frame: CGRect.zero)
         
-        self.tintColor = ZSwitchButton.trackColor.color(for: .STATES_NORMAL)
-        self.onTintColor = ZSwitchButton.trackColor.color(for: .STATES_CHECKED)
-        self.thumbTintColor = ZSwitchButton.tumbColor.color(for: .STATES_NORMAL)
+        self.tintColor = ZSwitchButton.trackColor.color(for: .normal)
+        self.onTintColor = ZSwitchButton.trackColor.color(for: .checked)
+        self.thumbTintColor = ZSwitchButton.tumbColor.color(for: .normal)
     }
     
     required init?(coder: NSCoder) {

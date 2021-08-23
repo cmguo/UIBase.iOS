@@ -15,7 +15,7 @@ public class ZPickerViewStyle : UIViewStyle {
     public var itemPaddingY: CGFloat = 12
     public var iconSize: CGFloat = 24
     public var iconPadding: CGFloat = 8
-    public var textAppearance = TextAppearance.Body_Middle
+    public var textAppearance = TextAppearance.body_middle
 
     public override init() {
         super.init()

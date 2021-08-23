@@ -9,7 +9,7 @@ import Foundation
 
 public class ZTimePickerViewStyle : UIViewStyle {
     
-    public var textAppearance = TextAppearance(copy: .Head).textSize(30)
+    public var textAppearance = TextAppearance(copy: .head).textSize(30)
 
     public override init() {
         super.init()

@@ -17,18 +17,18 @@ public class ZTextViewStyle : UITextViewStyle {
     public override init() {
         super.init()
         backgroundColors = StateListColor([
-            StateColor(.bluegrey_100, .STATES_DISABLED),
-            StateColor(.bluegrey_00, .STATES_NORMAL)
+            StateColor(.bluegrey_100, .disabled),
+            StateColor(.bluegrey_00, .normal)
         ])
         cornerRadius = 8
         borderWidth = 1
         borderColors = StateListColor([
-            StateColor(.red_500, .STATES_ERROR),
-            StateColor(.blue_600, .STATES_FOCUSED),
-            StateColor(.bluegrey_300, .STATES_NORMAL)
+            StateColor(.red_500, .error),
+            StateColor(.blue_600, .focused),
+            StateColor(.bluegrey_300, .normal)
         ])
         
-        textAppearance = .Body_Middle
+        textAppearance = .body_middle
     }
     
     

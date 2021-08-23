@@ -11,17 +11,17 @@ import UIBase
 class AppearanceStyle: ResourceStyle {
     
     static let Contents: [String: Any] = [
-        "TipViewToast": ZTipViewAppearance.Toast,
-        "TipViewToast_Qpaque": ZTipViewAppearance.ToastQpaque,
-        "TipViewToolTip": ZTipViewAppearance.ToolTip,
-        "TipViewToolTip_Qpaque": ZTipViewAppearance.ToolTipQpaque,
-        "TipViewToolTip_Special": ZTipViewAppearance.ToolTipSpecial,
-        "TipViewToolTip_Success": ZTipViewAppearance.ToolTipSuccess,
-        "TipViewToolTip_Warning": ZTipViewAppearance.ToolTipWarning,
-        "TipViewToolTip_Error": ZTipViewAppearance.ToolTipError,
-        "TipViewSnack": ZTipViewAppearance.Snack,
-        "TipViewSnack_Info": ZTipViewAppearance.SnackInfo,
-        "TipViewSnack_Error": ZTipViewAppearance.SnackError,
+        "TipViewToast": ZTipViewAppearance.toast,
+        "TipViewToast_Qpaque": ZTipViewAppearance.toastQpaque,
+        "TipViewToolTip": ZTipViewAppearance.toolTip,
+        "TipViewToolTip_Qpaque": ZTipViewAppearance.toolTipQpaque,
+        "TipViewToolTip_Special": ZTipViewAppearance.toolTipSpecial,
+        "TipViewToolTip_Success": ZTipViewAppearance.toolTipSuccess,
+        "TipViewToolTip_Warning": ZTipViewAppearance.toolTipWarning,
+        "TipViewToolTip_Error": ZTipViewAppearance.toolTipError,
+        "TipViewSnack": ZTipViewAppearance.snack,
+        "TipViewSnack_Info": ZTipViewAppearance.snackInfo,
+        "TipViewSnack_Error": ZTipViewAppearance.snackError,
     ]
     
     init(_ cls: ViewStyles.Type, _ field: String, _ params: [String]) {

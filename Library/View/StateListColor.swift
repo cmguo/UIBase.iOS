@@ -19,26 +19,15 @@ extension UIControl.State {
 
 public extension UIControl.State {
     
-    static let STATE_DISABLED = disabled
-    static let STATE_PRESSED = highlighted
-    static let STATE_SELECTED = selected
-    static let STATE_FOCUSED = focused
-    static let STATE_CHECKED = UIControl.State(rawValue: 0x10000)
-    static let STATE_HALF_CHECKED = UIControl.State(rawValue: 0x20000)
-    static let STATE_ERROR = UIControl.State(rawValue: 0x40000)
+    static let pressed = highlighted
+    static let checked = UIControl.State(rawValue: 0x10000)
+    static let half_checked = UIControl.State(rawValue: 0x20000)
+    static let error = UIControl.State(rawValue: 0x40000)
 
-    static let STATES_NORMAL = UIControl.State.normal
-    static let STATES_PRESSED = STATE_PRESSED
-    static let STATES_DISABLED = STATE_DISABLED
-    static let STATES_SELECTED = STATE_SELECTED
-    static let STATES_CHECKED = STATE_CHECKED
-    static let STATES_HALF_CHECKED = STATE_HALF_CHECKED
-    static let STATES_FOCUSED = STATE_FOCUSED
-    static let STATES_ERROR = STATE_ERROR
-    static let STATES_PRESSED_SELETED = UIControl.State([STATE_PRESSED, STATE_SELECTED])
-    static let STATES_DISABLED_SELETED = UIControl.State([STATE_DISABLED, STATE_SELECTED])
-    static let STATES_DISABLED_CHECKED = UIControl.State([STATE_DISABLED, STATE_CHECKED])
-    static let STATES_DISABLED_HALF_CHECKED = UIControl.State([STATE_DISABLED, STATE_HALF_CHECKED])
+    static let pressed_selected = UIControl.State([pressed, selected])
+    static let disabled_selected = UIControl.State([disabled, selected])
+    static let disabled_checked = UIControl.State([disabled, checked])
+    static let disabled_half_checked = UIControl.State([disabled, half_checked])
 
 }
 
@@ -63,7 +52,7 @@ public class StateListColor {
     public let statesColors: [StateColor]
     
     public init(singleColor: UIColor) {
-        self.statesColors = [StateColor(singleColor, .STATES_NORMAL)]
+        self.statesColors = [StateColor(singleColor, .normal)]
     }
     
     public init(_ statesColors: [StateColor]) {
@@ -80,15 +69,15 @@ public class StateListColor {
     }
     
     public func normalColor() -> UIColor {
-        return color(for: .STATES_NORMAL)
+        return color(for: .normal)
     }
     
     public func disabledColor() -> UIColor {
-        return color(for: .STATES_DISABLED)
+        return color(for: .disabled)
     }
     
     public func pressedColor() -> UIColor {
-        return color(for: .STATES_PRESSED)
+        return color(for: .pressed)
     }
 
 }

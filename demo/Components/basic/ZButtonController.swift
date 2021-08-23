@@ -13,30 +13,30 @@ import SwiftSVG
 public class ZButtonController: ComponentController, UITableViewDataSource, UITableViewDelegate {
 
     @objc enum ButtonType : Int {
-        case Primitive
-        case Secondary
-        case Tertiary
-        case Danger
-        case TextLink
+        case primitive
+        case secondary
+        case tertiary
+        case danger
+        case textLink
     }
     
     @objc enum ButtonSize : Int {
-        case Large
-        case Middle
-        case Small
-        case Thin
+        case large
+        case middle
+        case small
+        case thin
     }
     
     @objc enum ButtonWidth : Int {
-        case WrapContent
-        case MatchParent
+        case wrapContent
+        case matchParent
     }
     
     @objc enum IconPosition : Int {
-        case Left
-        case Top
-        case Right
-        case Bottom
+        case left
+        case top
+        case right
+        case bottom
     }
     
     class Styles : ViewStyles {
@@ -52,19 +52,19 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         
         @objc static let _buttonType = ["颜色模式", "有下列颜色模式：主要（Primitive）、二级（Secondary）、三级（Tertiary）、危险（Danger）、文字（TextLink），默认：Primitive"]
         @objc static let _buttonTypeStyle: NSObject = EnumStyle(Styles.self, "buttonType", ZButtonAppearance.ButtonType.self)
-        @objc var buttonType = ButtonType.Primitive
+        @objc var buttonType = ButtonType.primitive
         
         @objc static let _buttonSize = ["尺寸模式", "有下列尺寸模式：大（Large）、中（Middle）、小（Small），默认：Large"]
         @objc static let _buttonSizeStyle: NSObject = EnumStyle(Styles.self, "buttonSize", ZButtonAppearance.ButtonSize.self)
-        @objc var buttonSize = ButtonSize.Large
+        @objc var buttonSize = ButtonSize.large
 
         @objc static let _widthMode = ["宽度模式", "有下列宽度模式：适应内容（WrapContent）、适应布局（MatchParent），默认：WrapContent"]
         @objc static let _widthModeStyle: NSObject = EnumStyle(Styles.self, "widthMode", ZButtonAppearance.ButtonWidth.self)
-        @objc var widthMode = ButtonWidth.WrapContent
+        @objc var widthMode = ButtonWidth.wrapContent
         
         @objc static let _iconPosition = ["图标位置", "更改图标位置，可以在文字上下或者左右"]
         @objc static let _iconPositionStyle: NSObject = EnumStyle(Styles.self, "iconPosition", ZButtonAppearance.IconPosition.self)
-        @objc var iconPosition = IconPosition.Left
+        @objc var iconPosition = IconPosition.left
         
         @objc static let _icon = ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
         @objc static let _iconStyle: NSObject = IconStyle(Styles.self, "icon")
@@ -142,7 +142,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         buttons.append(button)
         cell.contentView.addSubview(button)
         button.snp.makeConstraints { (make) in
-            if (styles.widthMode == .MatchParent) {
+            if (styles.widthMode == .matchParent) {
                 make.leading.equalToSuperview().offset(150)
                 make.trailing.equalToSuperview()
             } else {

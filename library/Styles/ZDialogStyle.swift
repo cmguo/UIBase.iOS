@@ -21,8 +21,8 @@ public class ZDialogStyle : UIViewStyle {
     public var buttonPadding2: CGFloat = 24 // with content
     public var checkBoxPadding: CGFloat = 22
     public var bottomPadding: CGFloat = 18
-    public var textAppearance = TextAppearance.Head2
-    public var textAppearance2 = TextAppearance(copy: .Body_Middle).textAlignment(.center)
+    public var textAppearance = TextAppearance.head2
+    public var textAppearance2 = TextAppearance(copy: .body_middle).textAlignment(.center)
     public var moreButtonApperance = ZButtonAppearance(.textLinkMiddle,
                                                          textColor: .bluegrey_900_selected_disabled,
                                                          height: 48,

@@ -10,7 +10,7 @@ import Foundation
 extension UIView {
     
     open var viewStyle: UIViewStyle {
-        get { return .Default }
+        get { return .default }
         set {
             backgroundColor = newValue.backgroundColor
             layer.cornerRadius = newValue.cornerRadius

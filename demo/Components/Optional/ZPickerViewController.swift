@@ -31,7 +31,7 @@ class ZPickerViewController: ComponentController, ZPickerViewDelegate, ZPanelDel
         
         let icons = Icons.iconURLs
 
-        let states: [UIControl.State?] = [.STATES_DISABLED, .STATE_DISABLED]
+        let states: [UIControl.State?] = [.disabled, .disabled]
         
         var selection: Int? = 0 {
             didSet {

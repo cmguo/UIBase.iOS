@@ -61,7 +61,7 @@ public class ZPanel : UIView, ZTitleBarDelegate {
     private lazy var _titleBar: ZAppTitleBar = {
         let bar = ZAppTitleBar()
         bar.translatesAutoresizingMaskIntoConstraints = true
-        bar.textAppearance = TextAppearance.Head3
+        bar.textAppearance = TextAppearance.head3
         bar.delegate = self
         addSubview(bar)
         return bar
