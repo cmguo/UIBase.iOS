@@ -21,4 +21,6 @@ build-job:
     - /bin/ls -a
     - ./publish.sh -s
     - echo "Publish success"
+  tags:
+    - ios
   retry: 2
