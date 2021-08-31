@@ -22,7 +22,7 @@ picker.states = [.disabled, .disabled]
 picker.singleSelection = false
 picker.selections = [0, 1]
 ```
-* 弹出
+* 通过面板弹出
 ``` swift
 picker.callback = self
 let panel = ZPanel()
@@ -33,4 +33,13 @@ panel.titleBar = [
 ]
 panel.content = picker
 panel.popUp(target: view)
+```
+* 响应选择项目的变化
+``` swift
+func onSelectionChanged(picker: ZPickerView, selection: Int) {
+    model.selection = selection >= 0 ? selection : nil
+}
+func onSelectionsChanged(picker: ZPickerView, selections: [Int]) {
+    model.selections = selections
+}
 ```
