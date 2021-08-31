@@ -17,5 +17,5 @@ dropDown.popAt(sender, withDelegate: self)
 // 网格背景、夜间模式是复选菜单
 dropDrow.titles = ["设置", "网格背景(x)", "夜间模式(x)"]
 // 单选菜单
-ropDrow.titles = ["选项1(*)", "选项2(*)", "选项3(*)"]
+dropDrow.titles = ["选项1(*)", "选项2(*)", "选项3(*)"]
 ```
