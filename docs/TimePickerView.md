@@ -8,34 +8,25 @@
   - 合并展示（比如 2021年6月，2021年7月）
   - 时间间隔（最后一段时间，如5分钟间隔）
   - 循环滚动
-- 当前选择时间，可双向绑定（DataBinding）
 
 # 时间选择器的使用
 * 定义选择器样式
-``` xml
-<com.eazy.uibase.widget.ZTimePickerView
-    android:id="@+id/picker"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical"
-    app:timeMode="yearMonthDay"
-    app:timeInterval="5"
-    app:cyclic="true"
-    app:centerLabel="true"
-    app:itemsVisibleCount="5"
-    app:selectTime="@={styles.selectTime}"
-    />
+``` swift
+let picker = ZTimePickerView()
+picker.backgroundColor = .bluegrey_00
+picker.startTime = dateFormatter.date(from: "2021-08-31 15:40:04")
+picker.endTime = dateFormatter.date(from: "2021-09-30 15:40:04")
+picker.timeDelegate = this
 ```
 * 通过代码弹出
-``` kotlin
-val timePicker = inflater.inflate(R.layout.time_picker)
-timePicker.startTime = dateFormat.parse("2021/08/31 13:15:01")
-timePicker.endTime = dateFormat.parse("2021/09/30 13:15:01")
+``` swift
 // 通过 Panel 弹出
-val panel = ZPanel(requireContext())
-panel.titleBar = R.style.title_bar_text
-panel.addView(timePicker)
-panel.popUp(parentFragmentManager)
+let panel = ZPanel()
+panel.titleBar = ContentStyle.Contents["title_icon"]
+picker.removeFromSuperview()
+panel.content = picker
+panel.delegate = self
+panel.popUp(target: view)
 ```
 
 # 高级时间模式
