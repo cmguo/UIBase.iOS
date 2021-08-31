@@ -16,3 +16,13 @@ panel.content = contentView
 panel.delegate = self
 panel.popUp(target: view)
 ```
+* 响应面板事件
+``` swift
+func panelButtonClicked(_ panel: ZPanel, _ btnId: ZButton.ButtonId?) {
+    ZTipView.toast(panel, "点击了按钮 \(btnId ?? .Unknown)")
+}
+
+func panelDismissed(panel: ZPanel) {
+    ZTipView.toast(view, "面板消失")
+}
+```
