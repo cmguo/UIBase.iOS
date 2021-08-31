@@ -6,9 +6,7 @@
 //
     
 import UIKit
-import SnapKit
 import Demo
-import UIBase
 
 class MainController: DemoMainController {
     

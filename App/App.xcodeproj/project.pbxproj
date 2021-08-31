@@ -15,10 +15,6 @@
 		712876BE25E6658F0054A74B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712876BD25E6658F0054A74B /* MainController.swift */; };
 		716A91EA2652678000C82B0D /* Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; };
 		716A91EB2652678000C82B0D /* Demo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712876CC25E667FC0054A74B /* Demo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		71D82E7A2681C0A7003508B6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; };
-		71D82E7B2681C0A7003508B6 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920B265273E500C82B0D /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		71D82E7C2681C0BF003508B6 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; };
-		71D82E7D2681C0BF003508B6 /* SwiftReflection.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716A920E265273E800C82B0D /* SwiftReflection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +25,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				716A91EB2652678000C82B0D /* Demo.framework in CopyFiles */,
-				71D82E7B2681C0A7003508B6 /* SnapKit.framework in CopyFiles */,
-				71D82E7D2681C0BF003508B6 /* SwiftReflection.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,8 +51,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				716A91EA2652678000C82B0D /* Demo.framework in Frameworks */,
-				71D82E7A2681C0A7003508B6 /* SnapKit.framework in Frameworks */,
-				71D82E7C2681C0BF003508B6 /* SwiftReflection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

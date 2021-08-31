@@ -73,7 +73,6 @@
 		716A91D2264E6C6E00C82B0D /* DayNightIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A91D1264E6C6E00C82B0D /* DayNightIconComponent.swift */; };
 		716A92322652811A00C82B0D /* UIBase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 716A92312652811A00C82B0D /* UIBase.bundle */; };
 		71789F2F25E8A303004BA696 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71789F2E25E8A303004BA696 /* DescTableViewCell.swift */; };
-		71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71789F4925E8BF69004BA696 /* SwiftReflection.framework */; };
 		717C5B6F263017E7001A0E12 /* ZPanelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B6E263017E7001A0E12 /* ZPanelComponent.swift */; };
 		717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B71263017F3001A0E12 /* ZPanelController.swift */; };
 		717C5B8F26312398001A0E12 /* ZDropDownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C5B8E26312398001A0E12 /* ZDropDownController.swift */; };
@@ -88,11 +87,11 @@
 		71903B7725E0B53400437575 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71903B7625E0B53400437575 /* Component.swift */; };
 		719536362638043F00C82D2F /* ZDialogComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719536352638043F00C82D2F /* ZDialogComponent.swift */; };
 		719536392638047300C82D2F /* ZDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719536382638047300C82D2F /* ZDialogController.swift */; };
-		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
 		71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */; };
 		71A9638726DE204300E8D393 /* ReadmeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A9638626DE204300E8D393 /* ReadmeController.swift */; };
 		71A9639F26DE310600E8D393 /* MarkdownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71A9639A26DE310600E8D393 /* MarkdownView.bundle */; };
 		71A963A526DE345700E8D393 /* Docs.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71A963A426DE345700E8D393 /* Docs.bundle */; };
+		71A963AF26DE390800E8D393 /* SwiftReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A963AB26DE390100E8D393 /* SwiftReflection.framework */; };
 		71C875822643A02A00A06367 /* ZCarouselViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */; };
 		71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouselViewController.swift */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
@@ -239,6 +238,7 @@
 		71A9638626DE204300E8D393 /* ReadmeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeController.swift; sourceTree = "<group>"; };
 		71A9639A26DE310600E8D393 /* MarkdownView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MarkdownView.bundle; sourceTree = "<group>"; };
 		71A963A426DE345700E8D393 /* Docs.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Docs.bundle; sourceTree = "<group>"; };
+		71A963AB26DE390100E8D393 /* SwiftReflection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReflection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewComponent.swift; sourceTree = "<group>"; };
 		71C875842643A03300A06367 /* ZCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewController.swift; sourceTree = "<group>"; };
 		71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-UIBase.debug.xcconfig"; path = "Target Support Files/Pods-UIBase/Pods-UIBase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,10 +271,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */,
 				716A918D264D237000C82B0D /* UIBase.framework in Frameworks */,
-				71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */,
 				B3D05A47E474C9051D6704E3 /* Pods_Demo.framework in Frameworks */,
+				71A963AF26DE390800E8D393 /* SwiftReflection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +416,7 @@
 		71903B8625E0B87B00437575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71A963AB26DE390100E8D393 /* SwiftReflection.framework */,
 				71789F4925E8BF69004BA696 /* SwiftReflection.framework */,
 				71A2468025E78CDF0049ABB0 /* SnapKit.framework */,
 				7128763F25E61D980054A74B /* UIBase.framework */,
