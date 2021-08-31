@@ -7,23 +7,23 @@
 
 # 使用选择器
 * 定义选择器样式
-``` xml
-<com.eazy.uibase.widget.ZPickerView
-    android:id="@+id/picker"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:titles="@array/picker_titles"
-    app:icons="@array/icons"
-    app:singleSelection="true"
-    app:selection="@={model.selection}"
-    app:selections="@={model.selections}"
-    />
+``` swift
+let picker = ZPickerView()
+picker.titles = [
+            "不可选择的已选择项",
+            "不可选择的未选择项",
+            "普通选项",
+            "普通选项",
+            "普通选项",
+            "过于长的选项过于长的选项过于长的选项…",
+            "普通选项",
+        ]
+picker.icons = icons
+picker.states = [.disabled, .disabled]
+picker.selections = [0, 1]
 ```
-* 通过代码弹出
-``` kotlin
-// 通过 Panel 弹出
-val panel = ZPanel(requireContext())
-panel.titleBar = R.style.title_bar_text
-panel.addView(picker)
-panel.popUp(parentFragmentManager)
+* 弹出
+``` swift
+picker.callback = self
+panel.popUp(target: view)
 ```
