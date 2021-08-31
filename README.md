@@ -1,65 +1,44 @@
-# ZUiBase.iOS 已经确认的使用 UI 库组件示例
+# UI 基础库（iOS）
 
-## 标准色、有状态颜色
-```swift
-// 快速使用标准色
-view.backgroundColor = .bluegrey_100
-// 自定义有状态颜色
-public extension StateListColor {
-    static let blue_100_pressed_disabled = StateListColor([
-        StateColor(.bluegrey_100, .STATES_DISABLED),
-        StateColor(.blue_200, .STATES_PRESSED),
-        StateColor(.blue_100, .STATES_NORMAL)
-    ])
-}
-// 使用有状态颜色
-let buttonAppearance = ZButtonAppearance(.textLinkThin,
-                textColor: .blue_100_pressed_disabled)
-```
+* [目录文件结构](docs/Files.md)
+* 基础资源管理
+  * [颜色（color）](docs/Colors.md)
+  * [图标（drawable）](docs/Drawables.md)
+  * [样式（style）](docs/Styles.md)
+* 样式集和主题
+  * [主题/样式](docs/Style.md)
+  * [展示样式](docs/Appearance.md)
+  * [内容样式](docs/Content.md)
+* 夜间模式方案
+  * [模式管理](docs/DayNight.md)
+  * [动态模式切换](docs/DynamicDayNight.md)
+  * [静态模式](docs/StaticDayNight.md)
+* 基础交互控件
+  * [按钮（Button）](docs/Button.md)
+  * [复选框（CheckBox）](docs/CheckBox.md)
+  * [单选框（RadioButton）](docs/RadioButton.md)
+  * [开关（SwitchButton）](docs/SwitchButton.md)
+  * [头像（AvatarView）](docs/AvatarView.md)
+  * [徽章（BadgeView）](docs/BadgeView.md)
+* 数值输入控件
+  * [步进器（NumberView）](docs/NumberView.md)
+  * [文本域](docs/TextArea.md)
+  * [输入框](docs/TextInput.md)
+  * [搜索框](docs/SearchBar.md)
+* 工具提示控件
+  * [提示视图（TipView）](docs/TipView.md)
+  * [对话框（Dialog）](docs/Dialog.md)
+* 数据展示控件
+  * [列表（ListView）](docs/ListView.md)
+  * [走马灯（CarouselView）](docs/CarouselView.md)
+* 菜单选择控件
+  * [操作表单（ActionSheet）](docs/ActionSheet.md)
+  * [活动视图（ActivityView）](docs/ActivityView.md)
+  * [下列菜单（DropDown）](docs/DropDown.md)
+  * [选择器（PickerView）](docs/PickerView.md)
+  * [时间选择器（TimePickerView）](docs/TimePickerView.md)
+* 导航跳转控件
+  * [标题栏（导航栏，AppTitleBar）](docs/AppTitleBar.md)
+  * [浮层面板（Panel）](docs/Panel.md)
+  * [选项卡（TabBar）](docs/TabBar.md)
 
-## 图标资源
-```swift
-// 快速使用图标
-button.icon = .icon_back
-// 使用 UIImageView 加载图标
-imageView.bounds.size = CGSize(20, 20) // SVG 图标根据容器大小自动调整
-imageView.setImage(withURL: .icon_left)
-imageView.setIconColor(.blue_100) // 仅 SVG 图标有效
-```
-
-## 文字样式
-```swift
-label.textStyle = .Body_Middle // 没有颜色
-label.textAppearance = .Body_Middle // 使用样式中的颜色
-// 也可以分别设置
-label.lineHeight = 30
-label.textForegroundColor = .blue // 注意：设置 textColor 可能无效
-label.textBackgroundColor = .red
-label.textAlignment = .center // 注意：原生的 textAlignment 已经被扩展覆盖
-// 同时支持 UILabel、UITextField，UITextView
-textField.lineHeight = 30
-textView.lineHeight = 30
-```
-
-## 按钮
-```swift
-// 示例1
-let button = ZButton()
-            .buttonType(type)
-            .buttonSize(styles.buttonSize2)
-            .text(styles.text)
-            .icon(styles.icon)
-// 示例2
-let buttonAppearance = ZButtonAppearance(.textLinkThin,
-                                                      textColor: StateListColor(singleColor: .bluegrey_800),
-                                                      iconSize: 20,
-                                                      iconPadding: 5)
-```
-
-## 下拉菜单
-```swift
-let dropDown = ZDropDown()
-dropDown.titles = model.titles
-dropDown.icons = model.icons
-dropDown.popAt(sender, withDelegate: self)
-```
