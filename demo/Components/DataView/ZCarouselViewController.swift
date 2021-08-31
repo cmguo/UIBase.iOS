@@ -44,9 +44,9 @@ class ZCarouselViewController: ComponentController, ZCarouselViewDelegate {
     class Model : ViewModel, ZCarouselViewDataSource {
         
         let images = [
-            Icons.jpgURL("carousel1"),
-            Icons.jpgURL("carousel2"),
-            Icons.jpgURL("carousel3")
+            URLs.jpgURL("carousel1"),
+            URLs.jpgURL("carousel2"),
+            URLs.jpgURL("carousel3")
         ]
 
         func numberOfItems(in carouselView: ZCarouselView) -> Int {

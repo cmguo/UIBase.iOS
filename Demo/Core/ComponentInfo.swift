@@ -15,7 +15,7 @@ public class ComponentInfo {
     
     public var stars: Int = 0
     
-    private static var icons: [URL] = Array(Icons.svgIcons.values)
+    private static var icons: [URL] = Array(URLs.svgIcons.values)
 
     init(_ component: Component) {
         self.component = component

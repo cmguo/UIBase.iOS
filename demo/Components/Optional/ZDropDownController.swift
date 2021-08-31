@@ -19,7 +19,7 @@ class ZDropDownController: ComponentController, UICollectionViewDataSource, UICo
     
     class Model : ViewModel {
         let titles = ["菜单项目1", "菜单项目2", "菜单项目3", "菜单项目4", "菜单项目5"]
-        let icons = Icons.iconURLs
+        let icons = URLs.iconURLs
     }
     
     private let styles = Styles()

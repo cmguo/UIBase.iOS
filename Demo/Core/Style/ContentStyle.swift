@@ -27,10 +27,10 @@ class ContentStyle: ResourceStyle {
         "icon_left": URL.icon_left,
         "icon_more": URL.icon_more,
         "icon_text": icon_text,
-        "icon_weixin": Icons.pngURL("img_share_weixin")!,
+        "icon_weixin": URLs.pngURL("img_share_weixin")!,
         "text_cancel": "取消",
         "text_confirm": "确定",
-        "image_dialog": Icons.pngURL("dialog1")!,
+        "image_dialog": URLs.pngURL("dialog1")!,
         "button_goto": ["去查看", URL.icon_right] as [Any?] as NSArray,
         "button_style": [
             "text": "按钮",

@@ -33,7 +33,7 @@ class ZAppTitleBarController: ComponentController, ZTitleBarDelegate {
 
         @objc static let _icon = ["图标", "附加在文字标题左侧的图标，资源ID类型，不能点击"]
         @objc static let _iconStyle = ContentStyle(Styles.self, "icon", ["icon"])
-        @objc var icon: Any? = Icons.iconURL("erase")
+        @objc var icon: Any? = URLs.iconURL("erase")
 
         @objc static let _title = ["标题", "标题文字，一般在中间显示；如果没有左侧按钮内容，则在左侧大标题样式展示"]
         @objc var title = "标题"

@@ -73,11 +73,11 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
 
         @objc static let _rightButton = ["右侧按钮", "右侧显示的图标，URL 类型，一般用于关闭，也可以自定义其他行为"]
         @objc static let _rightButtonStyle: NSObject = ContentStyle(SnackToastStyles.self, "rightButton", ["<button>"])
-        @objc var rightButton: Any? = Icons.iconURL("erase")
+        @objc var rightButton: Any? = URLs.iconURL("erase")
         
         @objc static let _icon = ["提示图标", "附加在文字左侧的图标，URL 类型，不能点击"]
         @objc static let _iconStyle: NSObject = IconStyle(SnackToastStyles.self, "icon")
-        @objc var icon: URL? = Icons.iconURL("info")
+        @objc var icon: URL? = URLs.iconURL("info")
         
         init(_ location: ZTipView.Location) {
             self.location = location

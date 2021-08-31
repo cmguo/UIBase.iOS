@@ -16,12 +16,12 @@ class ZActivityViewController: ComponentController, ZActivityViewDelegate, ZPane
     class Model : ViewModel {
         
         let item1 = [
-            ["班级", Icons.pngURL("img_share_class")!],
-            ["微信", Icons.pngURL("img_share_weixin")!],
-            ["朋友圈", Icons.pngURL("img_share_moment")!],
-            ["QQ", Icons.pngURL("img_share_qq")!],
-            ["QQ空间", Icons.pngURL("img_share_space")!],
-            ["跟多", Icons.pngURL("img_share_class")!],
+            ["班级", URLs.pngURL("img_share_class")!],
+            ["微信", URLs.pngURL("img_share_weixin")!],
+            ["朋友圈", URLs.pngURL("img_share_moment")!],
+            ["QQ", URLs.pngURL("img_share_qq")!],
+            ["QQ空间", URLs.pngURL("img_share_space")!],
+            ["跟多", URLs.pngURL("img_share_class")!],
         ]
         
         let item2 = [

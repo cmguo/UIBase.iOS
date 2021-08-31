@@ -68,7 +68,7 @@ public class ZButtonController: ComponentController, UITableViewDataSource, UITa
         
         @objc static let _icon = ["显示图标", "更改图标，URL 类型，按钮会自动适应宽度"]
         @objc static let _iconStyle: NSObject = IconStyle(Styles.self, "icon")
-        @objc var icon: URL? = Icons.iconURL("delete")
+        @objc var icon: URL? = URLs.iconURL("delete")
         
         @objc static let _text = ["显示文字", "改变文字，按钮会自动适应文字宽度"]
         @objc var text: String = "按钮"

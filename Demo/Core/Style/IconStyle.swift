@@ -10,7 +10,7 @@ import Foundation
 class IconStyle : ComponentStyle {
     
     init(_ cls: ViewStyles.Type, _ field: String) {
-        super.init(cls, field, values: Icons.icons.map { i in (i, i) })
+        super.init(cls, field, values: URLs.icons.map { i in (i, i) })
     }
     
     override func valueToString(_ value: Any?) -> String {
@@ -24,7 +24,7 @@ class IconStyle : ComponentStyle {
         if value == "<null>" {
             return nil
         }
-        return Icons.iconURL(value)
+        return URLs.iconURL(value)
     }
     
 }

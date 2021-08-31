@@ -30,15 +30,15 @@ class IconsController: ComponentController {
         init(_ component: Component) {
             switch (component) {
             case is SvgIconComponent:
-                icons = Icons.svgIcons
+                icons = URLs.svgIcons
                     .sorted() { l, r in l.key < r.key }
                     .map() { k, v in NamedIcon(k, v) }
             case is PngIconComponent:
-                icons = Icons.pngIcons
+                icons = URLs.pngIcons
                     .sorted() { l, r in l.key < r.key }
                     .map() { k, v in NamedIcon(k, v) }
             case is DayNightIconComponent:
-                icons = Icons.dynamicIcons
+                icons = URLs.dynamicIcons
                     .sorted() { l, r in l.key < r.key }
                     .map() { k, v in NamedIcon(k, v) }
             default:

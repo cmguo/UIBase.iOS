@@ -29,7 +29,7 @@ class ZPickerViewController: ComponentController, ZPickerViewDelegate, ZPanelDel
             "普通选项",
         ]
         
-        let icons = Icons.iconURLs
+        let icons = URLs.iconURLs
 
         let states: [UIControl.State?] = [.disabled, .disabled]
         

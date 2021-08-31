@@ -8,7 +8,7 @@
 import Foundation
 import UIBase
 
-public class Icons {
+public class URLs {
     
     static let icons = ["<null>", "delete", "erase", "union", "info", "alert"]
     
@@ -26,7 +26,7 @@ public class Icons {
     static let dynamicIcons: [String : URL] = [:]
     
     static let rootURL: URL = {
-        if let url = Bundle(for: Icons.self).url(forResource: "Demo", withExtension: "bundle") {
+        if let url = Bundle(for: URLs.self).url(forResource: "Demo", withExtension: "bundle") {
             return url
         } else {
             return Bundle.main.url(forResource: "Frameworks/Demo", withExtension: "bundle")!
@@ -34,18 +34,22 @@ public class Icons {
     }()
 
     public static func iconURL(_ icon: String) -> URL? {
-        return rootURL.appendingPathComponent("Icons/\(icon).svg")
+        return check(rootURL.appendingPathComponent("Icons/\(icon).svg"))
         //return bundle.url(forResource: icon, withExtension: "svg")
     }
 
     public static func pngURL(_ icon: String) -> URL? {
-        return rootURL.appendingPathComponent("Images/\(icon).png")
+        return check(rootURL.appendingPathComponent("Images/\(icon).png"))
         //return bundle.url(forResource: icon, withExtension: "png")
     }
 
     public static func jpgURL(_ icon: String) -> URL? {
-        return rootURL.appendingPathComponent("Images/\(icon).jpg")
+        return check(rootURL.appendingPathComponent("Images/\(icon).jpg"))
         //return bundle.url(forResource: icon, withExtension: "jpg")
     }
-
+    
+    private static func check(_ url: URL) -> URL? {
+        return FileManager.default.fileExists(atPath: url.relativePath) ? url : nil
+    }
+    
 }

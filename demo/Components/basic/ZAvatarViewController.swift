@@ -55,7 +55,7 @@ class ZAvatarViewController: ComponentController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.image = UIImage(withUrl: Icons.jpgURL("component")!)
+        imageView.image = UIImage(withUrl: URLs.jpgURL("component")!)
         imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)

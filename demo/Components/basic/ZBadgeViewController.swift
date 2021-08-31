@@ -66,7 +66,7 @@ class ZBadgeViewController: ComponentController {
         }
         attachBadge(label)
 
-        imageView.image = UIImage(withUrl: Icons.pngURL("img_share_weixin")!)
+        imageView.image = UIImage(withUrl: URLs.pngURL("img_share_weixin")!)
         view.addSubview(imageView)
         imageView.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(20)
