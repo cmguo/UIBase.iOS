@@ -5,7 +5,6 @@ Pods/
 xcuserdata/*
 xcuserdata
 blackboard.xcworkspace/xcuserdata
-Podfile.lock
 *.xcuserstate
 *.xcuserdatad
 fastlane/build

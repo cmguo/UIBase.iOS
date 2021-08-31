@@ -1,6 +1,7 @@
-[submodule "SnapKit"]
-	path = SnapKit
-	url = https://github.com/SnapKit/SnapKit.git
 [submodule "SwiftReflection"]
 	path = SwiftReflection
 	url = https://github.com/cmguo/SwiftReflection.git
+[submodule "Demo/Docs.bundle"]
+	path = Demo/Docs.bundle
+	url = git@github.com:cmguo/UIBase.iOS.git
+	branch = master

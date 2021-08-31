@@ -14,6 +14,7 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
     private var componentsController = ComponentsController()
     private var stylesController = StylesController()
     private var informationController = InformationController()
+    private var readmeController = ReadmeController()
 
     private let dropDrow = ZDropDown()
     private let gridLayer = GridLayer()
@@ -40,13 +41,13 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
         componentsController.setComponentListener { (component: ComponentInfo) in
             self.switchComponent(component)
         }
-        let buttonComponents = UIBarButtonItem(image: UIImage(withUrl: Icons.pngURL("img_humburger")!), style: .plain, target: self, action: #selector(showComponents))
+        let buttonComponents = UIBarButtonItem(image: UIImage(withUrl: URLs.pngURL("img_humburger")!), style: .plain, target: self, action: #selector(showComponents))
         navigationController?.topViewController?.navigationItem.leftBarButtonItem = buttonComponents
-        let buttonSettings = UIBarButtonItem(image: UIImage(withUrl: Icons.pngURL("img_menu")!), style: .plain, target: self, action: #selector(showSettings))
+        let buttonSettings = UIBarButtonItem(image: UIImage(withUrl: URLs.pngURL("img_menu")!), style: .plain, target: self, action: #selector(showSettings))
         navigationController?.topViewController?.navigationItem.rightBarButtonItem = buttonSettings
         buttonStyles.addTarget(self, action: #selector(showStyles), for: .touchUpInside)
         
-        dropDrow.titles = ["设置", "网格背景(x)", "夜间模式(x)"]
+        dropDrow.titles = ["设置", "网格背景(x)", "夜间模式(x)", "README"]
     }
     
     @objc func showSettings() {
@@ -68,6 +69,14 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
         view.addSubview(stylesController.view)
         stylesController.view.frame = view.bounds
         //present(stylesController, animated: true, completion: nil)
+    }
+    
+    @objc func showReadme() {
+        guard let component = component_ else { return }
+        readmeController.load(component: component)
+        let nav = UINavigationController(rootViewController: readmeController)
+        nav.modalPresentationStyle = .pageSheet
+        present(nav, animated: true, completion: nil)
     }
     
     func switchComponent(_ component: ComponentInfo) {
@@ -109,6 +118,8 @@ open class DemoMainController: UIViewController, ZDropDownDelegate {
             } else {
                 // Fallback on earlier versions
             }
+        } else if selection == 3 {
+            showReadme()
         }
     }
     

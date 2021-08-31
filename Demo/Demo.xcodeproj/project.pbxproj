@@ -12,11 +12,11 @@
 		2EB8DEFE1DE0DC447049F19E /* EmptyViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8DA5B612857B1D282D198 /* EmptyViewComponent.swift */; };
 		2EB8DF3383E270EE7157424B /* FishTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8D1E1FAAFAC59803FA9D3 /* FishTestController.swift */; };
 		7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */; };
-		7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */; };
+		7112027825F8CE4A004A3AA5 /* ZRadioButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027325F8CE4A004A3AA5 /* ZRadioButtonComponent.swift */; };
 		7112027925F8CE4A004A3AA5 /* ZCompoundButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */; };
 		7112027A25F8CE4A004A3AA5 /* ZBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */; };
 		7112027B25F8CE4A004A3AA5 /* ZBadgeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */; };
-		711202C025FB4F97004A3AA5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* Icons.swift */; };
+		711202C025FB4F97004A3AA5 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202BF25FB4F97004A3AA5 /* URLs.swift */; };
 		711202C725FB7EF6004A3AA5 /* ZToastComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */; };
 		711202CC26046251004A3AA5 /* ZSnackBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */; };
 		712635C0269EB70500C8F6B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2468A25E798ED0049ABB0 /* Assets.xcassets */; };
@@ -90,12 +90,15 @@
 		719536392638047300C82D2F /* ZDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719536382638047300C82D2F /* ZDialogController.swift */; };
 		71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A2468025E78CDF0049ABB0 /* SnapKit.framework */; };
 		71A2468425E793DB0049ABB0 /* DropBoxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */; };
+		71A9638726DE204300E8D393 /* ReadmeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A9638626DE204300E8D393 /* ReadmeController.swift */; };
+		71A9639F26DE310600E8D393 /* MarkdownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71A9639A26DE310600E8D393 /* MarkdownView.bundle */; };
+		71A963A526DE345700E8D393 /* Docs.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71A963A426DE345700E8D393 /* Docs.bundle */; };
 		71C875822643A02A00A06367 /* ZCarouselViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */; };
 		71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C875842643A03300A06367 /* ZCarouselViewController.swift */; };
 		71F543DC25E4DAE200AEB07A /* ComponentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543DB25E4DAE200AEB07A /* ComponentsController.swift */; };
 		71F543E125E5053300AEB07A /* ZButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E025E5053300AEB07A /* ZButtonComponent.swift */; };
 		71F543E425E5054900AEB07A /* ZButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543E325E5054900AEB07A /* ZButtonController.swift */; };
-		71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */; };
+		71F543F425E50A8D00AEB07A /* ZCheckBoxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F325E50A8D00AEB07A /* ZCheckBoxComponent.swift */; };
 		71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */; };
 		71F543FF25E50B4700AEB07A /* ZTextAreaComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */; };
 		71F5440025E50B4700AEB07A /* ZToolTipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */; };
@@ -111,19 +114,52 @@
 		71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */; };
 		71FF9414262D64BD0033098B /* ZAppTitleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */; };
 		71FF9417262D66940033098B /* ContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9416262D66940033098B /* ContentStyle.swift */; };
+		B3D05A47E474C9051D6704E3 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91C969CA8D77204AC10E2FE /* Pods_Demo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		71A9637E26DE1EF700E8D393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A9637726DE1EF700E8D393 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 702CE5644EF1F26425C05E058547C562;
+			remoteInfo = MarkdownView;
+		};
+		71A9638026DE1EF700E8D393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A9637726DE1EF700E8D393 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 209039795703F925DC2A9D91BF5B7821;
+			remoteInfo = "MarkdownView-MarkdownView";
+		};
+		71A9638226DE1EF700E8D393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A9637726DE1EF700E8D393 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C694DE63ED5EAB66E3CA6D184271692B;
+			remoteInfo = "Pods-Demo";
+		};
+		71A9638426DE1EF700E8D393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A9637726DE1EF700E8D393 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 979486118B3E90C08386079D57962701;
+			remoteInfo = SnapKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		137A537843F02E8FCEDA95A0 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "../../Demo/Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		2EB8D1E1FAAFAC59803FA9D3 /* FishTestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishTestController.swift; sourceTree = "<group>"; };
 		2EB8DA5B612857B1D282D198 /* EmptyViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewComponent.swift; sourceTree = "<group>"; };
 		2EB8DE54E8BB4B02877B15F2 /* FishTestComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishTestComponent.swift; sourceTree = "<group>"; };
 		2EB8DE9F7519C84F26E147EC /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZSwitchButtonComponent.swift; path = ../../../Demo/Components/Basic/ZSwitchButtonComponent.swift; sourceTree = "<group>"; };
-		7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZRatioButtonComponent.swift; path = ../../../Demo/Components/Basic/ZRatioButtonComponent.swift; sourceTree = "<group>"; };
+		7112027325F8CE4A004A3AA5 /* ZRadioButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZRadioButtonComponent.swift; sourceTree = "<group>"; };
 		7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZCompoundButtonController.swift; path = ../../../Demo/Components/Basic/ZCompoundButtonController.swift; sourceTree = "<group>"; };
 		7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewController.swift; path = ../../../Demo/Components/Basic/ZBadgeViewController.swift; sourceTree = "<group>"; };
 		7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZBadgeViewComponent.swift; path = ../../../Demo/Components/Basic/ZBadgeViewComponent.swift; sourceTree = "<group>"; };
-		711202BF25FB4F97004A3AA5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		711202BF25FB4F97004A3AA5 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		711202C625FB7EF6004A3AA5 /* ZToastComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZToastComponent.swift; sourceTree = "<group>"; };
 		711202CB26046250004A3AA5 /* ZSnackBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSnackBarComponent.swift; sourceTree = "<group>"; };
 		7128762925E531720054A74B /* ObjectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -199,6 +235,10 @@
 		71A2468025E78CDF0049ABB0 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A2468325E793DB0049ABB0 /* DropBoxTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxTextField.swift; sourceTree = "<group>"; };
 		71A2468A25E798ED0049ABB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71A9637726DE1EF700E8D393 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		71A9638626DE204300E8D393 /* ReadmeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeController.swift; sourceTree = "<group>"; };
+		71A9639A26DE310600E8D393 /* MarkdownView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MarkdownView.bundle; sourceTree = "<group>"; };
+		71A963A426DE345700E8D393 /* Docs.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Docs.bundle; sourceTree = "<group>"; };
 		71C875812643A02A00A06367 /* ZCarouselViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewComponent.swift; sourceTree = "<group>"; };
 		71C875842643A03300A06367 /* ZCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZCarouselViewController.swift; sourceTree = "<group>"; };
 		71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-UIBase.debug.xcconfig"; path = "Target Support Files/Pods-UIBase/Pods-UIBase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,7 +246,7 @@
 		71F543DB25E4DAE200AEB07A /* ComponentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsController.swift; path = ../../app/app/ComponentsController.swift; sourceTree = "<group>"; };
 		71F543E025E5053300AEB07A /* ZButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonComponent.swift; sourceTree = "<group>"; };
 		71F543E325E5054900AEB07A /* ZButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZButtonController.swift; sourceTree = "<group>"; };
-		71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCheckboxComponent.swift; sourceTree = "<group>"; };
+		71F543F325E50A8D00AEB07A /* ZCheckBoxComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCheckBoxComponent.swift; sourceTree = "<group>"; };
 		71F543F625E50B4600AEB07A /* ZTextInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextInputComponent.swift; sourceTree = "<group>"; };
 		71F543F725E50B4600AEB07A /* ZTextAreaComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTextAreaComponent.swift; sourceTree = "<group>"; };
 		71F543F825E50B4700AEB07A /* ZToolTipComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZToolTipComponent.swift; sourceTree = "<group>"; };
@@ -222,6 +262,8 @@
 		71FF9410262D64A50033098B /* ZAppTitleBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppTitleBarComponent.swift; sourceTree = "<group>"; };
 		71FF9413262D64BD0033098B /* ZAppTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZAppTitleBarController.swift; sourceTree = "<group>"; };
 		71FF9416262D66940033098B /* ContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentStyle.swift; path = ../../../Demo/Core/Style/ContentStyle.swift; sourceTree = "<group>"; };
+		A919835062BE0A07A7AD4E9A /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "../../Demo/Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		C91C969CA8D77204AC10E2FE /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +274,7 @@
 				71A2468125E78CDF0049ABB0 /* SnapKit.framework in Frameworks */,
 				716A918D264D237000C82B0D /* UIBase.framework in Frameworks */,
 				71789F4A25E8BF69004BA696 /* SwiftReflection.framework in Frameworks */,
+				B3D05A47E474C9051D6704E3 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +366,11 @@
 		7182AEC125CCE9E500B0F1D3 = {
 			isa = PBXGroup;
 			children = (
+				71A9637726DE1EF700E8D393 /* Pods.xcodeproj */,
 				716A92312652811A00C82B0D /* UIBase.bundle */,
 				716A90F5264CC50D00C82B0D /* Demo.bundle */,
+				71A963A426DE345700E8D393 /* Docs.bundle */,
+				71A9639A26DE310600E8D393 /* MarkdownView.bundle */,
 				71FF93D42627E7F00033098B /* Resources */,
 				71F543DE25E504EA00AEB07A /* Components */,
 				71F543DA25E4DA5800AEB07A /* View */,
@@ -374,8 +420,20 @@
 				71789F4925E8BF69004BA696 /* SwiftReflection.framework */,
 				71A2468025E78CDF0049ABB0 /* SnapKit.framework */,
 				7128763F25E61D980054A74B /* UIBase.framework */,
+				C91C969CA8D77204AC10E2FE /* Pods_Demo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71A9637826DE1EF700E8D393 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71A9637F26DE1EF700E8D393 /* MarkdownView.framework */,
+				71A9638126DE1EF700E8D393 /* MarkdownView.bundle */,
+				71A9638326DE1EF700E8D393 /* Pods_Demo.framework */,
+				71A9638526DE1EF700E8D393 /* SnapKit.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		71D82E792681C009003508B6 /* Pods */ = {
@@ -383,6 +441,8 @@
 			children = (
 				71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */,
 				71D82E782681C009003508B6 /* Pods-UIBase.release.xcconfig */,
+				137A537843F02E8FCEDA95A0 /* Pods-Demo.debug.xcconfig */,
+				A919835062BE0A07A7AD4E9A /* Pods-Demo.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Library/Pods;
@@ -396,6 +456,7 @@
 				713F6EB7264A4A930071B232 /* InformationController.swift */,
 				713F6EE6264AAC6A0071B232 /* DemoMainController.swift */,
 				716A90B4264B7C6000C82B0D /* GridLayer.swift */,
+				71A9638626DE204300E8D393 /* ReadmeController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,9 +481,9 @@
 				7112027625F8CE4A004A3AA5 /* ZBadgeViewComponent.swift */,
 				7112027525F8CE4A004A3AA5 /* ZBadgeViewController.swift */,
 				7112027425F8CE4A004A3AA5 /* ZCompoundButtonController.swift */,
-				7112027325F8CE4A004A3AA5 /* ZRatioButtonComponent.swift */,
+				7112027325F8CE4A004A3AA5 /* ZRadioButtonComponent.swift */,
 				7112027225F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift */,
-				71F543F325E50A8D00AEB07A /* ZCheckboxComponent.swift */,
+				71F543F325E50A8D00AEB07A /* ZCheckBoxComponent.swift */,
 				71F543E025E5053300AEB07A /* ZButtonComponent.swift */,
 				71F543E325E5054900AEB07A /* ZButtonController.swift */,
 				71FF93FF26297C3A0033098B /* ZAvatarViewComponent.swift */,
@@ -453,7 +514,7 @@
 		71FF93D42627E7F00033098B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				711202BF25FB4F97004A3AA5 /* Icons.swift */,
+				711202BF25FB4F97004A3AA5 /* URLs.swift */,
 				7161CDBF25E0E28E00BF6B71 /* Colors.swift */,
 				716A91BE264E690700C82B0D /* Appearances.swift */,
 				7161CDA825E0D84000BF6B71 /* ButtonsComponent.swift */,
@@ -508,6 +569,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7182AED325CCE9E500B0F1D3 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
+				A2F1E30D557AF52DF32CFB84 /* [CP] Check Pods Manifest.lock */,
 				7182AEC625CCE9E500B0F1D3 /* Headers */,
 				7182AEC725CCE9E500B0F1D3 /* Sources */,
 				7182AEC825CCE9E500B0F1D3 /* Frameworks */,
@@ -547,12 +609,49 @@
 			mainGroup = 7182AEC125CCE9E500B0F1D3;
 			productRefGroup = 7182AECC25CCE9E500B0F1D3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 71A9637826DE1EF700E8D393 /* Products */;
+					ProjectRef = 71A9637726DE1EF700E8D393 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7182AECA25CCE9E500B0F1D3 /* Demo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		71A9637F26DE1EF700E8D393 /* MarkdownView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MarkdownView.framework;
+			remoteRef = 71A9637E26DE1EF700E8D393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		71A9638126DE1EF700E8D393 /* MarkdownView.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MarkdownView.bundle;
+			remoteRef = 71A9638026DE1EF700E8D393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		71A9638326DE1EF700E8D393 /* Pods_Demo.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Demo.framework;
+			remoteRef = 71A9638226DE1EF700E8D393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		71A9638526DE1EF700E8D393 /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 71A9638426DE1EF700E8D393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7182AEC925CCE9E500B0F1D3 /* Resources */ = {
@@ -562,10 +661,37 @@
 				716A92322652811A00C82B0D /* UIBase.bundle in Resources */,
 				712635C0269EB70500C8F6B6 /* Assets.xcassets in Resources */,
 				716A90F6264CC50D00C82B0D /* Demo.bundle in Resources */,
+				71A963A526DE345700E8D393 /* Docs.bundle in Resources */,
+				71A9639F26DE310600E8D393 /* MarkdownView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2F1E30D557AF52DF32CFB84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7182AEC725CCE9E500B0F1D3 /* Sources */ = {
@@ -618,7 +744,7 @@
 				716A91D2264E6C6E00C82B0D /* DayNightIconComponent.swift in Sources */,
 				7128766025E655010054A74B /* ButtonsController.swift in Sources */,
 				71F5440125E50B4700AEB07A /* ZTipViewController.swift in Sources */,
-				71F543F425E50A8D00AEB07A /* ZCheckboxComponent.swift in Sources */,
+				71F543F425E50A8D00AEB07A /* ZCheckBoxComponent.swift in Sources */,
 				717C5B72263017F3001A0E12 /* ZPanelController.swift in Sources */,
 				71F543FE25E50B4700AEB07A /* ZTextInputComponent.swift in Sources */,
 				713F6EB8264A4A930071B232 /* InformationController.swift in Sources */,
@@ -638,7 +764,7 @@
 				7161CDBD25E0E26500BF6B71 /* ViewModel.swift in Sources */,
 				716A90B5264B7C6000C82B0D /* GridLayer.swift in Sources */,
 				71C875852643A03300A06367 /* ZCarouselViewController.swift in Sources */,
-				711202C025FB4F97004A3AA5 /* Icons.swift in Sources */,
+				711202C025FB4F97004A3AA5 /* URLs.swift in Sources */,
 				71FF9411262D64A50033098B /* ZAppTitleBarComponent.swift in Sources */,
 				715FC00B263D6D76005A265C /* ZNumberViewComponent.swift in Sources */,
 				7112027725F8CE4A004A3AA5 /* ZSwitchButtonComponent.swift in Sources */,
@@ -661,10 +787,11 @@
 				71FF93DC2628093F0033098B /* ColorStyle.swift in Sources */,
 				71FF940B262D35860033098B /* ZAvatarViewController.swift in Sources */,
 				71FF940026297C3A0033098B /* ZAvatarViewComponent.swift in Sources */,
-				7112027825F8CE4A004A3AA5 /* ZRatioButtonComponent.swift in Sources */,
+				7112027825F8CE4A004A3AA5 /* ZRadioButtonComponent.swift in Sources */,
 				717C5B9E26316E1D001A0E12 /* ZPickerViewController.swift in Sources */,
 				713F6D7B26466B500071B232 /* ZListViewComponent.swift in Sources */,
 				2EB8D55AE355F4B8E5CE4888 /* FishTestComponent.swift in Sources */,
+				71A9638726DE204300E8D393 /* ReadmeController.swift in Sources */,
 				2EB8DF3383E270EE7157424B /* FishTestController.swift in Sources */,
 				2EB8DEFE1DE0DC447049F19E /* EmptyViewComponent.swift in Sources */,
 				2EB8DBFF534787A927D15256 /* EmptyViewController.swift in Sources */,
@@ -676,6 +803,7 @@
 /* Begin XCBuildConfiguration section */
 		7182AED125CCE9E500B0F1D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -740,6 +868,7 @@
 		};
 		7182AED225CCE9E500B0F1D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -798,7 +927,7 @@
 		};
 		7182AED425CCE9E500B0F1D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71D82E772681C009003508B6 /* Pods-UIBase.debug.xcconfig */;
+			baseConfigurationReference = 137A537843F02E8FCEDA95A0 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -813,14 +942,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = (
-					"-framework",
-					"\"FSPagerView\"",
-					"-framework",
-					"\"JXSegmentedView\"",
-					"-framework",
-					"\"SwiftSVG\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -833,7 +954,7 @@
 		};
 		7182AED525CCE9E500B0F1D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71D82E782681C009003508B6 /* Pods-UIBase.release.xcconfig */;
+			baseConfigurationReference = A919835062BE0A07A7AD4E9A /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -848,14 +969,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = (
-					"-framework",
-					"\"FSPagerView\"",
-					"-framework",
-					"\"JXSegmentedView\"",
-					"-framework",
-					"\"SwiftSVG\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eazy.uibase.demo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

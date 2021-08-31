@@ -1,0 +1,20 @@
+PODS:
+  - MarkdownView (1.6.0)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - MarkdownView
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - MarkdownView
+    - SnapKit
+
+SPEC CHECKSUMS:
+  MarkdownView: 25c1c2d7ff9706624a575556296e188be3dd3f6b
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 33d2c0486e85f056c213030cb24d7d3cb46e68e6
+
+COCOAPODS: 1.10.1

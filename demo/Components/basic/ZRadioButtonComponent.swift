@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ZRatioButtonComponent : NSObject, Component
+class ZRadioButtonComponent : NSObject, Component
 {
     var id: Int = 0
     

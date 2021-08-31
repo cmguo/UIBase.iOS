@@ -13,7 +13,4 @@
    <FileRef
       location = "group:SwiftReflection/SwiftReflection.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:SnapKit/SnapKit.xcodeproj">
-   </FileRef>
 </Workspace>

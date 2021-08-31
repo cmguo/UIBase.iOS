@@ -1,0 +1,26 @@
+PODS:
+  - FSPagerView (0.8.3)
+  - JXSegmentedView (1.2.7)
+  - SwiftSVG (2.3.2)
+
+DEPENDENCIES:
+  - FSPagerView (from `../../ThirdPartyiOS/FSPagerView`)
+  - JXSegmentedView (from `../../ThirdPartyiOS/JXSegmentedView`)
+  - SwiftSVG (from `../../ThirdPartyiOS/SwiftSVG`)
+
+EXTERNAL SOURCES:
+  FSPagerView:
+    :path: "../../ThirdPartyiOS/FSPagerView"
+  JXSegmentedView:
+    :path: "../../ThirdPartyiOS/JXSegmentedView"
+  SwiftSVG:
+    :path: "../../ThirdPartyiOS/SwiftSVG"
+
+SPEC CHECKSUMS:
+  FSPagerView: 0074e4879243ed485c6dd9bbda538ec7247df89e
+  JXSegmentedView: 290b752508cfac6b462cae28bebfa43eed8c4a25
+  SwiftSVG: c244d2f8d37422d19a0bc3d590809f8eaa3ab883
+
+PODFILE CHECKSUM: 96b2de05d40203488bca4b00fb89fe080171140c
+
+COCOAPODS: 1.10.1

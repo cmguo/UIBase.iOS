@@ -23,9 +23,9 @@ class ZCompoundButtonController: ComponentController, UITableViewDataSource, UIT
     class Model : ViewModel {
         let states: [Any]
         init(_ component: Component) {
-            if component is ZCheckboxComponent {
+            if component is ZCheckBoxComponent {
                 states = ZCheckBox.CheckedState.allCases
-            } else if (component is ZRatioButtonComponent) {
+            } else if (component is ZRadioButtonComponent) {
                 states = [false, true, false, false]
             } else if (component is ZSwitchButtonComponent) {
                 states = [false, true]
@@ -62,7 +62,7 @@ class ZCompoundButtonController: ComponentController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard component is ZCheckboxComponent else { return nil }
+        guard component is ZCheckBoxComponent else { return nil }
         let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 0))
         cell.textLabel?.text = "全选"
         cell.backgroundColor = .lightGray
@@ -71,7 +71,7 @@ class ZCompoundButtonController: ComponentController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard component is ZCheckboxComponent else { return 0 }
+        guard component is ZCheckBoxComponent else { return 0 }
         return UITableView.automaticDimension
     }
     
@@ -115,13 +115,13 @@ class ZCompoundButtonController: ComponentController, UITableViewDataSource, UIT
     }
     
     private func createButton(state: Any) -> UIControl {
-        if component is ZCheckboxComponent {
+        if component is ZCheckBoxComponent {
             let button = ZCheckBox(text: styles.text)
             button.checkedState = state as! ZCheckBox.CheckedState
             button.isEnabled = !styles.disabled
             buttons.append(button)
             return button
-        } else if (component is ZRatioButtonComponent) {
+        } else if (component is ZRadioButtonComponent) {
             let button = ZRadioButton(text: styles.text)
             button.checked = state as! Bool
             button.isEnabled = !styles.disabled
