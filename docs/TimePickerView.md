@@ -22,7 +22,11 @@ picker.timeDelegate = this
 ``` swift
 // 通过 Panel 弹出
 let panel = ZPanel()
-panel.titleBar = ContentStyle.Contents["title_icon"]
+panel.titleBar = [
+    "title": "标题",
+    "leftButton": URL.icon_close,
+    "rightButton": URL.icon_more
+]
 picker.removeFromSuperview()
 panel.content = picker
 panel.delegate = self
