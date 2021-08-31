@@ -4,23 +4,23 @@
 - 正文样式（Body）文字尺寸 10 ～ 18
 - 标题样式（Title）文字尺寸 14 ～ 24
 - 样式属性
-  - android:textSize
-  - android:textColor
+  - textSize
+  - textColor
   - lineHeight
   - lineSpacing
-  - android:gravity 居中、靠右
+  - textAlignment 居中、靠右
 
 # 使用文字样式
-``` xml
-<!-- 注意：不支持 lineHeight、lineSpacing -->
-<androidx.appcompat.widget.AppCompatCheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:checked='@={value.checked}'
-    android:textAppearance="@style/TextAppearance.Z.Title.16"
-    android:text="@{value.value}">
-```
-``` kotlin
-// 可以支持 lineHeight、lineSpacing
-textView.textAppearance = R.style.TextAppearance_Z_Title_18
+``` swift
+label.textStyle = .Body_Middle // 没有颜色
+label.textAppearance = .body_16 // 使用样式中的颜色
+// 也可以分别设置
+label.lineHeight = 30
+label.textForegroundColor = .blue // 注意：设置 textColor 可能无效
+label.textBackgroundColor = .red
+label.textAlignment = .center // 注意：原生的 textAlignment 已经被扩展覆盖
+// 同时支持 UILabel、UITextField，UITextView
+textField.lineHeight = 30
+textView.lineHeight = 30
+textView.textAppearance = .title_18
 ```
