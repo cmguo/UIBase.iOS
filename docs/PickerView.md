@@ -25,5 +25,12 @@ picker.selections = [0, 1]
 * 弹出
 ``` swift
 picker.callback = self
+let panel = ZPanel()
+panel.titleBar = [
+    "title": "标题",
+    "leftButton": URL.icon_close,
+    "rightButton": URL.icon_more
+]
+panel.content = picker
 panel.popUp(target: view)
 ```
