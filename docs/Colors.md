@@ -4,69 +4,35 @@
 - 标准色：分为动态颜色和静态颜色
   - 动态颜色：具有夜间模式
   - 静态颜色（static_*）：没有夜间模式，在不同模式下，保持不变
-- 有状态颜色：通过 select xml 定义（如 color/blue600_disabled.xml）
-  - 扩展了half_checked 状态
+- 有状态颜色：(StateListColor)
+  - 扩展了 UIControl.State 状态
   - 有状态颜色可以使用“动态颜色“，实现夜间模式
-- 渐变色
-  - 扩展了 state_gradient_start， state_gradient_end 状态
-  - 部分控件支持渐变色
 
 # 自定义动态颜色
 values/colors.xml
-``` xml
-<color name="mycolor1">#FFFFFF</color>
-```
-values-night/colors.xml
-``` xml
-<color name="mycolor1">#191E26</color>
+``` swift
+extension UIColor {
+    @DayNightColorWrapper(name: "bluegrey_100", dayColor: 0xFFF2F3F4, nightColor: 0xFF262D38)
+    public static var bluegrey_100
+}
 ```
 
 # 自定义有状态颜色
-color/bluegrey_00_disabled.xml
-``` xml
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/bluegrey_100" android:state_enabled="false" />
-    <item android:color="@color/bluegrey_00" />
-</selector>
+``` swift
+public extension StateListColor {
+    static let bluegrey_00_checked_disabled = StateListColor([
+        StateColor(.bluegrey_100, .disabled),
+        StateColor(.brand_500, .checked),
+        StateColor(.brand_500, .half_checked),
+        StateColor(.bluegrey_00, .normal)
+    ])
+}
 ```
-
-# 自定义渐变色
-color/bluegrey_00_disabled.xml
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:eazy="http://schemas.android.com/apk/res-auto">
-    <item android:color="@color/bluegrey_900" eazy:state_gradient_end="true" />
-    <item android:color="@color/bluegrey_00" />
-</selector>
-```
-处理渐变色
-``` kotlin
-// 父布局已经通过 GradientColorList.prepare(this) 注册了渐变场景
-// 子 View 支持渐变色
-background = backgroundDrawable?.toGradient(this)
-textView.setTextColor(textColor?.toGradient(this))
-```
-
 
 # 使用颜色资源
-* 在 xml 中使用
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+``` swift
+view.backgroundColor = .bluegrey_100
 
-    <path
-        android:fillColor="@color/bluegrey_900"
-        android:fillType="evenOdd"
-        android:pathData="M4.13016 1.74911C4.91774 1.23332 5.69959 1.03258 6.25856 1.00044C6.64743 0.987019 6.97598 1.28537 6.99875 1.67258C7.02152 2.05979 6.73018 2.39437 6.34241 2.42634C5.83376 2.48833 5.34601 2.66523 4.91631 2.94355C4.74647 3.05428 4.58881 3.18144 4.44405 3.32574C4.26991 3.49934 4.11583 3.69722 3.9811 3.91511C3.78045 4.23801 3.6321 4.58948 3.52963 4.94024C3.46871 5.14813 3.43718 5.30315 3.42786 5.37744C3.37681 5.76883 3.01714 6.04485 2.62452 5.99395C2.2319 5.94306 1.95501 5.58452 2.00607 5.19313C2.07558 4.66521 2.29415 3.92011 2.76068 3.16501C2.95008 2.85661 3.17496 2.57131 3.43073 2.31489C3.64385 2.10294 3.87822 1.91335 4.13016 1.74911ZM19.084 2.94355C18.6542 2.66523 18.1664 2.48833 17.6577 2.42634C17.2699 2.39437 16.9785 2.05979 17.0012 1.67258C17.024 1.28537 17.3526 0.987019 17.7415 1.00044C18.2999 1.03258 19.0818 1.23332 19.8702 1.74911C20.122 1.91339 20.3561 2.10298 20.5691 2.31489C20.8249 2.57131 21.0498 2.85661 21.2392 3.16501C21.7058 3.92011 21.9244 4.66521 21.9939 5.19313C22.045 5.58452 21.7681 5.94306 21.3754 5.99395C20.9827 6.04485 20.623 5.76883 20.5719 5.37744C20.5626 5.30315 20.5311 5.14741 20.4702 4.94024C20.3677 4.58948 20.2193 4.23801 20.0186 3.91511C19.8839 3.69722 19.7298 3.49934 19.5556 3.32574C19.4108 3.18144 19.2531 3.05428 19.084 2.94355ZM22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.5248 2.93571 16.8311 4.47927 18.591L3.12604 20.7562L3.08172 20.8368C2.91087 21.1935 3.01402 21.638 3.33404 21.8656C3.67867 22.1106 4.14429 22.0113 4.37404 21.6437L5.5992 19.6834C7.33353 21.1298 9.56514 22 12 22C14.4349 22 16.6665 21.1298 18.4008 19.6834L19.626 21.6437L19.6787 21.7183C19.9216 22.0237 20.346 22.0931 20.666 21.8656C21.0106 21.6205 21.1037 21.1238 20.874 20.7562L19.5207 18.591C21.0643 16.8311 22 14.5248 22 12ZM4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12.9933 6.88338C12.9355 6.38604 12.5128 6 12 6C11.4477 6 11 6.44772 11 7V12L11.0087 12.1314C11.0374 12.3481 11.1366 12.5508 11.2929 12.7071L15.2929 16.7071L15.3871 16.7903C15.7794 17.0953 16.3466 17.0676 16.7071 16.7071L16.7903 16.6129C17.0953 16.2206 17.0676 15.6534 16.7071 15.2929L13 11.585V7L12.9933 6.88338Z" />
-</vector>
-```
-* 在代码中使用
-``` kotlin
-val decoration = ItemDecorations.divider(1f,
-    ContextCompat.getColor(context, R.color.blue_100)).build(this)
+let buttonAppearance = ZButtonAppearance(.textLinkThin,
+                textColor: .blue_100_pressed_disabled)
 ```
