@@ -32,6 +32,12 @@ panel.content = picker
 panel.delegate = self
 panel.popUp(target: view)
 ```
+* 响应选择时间的变化
+``` swift
+func timePickerSelectTimeChanged(picker: ZTimePickerView, time: Date) {
+    timeLabel.text = dateFormater.string(from: time)
+}
+```
 
 # 高级时间模式
 ``` swift
