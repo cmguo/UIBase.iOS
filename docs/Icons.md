@@ -3,6 +3,7 @@
 图标资源概况：
 - 矢量图标：SVG 格式
 - 位图图标：JPG、PNG 格式
+- 视图图标：UIView 转换为图标
 
 # 使用矢量图标
 ``` swift
@@ -12,6 +13,12 @@ button.icon = .icon_back
 imageView.bounds.size = CGSize(20, 20) // SVG 图标根据容器大小自动调整
 imageView.setImage(withURL: .icon_left)
 imageView.setIconColor(.blue_100) // 仅 SVG 图标有效
+```
+
+# 使用视图图标
+``` swift
+// 获取 view 的 snapshot
+imageView.setImage(wild: iconView)
 ```
 
 # 夜间模式
