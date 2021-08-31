@@ -3,8 +3,8 @@
 * [目录文件结构](docs/Files.md)
 * 基础资源管理
   * [颜色（color）](docs/Colors.md)
-  * [图标（drawable）](docs/Drawables.md)
-  * [样式（style）](docs/Styles.md)
+  * [图标（icon）](docs/Icons.md)
+  * [样式（appearance）](docs/Appearances.md)
 * 样式集和主题
   * [主题/样式](docs/Style.md)
   * [展示样式](docs/Appearance.md)
