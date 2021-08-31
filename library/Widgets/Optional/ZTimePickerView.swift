@@ -71,7 +71,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
         }
     }
     
-    public var callback: ZTimePickerViewDelegate? = nil
+    public var timeDelegate: ZTimePickerViewDelegate? = nil
     
     fileprivate let state = CalendarState()
     
@@ -116,7 +116,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
     }
     
     @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        callback?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
+        timeDelegate?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
     }
  
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -138,7 +138,7 @@ public class ZTimePickerView : UIPickerView, UIPickerViewDataSource, UIPickerVie
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         state.setCurrent(component, row)
-        callback?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
+        timeDelegate?.timePickerSelectTimeChanged?(picker: self, time: selectTime)
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

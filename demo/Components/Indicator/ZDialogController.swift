@@ -71,7 +71,7 @@ class ZDialogController: ComponentController, ZDialogDelegate {
         dialog.subTitle = styles.subTitle
         dialog.cancelButton = styles.cancelButton
         dialog.confirmButton = styles.confirmButton
-        dialog.callback = self
+        dialog.delegate = self
         view.addSubview(dialog)
         dialog.snp.makeConstraints { (maker) in
             maker.centerX.equalToSuperview()

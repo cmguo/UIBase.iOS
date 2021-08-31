@@ -96,7 +96,7 @@ public class ZDialog : UIView {
         }
     }
     
-    public var callback: ZDialogDelegate? = nil
+    public var delegate: ZDialogDelegate? = nil
     
     private let _imageView = UIImageView()
     private let _closeIcon = UIImageView()
@@ -157,7 +157,7 @@ public class ZDialog : UIView {
     
     public override func didMoveToWindow() {
         if window == nil  {
-            callback?.dialogDismissed?(dialog: self)
+            delegate?.dialogDismissed?(dialog: self)
         }
     }
     
@@ -246,11 +246,11 @@ public class ZDialog : UIView {
     }
     
     @objc private func buttonClicked(_ sender: UIView) {
-        callback?.dialogButtonClicked?(dialog: self, btnId: (sender as! ZButton).id)
+        delegate?.dialogButtonClicked?(dialog: self, btnId: (sender as! ZButton).id)
     }
     
     @objc private func moreButtonClicked(_ sender: UIView) {
-        callback?.dialogMoreButtonClicked?(dialog: self, index: _moreButtons.firstIndex(of: sender as! ZButton) ?? -1)
+        delegate?.dialogMoreButtonClicked?(dialog: self, index: _moreButtons.firstIndex(of: sender as! ZButton) ?? -1)
     }
     
     @objc private func closeIconClicked(_ recognizer: UIGestureRecognizer) {

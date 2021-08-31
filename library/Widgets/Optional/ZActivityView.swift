@@ -27,7 +27,7 @@ public class ZActivityView : UIView {
         }
     }
     
-    public var callback: ZActivityViewDelegate? = nil
+    public var delegate: ZActivityViewDelegate? = nil
 
     private let _line1: ZActivityLine
     private let _line2: ZActivityLine
@@ -76,7 +76,7 @@ public class ZActivityView : UIView {
         let lineView = sender.superview
         let line = lineView == _line1 ? 0 : 1
         let index = lineView?.subviews.firstIndex(of: sender)
-        callback?.activityViewButtonClicked?(view: self, line: line, index: index!)
+        delegate?.activityViewButtonClicked?(view: self, line: line, index: index!)
     }
     
 }

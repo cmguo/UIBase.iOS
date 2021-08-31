@@ -68,7 +68,7 @@ class ZPickerViewController: ComponentController, ZPickerViewDelegate, ZPanelDel
         picker.icons = model.icons
         picker.states = model.states
         picker.selections = model.selections
-        picker.callback = self
+        picker.delegate = self
         view.addSubview(picker)
         picker.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()

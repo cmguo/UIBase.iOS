@@ -203,7 +203,7 @@ extension ZTimePickerView : TimePickerView {
         set { timeMode = TimeMode(rawValue: newValue)! }
     }
     func setCallback(_ controller: ZTimePickerViewController) {
-        callback = controller
+        timeDelegate = controller
     }
 }
 
@@ -238,6 +238,6 @@ extension ZDatePickerView : TimePickerView {
         set { selectDate = newValue }
     }
     func setCallback(_ controller: ZTimePickerViewController) {
-        callback = controller
+        delegate = controller
     }
 }

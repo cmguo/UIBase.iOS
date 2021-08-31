@@ -17,17 +17,17 @@ import Foundation
 public class ZTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, callback:  ZTipViewDelegate? = nil) {
+    public class func tip(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
         let tipView = ZTipView()
         tipView.message = message
-        tipView.callback = callback
+        tipView.delegate = delegate
         tipView.popAt(target)
     }
     
-    public class func toast(_ target: UIView, _ message: String, callback:  ZTipViewDelegate? = nil) {
+    public class func toast(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
         let tipView = ZTipView()
         tipView.message = message
-        tipView.callback = callback
+        tipView.delegate = delegate
         tipView.location = .autoToast
         tipView.popAt(target)
     }
@@ -136,7 +136,7 @@ public class ZTipView : UIView
     
     public var dismissDelay: Double = 0
     
-    public var callback: ZTipViewDelegate? = nil
+    public var delegate: ZTipViewDelegate? = nil
     
     /* private variables */
     
@@ -422,7 +422,7 @@ public class ZTipView : UIView
     }
     
     @objc func buttonClicked(_ sender: UIView) {
-        callback?.tipViewButtonClicked?(self, (sender as! ZButton).id)
+        delegate?.tipViewButtonClicked?(self, (sender as! ZButton).id)
     }
 
     private static let overlayFrame = OverlayFrame()

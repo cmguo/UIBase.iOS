@@ -192,7 +192,7 @@ class ZTipViewController: ComponentController, UICollectionViewDataSource, UICol
     @objc func buttonClicked(_ sender: UIView) {
         let tip = ZTipView()
         styles.apply(tip)
-        tip.callback = self
+        tip.delegate = self
         tip.popAt(sender)
     }
     

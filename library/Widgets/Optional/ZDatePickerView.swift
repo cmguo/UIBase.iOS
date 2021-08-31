@@ -57,7 +57,7 @@ public class ZDatePickerView : UIDatePicker {
         set { setValue(newValue, forKey: "highlightsToday") }
     }
     
-    public var callback: ZDatePickerViewDelegate? = nil
+    public var delegate: ZDatePickerViewDelegate? = nil
     
     public init() {
         super.init(frame: .zero)
@@ -75,7 +75,7 @@ public class ZDatePickerView : UIDatePicker {
         
     /* private */
     @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        callback?.datePickerSelectDateChanged?(picker: self, date: date)
+        delegate?.datePickerSelectDateChanged?(picker: self, date: date)
     }
     
 }

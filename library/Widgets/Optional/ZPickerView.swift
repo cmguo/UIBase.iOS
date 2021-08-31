@@ -55,7 +55,7 @@ public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    public var callback: ZPickerViewDelegate? = nil
+    public var delegate: ZPickerViewDelegate? = nil
 
     private let _tableView = UITableView()
     private let _selectImage = UIImageView()
@@ -126,9 +126,9 @@ public class ZPickerView : UIView, UITableViewDataSource, UITableViewDelegate {
         } else {
             selections.removeAll(where: { i in i == index })
         }
-        callback?.onSelectionsChanged?(picker: self, selections: selections)
+        delegate?.onSelectionsChanged?(picker: self, selections: selections)
         if old != selection {
-            callback?.onSelectionChanged?(picker: self, selection: selection ?? -1)
+            delegate?.onSelectionChanged?(picker: self, selection: selection ?? -1)
         }
     }
     

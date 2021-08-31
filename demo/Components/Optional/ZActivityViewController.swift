@@ -53,7 +53,7 @@ class ZActivityViewController: ComponentController, ZActivityViewDelegate, ZPane
         activityView.backgroundColor = .bluegrey_00
         activityView.items1 = model.item1
         activityView.items2 = model.item2
-        activityView.callback = self
+        activityView.delegate = self
         view.addSubview(activityView)
         activityView.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview()
