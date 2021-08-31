@@ -2,7 +2,6 @@
 
 复选框控件具有下列特性：
 - 半选 HalfChecked 状态
-- 状态可 DataBinding 双向绑定
 
 # 使用复选框
 ``` swift
