@@ -5,11 +5,19 @@
 - 自动弹出位置
 
 # 下拉菜单的使用
+* 定义菜单
 ``` swift
 let dropDown = ZDropDown()
-dropDown.titles = model.titles
-dropDown.icons = model.icons
+dropDown.titles = ["菜单项目1", "菜单项目2", "菜单项目3", "菜单项目4", "菜单项目5"]
+dropDown.icons = icons
 dropDown.popAt(sender, withDelegate: self)
+```
+* 处理菜单选择
+``` swift
+func dropDownFinished(dropDown: ZDropDown, selection: Int, withValue: Any?) {
+    // selection 为 -1 表示没有选择任何项目
+    ZTipView.toast(view, "选择了项目 \(selection)")
+}
 ```
 
 # 复选、单选菜单
