@@ -7,6 +7,7 @@
 
 import Foundation
 import MarkdownView
+import WebKit
 
 public class ReadmeController : UIViewController {
     
@@ -50,6 +51,8 @@ public class ReadmeController : UIViewController {
         return FileManager.default.fileExists(atPath: url.relativePath) ? url : nil
     }
     
+    private var webView: WKWebView? = nil
+    
     public func load(component : Component) {
         let name = type(of: component).description()
             .replacingOccurrences(of: "Demo.", with: "")
@@ -59,10 +62,14 @@ public class ReadmeController : UIViewController {
             .replacingOccurrences(of: "Demo.", with: "")
             .replacingOccurrences(of: "Z", with: "")
             .replacingOccurrences(of: "Controller", with: "")
+        webView?.removeFromSuperview()
         if let url = Self.docURL(name, name2), let data = try? Data(contentsOf: url) {
-            md.load(markdown: String(data: data, encoding: .utf8))
+            let str = String(data: data, encoding: .utf8)?
+                .replacingOccurrences(of: "(images/", with: "(../Docs.bundle/images/")
+            md.load(markdown: str)
         } else {
             md.load(markdown: "File not found \(name) or \(name2)")
         }
+        webView = md.subviews[0] as? WKWebView
     }
 }
