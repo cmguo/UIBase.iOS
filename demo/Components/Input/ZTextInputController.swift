@@ -93,11 +93,11 @@ class ZTextInputController: ComponentController, ZTextInputDelegate, ZTextAreaDe
     }
     
     func textInput(_ textArea: ZTextInput, buttonTapped id: ZButton.ButtonId) {
-       ZTipView.tip(textArea, "点击了按钮 \(id)")
+        ZTipView.tip(textArea, "点击了按钮 \(id)", .topCenter)
     }
 
     func textAreaIconTapped(_ textArea: ZTextArea, index: Int) {
-        ZTipView.tip(textArea, "点击了图标\(index)")
+        ZTipView.tip(textArea, "点击了图标\(index)", .topCenter)
     }
    
     override func viewWillLayoutSubviews() {

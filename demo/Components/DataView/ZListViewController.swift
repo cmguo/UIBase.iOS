@@ -86,7 +86,7 @@ class ZListViewController: ComponentController, ZListViewDelegate {
     func listView(_ listView: ZListView, itemAt: IndexPath, changedTo: Any?) {
         guard let cell = listView.cellForRow(at: itemAt) else { return }
         let value = changedTo ?? "null"
-        ZTipView.tip(cell, "Item \(itemAt) 改变为 \(value)")
+        ZTipView.tip(cell, "Item \(itemAt) 改变为 \(value)", .topCenter)
     }
 }
 

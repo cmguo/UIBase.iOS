@@ -17,19 +17,20 @@ import Foundation
 public class ZTipView : UIView
 {
     
-    public class func tip(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
+    public class func tip(_ target: UIView, _ message: String, _ location: Location, delegate: ZTipViewDelegate? = nil) {
         let tipView = ZTipView()
         tipView.message = message
+        tipView.location = location
         tipView.delegate = delegate
         tipView.popAt(target)
     }
     
-    public class func toast(_ target: UIView, _ message: String, delegate:  ZTipViewDelegate? = nil) {
-        let tipView = ZTipView()
-        tipView.message = message
-        tipView.delegate = delegate
-        tipView.location = .autoToast
-        tipView.popAt(target)
+    public class func toast(_ target: UIView, _ message: String, delegate: ZTipViewDelegate? = nil) {
+        tip(target, message, .autoToast, delegate: delegate)
+    }
+
+    public class func snack(_ target: UIView, _ message: String, delegate: ZTipViewDelegate? = nil) {
+        tip(target, message, .manualLayout, delegate: delegate)
     }
 
     public class func remove(from target: UIView, animate: Bool = false) {
@@ -133,7 +134,7 @@ public class ZTipView : UIView
             _iconView.setImage(withURL: icon)
         }
     }
-    
+
     public var dismissDelay: Double = 0
     
     public var delegate: ZTipViewDelegate? = nil
