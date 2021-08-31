@@ -3,7 +3,6 @@
 - 列表项包含标题、图标、复选框
 - 列表项目可以具有不同的显示状态（enabled）
 - 支持复选或者单选
-- 可双向绑定选择状态
 
 # 使用选择器
 * 定义选择器样式
@@ -20,6 +19,7 @@ picker.titles = [
         ]
 picker.icons = icons
 picker.states = [.disabled, .disabled]
+picker.singleSelection = false
 picker.selections = [0, 1]
 ```
 * 弹出
